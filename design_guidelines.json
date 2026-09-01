@@ -1,0 +1,135 @@
+{
+  "theme": "PREMIUM FUTURISTIC SCI-FI + ADVANCED PERFORMANCE TECHNOLOGY + TACTICAL HUD",
+  "typography": {
+    "fonts": [
+      {
+        "name": "Chakra Petch",
+        "type": "DISPLAY",
+        "url": "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap",
+        "usage": "Primary headings, Hero names, major numeric readouts. Geometric, futuristic, technical."
+      },
+      {
+        "name": "Exo 2",
+        "type": "BODY",
+        "url": "https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap",
+        "usage": "Paragraphs, standard UI text. Clean, modern sans."
+      },
+      {
+        "name": "JetBrains Mono",
+        "type": "MONOSPACE",
+        "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap",
+        "usage": "WPM, accuracy, timer, system data, IDs, coordinates, technical labels."
+      }
+    ],
+    "instructions_to_main_agent": "Never use Inter, Roboto, or Space Grotesk. Map Tailwind font families to these specific fonts. Use subtle outline or 1px text-shadow (#0B0F2A) for large display headings overlapping images. Use uppercase with generous tracking (tracking-widest) for overlines and tactical labels."
+  },
+  "colors": {
+    "palette": {
+      "deep_navy": "#0B0F2A",
+      "dark_navy": "#070A18",
+      "red": "#DF350D",
+      "muted_sage": "#8AA073",
+      "burnt_bronze": "#875327",
+      "dark_gold": "#6B3E00",
+      "gold": "#C88900",
+      "bright_gold": "#F5C542",
+      "highlight": "#FFE88A",
+      "cream": "#F5EFE5"
+    },
+    "instructions": "STRICT USAGE: Dark Navy (#070A18) for main background. Deep Navy (#0B0F2A) for surface panels. Cream (#F5EFE5) for primary text. Red (#DF350D) exclusively for high-intensity, alerts, and active targeting. Muted Sage (#8AA073) for verified/stable/accuracy states. The Gold spectrum (#6B3E00 to #FFE88A) is reserved for elite performance, achievements, and hero classifications. DO NOT introduce cyan, purple, or neon gradients. Glows must be restricted only to active/energy/achievement states, using box-shadow with the specific palette colors."
+  },
+  "spacing_and_borders": {
+    "spacing_system": "8px base grid (Tailwind scale: p-2, p-4, p-8, p-16, p-24).",
+    "borders": "1px solid Burnt Bronze (#875327) or Deep Navy (#0B0F2A). Active states use 1px Bright Gold (#F5C542) or Red (#DF350D) with subtle illumination.",
+    "radius": "Minimal. Panels: 0-4px (usually defined by clip-paths instead of border-radius). Cards: 2-4px. Buttons: 2px. NO pill shapes.",
+    "depth": "Depth is created by LAYERING opaque surfaces with 1px borders, offset alignments, and dropping hard 4px/8px offset shadows (e.g., shadow-[4px_4px_0px_#0B0F2A]), NEVER through large blurry drop shadows."
+  },
+  "signature_systems": {
+    "ascendancy_grid": {
+      "description": "Subtle geometric coordinate grid spanning the background.",
+      "implementation": "Absolute positioned container covering screen, z-index -1. Tailwind classes: `bg-[linear-gradient(to_right,#0B0F2A_1px,transparent_1px),linear-gradient(to_bottom,#0B0F2A_1px,transparent_1px)] bg-[size:40px_40px] opacity-30`. Add small SVG '+' crosses at 200px intervals for tactical coordinate feel."
+    },
+    "ascension_ring": {
+      "description": "Circular/radial progression visualization toward the next hero class.",
+      "implementation": "SVG component. Outer ring: broken into 10 dashed segments (`stroke-dasharray`, `stroke='#875327'`). Inner ring: continuous progression ring (`stroke='#C88900'`, `transition-all duration-1000`). Center: Text showing percentage and rank name."
+    },
+    "performance_core": {
+      "description": "Signature visualization combining WPM, Accuracy, and Consistency in the Simulator.",
+      "implementation": "Central modular HUD. A massive circular UI component. Center readout: Massive `JetBrains Mono` WPM score. Surrounding arc 1: Accuracy percentage (Muted Sage). Surrounding arc 2: Consistency waveform (SVG path, dynamic vectors). Outer ring: Rotating technical nodes. Encase in a clip-path container with technical corner accents."
+    },
+    "neural_trace": {
+      "description": "Thin animated signal line reacting to typing performance.",
+      "implementation": "A horizontal 1px line (`h-[1px] bg-burnt_bronze/30`) containing an inner illuminated segment (`bg-bright_gold w-16`) that animates continuously across the width (`animate-[scan_2s_linear_infinite]`). Intensifies to Red upon typing errors."
+    },
+    "classification_marker": {
+      "description": "Unique indicator for current hero class.",
+      "implementation": "A strict geometric shape (hexagon or diamond). E.g., `clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`. Bordered in Bright Gold when unlocked, Dark Navy when locked. Contains a minimal abstract SVG icon or typographic roman numeral representing the class."
+    }
+  },
+  "panel_system": {
+    "concept": "Custom ASCENDANCY panels with asymmetric corners, clipped edges, and technical dividers.",
+    "types": {
+      "PRIMARY": {
+        "usage": "Simulator, Hero Profile, Major Data",
+        "clip_path": "clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)",
+        "styling": "bg-dark_navy border border-burnt_bronze relative. Add decorative 4px corner accents (pseudo-elements) at the clipped angles."
+      },
+      "SECONDARY": {
+        "usage": "Stats, Achievements",
+        "clip_path": "clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
+        "styling": "bg-deep_navy border-l-2 border-l-gold relative p-4."
+      },
+      "SYSTEM": {
+        "usage": "Diagnostics, Status, Terminal output",
+        "clip_path": "clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)",
+        "styling": "bg-black/50 border border-deep_navy font-mono text-xs text-muted_sage."
+      }
+    },
+    "components": {
+      "buttons": "Rectangular, minimal radius (2px). `bg-burnt_bronze text-cream hover:bg-gold hover:text-dark_navy transition-colors`. Diagonal scanline hover effects.",
+      "hero_cards": "Tall aspect ratio. PRIMARY clip-path. Image background with `mix-blend-luminosity` and `bg-dark_navy` overlay. Reveals full color and details on hover.",
+      "leaderboard_rows": "Flat rectangles, NOT pills. Grid layout `grid-cols-12`. Rank, Avatar, Name, WPM (Bright Gold), Accuracy (Muted Sage), Class Marker. Subtle 1px bottom border (`border-b border-deep_navy`)."
+    }
+  },
+  "layouts": {
+    "concept": "Asymmetric editorial, large negative space, offset content, overlapping layers.",
+    "rules": "Avoid symmetric 12-col SaaS everywhere. Use distinct CSS Grid layouts mapping to tactical interfaces.",
+    "pages": {
+      "HOME": "Command Center. Left-aligned massive Chakra Petch typography over a dark void. Right side: Asymmetric cascading cards previewing system modules. Background: Ascendancy Grid + Neural Trace.",
+      "SIMULATOR": "Training System. Central dominant focus. Top: System Ticker. Middle: Performance Core. Bottom: Typing input area (Monospace, clear contrast, active word highlighted in Bright Gold, errors in Red).",
+      "ASCENDANCY": "Classification Archive. Horizontal scrolling or asymmetric grid of 10 hero cards. Parallax effects on hero images.",
+      "LEADERBOARD": "Performance Network. Dense data view. Left panel: User's rank. Right panel: Scrollable list of global top performers. Monospace numbers.",
+      "PROFILE": "Ascendant Console. Bento-style but with angular PRIMARY/SECONDARY panels. Radar charts, WPM history graphs (Recharts with specific line colors: Gold for WPM, Sage for Accuracy)."
+    }
+  },
+  "motion": {
+    "concept": "Fluid like an advanced OS, operating a machine.",
+    "transitions": "Futuristic transitions (scanning, data construction, signal propagation). Elements should wipe-in using clip-paths or animate character-by-character (scramble effect for numbers).",
+    "hero_reveal": "Cinematic sequence: Silhouette -> Construct (wireframe) -> Energy pulse -> Name types out -> Metrics scan in -> Full ascension reveal.",
+    "micro_interactions": "Hovering buttons should trigger a brief 1px outline expansion or a 'bracket' UI appearing around the element (e.g., `[ LOGIN ]`).",
+    "accessibility": "Respect prefers-reduced-motion for all massive parallax and flashing."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1738071665033-7ba9885c2c20?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwyfHxzY2klMjBmaSUyMHNvbGRpZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODgxOTkyMDd8MA&ixlib=rb-4.1.0&q=85",
+      "category": "hero_vanguard",
+      "description": "Man in helmet holding a gun, futuristic armor. Use for mid-tier classes like Vanguard or Phantom."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1779832486039-f195be8a7b95?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwzfHxzY2klMjBmaSUyMHNvbGRpZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODgxOTkyMDd8MA&ixlib=rb-4.1.0&q=85",
+      "category": "hero_pulse",
+      "description": "Woman's face with blue lightning projection. Use for high-energy classes like Pulse or Nexus."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1779274243035-9a53377374c2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwYXJtb3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODgxOTkyMDd8MA&ixlib=rb-4.1.0&q=85",
+      "category": "hero_titan",
+      "description": "Mandalorian/heavy armor warrior. Use for Titan or Aegis classes."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Text over backgrounds MUST meet APCA/WCAG standards. Cream (#F5EFE5) over Dark Navy (#070A18) is highly readable.",
+    "focus": "Focus states must use a 2px solid border in Bright Gold (#F5C542) offset by 2px, not the default browser ring.",
+    "testing": "All interactive elements must include `data-testid` (e.g., `data-testid='simulator-start-btn'`, `data-testid='profile-nav-link'`)."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "1. NEVER USE Inter, Roboto, or default Tailwind sans for this project. Import and strictly apply the 3 defined fonts. 2. NEVER introduce purple, cyan, or generic neon 'cyberpunk' gradients. Stick rigidly to the Navy/Gold/Bronze/Sage/Red palette. 3. DO NOT use generic Shadcn rounded cards. Build the UI using the provided clip-path recipes to ensure the tactical panel look. 4. DO NOT center everything. Push elements to the edges, use asymmetrical grids, and rely on the Ascendancy Grid for structural alignment. 5. Include data-testid attributes on EVERYTHING interactive. 6. Implement the 5 Signature Systems exactly as detailed. This is a game UI built for the web."
+}
