@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import HeroCard from "@/components/HeroCard";
 import Reveal from "@/components/Reveal";
@@ -8,6 +7,7 @@ import ClassificationMarker from "@/components/ClassificationMarker";
 import { HEROES } from "@/data/heroes";
 import { useAuth } from "@/context/AuthContext";
 import { Sep } from "@/components/Sep";
+import { heroSrcSet } from "@/lib/heroImage";
 
 function unlockProgress(hero, user) {
   if (!user || hero.index === 0) return 100;
@@ -19,7 +19,6 @@ function unlockProgress(hero, user) {
 
 export default function Ascendancy() {
   const { user } = useAuth();
-  const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
   const highest = user?.highestHeroIndex ?? 0;
 
@@ -41,7 +40,8 @@ export default function Ascendancy() {
           </span>
         </div>
         <p className="mt-4 max-w-xl font-body text-cream/70">
-          Ten heroes. One path to ascension. Your speed determines your class. Your accuracy determines how far you rise.
+          A hero classification typing test spanning ten heroes — one path to ascension. Your speed
+          determines your class. Your accuracy determines how far you rise.
         </p>
       </Reveal>
 
@@ -74,7 +74,14 @@ export default function Ascendancy() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-square sm:aspect-auto">
-              <img src={selected.image} alt={selected.name} className="h-full w-full object-cover" />
+              <img
+                src={selected.image}
+                srcSet={heroSrcSet(selected.image)}
+                sizes="(min-width: 640px) 384px, 100vw"
+                alt={selected.name}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent" />
               <div className="absolute left-3 top-3">
                 <ClassificationMarker index={selected.index} active size={40} />
@@ -116,7 +123,7 @@ export default function Ascendancy() {
               </div>
 
               <div className="mt-6">
-                <AscButton variant="red" onClick={() => navigate("/simulator")} data-testid="hero-detail-simulate">
+                <AscButton variant="red" to="/simulator" data-testid="hero-detail-simulate">
                   SIMULATE TO CLASSIFY →
                 </AscButton>
               </div>

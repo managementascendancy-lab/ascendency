@@ -11,6 +11,7 @@ import api from "@/lib/api";
 import { heroById, heroByIndex, HEROES } from "@/data/heroes";
 import { useAuth } from "@/context/AuthContext";
 import { Sep } from "@/components/Sep";
+import { heroSrcSet } from "@/lib/heroImage";
 
 function Stat({ label, value, color = "text-cream" }) {
   return (
@@ -85,7 +86,15 @@ export default function Profile() {
         <Reveal>
           <HudPanel type="primary" label="CURRENT CLASSIFICATION" status="ACTIVE" bodyClassName="p-0">
             <div className="relative aspect-[16/11] overflow-hidden">
-              <img src={hero.image} alt={hero.name} className="h-full w-full object-cover brightness-90" />
+              {/* Directly under the H1 in the first panel of the page — likely the LCP
+                  element for this route, so intentionally NOT lazy-loaded. */}
+              <img
+                src={hero.image}
+                srcSet={heroSrcSet(hero.image)}
+                sizes="(min-width: 1024px) 433px, 100vw"
+                alt={hero.name}
+                className="h-full w-full object-cover brightness-90"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent" />
               <div className="absolute bottom-3 left-4">
                 <div className="font-display text-3xl font-700 text-cream">{hero.name}</div>

@@ -81,6 +81,12 @@ let webpackConfig = {
     },
     configure: (webpackConfig) => {
 
+      // Import .md content files as raw text (Webpack 5 built-in, no extra loader).
+      webpackConfig.module.rules.push({
+        test: /\.md$/,
+        type: "asset/source",
+      });
+
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {
           ...webpackConfig.watchOptions,

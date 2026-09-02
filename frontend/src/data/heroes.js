@@ -15,7 +15,7 @@ export const HEROES = [
     minWpm: 0,
     minAccuracy: 0,
     minConsistency: 0,
-    image: "/heroes/nova.png",
+    image: "/heroes/nova.webp",
     accent: "#8AA073",
   },
   {
@@ -31,7 +31,7 @@ export const HEROES = [
     minWpm: 35,
     minAccuracy: 85,
     minConsistency: 50,
-    image: "/heroes/vanguard.png",
+    image: "/heroes/vanguard.webp",
     accent: "#875327",
   },
   {
@@ -47,7 +47,7 @@ export const HEROES = [
     minWpm: 45,
     minAccuracy: 88,
     minConsistency: 55,
-    image: "/heroes/phantom.png",
+    image: "/heroes/phantom.webp",
     accent: "#0B0F2A",
   },
   {
@@ -63,7 +63,7 @@ export const HEROES = [
     minWpm: 55,
     minAccuracy: 90,
     minConsistency: 60,
-    image: "/heroes/titan.png",
+    image: "/heroes/titan.webp",
     accent: "#6B3E00",
   },
   {
@@ -79,7 +79,7 @@ export const HEROES = [
     minWpm: 62,
     minAccuracy: 95,
     minConsistency: 65,
-    image: "/heroes/aegis.png",
+    image: "/heroes/aegis.webp",
     accent: "#8AA073",
   },
   {
@@ -95,7 +95,7 @@ export const HEROES = [
     minWpm: 75,
     minAccuracy: 91,
     minConsistency: 68,
-    image: "/heroes/pulse.png",
+    image: "/heroes/pulse.webp",
     accent: "#DF350D",
   },
   {
@@ -111,7 +111,7 @@ export const HEROES = [
     minWpm: 85,
     minAccuracy: 93,
     minConsistency: 72,
-    image: "/heroes/nexus.png",
+    image: "/heroes/nexus.webp",
     accent: "#C88900",
   },
   {
@@ -127,7 +127,7 @@ export const HEROES = [
     minWpm: 95,
     minAccuracy: 94,
     minConsistency: 75,
-    image: "/heroes/ascendant.png",
+    image: "/heroes/ascendant.webp",
     accent: "#F5C542",
   },
   {
@@ -143,7 +143,7 @@ export const HEROES = [
     minWpm: 110,
     minAccuracy: 92,
     minConsistency: 78,
-    image: "/heroes/velocity.png",
+    image: "/heroes/velocity.webp",
     accent: "#F5C542",
   },
   {
@@ -159,7 +159,7 @@ export const HEROES = [
     minWpm: 130,
     minAccuracy: 96,
     minConsistency: 82,
-    image: "/heroes/sovereign.png",
+    image: "/heroes/sovereign.webp",
     accent: "#FFE88A",
   },
 ];

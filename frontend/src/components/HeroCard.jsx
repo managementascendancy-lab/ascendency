@@ -1,6 +1,7 @@
 import React from "react";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import { useSound } from "@/context/SoundContext";
+import { heroSrcSet } from "@/lib/heroImage";
 
 export default function HeroCard({ hero, locked = false, active = false, progress = 0, onClick }) {
   const sound = useSound();
@@ -19,6 +20,8 @@ export default function HeroCard({ hero, locked = false, active = false, progres
       <div className="relative aspect-[3/4] w-full overflow-hidden">
         <img
           src={hero.image}
+          srcSet={heroSrcSet(hero.image)}
+          sizes="(min-width: 1280px) 240px, (min-width: 1024px) 330px, (min-width: 640px) 490px, 90vw"
           alt={hero.name}
           loading="lazy"
           className={`h-full w-full object-cover transition-all duration-500 group-hover:scale-105 ${

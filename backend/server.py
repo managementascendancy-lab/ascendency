@@ -17,6 +17,9 @@ import bcrypt
 import jwt
 import re
 
+from google.oauth2 import id_token as google_id_token
+from google.auth.transport import requests as google_requests
+
 from classification import compute_score, classify, hero_id_for_index, HERO_REQUIREMENTS
 
 # ---------------------------------------------------------------- infra
@@ -29,6 +32,10 @@ JWT_ALGORITHM = "HS256"
 
 def get_jwt_secret() -> str:
     return os.environ["JWT_SECRET"]
+
+
+def get_google_client_id() -> str:
+    return os.environ.get("GOOGLE_CLIENT_ID", "")
 
 
 app = FastAPI()
@@ -126,6 +133,16 @@ class LoginInput(BaseModel):
     password: str
 
 
+class GoogleAuthInput(BaseModel):
+    credential: str
+
+
+class GoogleCompleteInput(BaseModel):
+    setupToken: str
+    username: str = Field(min_length=3, max_length=20)
+    password: str = Field(min_length=6, max_length=128)
+
+
 class SimulationInput(BaseModel):
     wpm: float
     accuracy: float
@@ -209,6 +226,86 @@ async def login(input: LoginInput, response: Response):
     refresh = create_refresh_token(str(user["_id"]))
     set_auth_cookies(response, access, refresh)
     return public_user(user)
+
+
+@api_router.post("/auth/google")
+async def google_auth(input: GoogleAuthInput, response: Response):
+    client_id = get_google_client_id()
+    if not client_id:
+        raise HTTPException(status_code=500, detail="Google sign-in is not configured")
+    try:
+        payload = google_id_token.verify_oauth2_token(
+            input.credential, google_requests.Request(), client_id
+        )
+    except ValueError:
+        raise HTTPException(status_code=401, detail="Invalid Google credential")
+
+    if not payload.get("email_verified", False):
+        raise HTTPException(status_code=401, detail="Google email is not verified")
+
+    email = payload["email"].lower().strip()
+    user = await db.users.find_one({"email": email})
+
+    if user is None:
+        # No account with this Google email yet — don't create one until the
+        # ascendant picks a callsign and access key. Issue a short-lived
+        # token proving the email was already verified by Google, so the
+        # completion step doesn't need to re-check the raw credential.
+        setup_token = jwt.encode(
+            {"email": email, "exp": datetime.now(timezone.utc) + timedelta(minutes=15), "type": "google_setup"},
+            get_jwt_secret(), algorithm=JWT_ALGORITHM,
+        )
+        return {"needsSetup": True, "email": email, "setupToken": setup_token}
+
+    access = create_access_token(str(user["_id"]), email)
+    refresh = create_refresh_token(str(user["_id"]))
+    set_auth_cookies(response, access, refresh)
+    return public_user(user)
+
+
+@api_router.post("/auth/google/complete")
+async def google_auth_complete(input: GoogleCompleteInput, response: Response):
+    try:
+        payload = jwt.decode(input.setupToken, get_jwt_secret(), algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "google_setup":
+            raise HTTPException(status_code=401, detail="Invalid setup token")
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Setup session expired — sign in with Google again")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid setup token")
+
+    email = payload["email"]
+    username = re.sub(r"[^A-Za-z0-9_\-]", "", input.username).strip()
+    if len(username) < 3:
+        raise HTTPException(status_code=400, detail="Callsign must be 3+ alphanumeric characters")
+    if await db.users.find_one({"email": email}):
+        raise HTTPException(status_code=400, detail="An ascendant with this email already exists")
+    if await db.users.find_one({"username": username}):
+        raise HTTPException(status_code=400, detail="That callsign is already taken")
+
+    doc = {
+        "email": email,
+        "username": username,
+        "password_hash": hash_password(input.password),
+        "auth_provider": "google",
+        "role": "ascendant",
+        "currentHero": "nova",
+        "highestHeroIndex": 0,
+        "bestWpm": 0, "bestAccuracy": 0, "bestConsistency": 0,
+        "sumWpm": 0, "sumAccuracy": 0,
+        "totalTests": 0, "totalCharacters": 0,
+        "streak": 0, "lastTestDate": None,
+        "leaderboardScore": 0,
+        "achievements": [],
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    res = await db.users.insert_one(doc)
+    doc["_id"] = res.inserted_id
+
+    access = create_access_token(str(res.inserted_id), email)
+    refresh = create_refresh_token(str(res.inserted_id))
+    set_auth_cookies(response, access, refresh)
+    return public_user(doc)
 
 
 @api_router.post("/auth/logout")

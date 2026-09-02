@@ -1,15 +1,26 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { SoundProvider } from "@/context/SoundContext";
 import Layout from "@/components/Layout";
-import Home from "@/pages/Home";
-import Simulator from "@/pages/Simulator";
-import Ascendancy from "@/pages/Ascendancy";
-import Leaderboard from "@/pages/Leaderboard";
-import Profile from "@/pages/Profile";
-import Achievements from "@/pages/Achievements";
-import Auth from "@/pages/Auth";
+
+// Every page is its own chunk — none of them (nor the heavy libs a couple
+// of them pull in, e.g. three/@react-three/fiber on Home, framer-motion on
+// Simulator) ship in the shared/main bundle. Layout itself stays a static
+// import since it's the persistent chrome (nav/footer/background) present
+// on every route. See Layout.jsx for the Suspense boundary around <Outlet/>.
+const Home = lazy(() => import("@/pages/Home"));
+const Simulator = lazy(() => import("@/pages/Simulator"));
+const Ascendancy = lazy(() => import("@/pages/Ascendancy"));
+const Leaderboard = lazy(() => import("@/pages/Leaderboard"));
+const Profile = lazy(() => import("@/pages/Profile"));
+const Achievements = lazy(() => import("@/pages/Achievements"));
+const Auth = lazy(() => import("@/pages/Auth"));
+const ProductInfo = lazy(() => import("@/pages/ProductInfo"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
+const Guides = lazy(() => import("@/pages/Guides"));
+const GuideArticle = lazy(() => import("@/pages/GuideArticle"));
 
 const SEO_LANDING = {
   "/typing-speed-test": { title: "Typing Speed Test | Ascendancy", description: "Take a free typing speed test. Measure your WPM, accuracy and consistency, then unlock hero classifications on Ascendancy." },
@@ -32,6 +43,12 @@ export default function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/auth" element={<Auth />} />
+              <Route path="/product/:slug" element={<ProductInfo />} />
+              <Route path="/account/:slug" element={<ProductInfo />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/guides" element={<Guides />} />
+              <Route path="/guides/:slug" element={<GuideArticle />} />
               {Object.entries(SEO_LANDING).map(([path, seo]) => (
                 <Route key={path} path={path} element={<Home seo={seo} />} />
               ))}

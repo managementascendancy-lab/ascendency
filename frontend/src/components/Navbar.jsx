@@ -9,6 +9,7 @@ const NAV = [
   { to: "/simulator", label: "SIMULATOR" },
   { to: "/ascendancy", label: "ASCENDANCY" },
   { to: "/leaderboard", label: "LEADERBOARD" },
+  { to: "/guides", label: "GUIDES" },
   { to: "/profile", label: "MY PROFILE" },
 ];
 
@@ -37,7 +38,7 @@ export default function Navbar() {
               onClick={() => play("click")}
               data-testid={`nav-${n.label.toLowerCase().replace(" ", "-")}`}
               className={({ isActive }) =>
-                `relative px-4 py-2 font-display text-xs tracking-[0.15em] transition-colors ${
+                `relative whitespace-nowrap px-4 py-2 font-display text-xs tracking-[0.15em] transition-colors ${
                   isActive ? "text-gold-bright" : "text-cream/70 hover:text-cream"
                 }`
               }

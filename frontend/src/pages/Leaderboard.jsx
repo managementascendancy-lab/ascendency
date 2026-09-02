@@ -59,6 +59,10 @@ export default function Leaderboard() {
             GLOBAL LEADERBOARD
           </span>
         </div>
+        <p className="mt-4 max-w-xl font-body text-cream/70">
+          Every simulation feeds this global typing leaderboard, ranked by speed, accuracy and
+          consistency together — not just raw WPM.
+        </p>
       </Reveal>
 
       <Reveal delay={100}>

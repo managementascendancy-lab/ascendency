@@ -18,7 +18,7 @@ export default function AscendancyGrid() {
 
   const glowParticles = useMemo(
     () =>
-      Array.from({ length: 26 }).map(() => ({
+      Array.from({ length: 80 }).map(() => ({
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
         size: 12 + Math.random() * 18,
@@ -31,7 +31,7 @@ export default function AscendancyGrid() {
 
   const centerGlowParticles = useMemo(
     () =>
-      Array.from({ length: 60 }).map(() => ({
+      Array.from({ length: 150 }).map(() => ({
         left: `${32 + Math.random() * 36}%`,
         top: `${32 + Math.random() * 36}%`,
         size: 3 + Math.random() * 5,
@@ -54,7 +54,7 @@ export default function AscendancyGrid() {
       <div
         className="absolute inset-0 opacity-[0.25]"
         style={{
-          backgroundImage: "url(/bg-heroes.png)",
+          backgroundImage: "url(/bg-heroes.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center 20%",
         }}

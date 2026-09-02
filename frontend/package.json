@@ -42,9 +42,11 @@
     "dayjs": "1.11.13",
     "embla-carousel-react": "8.6.0",
     "framer-motion": "11.18.0",
+    "html2canvas": "^1.4.1",
     "input-otp": "1.4.2",
     "lodash": "4.18.1",
     "lucide-react": "0.516.0",
+    "marked": "^18.0.11",
     "next-themes": "0.4.6",
     "react": "19.0.0",
     "react-day-picker": "8.10.1",
@@ -65,7 +67,9 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "postbuild": "node scripts/prerender.js",
+    "test": "craco test",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "browserslist": {
     "production": [
@@ -93,6 +97,9 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "globals": "15.15.0",
     "postcss": "8.5.10",
+    "puppeteer": "^25.9.0",
+    "sharp": "^0.35.4",
+    "source-map-explorer": "^2.5.3",
     "tailwindcss": "3.4.17"
   },
   "resolutions": {

@@ -120,6 +120,7 @@ input:focus-visible,
 
   .btn-asc {
     position: relative;
+    display: inline-block;
     font-family: "Chakra Petch", sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -494,4 +495,70 @@ input:focus-visible,
   }
   .reveal { opacity: 1 !important; transform: none !important; }
   .asc-grid-animated, .scan-sweep, .asc-particle, .asc-glow-particle { animation: none !important; }
+}
+
+/* rendered markdown body on guide article pages. Scoped to
+   .guide-markdown-block (the wrapper GuideArticle.jsx puts around each
+   dangerouslySetInnerHTML chunk), NOT the whole .guide-content article —
+   the article also hosts live React components injected via the
+   {{MARKER}} mechanism (HeroProgressionStrip, the chart components), and a
+   bare `.guide-content img`-style descendant selector would just as
+   happily match their <img> tags too. That exact bug happened once
+   already: a 1.75rem img margin from this block pushed the small hero
+   avatars down inside their clipped thumbnail boxes, leaving the top of
+   each one blank. Keep every rule here scoped to .guide-markdown-block. */
+.guide-content { font-family: "Exo 2", sans-serif; }
+.guide-markdown-block {
+  color: rgba(245, 239, 229, 0.8);
+  line-height: 1.75;
+}
+.guide-markdown-block h2 {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: var(--cream);
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+.guide-markdown-block h2:first-child { margin-top: 0; }
+.guide-markdown-block p { margin: 0.9rem 0; font-size: 0.9375rem; }
+.guide-markdown-block ul, .guide-markdown-block ol {
+  margin: 0.9rem 0;
+  padding-left: 1.4rem;
+  font-size: 0.9375rem;
+}
+.guide-markdown-block li { margin: 0.35rem 0; }
+.guide-markdown-block strong { color: var(--cream); font-weight: 700; }
+.guide-markdown-block a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.guide-markdown-block a:hover { color: var(--cream); }
+.guide-markdown-block code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  color: var(--gold-bright);
+  background: rgba(135, 83, 39, 0.18);
+  padding: 0.1em 0.4em;
+}
+.guide-markdown-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.75rem 0;
+  border: 1px solid var(--bronze);
+  box-shadow: 4px 4px 0 rgba(11, 15, 42, 0.6);
+}
+/* wrapper for React components injected into guide bodies (charts, the hero
+   strip) via the {{MARKER}} mechanism in GuideArticle.jsx — same rhythm as
+   .guide-markdown-block img so embedded content reads as part of the
+   article, not a bolted-on widget. */
+.guide-content .guide-embed {
+  margin: 1.75rem 0;
+  padding: 1rem;
+  border: 1px solid var(--bronze);
+  background: var(--navy-dark);
+  box-shadow: 4px 4px 0 rgba(11, 15, 42, 0.6);
 }

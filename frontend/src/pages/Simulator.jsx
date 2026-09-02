@@ -1,29 +1,28 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import HudPanel from "@/components/HudPanel";
 import PerformanceCore from "@/components/PerformanceCore";
 import NeuralTrace from "@/components/NeuralTrace";
 import AscButton from "@/components/AscButton";
 import HeroReveal from "@/components/HeroReveal";
-import { buildStream } from "@/data/passages";
+import { buildStream, TOPICS } from "@/data/passages";
 import { calcWpm, calcAccuracy, calcConsistency, classifyIndex, computeScore } from "@/lib/typing";
 import { heroByIndex, HEROES } from "@/data/heroes";
 import { useAuth } from "@/context/AuthContext";
 import { useSound } from "@/context/SoundContext";
 import api from "@/lib/api";
-import { Mark } from "@/components/Sep";
+import { Mark, Sep } from "@/components/Sep";
 
 const MODES = [15, 30, 60, 120];
 const BOOT_LINES = ["SYSTEM INITIALIZING", "NEURAL LINK CONNECTED", "PERFORMANCE MATRIX READY"];
 
 export default function Simulator() {
-  const navigate = useNavigate();
   const { user, setUser } = useAuth();
   const sound = useSound();
 
   const [duration, setDuration] = useState(30);
-  const [text, setText] = useState(() => buildStream(1000));
+  const [topic, setTopic] = useState(TOPICS[0].key);
+  const [text, setText] = useState(() => buildStream(1000, TOPICS[0].key));
   const [input, setInput] = useState("");
   const [phase, setPhase] = useState("ready"); // ready | boot | countdown | running | done
   const [bootIndex, setBootIndex] = useState(0);
@@ -33,8 +32,6 @@ export default function Simulator() {
   const [result, setResult] = useState(null);
   const [flags, setFlags] = useState({});
   const [showReveal, setShowReveal] = useState(false);
-  const [toast, setToast] = useState("");
-
   const inputRef = useRef("");
   const textRef = useRef(text);
   const startRef = useRef(0);
@@ -72,11 +69,11 @@ export default function Simulator() {
     setResult(null);
     setFlags({});
     setShowReveal(false);
-    setText(buildStream(1000));
+    setText(buildStream(1000, topic));
     setPhase("ready");
     setCount(3);
     setBootIndex(0);
-  }, []);
+  }, [topic]);
 
   const finish = useCallback(async () => {
     if (finishedRef.current) return;
@@ -202,19 +199,6 @@ export default function Simulator() {
     return () => window.removeEventListener("keydown", handler);
   }, [phase, finish, sound]);
 
-  const share = async () => {
-    const hero = heroByIndex(result.heroIndex);
-    const textShare = `I reached ${hero.name} on ASCENDANCY — ${Math.round(result.wpm)} WPM, ${result.accuracy.toFixed(0)}% accuracy. TYPE. TRAIN. ASCEND.`;
-    try {
-      if (navigator.share) await navigator.share({ title: "ASCENDANCY", text: textShare });
-      else {
-        await navigator.clipboard.writeText(textShare);
-        setToast("RESULT COPIED TO CLIPBOARD");
-        setTimeout(() => setToast(""), 2500);
-      }
-    } catch {}
-  };
-
   // render typing text with windowed range around cursor
   const startWin = Math.max(0, input.length - 60);
   const endWin = Math.min(text.length, input.length + 260);
@@ -251,7 +235,7 @@ export default function Simulator() {
       {/* header */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="tech-label text-gold-bright">TRAINING SYSTEM</span>
+          <span className="tech-label text-gold-bright">TRAINING SYSTEM<Sep tone="gold" />GAMIFIED TYPING PRACTICE</span>
           <h1 className="font-display text-3xl font-700 tracking-tight text-cream sm:text-4xl">
             SIMULATION <span className="inline-flex items-center text-red"><Mark tone="red" />001</span>
           </h1>
@@ -281,6 +265,27 @@ export default function Simulator() {
             }`}
           >
             {m}s
+          </button>
+        ))}
+      </div>
+
+      {/* topic switch */}
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <span className="tech-label text-gold-bright">TOPIC</span>
+        {TOPICS.map((t) => (
+          <button
+            key={t.key}
+            disabled={phase === "running" || phase === "boot" || phase === "countdown"}
+            onClick={() => {
+              setTopic(t.key);
+              sound?.play("click");
+            }}
+            data-testid={`topic-${t.key}`}
+            className={`border px-4 py-1.5 font-mono text-sm transition-colors disabled:opacity-40 ${
+              topic === t.key ? "border-gold-bright bg-gold-bright text-navy-dark" : "border-bronze/50 text-cream/70 hover:text-cream"
+            }`}
+          >
+            {t.label}
           </button>
         ))}
       </div>
@@ -359,23 +364,15 @@ export default function Simulator() {
         </HudPanel>
       </div>
 
-      {toast && (
-        <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 border border-gold-bright bg-navy-dark px-4 py-2 font-mono text-xs text-gold-bright" data-testid="share-toast">
-          {toast}
-        </div>
-      )}
-
       {showReveal && hero && result && (
         <HeroReveal
           hero={hero}
           result={result}
           nextHero={nextHero}
+          user={user}
           ascensionProgress={ascProgress}
           flags={flags}
           onRetry={() => { setShowReveal(false); begin(); }}
-          onViewProfile={() => navigate("/profile")}
-          onViewLeaderboard={() => navigate("/leaderboard")}
-          onShare={share}
         />
       )}
     </div>

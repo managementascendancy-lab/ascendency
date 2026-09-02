@@ -1,37 +1,74 @@
 // Simulation text passages. Neutral, punctuation-rich, technical tone.
+// Organized into topics on the concept of heroism, selectable by the user.
 
-export const PASSAGES = [
-  "The system measures more than raw speed. It observes the rhythm between each keystroke, the intervals where hesitation lives, and the precision that separates an operator from a machine. Ascension is not granted to the fastest alone.",
-  "Precision is a discipline. A single misplaced character propagates through the entire sequence, distorting the signal the network is trying to read. Type deliberately, and the analysis will reward the clarity of your intent.",
-  "Every simulation is a snapshot of your current state. The performance core does not judge you against others in this moment; it maps your speed, your accuracy, and your consistency onto a single trajectory toward the next classification.",
-  "Consistency is the quiet metric. Anyone can produce a burst of speed for a heartbeat, but sustaining a steady cadence across the full duration is what the network respects. Steady input builds an unshakable profile.",
-  "The neural trace follows your fingers across the interface, translating motion into data and data into progression. When you find your rhythm, the trace steadies, the core stabilizes, and the system recognizes an ascendant taking shape.",
-  "Speed without control is noise. Control without speed is stagnation. The heroes of the Ascendancy exist at the intersection of both, where velocity is disciplined and precision is fast. Aim for that convergence with every line.",
-  "Focus on the word in front of you, not the paragraph ahead. The simulation rewards presence. When your attention narrows to a single moving cursor, errors fade and the numbers climb without effort or strain.",
-  "This network was built to identify potential and refine it. Each attempt sharpens the signal. Return often, push the threshold, and watch your classification rise as your hands learn the language of the machine.",
-  "Every keystroke carries weight. The system does not forgive carelessness, but it does not punish effort either — it simply records what happened and lets the numbers speak for themselves.",
-  "There is a difference between typing fast and typing well. Fast fades under pressure; well endures it. The Ascendancy was built to measure which one you actually possess.",
-  "Muscle memory is earned, not given. Repetition trains the hand until the mind no longer has to translate thought into motion, and the two become one continuous signal.",
-  "A single simulation tells you where you stand. A hundred simulations tell you where you are going. Track your trajectory, not just your score.",
-  "The gap between NOVA and SOVEREIGN is not talent, it is repetition compounded over time. Every ascendant who reached the top once stood exactly where you are now.",
-  "Errors are not failures, they are data points. The network studies your mistakes as closely as your successes, because both reveal the true shape of your ability.",
-  "Breathe before you begin. Tension in the shoulders becomes tension in the fingers, and tension in the fingers becomes hesitation on the screen. Calm hands type faster than anxious ones.",
-  "The best operators do not chase the highest word count, they chase the cleanest signal. Speed is a byproduct of clarity, not a substitute for it.",
-  "Some ascendants burn bright and fade within a single duration. Others build slowly, sustaining their rhythm from the first character to the last. The network favors the latter.",
-  "Your accuracy score is a mirror. It reflects exactly how much attention you gave the passage in front of you, second by second, character by character.",
-  "Classification is not a ceiling, it is a checkpoint. Every hero on this archive once ranked lower than you do today. The path upward is open to anyone willing to keep training.",
-  "The interface does not care about your best day or your worst. It only cares about this one: the simulation currently running, the cursor currently blinking, the next character waiting.",
+export const TOPICS = [
+  {
+    key: "courage",
+    label: "COURAGE",
+    passages: [
+      "Courage is not the absence of fear, it is the decision that something else matters more than the fear itself. Every hero who ever mattered was afraid first and brave second.",
+      "The bravest act is rarely loud. It is the quiet choice to step forward when stepping back would be easier and no one would blame you for it.",
+      "Fear narrows the mind to the danger in front of it. Courage widens it again, just enough to see the person who needs help standing right behind that danger.",
+      "Nobody is fearless. The ones we call heroes simply refused to let fear cast the final vote on what they did next.",
+      "A single decision, made in a single second, can outweigh a lifetime of comfortable silence. That is the arithmetic courage runs on.",
+    ],
+  },
+  {
+    key: "sacrifice",
+    label: "SACRIFICE",
+    passages: [
+      "Sacrifice is giving up something you cannot get back, for someone who may never know what it cost you. That is the quiet arithmetic behind every act of heroism.",
+      "Heroes are not measured by what they gained but by what they were willing to lose, and how little they expected in return for losing it.",
+      "The truest sacrifices are rarely witnessed. Most heroism happens in rooms with no audience, decided by people who will never be thanked for it.",
+      "To give something up freely, expecting nothing back, is the oldest definition of heroism there is, and still the hardest one to live up to.",
+      "Some sacrifices are sudden and visible. Others are slow, invisible, and stretched across years, carried quietly by people no one ever calls heroes.",
+    ],
+  },
+  {
+    key: "legacy",
+    label: "LEGACY",
+    passages: [
+      "A legacy is not what a hero leaves behind, it is what continues moving forward long after they have stopped moving at all.",
+      "We remember heroes not for the size of their victory but for how their example kept teaching people long after the moment had passed.",
+      "The measure of a legacy is simple: did it make the next person's courage a little easier to find than it was for the one who came before them.",
+      "Stories about heroes outlive the heroes themselves, and it is the story, told and retold, that keeps doing the work the person no longer can.",
+      "Every act of heroism plants something. Most of what grows from it will be seen by people who never knew the name of who planted it.",
+    ],
+  },
+  {
+    key: "adversity",
+    label: "ADVERSITY",
+    passages: [
+      "Adversity does not build character, it reveals what was already there, tested under pressure no comfortable day would ever apply.",
+      "The hardest part of any struggle is rarely the struggle itself. It is choosing, every single morning, to keep meeting it without flinching.",
+      "Heroes are not people who never fall. They are people who treat falling as information and getting back up as the only real decision left.",
+      "Obstacles do not care how prepared you feel. What separates people is not the size of the obstacle but the size of the response to it.",
+      "Resilience is not one dramatic moment of strength. It is a thousand small refusals to quit, most of which nobody will ever see.",
+    ],
+  },
+  {
+    key: "awakening",
+    label: "AWAKENING",
+    passages: [
+      "Heroism rarely announces itself in advance. It usually looks like an ordinary person who simply refused to look away at the wrong moment.",
+      "Nobody wakes up a hero. They wake up ordinary, face a decision no one prepared them for, and answer it in a way that becomes extraordinary in hindsight.",
+      "The line between an ordinary life and an extraordinary one is thinner than people think, and most of us cross it without noticing we did.",
+      "History remembers a handful of names, but heroism has always been distributed among ordinary people who happened to act when it counted.",
+      "You do not need a title, a costume, or an audience to be a hero. You need a moment, a choice, and the will to choose correctly under pressure.",
+    ],
+  },
 ];
 
-export function randomPassage() {
-  return PASSAGES[Math.floor(Math.random() * PASSAGES.length)];
+export function randomPassage(topicKey) {
+  const topic = TOPICS.find((t) => t.key === topicKey) || TOPICS[0];
+  return topic.passages[Math.floor(Math.random() * topic.passages.length)];
 }
 
 // Build a long text stream from multiple passages for long simulations.
-export function buildStream(minChars = 900) {
+export function buildStream(minChars = 900, topicKey) {
   let text = "";
   while (text.length < minChars) {
-    text += (text ? " " : "") + randomPassage();
+    text += (text ? " " : "") + randomPassage(topicKey);
   }
   return text;
 }

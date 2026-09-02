@@ -1,4 +1,5 @@
 import React from "react";
+import { heroSrcSet } from "@/lib/heroImage";
 
 export default function HeroScanner({
   image,
@@ -11,7 +12,10 @@ export default function HeroScanner({
         {/* hero image */}
         <img
           src={image}
-          alt="Ascendancy scan subject"
+          srcSet={heroSrcSet(image)}
+          sizes="(min-width: 1024px) 500px, 100vw"
+          alt={`${subject} hero classification scan`}
+          loading="lazy"
           className="h-full w-full object-cover object-center opacity-90"
           style={{ filter: "contrast(1.05) saturate(0.9)" }}
         />
