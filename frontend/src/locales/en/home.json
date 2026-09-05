@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Typing Speed Test & WPM Test | Ascendancy",
+    "description": "Measure your typing speed, accuracy and consistency. Complete simulations, unlock hero classifications and climb the Ascendancy leaderboard."
+  },
+  "hero": {
+    "overline": "PERFORMANCE PROTOCOL",
+    "headingLine1": "HOW FAST",
+    "headingLine2Prefix": "CAN YOU ",
+    "headingLine2Highlight": "TYPE?",
+    "subtitle": "This is a hero classification typing test — enter the simulation, measure your performance, and discover your ascension. Grab your certificate!",
+    "beginSimulation": "BEGIN SIMULATION →",
+    "viewAscendancy": "VIEW ASCENDANCY",
+    "neuralLink": "NEURAL LINK",
+    "stable": "STABLE",
+    "latency": "LATENCY 004ms",
+    "scanLoading": "SCAN LOADING"
+  },
+  "performanceData": {
+    "ascendant": "ASCENDANT",
+    "guestHeading": "PERFORMANCE DATA",
+    "guestSession": "GUEST SESSION"
+  },
+  "modules": {
+    "heading": "SYSTEM MODULES",
+    "titlePrefix": "ONE SYSTEM. ",
+    "titleHighlight": "MANY MODULES.",
+    "access": "ACCESS →",
+    "items": {
+      "training": { "name": "TRAINING SYSTEM", "desc": "Enter the simulation and measure your performance." },
+      "classification": { "name": "CLASSIFICATION ARCHIVE", "desc": "Ten hero tiers. One path to ascension." },
+      "performance": { "name": "PERFORMANCE NETWORK", "desc": "Compete across the global rankings." },
+      "console": { "name": "ASCENDANT CONSOLE", "desc": "Track your ascension and performance data." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "HERO ARCHIVE",
+    "titlePrefix": "UNLOCK THEM ALL. ",
+    "titleHighlight": "PROVE YOUR SPEED.",
+    "viewAlt": "View {{name}} in the Ascendancy hero classification archive"
+  },
+  "faq": {
+    "brand": "SUPPORT",
+    "overline": "FREQUENTLY ASKED",
+    "titlePrefix": "QUESTIONS, ",
+    "titleHighlight": "ANSWERED.",
+    "items": [
+      {
+        "q": "What is Ascendancy?",
+        "a": "Ascendancy is a typing simulator that measures your speed, accuracy and consistency, then classifies you as one of ten heroes based on how well you perform — from NOVA at the start to SOVEREIGN at the top."
+      },
+      {
+        "q": "Do I need an account to run a simulation?",
+        "a": "No — anyone can run a simulation as a guest and see their results. Creating an account lets the network save your history, track your best scores, unlock achievements, and place you on the leaderboard."
+      },
+      {
+        "q": "How is my hero classification decided?",
+        "a": "Every hero has minimum thresholds for WPM, accuracy and consistency. After each simulation, you're classified as the highest hero whose requirements you meet — speed alone isn't enough, all three metrics matter."
+      },
+      {
+        "q": "How is WPM calculated?",
+        "a": "Words per minute is calculated from your correctly typed characters, using the standard convention of 5 characters per word, divided by the time elapsed in minutes."
+      },
+      {
+        "q": "Can I get proof of my typing speed?",
+        "a": "Yes. After a simulation, you can download a shareable hero card, a professional WPM certificate suitable for a resume or portfolio, or share your result directly to WhatsApp, Instagram, X and more."
+      },
+      {
+        "q": "Is the leaderboard fair?",
+        "a": "Your leaderboard score is based on your best verified simulation, weighted across speed, accuracy and consistency together — so a fast but sloppy run won't outrank a slower, cleaner one."
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Global Leaderboard | Ascendancy", "description": "Ascendancy performance network. Compete on WPM, accuracy and performance score across the global leaderboard." },
+  "overline": "PERFORMANCE NETWORK",
+  "heading": "GLOBAL LEADERBOARD",
+  "subtitle": "Every simulation feeds this global typing leaderboard, ranked by speed, accuracy and consistency together — not just raw WPM.",
+  "sortBy": "SORT BY",
+  "sorts": { "score": "SCORE", "wpm": "WPM", "accuracy": "ACCURACY" },
+  "columns": { "rank": "RANK", "ascendant": "ASCENDANT", "wpm": "WPM", "acc": "ACC", "hero": "HERO", "score": "SCORE" },
+  "loading": "LOADING PERFORMANCE NETWORK...",
+  "loadError": "DATA UNAVAILABLE — PERFORMANCE NETWORK OFFLINE",
+  "empty": "NO ASCENDANTS DETECTED.",
+  "beginSimulation": "[ BEGIN SIMULATION → ]",
+  "you": "YOU"
+}

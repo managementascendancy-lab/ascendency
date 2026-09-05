@@ -1,10 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import { useSound } from "@/context/SoundContext";
 import { heroSrcSet } from "@/lib/heroImage";
+import { useTranslatedHero } from "@/data/useTranslatedHero";
 
-export default function HeroCard({ hero, locked = false, active = false, progress = 0, onClick }) {
+export default function HeroCard({ hero: heroRaw, locked = false, active = false, progress = 0, onClick }) {
+  const { t } = useTranslation("ascendancy");
   const sound = useSound();
+  const hero = useTranslatedHero(heroRaw);
   return (
     <button
       type="button"
@@ -25,7 +29,7 @@ export default function HeroCard({ hero, locked = false, active = false, progres
           alt={hero.name}
           loading="lazy"
           className={`h-full w-full object-cover transition-all duration-500 group-hover:scale-105 ${
-            locked ? "grayscale brightness-[0.28]" : "brightness-90 group-hover:brightness-100"
+            locked ? "grayscale brightness-[0.28]" : "brightness-110 group-hover:brightness-125"
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/30 to-transparent" />
@@ -43,8 +47,8 @@ export default function HeroCard({ hero, locked = false, active = false, progres
 
         {locked && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-center">
-            <span className="tech-label text-red">PROFILE LOCKED</span>
-            <span className="font-mono text-[10px] text-cream/60">CLASSIFICATION REQUIRED</span>
+            <span className="tech-label text-red">{t("heroCard.locked")}</span>
+            <span className="font-mono text-[10px] text-cream/60">{t("heroCard.classificationRequired")}</span>
           </div>
         )}
       </div>
@@ -59,15 +63,15 @@ export default function HeroCard({ hero, locked = false, active = false, progres
 
         <div className="mt-3 grid grid-cols-3 gap-2 border-t border-bronze/30 pt-3">
           <div>
-            <div className="tech-label text-highlight">WPM</div>
+            <div className="tech-label text-highlight">{t("heroCard.metrics.wpm")}</div>
             <div className="font-mono text-sm text-gold-bright">{hero.minWpm}+</div>
           </div>
           <div>
-            <div className="tech-label text-highlight">ACC</div>
+            <div className="tech-label text-highlight">{t("heroCard.metrics.acc")}</div>
             <div className="font-mono text-sm text-sage">{hero.minAccuracy}%</div>
           </div>
           <div>
-            <div className="tech-label text-highlight">CNS</div>
+            <div className="tech-label text-highlight">{t("heroCard.metrics.cns")}</div>
             <div className="font-mono text-sm text-cream/80">{hero.minConsistency}%</div>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default function HeroCard({ hero, locked = false, active = false, progres
         {locked ? (
           <div className="mt-3">
             <div className="flex items-center justify-between tech-label">
-              <span className="text-gold-bright">UNLOCK PROGRESS</span>
+              <span className="text-gold-bright">{t("heroCard.unlockProgress")}</span>
               <span className="text-red">{Math.round(progress)}%</span>
             </div>
             <div className="mt-1 h-1 w-full bg-bronze/30">
@@ -84,7 +88,7 @@ export default function HeroCard({ hero, locked = false, active = false, progres
           </div>
         ) : (
           <div className="mt-3 flex items-center gap-2 tech-label text-sage">
-            <span className="h-1.5 w-1.5 bg-sage" /> CLASSIFICATION AVAILABLE
+            <span className="h-1.5 w-1.5 bg-sage" /> {t("heroCard.classificationAvailable")}
           </div>
         )}
       </div>

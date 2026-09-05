@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Typing Guides & Tips | Ascendancy", "description": "Practical guides on typing speed, accuracy, ergonomics and the Ascendancy classification system." },
+    "overline1": "RESOURCES",
+    "overline2": "GUIDES",
+    "heading": "TRAINING GUIDES",
+    "subtitle": "Practical, no-fluff guides on typing speed, accuracy, ergonomics and how the Ascendancy classification system actually works.",
+    "readGuide": "READ GUIDE →"
+  },
+  "article": {
+    "allGuides": "← ALL GUIDES",
+    "practicePrompt": "Ready to put it into practice?",
+    "simulateCta": "RUN A TYPING SIMULATION →",
+    "unavailableNotice": "This article is not yet available in your language — showing the English version."
+  }
+}

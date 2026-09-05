@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Panduan & Tips Mengetik | Ascendancy", "description": "Panduan praktis tentang kecepatan mengetik, akurasi, ergonomi, dan sistem klasifikasi Ascendancy." },
+    "overline1": "SUMBER DAYA",
+    "overline2": "PANDUAN",
+    "heading": "PANDUAN PELATIHAN",
+    "subtitle": "Panduan praktis dan langsung tentang kecepatan mengetik, akurasi, ergonomi, dan bagaimana sistem klasifikasi Ascendancy sebenarnya bekerja.",
+    "readGuide": "BACA PANDUAN →"
+  },
+  "article": {
+    "allGuides": "← SEMUA PANDUAN",
+    "practicePrompt": "Siap untuk mempraktikkannya?",
+    "simulateCta": "JALANKAN SIMULASI MENGETIK →",
+    "unavailableNotice": "Artikel ini belum tersedia dalam bahasa Anda — menampilkan versi bahasa Inggris."
+  }
+}

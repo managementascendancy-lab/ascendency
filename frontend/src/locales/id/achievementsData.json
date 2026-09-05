@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "SIMULASI PERTAMA", "desc": "Selesaikan simulasi pertama Anda." },
+  "precision": { "name": "PRESISI", "desc": "Capai akurasi 99%." },
+  "speed_surge": { "name": "LONJAKAN KECEPATAN", "desc": "Capai 80 WPM." },
+  "overdrive": { "name": "OVERDRIVE", "desc": "Capai 100 WPM." },
+  "break_the_limit": { "name": "TEROBOS BATAS", "desc": "Capai 120 WPM." },
+  "perfect_execution": { "name": "EKSEKUSI SEMPURNA", "desc": "Capai akurasi 100%." },
+  "ascension": { "name": "ASENSI", "desc": "Buka ASCENDANT." },
+  "velocity": { "name": "VELOCITY", "desc": "Capai VELOCITY." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "Capai klasifikasi tertinggi." }
+}

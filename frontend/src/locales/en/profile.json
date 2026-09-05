@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "SYNCING CONSOLE...",
+  "guest": {
+    "seo": { "title": "Ascendant Profile | Ascendancy", "description": "View your ascendant profile, performance data and ascension progress." },
+    "noSimulations": "NO SIMULATIONS RECORDED.",
+    "prompt": "Authenticate to activate your Ascendant Console.",
+    "accessButton": "ACCESS NETWORK →"
+  },
+  "seo": { "description": "Your ascendant profile, performance data and ascension progress." },
+  "ascendantConsole": "ASCENDANT CONSOLE",
+  "currentClassification": { "label": "CURRENT CLASSIFICATION", "status": "ACTIVE" },
+  "ascension": {
+    "progress": "ASCENSION PROGRESS",
+    "next": "NEXT: {{name}}",
+    "max": "MAX",
+    "requires": "Requires {{wpm}} WPM · {{accuracy}}% ACC · {{consistency}}% CNS",
+    "complete": "ASCENSION COMPLETE"
+  },
+  "stats": {
+    "bestWpm": "BEST WPM",
+    "avgWpm": "AVG WPM",
+    "bestAcc": "BEST ACC",
+    "avgAcc": "AVG ACC",
+    "bestCns": "BEST CNS",
+    "streak": "STREAK",
+    "simulations": "SIMULATIONS",
+    "charsTyped": "CHARS TYPED",
+    "score": "SCORE"
+  },
+  "charts": { "wpmHistory": "WPM HISTORY", "accuracyHistory": "ACCURACY HISTORY", "consistency": "CONSISTENCY" },
+  "loadingPerformanceData": "LOADING PERFORMANCE DATA...",
+  "dangerZone": {
+    "account": "ACCOUNT",
+    "heading": "DANGER ZONE",
+    "restrictedStatus": "RESTRICTED",
+    "description": "Permanently erase your ascendant profile, simulation history and leaderboard standing.",
+    "deleteButton": "DELETE ACCOUNT",
+    "warning": "THIS ACTION IS PERMANENT. Your profile, simulation history and leaderboard standing will be erased and cannot be recovered.",
+    "confirmAccessKey": "CONFIRM ACCESS KEY",
+    "confirmCheckbox": "I understand this cannot be undone.",
+    "erasing": "ERASING...",
+    "confirmButton": "CONFIRM DELETION →",
+    "cancel": "CANCEL"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Guides et Astuces de Frappe | Ascendancy", "description": "Guides pratiques sur la vitesse de frappe, la précision, l'ergonomie et le système de classification d'Ascendancy." },
+    "overline1": "RESSOURCES",
+    "overline2": "GUIDES",
+    "heading": "GUIDES D'ENTRAÎNEMENT",
+    "subtitle": "Des guides pratiques et sans détour sur la vitesse de frappe, la précision, l'ergonomie et le fonctionnement réel du système de classification d'Ascendancy.",
+    "readGuide": "LIRE LE GUIDE →"
+  },
+  "article": {
+    "allGuides": "← TOUS LES GUIDES",
+    "practicePrompt": "Prêt à le mettre en pratique ?",
+    "simulateCta": "LANCER UNE SIMULATION DE FRAPPE →",
+    "unavailableNotice": "Cet article n'est pas encore disponible dans votre langue — affichage de la version anglaise."
+  }
+}

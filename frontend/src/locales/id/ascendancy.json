@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Arsip Pahlawan | Ascendancy", "description": "Sepuluh pahlawan. Satu jalan menuju asensi. Jelajahi arsip klasifikasi pahlawan Ascendancy." },
+  "heroArchive": "ARSIP PAHLAWAN",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Tes klasifikasi pahlawan berbasis mengetik dengan sepuluh pahlawan — satu jalan menuju asensi. Kecepatan Anda menentukan kelas Anda. Akurasi Anda menentukan seberapa tinggi Anda naik.",
+  "detail": {
+    "heroId": "PAHLAWAN_{{index}}",
+    "close": "[ TUTUP ]",
+    "personality": "KEPRIBADIAN",
+    "power": "KEKUATAN",
+    "metrics": { "wpm": "WPM", "acc": "AKU", "cns": "KON" },
+    "simulateButton": "SIMULASIKAN UNTUK KLASIFIKASI →"
+  },
+  "heroCard": {
+    "locked": "PROFIL TERKUNCI",
+    "classificationRequired": "KLASIFIKASI DIPERLUKAN",
+    "metrics": { "wpm": "WPM", "acc": "AKU", "cns": "KON" },
+    "unlockProgress": "PROGRES PEMBUKAAN",
+    "classificationAvailable": "KLASIFIKASI TERSEDIA"
+  }
+}

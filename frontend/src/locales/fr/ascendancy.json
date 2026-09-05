@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Archives des Héros | Ascendancy", "description": "Dix héros. Un seul chemin vers l'ascension. Explorez les archives de classification des héros d'Ascendancy." },
+  "heroArchive": "ARCHIVES DES HÉROS",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Un test de classification de héros par la frappe couvrant dix héros — un seul chemin vers l'ascension. Votre vitesse détermine votre classe. Votre précision détermine jusqu'où vous montez.",
+  "detail": {
+    "heroId": "HÉROS_{{index}}",
+    "close": "[ FERMER ]",
+    "personality": "PERSONNALITÉ",
+    "power": "POUVOIR",
+    "metrics": { "wpm": "MPM", "acc": "PRÉ", "cns": "RÉG" },
+    "simulateButton": "SIMULER POUR SE CLASSER →"
+  },
+  "heroCard": {
+    "locked": "PROFIL VERROUILLÉ",
+    "classificationRequired": "CLASSIFICATION REQUISE",
+    "metrics": { "wpm": "MPM", "acc": "PRÉ", "cns": "RÉG" },
+    "unlockProgress": "PROGRESSION DU DÉVERROUILLAGE",
+    "classificationAvailable": "CLASSIFICATION DISPONIBLE"
+  }
+}

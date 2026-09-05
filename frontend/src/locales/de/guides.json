@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Tipp-Anleitungen & Tipps | Ascendancy", "description": "Praktische Anleitungen zu Tippgeschwindigkeit, Genauigkeit, Ergonomie und dem Ascendancy-Klassifikationssystem." },
+    "overline1": "RESSOURCEN",
+    "overline2": "ANLEITUNGEN",
+    "heading": "TRAININGSANLEITUNGEN",
+    "subtitle": "Praktische, direkte Anleitungen zu Tippgeschwindigkeit, Genauigkeit, Ergonomie und wie das Ascendancy-Klassifikationssystem wirklich funktioniert.",
+    "readGuide": "ANLEITUNG LESEN →"
+  },
+  "article": {
+    "allGuides": "← ALLE ANLEITUNGEN",
+    "practicePrompt": "Bereit, es in die Praxis umzusetzen?",
+    "simulateCta": "TIPP-SIMULATION STARTEN →",
+    "unavailableNotice": "Dieser Artikel ist in deiner Sprache noch nicht verfügbar — es wird die englische Version angezeigt."
+  }
+}

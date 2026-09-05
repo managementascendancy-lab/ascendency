@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "पहला सिमुलेशन", "desc": "अपना पहला सिमुलेशन पूरा करें।" },
+  "precision": { "name": "सटीकता", "desc": "99% सटीकता तक पहुँचें।" },
+  "speed_surge": { "name": "स्पीड सर्ज", "desc": "80 WPM तक पहुँचें।" },
+  "overdrive": { "name": "ओवरड्राइव", "desc": "100 WPM तक पहुँचें।" },
+  "break_the_limit": { "name": "सीमा तोड़ें", "desc": "120 WPM तक पहुँचें।" },
+  "perfect_execution": { "name": "परफेक्ट एक्जीक्यूशन", "desc": "100% सटीकता तक पहुँचें।" },
+  "ascension": { "name": "असेंशन", "desc": "ASCENDANT अनलॉक करें।" },
+  "velocity": { "name": "VELOCITY", "desc": "VELOCITY तक पहुँचें।" },
+  "sovereign": { "name": "SOVEREIGN", "desc": "सबसे ऊँचा वर्गीकरण हासिल करें।" }
+}

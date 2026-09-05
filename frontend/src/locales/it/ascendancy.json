@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Archivio Eroi | Ascendancy", "description": "Dieci eroi. Un solo cammino verso l'ascesa. Esplora l'archivio di classificazione eroi di Ascendancy." },
+  "heroArchive": "ARCHIVIO EROI",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Un test di classificazione eroe basato sulla digitazione con dieci eroi — un solo cammino verso l'ascesa. La tua velocità determina la tua classe. La tua precisione determina fin dove arrivi.",
+  "detail": {
+    "heroId": "EROE_{{index}}",
+    "close": "[ CHIUDI ]",
+    "personality": "PERSONALITÀ",
+    "power": "POTERE",
+    "metrics": { "wpm": "PPM", "acc": "PRE", "cns": "CST" },
+    "simulateButton": "SIMULA PER CLASSIFICARTI →"
+  },
+  "heroCard": {
+    "locked": "PROFILO BLOCCATO",
+    "classificationRequired": "CLASSIFICAZIONE RICHIESTA",
+    "metrics": { "wpm": "PPM", "acc": "PRE", "cns": "CST" },
+    "unlockProgress": "PROGRESSO DI SBLOCCO",
+    "classificationAvailable": "CLASSIFICAZIONE DISPONIBILE"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "打字速度模拟器 | Ascendancy",
+    "description": "运行一次打字模拟。在15秒、30秒、60秒或120秒内测量WPM、准确率和稳定性。"
+  },
+  "header": {
+    "overline1": "训练系统",
+    "overline2": "游戏化打字练习",
+    "heading": "模拟",
+    "statusLabel": "状态",
+    "status": {
+      "ready": "就绪",
+      "active": "进行中",
+      "complete": "已完成",
+      "initializing": "初始化中"
+    }
+  },
+  "duration": {
+    "label": "时长"
+  },
+  "topic": {
+    "label": "主题",
+    "items": {
+      "courage": "勇气",
+      "sacrifice": "牺牲",
+      "legacy": "传承",
+      "adversity": "逆境",
+      "awakening": "觉醒"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "准确率",
+    "time": "时间",
+    "consistency": "稳定性"
+  },
+  "performanceCore": {
+    "label": "性能核心",
+    "status": "监控"
+  },
+  "typingEnvironment": {
+    "label": "打字环境",
+    "statusLive": "实时",
+    "statusStandby": "待机"
+  },
+  "ready": {
+    "description": "进入模拟。尽可能快速且准确地输入文段。你的表现将决定你的英雄分级。",
+    "beginButton": "开始模拟 →"
+  },
+  "countdown": {
+    "go": "开始"
+  },
+  "restartButton": "[ 重新开始 ]",
+  "bootLines": [
+    "系统初始化中",
+    "神经链接已连接",
+    "性能矩阵就绪"
+  ],
+  "reveal": {
+    "stageComplete": "模拟完成",
+    "stageAnalyzing": "正在分析表现",
+    "log1": "> 正在读取性能矩阵...",
+    "log2": "> 正在查询英雄档案...",
+    "log3": "> 分级进行中...",
+    "heroProfileIdentified": "英雄档案已识别",
+    "newClassification": "新分级",
+    "unlockProgressLabel": "解锁中 {{current}} / {{total}}",
+    "unlockedBadge": "已解锁",
+    "classificationComplete": "分级完成",
+    "powerLabel": "能力",
+    "scoreLabel": "得分",
+    "ascensionProgress": "飞升进度",
+    "advanceToward": "向{{name}}迈进——提升你的速度、准确率和稳定性以实现飞升。",
+    "apexReached": "你已到达Ascendancy的巅峰。",
+    "nextLabel": "下一级：{{name}}",
+    "maxAscension": "最高飞升",
+    "newRecord": "新纪录",
+    "ascensionCompleteBadge": "飞升完成",
+    "retryButton": "重新尝试模拟 →",
+    "viewProfileButton": "查看英雄档案",
+    "viewLeaderboardButton": "查看排行榜",
+    "shareButton": "分享结果",
+    "preparingButton": "准备中…",
+    "downloadCertButton": "下载英雄证书",
+    "downloadWpmCertButton": "下载WPM证书",
+    "generatingButton": "生成中…",
+    "shareInstagramButton": "分享到Instagram快拍",
+    "shareText": "我在ASCENDANCY上达到了{{name}}！",
+    "guestAscendant": "访客飞升者",
+    "messages": {
+      "certificateSaved": "证书已保存到你的下载文件夹",
+      "wpmCertificateSaved": "WPM证书已保存到你的下载文件夹",
+      "shareLinkStorySticker": "链接已复制——如果你发布到快拍/动态，请将其添加为链接贴纸",
+      "shareImageDownloaded": "图片已下载，链接已复制——在WhatsApp、Instagram、X等平台分享吧...",
+      "igPickInstagram": "在分享菜单中选择Instagram，然后添加链接贴纸——链接已经复制好了",
+      "igNeedsPhone": "Instagram快拍需要使用你的手机——图片已下载，链接已复制。请将图片发送到你的手机以发布"
+    }
+  }
+}

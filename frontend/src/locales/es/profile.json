@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "SINCRONIZANDO CONSOLA...",
+  "guest": {
+    "seo": { "title": "Perfil de Ascendente | Ascendancy", "description": "Consulta tu perfil de ascendente, datos de rendimiento y progreso de ascensión." },
+    "noSimulations": "NO SE HAN REGISTRADO SIMULACIONES.",
+    "prompt": "Autentícate para activar tu Consola de Ascendente.",
+    "accessButton": "ACCEDER A LA RED →"
+  },
+  "seo": { "description": "Tu perfil de ascendente, datos de rendimiento y progreso de ascensión." },
+  "ascendantConsole": "CONSOLA DEL ASCENDENTE",
+  "currentClassification": { "label": "CLASIFICACIÓN ACTUAL", "status": "ACTIVO" },
+  "ascension": {
+    "progress": "PROGRESO DE ASCENSIÓN",
+    "next": "SIGUIENTE: {{name}}",
+    "max": "MÁXIMO",
+    "requires": "Requiere {{wpm}} PPM · {{accuracy}}% PRE · {{consistency}}% CNS",
+    "complete": "ASCENSIÓN COMPLETA"
+  },
+  "stats": {
+    "bestWpm": "MEJOR PPM",
+    "avgWpm": "PPM PROMEDIO",
+    "bestAcc": "MEJOR PRE",
+    "avgAcc": "PRE PROMEDIO",
+    "bestCns": "MEJOR CNS",
+    "streak": "RACHA",
+    "simulations": "SIMULACIONES",
+    "charsTyped": "CARACT. ESCRITOS",
+    "score": "PUNTUACIÓN"
+  },
+  "charts": { "wpmHistory": "HISTORIAL DE PPM", "accuracyHistory": "HISTORIAL DE PRECISIÓN", "consistency": "CONSISTENCIA" },
+  "loadingPerformanceData": "CARGANDO DATOS DE RENDIMIENTO...",
+  "dangerZone": {
+    "account": "CUENTA",
+    "heading": "ZONA DE PELIGRO",
+    "restrictedStatus": "RESTRINGIDO",
+    "description": "Elimina permanentemente tu perfil de ascendente, historial de simulaciones y posición en la clasificación.",
+    "deleteButton": "ELIMINAR CUENTA",
+    "warning": "ESTA ACCIÓN ES PERMANENTE. Tu perfil, historial de simulaciones y posición en la clasificación se eliminarán y no podrán recuperarse.",
+    "confirmAccessKey": "CONFIRMAR CLAVE DE ACCESO",
+    "confirmCheckbox": "Entiendo que esto no se puede deshacer.",
+    "erasing": "ELIMINANDO...",
+    "confirmButton": "CONFIRMAR ELIMINACIÓN →",
+    "cancel": "CANCELAR"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "backToHome": "ZURÜCK ZUM START",
+  "pages": {
+    "training-simulator": {
+      "name": "TRAININGSSYSTEM",
+      "eyebrow": "PRODUKT",
+      "tagline": "MISS JEDEN TASTENANSCHLAG.",
+      "summary": "Der Kern von Ascendancy. Führe eine zeitgesteuerte Tipp-Simulation durch und erhalte eine sofortige, präzise Auswertung, wie schnell und sauber du wirklich tippst.",
+      "features": [
+        "Wähle eine Dauer von 15 bis 120 Sekunden und ein Textthema zum Konzept des Heldentums.",
+        "Live-Anzeigen für WPM, Genauigkeit, Konstanz und verbleibende Zeit während des Tippens.",
+        "Eine Echtzeit-Visualisierung des Leistungskerns, die auf deine Tippintensität reagiert.",
+        "Jedes Ergebnis fließt direkt in deine Helden-Klassifikation, Serie und Bestenlisten-Punktzahl ein."
+      ],
+      "ctaLabel": "SIMULATION STARTEN →"
+    },
+    "classification-archive": {
+      "name": "KLASSIFIKATIONSARCHIV",
+      "eyebrow": "PRODUKT",
+      "tagline": "ZEHN HELDEN. EIN WEG.",
+      "summary": "Zehn deterministische Klassifikationen, von NOVA bis SOVEREIGN. Jede Stufe hat feste Schwellenwerte für Geschwindigkeit, Genauigkeit und Konstanz — nichts wird auf einer Kurve bewertet.",
+      "features": [
+        "Durchstöbere alle zehn Helden-Klassifikationen und die genauen WPM- / Genauigkeits- / Konstanz-Schwellenwerte jeder Stufe.",
+        "Sieh deine aktuelle Klassifikation und wie nah du an der nächsten Stufe bist.",
+        "Ein schneller, aber ungenauer Lauf übertrifft nie einen langsameren, saubereren — alle drei Werte zählen.",
+        "Vollständige Heldengeschichte, Persönlichkeit und Kraft für jede Klassifikation im Archiv."
+      ],
+      "ctaLabel": "ARCHIV ANSEHEN →"
+    },
+    "performance-network": {
+      "name": "LEISTUNGSNETZWERK",
+      "eyebrow": "PRODUKT",
+      "tagline": "GLOBAL ANTRETEN.",
+      "summary": "Eine globale Live-Bestenliste mit dem besten verifizierten Lauf jedes Aufsteigers — sortierbar nach Punktzahl, WPM oder Genauigkeit.",
+      "features": [
+        "Sortiere das Netzwerk nach Gesamtpunktzahl, bestem WPM oder bester Genauigkeit.",
+        "Sieh deinen eigenen Rang direkt in der Rangliste hervorgehoben.",
+        "Ränge basieren auf deiner besten Simulation, nicht auf einem Durchschnitt — ein großartiger Lauf genügt.",
+        "In Echtzeit aktualisiert, sobald neue Ergebnisse aus dem gesamten Netzwerk eintreffen."
+      ],
+      "ctaLabel": "BESTENLISTE ANSEHEN →"
+    },
+    "achievements": {
+      "name": "ERFOLGE",
+      "eyebrow": "PRODUKT",
+      "tagline": "MEILENSTEINE, DIE ZÄHLEN.",
+      "summary": "Neun Erfolge verfolgen echte Meilensteine in deinem Fortschritt — von deiner ersten Simulation bis zum Erreichen des Gipfels von Ascendancy.",
+      "features": [
+        "Schalte Erfolge für Geschwindigkeitsmeilensteine wie Geschwindigkeitsschub, Overdrive und Durchbrich das Limit frei.",
+        "Verdiene Präzision und Perfekte Ausführung für nahezu makellose und makellose Genauigkeit.",
+        "Aufstieg, Velocity und Sovereign markieren deinen Fortschritt durch die höchsten Heldenstufen.",
+        "Jeder Erfolg ist nach der Freischaltung dauerhaft und in deiner Aufsteiger-Konsole sichtbar."
+      ],
+      "ctaLabel": "ERFOLGE ANSEHEN →"
+    },
+    "ascendant-console": {
+      "name": "AUFSTEIGER-KONSOLE",
+      "eyebrow": "KONTO",
+      "tagline": "DEIN FORTSCHRITT, AN EINEM ORT.",
+      "summary": "Dein persönliches Dashboard im Netzwerk — aktuelle Helden-Klassifikation, beste Leistung, vollständiger Simulationsverlauf und jeder freigeschaltete Erfolg, alles in einer Konsole.",
+      "features": [
+        "Deine aktuelle Helden-Klassifikation mit einem Live-Fortschrittsring zur nächsten Stufe.",
+        "Bestes und durchschnittliches WPM, Genauigkeit und Konstanz, verfolgt über jede durchgeführte Simulation.",
+        "Ein vollständiger Verlauf deiner letzten Simulationen, im Zeitverlauf dargestellt.",
+        "Jeder Erfolg, den du freigeschaltet hast, von deiner ersten Simulation bis zum Gipfel von Ascendancy."
+      ],
+      "ctaLabel": "DEINE KONSOLE ANSEHEN →"
+    },
+    "sign-in-register": {
+      "name": "ANMELDEN / REGISTRIEREN",
+      "eyebrow": "KONTO",
+      "tagline": "ERSTELLE DEIN AUFSTEIGER-PROFIL.",
+      "summary": "Ein Ascendancy-Konto speichert jede durchgeführte Simulation, verfolgt deine beste Leistung im Zeitverlauf und platziert dich in der globalen Bestenliste. In Sekunden erstellt.",
+      "features": [
+        "Jede durchgeführte Simulation wird dauerhaft im Verlauf deines Kontos gespeichert.",
+        "Deine besten Punktzahlen werden erfasst und zur Klassifizierung deiner aktuellen Heldenstufe verwendet.",
+        "Erscheine in der globalen Bestenliste des Leistungsnetzwerks, im Vergleich zu allen anderen Aufsteigern.",
+        "Baue eine tägliche Serie auf und schalte Erfolge frei, während du weiter trainierst."
+      ],
+      "ctaLabel": "ANMELDEN / REGISTRIEREN →"
+    }
+  }
+}

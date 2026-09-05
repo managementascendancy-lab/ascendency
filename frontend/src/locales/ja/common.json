@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "simulator": "シミュレーター",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "リーダーボード",
+    "guides": "ガイド",
+    "profile": "マイプロフィール",
+    "online": "オンライン",
+    "muteSound": "サウンドをミュート",
+    "enableSound": "サウンドを有効化",
+    "logout": "ログアウト",
+    "access": "アクセス",
+    "brandTag": "タイピング・イニシアチブ"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "グリッド · ASC-CORE",
+    "sectorSignal": "セクター · ASC-07",
+    "signalStable": "シグナル · 安定"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCYネットワーク オンライン",
+      "ニューラルリンク アクティブ",
+      "シミュレーション準備完了",
+      "パフォーマンスマトリックス オンライン",
+      "アセンションプロトコル アクティブ",
+      "データ同期完了",
+      "トレーニングシステム オンライン"
+    ]
+  },
+  "footer": {
+    "tagline": "タイピング速度、正確性、安定性を測定。ヒーロークラスを解除して、ネットワークを駆け上がろう。",
+    "productHeading": "プロダクト",
+    "accountHeading": "アカウント",
+    "legalHeading": "法的情報",
+    "trainingSimulator": "トレーニングシミュレーター",
+    "classificationArchive": "クラス分けアーカイブ",
+    "performanceNetwork": "パフォーマンスネットワーク",
+    "achievements": "実績",
+    "guides": "ガイド",
+    "ascendantConsole": "アセンダント・コンソール",
+    "signInRegister": "サインイン / 登録",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約",
+    "motto": "タイプせよ。鍛えよ。昇れ。",
+    "copyright": "ASCENDANCY イニシアチブ © 2026",
+    "advertisement": "広告"
+  }
+}

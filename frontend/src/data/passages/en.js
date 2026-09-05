@@ -1,5 +1,8 @@
 // Simulation text passages. Neutral, punctuation-rich, technical tone.
 // Organized into topics on the concept of heroism, selectable by the user.
+// This is the canonical English set; topic keys here define the full set
+// iterated by the UI (see passages/index.js). Other locale files only need
+// to supply passages for these same keys.
 
 export const TOPICS = [
   {
@@ -58,17 +61,3 @@ export const TOPICS = [
     ],
   },
 ];
-
-export function randomPassage(topicKey) {
-  const topic = TOPICS.find((t) => t.key === topicKey) || TOPICS[0];
-  return topic.passages[Math.floor(Math.random() * topic.passages.length)];
-}
-
-// Build a long text stream from multiple passages for long simulations.
-export function buildStream(minChars = 900, topicKey) {
-  let text = "";
-  while (text.length < minChars) {
-    text += (text ? " " : "") + randomPassage(topicKey);
-  }
-  return text;
-}

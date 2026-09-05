@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "Tes Kecepatan Mengetik & Tes WPM | Ascendancy",
+    "description": "Ukur kecepatan mengetik, akurasi, dan konsistensi Anda. Selesaikan simulasi, buka klasifikasi pahlawan, dan naik peringkat di papan peringkat Ascendancy."
+  },
+  "hero": {
+    "overline": "PROTOKOL PERFORMA",
+    "headingLine1": "SEBERAPA CEPAT",
+    "headingLine2Prefix": "ANDA BISA ",
+    "headingLine2Highlight": "MENGETIK?",
+    "subtitle": "Ini adalah tes klasifikasi pahlawan berbasis mengetik — masuk ke simulasi, ukur performa Anda, dan temukan jalan asensi Anda. Dapatkan sertifikat Anda!",
+    "beginSimulation": "MULAI SIMULASI →",
+    "viewAscendancy": "LIHAT ASCENDANCY",
+    "neuralLink": "TAUTAN NEURAL",
+    "stable": "STABIL",
+    "latency": "LATENSI 004ms",
+    "scanLoading": "MEMINDAI"
+  },
+  "performanceData": {
+    "ascendant": "ASCENDANT",
+    "guestHeading": "DATA PERFORMA",
+    "guestSession": "SESI TAMU"
+  },
+  "modules": {
+    "heading": "MODUL SISTEM",
+    "titlePrefix": "SATU SISTEM. ",
+    "titleHighlight": "BANYAK MODUL.",
+    "access": "AKSES →",
+    "items": {
+      "training": { "name": "SISTEM PELATIHAN", "desc": "Masuk ke simulasi dan ukur performa Anda." },
+      "classification": { "name": "ARSIP KLASIFIKASI", "desc": "Sepuluh tingkat pahlawan. Satu jalan menuju asensi." },
+      "performance": { "name": "JARINGAN PERFORMA", "desc": "Bersaing di papan peringkat global." },
+      "console": { "name": "KONSOL ASCENDANT", "desc": "Lacak asensi dan data performa Anda." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "ARSIP PAHLAWAN",
+    "titlePrefix": "BUKA SEMUANYA. ",
+    "titleHighlight": "BUKTIKAN KECEPATAN ANDA.",
+    "viewAlt": "Lihat {{name}} di arsip klasifikasi pahlawan Ascendancy"
+  },
+  "faq": {
+    "brand": "DUKUNGAN",
+    "overline": "PERTANYAAN UMUM",
+    "titlePrefix": "PERTANYAAN, ",
+    "titleHighlight": "TERJAWAB.",
+    "items": [
+      { "q": "Apa itu Ascendancy?", "a": "Ascendancy adalah simulator mengetik yang mengukur kecepatan, akurasi, dan konsistensi Anda, lalu mengklasifikasikan Anda sebagai salah satu dari sepuluh pahlawan berdasarkan performa Anda — dari NOVA di awal hingga SOVEREIGN di puncak." },
+      { "q": "Apakah saya perlu akun untuk menjalankan simulasi?", "a": "Tidak — siapa pun dapat menjalankan simulasi sebagai tamu dan melihat hasilnya. Membuat akun memungkinkan jaringan menyimpan riwayat Anda, melacak skor terbaik Anda, membuka pencapaian, dan menempatkan Anda di papan peringkat." },
+      { "q": "Bagaimana klasifikasi pahlawan saya ditentukan?", "a": "Setiap pahlawan memiliki ambang batas minimum untuk WPM, akurasi, dan konsistensi. Setelah setiap simulasi, Anda diklasifikasikan sebagai pahlawan tertinggi yang persyaratannya Anda penuhi — kecepatan saja tidak cukup, ketiga metrik itu penting." },
+      { "q": "Bagaimana WPM dihitung?", "a": "Kata per menit dihitung dari karakter yang Anda ketik dengan benar, menggunakan konvensi standar 5 karakter per kata, dibagi dengan waktu yang berlalu dalam menit." },
+      { "q": "Bisakah saya mendapatkan bukti kecepatan mengetik saya?", "a": "Ya. Setelah simulasi, Anda dapat mengunduh kartu pahlawan yang dapat dibagikan, sertifikat WPM profesional yang cocok untuk resume atau portofolio, atau membagikan hasil Anda langsung ke WhatsApp, Instagram, X, dan lainnya." },
+      { "q": "Apakah papan peringkat adil?", "a": "Skor papan peringkat Anda didasarkan pada simulasi terverifikasi terbaik Anda, dengan bobot kecepatan, akurasi, dan konsistensi secara bersamaan — jadi sesi yang cepat tapi ceroboh tidak akan mengungguli sesi yang lebih lambat tapi lebih bersih." }
+    ]
+  }
+}

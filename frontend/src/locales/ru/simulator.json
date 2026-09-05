@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Симулятор скорости печати | Ascendancy",
+    "description": "Пройди симуляцию печати. Измерь WPM, точность и стабильность за 15, 30, 60 или 120 секунд."
+  },
+  "header": {
+    "overline1": "СИСТЕМА ТРЕНИРОВКИ",
+    "overline2": "ГЕЙМИФИЦИРОВАННАЯ ПРАКТИКА ПЕЧАТИ",
+    "heading": "СИМУЛЯЦИЯ",
+    "statusLabel": "СТАТУС",
+    "status": {
+      "ready": "ГОТОВО",
+      "active": "АКТИВНО",
+      "complete": "ЗАВЕРШЕНО",
+      "initializing": "ИНИЦИАЛИЗАЦИЯ"
+    }
+  },
+  "duration": {
+    "label": "ДЛИТЕЛЬНОСТЬ"
+  },
+  "topic": {
+    "label": "ТЕМА",
+    "items": {
+      "courage": "ОТВАГА",
+      "sacrifice": "ЖЕРТВА",
+      "legacy": "НАСЛЕДИЕ",
+      "adversity": "НЕВЗГОДЫ",
+      "awakening": "ПРОБУЖДЕНИЕ"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "ТОЧНОСТЬ",
+    "time": "ВРЕМЯ",
+    "consistency": "СТАБИЛЬНОСТЬ"
+  },
+  "performanceCore": {
+    "label": "ЯДРО ПРОИЗВОДИТЕЛЬНОСТИ",
+    "status": "МОНИТОР"
+  },
+  "typingEnvironment": {
+    "label": "СРЕДА ПЕЧАТИ",
+    "statusLive": "В ЭФИРЕ",
+    "statusStandby": "ОЖИДАНИЕ"
+  },
+  "ready": {
+    "description": "Войди в симуляцию. Печатай текст максимально быстро и точно. Твоя производительность определит классификацию героя.",
+    "beginButton": "НАЧАТЬ СИМУЛЯЦИЮ →"
+  },
+  "countdown": {
+    "go": "СТАРТ"
+  },
+  "restartButton": "[ ПЕРЕЗАПУСК ]",
+  "bootLines": [
+    "ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ",
+    "НЕЙРОСВЯЗЬ УСТАНОВЛЕНА",
+    "МАТРИЦА ПРОИЗВОДИТЕЛЬНОСТИ ГОТОВА"
+  ],
+  "reveal": {
+    "stageComplete": "СИМУЛЯЦИЯ ЗАВЕРШЕНА",
+    "stageAnalyzing": "АНАЛИЗ ПРОИЗВОДИТЕЛЬНОСТИ",
+    "log1": "> ЧТЕНИЕ МАТРИЦЫ ПРОИЗВОДИТЕЛЬНОСТИ...",
+    "log2": "> ПРОВЕРКА АРХИВА ГЕРОЕВ...",
+    "log3": "> ИДЁТ КЛАССИФИКАЦИЯ...",
+    "heroProfileIdentified": "ПРОФИЛЬ ГЕРОЯ ОПРЕДЕЛЁН",
+    "newClassification": "НОВАЯ КЛАССИФИКАЦИЯ",
+    "unlockProgressLabel": "РАЗБЛОКИРОВКА {{current}} / {{total}}",
+    "unlockedBadge": "РАЗБЛОКИРОВАНО",
+    "classificationComplete": "КЛАССИФИКАЦИЯ ЗАВЕРШЕНА",
+    "powerLabel": "СИЛА",
+    "scoreLabel": "ОЧКИ",
+    "ascensionProgress": "ПРОГРЕСС ВОСХОЖДЕНИЯ",
+    "advanceToward": "Продвигайся к {{name}} — повышай скорость, точность и стабильность, чтобы восходить.",
+    "apexReached": "Ты достиг вершины Ascendancy.",
+    "nextLabel": "СЛЕДУЮЩИЙ: {{name}}",
+    "maxAscension": "МАКСИМАЛЬНОЕ ВОСХОЖДЕНИЕ",
+    "newRecord": "НОВЫЙ РЕКОРД",
+    "ascensionCompleteBadge": "ВОСХОЖДЕНИЕ ЗАВЕРШЕНО",
+    "retryButton": "ПОВТОРИТЬ СИМУЛЯЦИЮ →",
+    "viewProfileButton": "ПОСМОТРЕТЬ ПРОФИЛЬ ГЕРОЯ",
+    "viewLeaderboardButton": "ПОСМОТРЕТЬ РЕЙТИНГ",
+    "shareButton": "ПОДЕЛИТЬСЯ РЕЗУЛЬТАТОМ",
+    "preparingButton": "ПОДГОТОВКА…",
+    "downloadCertButton": "СКАЧАТЬ СЕРТИФИКАТ ГЕРОЯ",
+    "downloadWpmCertButton": "СКАЧАТЬ СЕРТИФИКАТ WPM",
+    "generatingButton": "СОЗДАНИЕ…",
+    "shareInstagramButton": "ПОДЕЛИТЬСЯ В INSTAGRAM STORIES",
+    "shareText": "Я достиг {{name}} в ASCENDANCY!",
+    "guestAscendant": "ГОСТЕВОЙ ВОСХОДЯЩИЙ",
+    "messages": {
+      "certificateSaved": "СЕРТИФИКАТ СОХРАНЁН В ЗАГРУЗКАХ",
+      "wpmCertificateSaved": "СЕРТИФИКАТ WPM СОХРАНЁН В ЗАГРУЗКАХ",
+      "shareLinkStorySticker": "ССЫЛКА СКОПИРОВАНА — ДОБАВЬ ЕЁ КАК СТИКЕР-ССЫЛКУ, ЕСЛИ ПУБЛИКУЕШЬ В STORIES/СТАТУСЕ",
+      "shareImageDownloaded": "ИЗОБРАЖЕНИЕ СКАЧАНО + ССЫЛКА СКОПИРОВАНА — ПОДЕЛИСЬ В WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "ВЫБЕРИ INSTAGRAM В МЕНЮ ПОДЕЛИТЬСЯ, ЗАТЕМ ДОБАВЬ СТИКЕР-ССЫЛКУ — ОНА УЖЕ СКОПИРОВАНА",
+      "igNeedsPhone": "ДЛЯ INSTAGRAM STORIES НУЖЕН ТЕЛЕФОН — ИЗОБРАЖЕНИЕ СКАЧАНО, ССЫЛКА СКОПИРОВАНА. ОТПРАВЬ ИЗОБРАЖЕНИЕ НА ТЕЛЕФОН, ЧТОБЫ ОПУБЛИКОВАТЬ"
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 // ASCENDANCY living background: perspective grid, rotating geometry,
 // drifting energy fields, particles, vertical scan sweep + coordinate frame.
 export default function AscendancyGrid() {
+  const { t } = useTranslation();
   const particles = useMemo(
     () =>
       Array.from({ length: 26 }).map((_, i) => ({
@@ -210,12 +212,12 @@ export default function AscendancyGrid() {
 
       {/* corner coordinate markers */}
       <div className="absolute left-6 top-28 tech-label opacity-40" style={{ animation: "flicker-op 7s linear infinite" }}>
-        X:0000 · Y:0000
+        {t("grid.coordinates")}
       </div>
-      <div className="absolute right-6 top-28 tech-label opacity-40">GRID · ASC-CORE</div>
-      <div className="absolute bottom-6 left-6 tech-label opacity-40">SECTOR · ASC-07</div>
+      <div className="absolute right-6 top-28 tech-label opacity-40">{t("grid.gridCore")}</div>
+      <div className="absolute bottom-6 left-6 tech-label opacity-40">{t("grid.sectorSignal")}</div>
       <div className="absolute bottom-6 right-6 tech-label opacity-40" style={{ animation: "flicker-op 9s linear infinite" }}>
-        SIGNAL · STABLE
+        {t("grid.signalStable")}
       </div>
 
       {/* drifting data lines */}

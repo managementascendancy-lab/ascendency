@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Clasificación Global | Ascendancy", "description": "Red de rendimiento de Ascendancy. Compite en PPM, precisión y puntuación de rendimiento en la clasificación global." },
+  "overline": "RED DE RENDIMIENTO",
+  "heading": "CLASIFICACIÓN GLOBAL",
+  "subtitle": "Cada simulación alimenta esta clasificación global de mecanografía, ordenada por velocidad, precisión y consistencia juntas — no solo por PPM en bruto.",
+  "sortBy": "ORDENAR POR",
+  "sorts": { "score": "PUNTUACIÓN", "wpm": "PPM", "accuracy": "PRECISIÓN" },
+  "columns": { "rank": "RANGO", "ascendant": "ASCENDENTE", "wpm": "PPM", "acc": "PRE", "hero": "HÉROE", "score": "PUNTOS" },
+  "loading": "CARGANDO RED DE RENDIMIENTO...",
+  "loadError": "DATOS NO DISPONIBLES — RED DE RENDIMIENTO FUERA DE LÍNEA",
+  "empty": "NO SE DETECTARON ASCENDENTES.",
+  "beginSimulation": "[ INICIAR SIMULACIÓN → ]",
+  "you": "TÚ"
+}

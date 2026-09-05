@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "START",
+    "simulator": "SIMULATOR",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "BESTENLISTE",
+    "guides": "ANLEITUNGEN",
+    "profile": "MEIN PROFIL",
+    "online": "ONLINE",
+    "muteSound": "Ton stummschalten",
+    "enableSound": "Ton aktivieren",
+    "logout": "Abmelden",
+    "access": "ZUGANG",
+    "brandTag": "TIPP-INITIATIVE"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "RASTER · ASC-CORE",
+    "sectorSignal": "SEKTOR · ASC-07",
+    "signalStable": "SIGNAL · STABIL"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCY-NETZWERK ONLINE",
+      "NEURALE VERBINDUNG AKTIV",
+      "SIMULATION BEREIT",
+      "LEISTUNGSMATRIX ONLINE",
+      "AUFSTIEGSPROTOKOLL AKTIV",
+      "DATEN SYNCHRONISIERT",
+      "TRAININGSSYSTEM ONLINE"
+    ]
+  },
+  "footer": {
+    "tagline": "Miss deine Tippgeschwindigkeit, Genauigkeit und Konstanz. Schalte Helden-Klassifikationen frei und steig im Netzwerk auf.",
+    "productHeading": "PRODUKT",
+    "accountHeading": "KONTO",
+    "legalHeading": "RECHTLICHES",
+    "trainingSimulator": "Trainingssimulator",
+    "classificationArchive": "Klassifikationsarchiv",
+    "performanceNetwork": "Leistungsnetzwerk",
+    "achievements": "Erfolge",
+    "guides": "Anleitungen",
+    "ascendantConsole": "Aufsteiger-Konsole",
+    "signInRegister": "Anmelden / Registrieren",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen",
+    "motto": "TIPPEN. TRAINIEREN. AUFSTEIGEN.",
+    "copyright": "ASCENDANCY-INITIATIVE © 2026",
+    "advertisement": "WERBUNG"
+  }
+}

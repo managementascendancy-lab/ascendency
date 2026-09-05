@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "Test di Velocità di Digitazione e PPM | Ascendancy",
+    "description": "Misura la tua velocità di digitazione, precisione e costanza. Completa simulazioni, sblocca classificazioni eroe e scala la classifica di Ascendancy."
+  },
+  "hero": {
+    "overline": "PROTOCOLLO DI PRESTAZIONE",
+    "headingLine1": "QUANTO VELOCE",
+    "headingLine2Prefix": "SAI ",
+    "headingLine2Highlight": "DIGITARE?",
+    "subtitle": "Questo è un test di classificazione eroe basato sulla digitazione — entra nella simulazione, misura le tue prestazioni e scopri la tua ascesa. Ottieni il tuo certificato!",
+    "beginSimulation": "AVVIA SIMULAZIONE →",
+    "viewAscendancy": "VEDI ASCENDANCY",
+    "neuralLink": "COLLEGAMENTO NEURALE",
+    "stable": "STABILE",
+    "latency": "LATENZA 004ms",
+    "scanLoading": "SCANSIONE IN CORSO"
+  },
+  "performanceData": {
+    "ascendant": "ASCENDENTE",
+    "guestHeading": "DATI DI PRESTAZIONE",
+    "guestSession": "SESSIONE OSPITE"
+  },
+  "modules": {
+    "heading": "MODULI DEL SISTEMA",
+    "titlePrefix": "UN SISTEMA. ",
+    "titleHighlight": "MOLTI MODULI.",
+    "access": "ACCEDI →",
+    "items": {
+      "training": { "name": "SISTEMA DI ALLENAMENTO", "desc": "Entra nella simulazione e misura le tue prestazioni." },
+      "classification": { "name": "ARCHIVIO DI CLASSIFICAZIONE", "desc": "Dieci livelli eroe. Un solo cammino verso l'ascesa." },
+      "performance": { "name": "RETE DI PRESTAZIONI", "desc": "Competi nella classifica globale." },
+      "console": { "name": "CONSOLE DELL'ASCENDENTE", "desc": "Monitora la tua ascesa e i tuoi dati di prestazione." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "ARCHIVIO EROI",
+    "titlePrefix": "SBLOCCALI TUTTI. ",
+    "titleHighlight": "DIMOSTRA LA TUA VELOCITÀ.",
+    "viewAlt": "Vedi {{name}} nell'archivio di classificazione eroi di Ascendancy"
+  },
+  "faq": {
+    "brand": "SUPPORTO",
+    "overline": "DOMANDE FREQUENTI",
+    "titlePrefix": "DOMANDE, ",
+    "titleHighlight": "RISOLTE.",
+    "items": [
+      { "q": "Cos'è Ascendancy?", "a": "Ascendancy è un simulatore di digitazione che misura velocità, precisione e costanza, per poi classificarti come uno dei dieci eroi in base alle tue prestazioni — da NOVA all'inizio a SOVEREIGN al vertice." },
+      { "q": "Serve un account per fare una simulazione?", "a": "No — chiunque può fare una simulazione come ospite e vedere i propri risultati. Creare un account permette alla rete di salvare la tua cronologia, tenere traccia dei tuoi punteggi migliori, sbloccare obiettivi e inserirti in classifica." },
+      { "q": "Come viene decisa la mia classificazione eroe?", "a": "Ogni eroe ha soglie minime di PPM, precisione e costanza. Dopo ogni simulazione, vieni classificato come l'eroe più alto i cui requisiti soddisfi — la sola velocità non basta, contano tutte e tre le metriche." },
+      { "q": "Come si calcolano le PPM?", "a": "Le parole al minuto si calcolano dai caratteri digitati correttamente, usando la convenzione standard di 5 caratteri per parola, diviso il tempo trascorso in minuti." },
+      { "q": "Posso ottenere una prova della mia velocità di digitazione?", "a": "Sì. Dopo una simulazione, puoi scaricare una card eroe condivisibile, un certificato professionale di PPM adatto a un curriculum o portfolio, oppure condividere il tuo risultato direttamente su WhatsApp, Instagram, X e altro." },
+      { "q": "La classifica è equa?", "a": "Il tuo punteggio in classifica si basa sulla tua migliore simulazione verificata, ponderando insieme velocità, precisione e costanza — così un'esecuzione veloce ma sciatta non supererà una più lenta ma pulita." }
+    ]
+  }
+}

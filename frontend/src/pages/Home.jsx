@@ -1,20 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import PerformanceStats from "@/components/PerformanceStats";
 import AscButton from "@/components/AscButton";
 import NeuralTrace from "@/components/NeuralTrace";
 import Reveal from "@/components/Reveal";
-import HudPanel from "@/components/HudPanel";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import { useAuth } from "@/context/AuthContext";
-import { HEROES } from "@/data/heroes";
+import { HEROES, getLocaleHeroProgress } from "@/data/heroes";
 import { Sep } from "@/components/Sep";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { heroSrcSet } from "@/lib/heroImage";
-
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1580046939256-c377c5b099f1?crop=entropy&cs=srgb&fm=jpg&q=85&w=900";
+import { LocalizedLink } from "@/i18n/links";
 
 // three/@react-three/fiber (the 3D scanner) is the single heaviest import in
 // the app and is only ever used here — split it into its own chunk so
@@ -24,7 +21,7 @@ const HERO_IMG =
 // the real chunk swaps in.
 const HoloScanner = lazy(() => import("@/components/HoloScanner"));
 
-function HoloScannerFallback() {
+function HoloScannerFallback({ label }) {
   return (
     <div className="relative w-full" data-loading="true">
       <div
@@ -32,7 +29,7 @@ function HoloScannerFallback() {
         style={{ background: "radial-gradient(120% 90% at 50% 45%, #0A0710 0%, #060409 70%, #030207 100%)" }}
       >
         <span className="tech-label flex items-center gap-2 text-red">
-          <span className="h-1.5 w-1.5 animate-pulse-ring bg-red" /> SCAN LOADING
+          <span className="h-1.5 w-1.5 animate-pulse-ring bg-red" /> {label}
         </span>
       </div>
     </div>
@@ -40,54 +37,24 @@ function HoloScannerFallback() {
 }
 
 const MODULES = [
-  { to: "/simulator", code: "MOD-01", name: "TRAINING SYSTEM", desc: "Enter the simulation and measure your performance." },
-  { to: "/ascendancy", code: "MOD-02", name: "CLASSIFICATION ARCHIVE", desc: "Ten hero tiers. One path to ascension." },
-  { to: "/leaderboard", code: "MOD-03", name: "PERFORMANCE NETWORK", desc: "Compete across the global rankings." },
-  { to: "/profile", code: "MOD-04", name: "ASCENDANT CONSOLE", desc: "Track your ascension and performance data." },
-];
-
-const FAQS = [
-  {
-    q: "What is Ascendancy?",
-    a: "Ascendancy is a typing simulator that measures your speed, accuracy and consistency, then classifies you as one of ten heroes based on how well you perform — from NOVA at the start to SOVEREIGN at the top.",
-  },
-  {
-    q: "Do I need an account to run a simulation?",
-    a: "No — anyone can run a simulation as a guest and see their results. Creating an account lets the network save your history, track your best scores, unlock achievements, and place you on the leaderboard.",
-  },
-  {
-    q: "How is my hero classification decided?",
-    a: "Every hero has minimum thresholds for WPM, accuracy and consistency. After each simulation, you're classified as the highest hero whose requirements you meet — speed alone isn't enough, all three metrics matter.",
-  },
-  {
-    q: "How is WPM calculated?",
-    a: "Words per minute is calculated from your correctly typed characters, using the standard convention of 5 characters per word, divided by the time elapsed in minutes.",
-  },
-  {
-    q: "Can I get proof of my typing speed?",
-    a: "Yes. After a simulation, you can download a shareable hero card, a professional WPM certificate suitable for a resume or portfolio, or share your result directly to WhatsApp, Instagram, X and more.",
-  },
-  {
-    q: "Is the leaderboard fair?",
-    a: "Your leaderboard score is based on your best verified simulation, weighted across speed, accuracy and consistency together — so a fast but sloppy run won't outrank a slower, cleaner one.",
-  },
+  { to: "/simulator", code: "MOD-01", key: "training" },
+  { to: "/ascendancy", code: "MOD-02", key: "classification" },
+  { to: "/leaderboard", code: "MOD-03", key: "performance" },
+  { to: "/profile", code: "MOD-04", key: "console" },
 ];
 
 export default function Home({ seo }) {
+  const { t, i18n } = useTranslation("home");
   const { user } = useAuth();
   const stats = user
     ? { bestWpm: user.bestWpm, totalTests: user.totalTests, bestAccuracy: user.bestAccuracy }
     : { bestWpm: 0, totalTests: 0, bestAccuracy: 0 };
 
+  const faqs = t("faq.items", { returnObjects: true });
+
   return (
     <div>
-      <SEO
-        title={seo?.title || "Typing Speed Test & WPM Test | Ascendancy"}
-        description={
-          seo?.description ||
-          "Measure your typing speed, accuracy and consistency. Complete simulations, unlock hero classifications and climb the Ascendancy leaderboard."
-        }
-      />
+      <SEO title={seo?.title || t("seo.title")} description={seo?.description || t("seo.description")} />
 
       {/* HERO SECTION — asymmetric */}
       <section className="grid items-center gap-10 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
@@ -95,53 +62,50 @@ export default function Home({ seo }) {
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-red" />
-              <span className="tech-label text-gold-bright">ASCENDANCY<Sep tone="red" />PERFORMANCE PROTOCOL</span>
+              <span className="tech-label text-gold-bright">ASCENDANCY<Sep tone="red" />{t("hero.overline")}</span>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <div className="relative mt-6 inline-block">
               <h1 className="font-display text-5xl font-700 leading-[0.95] tracking-tight text-cream display-outline sm:text-6xl lg:text-7xl">
-                HOW FAST
+                {t("hero.headingLine1")}
                 <br />
-                CAN YOU <span className="text-red">TYPE?</span>
+                {t("hero.headingLine2Prefix")}<span className="text-red">{t("hero.headingLine2Highlight")}</span>
               </h1>
               <span
                 aria-hidden="true"
                 className="text-sweep pointer-events-none absolute inset-0 font-display text-5xl font-700 leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
               >
-                HOW FAST
+                {t("hero.headingLine1")}
                 <br />
-                CAN YOU TYPE?
+                {t("hero.headingLine2Prefix")}{t("hero.headingLine2Highlight")}
               </span>
             </div>
           </Reveal>
           <Reveal delay={160}>
-            <p className="mt-6 max-w-md font-body text-base text-cream/80 txt-shadow">
-              This is a hero classification typing test — enter the simulation, measure your
-              performance, and discover your ascension. Grab your certificate!
-            </p>
+            <p className="mt-6 max-w-md font-body text-base text-cream/80 txt-shadow">{t("hero.subtitle")}</p>
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-8 flex flex-wrap gap-4">
               <AscButton variant="red" to="/simulator" data-testid="home-begin-btn">
-                BEGIN SIMULATION →
+                {t("hero.beginSimulation")}
               </AscButton>
               <AscButton to="/ascendancy" data-testid="home-ascendancy-btn">
-                VIEW ASCENDANCY
+                {t("hero.viewAscendancy")}
               </AscButton>
             </div>
           </Reveal>
           <Reveal delay={320}>
             <NeuralTrace intensity={1} className="mt-10 max-w-md" />
             <div className="mt-2 flex max-w-md justify-between font-mono text-[10px] text-gold-bright/90">
-              <span>NEURAL LINK<Sep tone="sage" />STABLE</span>
-              <span>LATENCY 004ms</span>
+              <span>{t("hero.neuralLink")}<Sep tone="sage" />{t("hero.stable")}</span>
+              <span>{t("hero.latency")}</span>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={200} className="mx-auto w-full max-w-[440px] lg:mx-0 lg:ml-auto">
-          <Suspense fallback={<HoloScannerFallback />}>
+          <Suspense fallback={<HoloScannerFallback label={t("hero.scanLoading")} />}>
             <HoloScanner />
           </Suspense>
         </Reveal>
@@ -151,12 +115,12 @@ export default function Home({ seo }) {
       <section className="py-10">
         <Reveal>
           <div className="mb-6 flex items-center gap-3">
-            <ClassificationMarker index={user?.highestHeroIndex || 0} size={30} active={!!user} />
+            <ClassificationMarker index={getLocaleHeroProgress(user, i18n.language).highestHeroIndex} size={30} active={!!user} />
             <span className="tech-label text-cream/70">
               {user ? (
-                <>ASCENDANT<Sep tone="gold" />{user.username}</>
+                <>{t("performanceData.ascendant")}<Sep tone="gold" />{user.username}</>
               ) : (
-                <>PERFORMANCE DATA<Sep tone="red" />GUEST SESSION</>
+                <>{t("performanceData.guestHeading")}<Sep tone="red" />{t("performanceData.guestSession")}</>
               )}
             </span>
           </div>
@@ -171,58 +135,59 @@ export default function Home({ seo }) {
         <Reveal>
           <div className="mb-8 flex items-end justify-between">
             <div>
-              <span className="tech-label text-gold-bright">SYSTEM MODULES</span>
+              <span className="tech-label text-gold-bright">{t("modules.heading")}</span>
               <div className="relative mt-2 block">
                 <h2 className="font-display text-3xl font-700 tracking-tight text-cream">
-                  ONE SYSTEM. <span className="text-red">MANY MODULES.</span>
+                  {t("modules.titlePrefix")}<span className="text-red">{t("modules.titleHighlight")}</span>
                 </h2>
                 <span
                   aria-hidden="true"
                   className="text-sweep pointer-events-none absolute inset-0 font-display text-3xl font-700 tracking-tight"
                 >
-                  ONE SYSTEM. MANY MODULES.
+                  {t("modules.titlePrefix")}{t("modules.titleHighlight")}
                 </span>
               </div>
             </div>
           </div>
         </Reveal>
         <div className="grid gap-4 md:grid-cols-2">
-          {MODULES.map((m, i) => (
-            <Reveal key={m.to} delay={i * 90}>
-              <Link
-                to={m.to}
-                data-testid={`module-${m.code}`}
-                className="brd-anim group relative block w-full overflow-hidden border border-bronze/40 bg-navy-dark p-6 text-left transition-all duration-300 hover:border-gold-bright panel-clip-primary"
-              >
-                <span className="brd-top" />
-                <span className="brd-bottom" />
-                <span className="brd-left" />
-                <span className="brd-right" />
-                <div className="flex items-start justify-between">
-                  <span className="font-mono text-[10px] text-red">{m.code}</span>
-                  <span className="tech-label text-bronze transition-colors group-hover:text-gold-bright">ACCESS →</span>
-                </div>
-                <div className="relative mt-4 inline-block">
-                  <h3 className="font-display text-2xl font-700 tracking-wide text-cream transition-colors group-hover:text-gold-bright">
-                    {m.name}
-                  </h3>
-                  <span
-                    aria-hidden="true"
-                    className="text-sweep-red pointer-events-none absolute inset-0 font-display text-2xl font-700 tracking-wide"
-                    style={{ animationDelay: `${i * 400}ms` }}
-                  >
-                    {m.name}
-                  </span>
-                </div>
-                <p className="mt-2 font-body text-sm text-cream/70 txt-shadow">{m.desc}</p>
-                <div
-                  className="mt-5 h-px w-full bg-bronze/30"
+          {MODULES.map((m, i) => {
+            const name = t(`modules.items.${m.key}.name`);
+            return (
+              <Reveal key={m.to} delay={i * 90}>
+                <LocalizedLink
+                  to={m.to}
+                  data-testid={`module-${m.code}`}
+                  className="brd-anim group relative block w-full overflow-hidden border border-bronze/40 bg-navy-dark p-6 text-left transition-all duration-300 hover:border-gold-bright panel-clip-primary"
                 >
-                  <div className="h-full w-0 bg-gold-bright transition-all duration-500 group-hover:w-full" />
-                </div>
-              </Link>
-            </Reveal>
-          ))}
+                  <span className="brd-top" />
+                  <span className="brd-bottom" />
+                  <span className="brd-left" />
+                  <span className="brd-right" />
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono text-[10px] text-red">{m.code}</span>
+                    <span className="tech-label text-bronze transition-colors group-hover:text-gold-bright">{t("modules.access")}</span>
+                  </div>
+                  <div className="relative mt-4 inline-block">
+                    <h3 className="font-display text-2xl font-700 tracking-wide text-cream transition-colors group-hover:text-gold-bright">
+                      {name}
+                    </h3>
+                    <span
+                      aria-hidden="true"
+                      className="text-sweep-red pointer-events-none absolute inset-0 font-display text-2xl font-700 tracking-wide"
+                      style={{ animationDelay: `${i * 400}ms` }}
+                    >
+                      {name}
+                    </span>
+                  </div>
+                  <p className="mt-2 font-body text-sm text-cream/70 txt-shadow">{t(`modules.items.${m.key}.desc`)}</p>
+                  <div className="mt-5 h-px w-full bg-bronze/30">
+                    <div className="h-full w-0 bg-gold-bright transition-all duration-500 group-hover:w-full" />
+                  </div>
+                </LocalizedLink>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -231,48 +196,51 @@ export default function Home({ seo }) {
         <Reveal>
           <div className="mb-4 flex items-center gap-3">
             <span className="h-px w-10 bg-gold" />
-            <span className="tech-label text-gold-bright">THE ASCENDANCY<Sep tone="gold" />HERO ARCHIVE</span>
+            <span className="tech-label text-gold-bright">{t("heroStrip.brand")}<Sep tone="gold" />{t("heroStrip.overline")}</span>
           </div>
           <div className="relative mb-6 mt-2 block">
             <h2 className="font-display text-3xl font-700 tracking-tight text-cream">
-              UNLOCK THEM ALL. <span className="text-red">PROVE YOUR SPEED.</span>
+              {t("heroStrip.titlePrefix")}<span className="text-red">{t("heroStrip.titleHighlight")}</span>
             </h2>
             <span
               aria-hidden="true"
               className="text-sweep pointer-events-none absolute inset-0 font-display text-3xl font-700 tracking-tight"
             >
-              UNLOCK THEM ALL. PROVE YOUR SPEED!
+              {t("heroStrip.titlePrefix")}{t("heroStrip.titleHighlight")}
             </span>
           </div>
         </Reveal>
         <div className="flex gap-3 overflow-x-auto pb-4">
-          {HEROES.map((h, i) => (
-            <Reveal key={h.id} delay={i * 40}>
-              <Link
-                to="/ascendancy"
-                aria-label={`View ${h.name} in the Ascendancy hero classification archive`}
-                title={`View ${h.name} in the Ascendancy hero classification archive`}
-                className="group relative block h-40 w-28 shrink-0 cursor-pointer overflow-hidden border border-bronze/40 panel-clip-primary transition-all duration-300 hover:border-gold-bright hover:shadow-[0_0_20px_rgba(245,197,66,0.25)]"
-              >
-                <img
-                  src={h.image}
-                  srcSet={heroSrcSet(h.image)}
-                  sizes="112px"
-                  alt={h.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover brightness-75 transition-all duration-500 group-hover:scale-110 group-hover:brightness-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent" />
-                <div
-                  className="pointer-events-none absolute left-0 top-0 h-full w-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ background: "linear-gradient(90deg,transparent,rgba(245,197,66,0.25),transparent)", animation: "scan-x 2.2s linear infinite" }}
-                />
-                <span className="absolute bottom-2 left-2 font-display text-xs font-700 text-cream transition-colors group-hover:text-gold-bright">
-                  {h.name}
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+          {HEROES.map((h, i) => {
+            const alt = t("heroStrip.viewAlt", { name: h.name });
+            return (
+              <Reveal key={h.id} delay={i * 40}>
+                <LocalizedLink
+                  to="/ascendancy"
+                  aria-label={alt}
+                  title={alt}
+                  className="group relative block h-40 w-28 shrink-0 cursor-pointer overflow-hidden border border-bronze/40 panel-clip-primary transition-all duration-300 hover:border-gold-bright hover:shadow-[0_0_20px_rgba(245,197,66,0.25)]"
+                >
+                  <img
+                    src={h.image}
+                    srcSet={heroSrcSet(h.image)}
+                    sizes="112px"
+                    alt={h.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover brightness-75 transition-all duration-500 group-hover:scale-110 group-hover:brightness-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent" />
+                  <div
+                    className="pointer-events-none absolute left-0 top-0 h-full w-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ background: "linear-gradient(90deg,transparent,rgba(245,197,66,0.25),transparent)", animation: "scan-x 2.2s linear infinite" }}
+                  />
+                  <span className="absolute bottom-2 left-2 font-display text-xs font-700 text-cream transition-colors group-hover:text-gold-bright">
+                    {h.name}
+                  </span>
+                </LocalizedLink>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -281,28 +249,28 @@ export default function Home({ seo }) {
         <Reveal>
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-10 bg-gold" />
-            <span className="tech-label text-gold-bright">SUPPORT<Sep tone="gold" />FREQUENTLY ASKED</span>
+            <span className="tech-label text-gold-bright">{t("faq.brand")}<Sep tone="gold" />{t("faq.overline")}</span>
           </div>
           <div className="relative mb-6 mt-2 block">
             <h2 className="font-display text-3xl font-700 tracking-tight text-cream">
-              QUESTIONS, <span className="text-red">ANSWERED.</span>
+              {t("faq.titlePrefix")}<span className="text-red">{t("faq.titleHighlight")}</span>
             </h2>
             <span
               aria-hidden="true"
               className="text-sweep pointer-events-none absolute inset-0 font-display text-3xl font-700 tracking-tight"
             >
-              QUESTIONS, ANSWERED.
+              {t("faq.titlePrefix")}{t("faq.titleHighlight")}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
           <Accordion type="single" collapsible className="mt-10 border border-bronze/40 bg-navy-dark panel-clip-primary">
-            {FAQS.map((item, i) => (
+            {faqs.map((item, i) => (
               <AccordionItem
                 key={item.q}
                 value={`faq-${i}`}
-                className={`border-bronze/30 px-8 ${i === FAQS.length - 1 ? "border-b-0" : ""}`}
+                className={`border-bronze/30 px-8 ${i === faqs.length - 1 ? "border-b-0" : ""}`}
               >
                 <AccordionTrigger className="py-8 font-display text-base tracking-wide text-cream hover:no-underline hover:text-gold-bright">
                   {item.q}

@@ -1,0 +1,83 @@
+{
+  "backToHome": "RETOUR À L'ACCUEIL",
+  "pages": {
+    "training-simulator": {
+      "name": "SYSTÈME D'ENTRAÎNEMENT",
+      "eyebrow": "PRODUIT",
+      "tagline": "MESUREZ CHAQUE FRAPPE.",
+      "summary": "Le cœur d'Ascendancy. Réalisez une simulation de frappe chronométrée et obtenez une lecture instantanée et précise de votre vitesse et propreté de frappe réelles.",
+      "features": [
+        "Choisissez une durée de 15 à 120 secondes, et un thème de passage sur le concept d'héroïsme.",
+        "Lectures en direct du MPM, de la précision, de la régularité et du temps restant pendant que vous tapez.",
+        "Une visualisation en temps réel du Noyau de Performance qui réagit à votre intensité de frappe.",
+        "Chaque résultat alimente directement votre classification de héros, votre série et votre score de classement."
+      ],
+      "ctaLabel": "LANCER UNE SIMULATION →"
+    },
+    "classification-archive": {
+      "name": "ARCHIVES DE CLASSIFICATION",
+      "eyebrow": "PRODUIT",
+      "tagline": "DIX HÉROS. UN SEUL CHEMIN.",
+      "summary": "Dix classifications déterministes, de NOVA à SOVEREIGN. Chaque niveau a des seuils fixes de vitesse, précision et régularité — rien n'est noté sur une courbe.",
+      "features": [
+        "Parcourez les dix classifications de héros et les seuils exacts de MPM / précision / régularité exigés par chacune.",
+        "Consultez votre classification actuelle et votre proximité du niveau suivant.",
+        "Une course rapide mais imprécise ne dépassera jamais une course plus lente mais plus propre — les trois mesures comptent.",
+        "Le lore, la personnalité et le pouvoir complets de chaque classification dans les archives."
+      ],
+      "ctaLabel": "VOIR LES ARCHIVES →"
+    },
+    "performance-network": {
+      "name": "RÉSEAU DE PERFORMANCE",
+      "eyebrow": "PRODUIT",
+      "tagline": "AFFRONTEZ LE MONDE ENTIER.",
+      "summary": "Un classement mondial en direct de la meilleure course vérifiée de chaque ascendant — triable par score, MPM ou précision.",
+      "features": [
+        "Triez le réseau par score global, meilleur MPM ou meilleure précision.",
+        "Voyez votre propre rang mis en évidence directement dans le classement.",
+        "Les rangs sont tirés de votre meilleure simulation, pas d'une moyenne — une seule excellente course suffit.",
+        "Mis à jour en temps réel à mesure que de nouveaux résultats arrivent de tout le réseau."
+      ],
+      "ctaLabel": "VOIR LE CLASSEMENT →"
+    },
+    "achievements": {
+      "name": "SUCCÈS",
+      "eyebrow": "PRODUIT",
+      "tagline": "DES JALONS QUI COMPTENT.",
+      "summary": "Neuf succès suivent de véritables jalons dans votre progression — de votre première simulation jusqu'à l'apogée d'Ascendancy.",
+      "features": [
+        "Débloquez des succès pour des jalons de vitesse comme Poussée de Vitesse, Surrégime et Repoussez la Limite.",
+        "Obtenez Précision et Exécution Parfaite pour une précision quasi impeccable et impeccable.",
+        "Ascension, Velocity et Sovereign marquent votre progression à travers les niveaux de héros les plus élevés.",
+        "Chaque succès est permanent une fois débloqué et visible sur votre Console d'Ascendant."
+      ],
+      "ctaLabel": "VOIR LES SUCCÈS →"
+    },
+    "ascendant-console": {
+      "name": "CONSOLE DE L'ASCENDANT",
+      "eyebrow": "COMPTE",
+      "tagline": "VOTRE PROGRESSION, EN UN SEUL ENDROIT.",
+      "summary": "Votre tableau de bord personnel sur le réseau — classification de héros actuelle, meilleure performance, historique complet des simulations et chaque succès débloqué, le tout dans une seule console.",
+      "features": [
+        "Votre classification de héros actuelle, avec un anneau de progression en direct vers le niveau suivant.",
+        "Meilleur et moyen MPM, précision et régularité, suivis à travers chaque simulation que vous avez réalisée.",
+        "Un historique complet de vos simulations récentes, représenté graphiquement dans le temps.",
+        "Chaque succès que vous avez débloqué, de votre première simulation jusqu'à l'apogée d'Ascendancy."
+      ],
+      "ctaLabel": "VOIR VOTRE CONSOLE →"
+    },
+    "sign-in-register": {
+      "name": "CONNEXION / INSCRIPTION",
+      "eyebrow": "COMPTE",
+      "tagline": "CRÉEZ VOTRE PROFIL D'ASCENDANT.",
+      "summary": "Un compte Ascendancy sauvegarde chaque simulation que vous réalisez, suit votre meilleure performance dans le temps et vous place dans le classement mondial. Créé en quelques secondes.",
+      "features": [
+        "Chaque simulation que vous réalisez est sauvegardée définitivement dans l'historique de votre compte.",
+        "Vos meilleurs scores sont enregistrés et utilisés pour classer votre niveau de héros actuel.",
+        "Apparaissez dans le classement mondial du Réseau de Performance, comparé à tous les autres ascendants.",
+        "Construisez une série quotidienne et débloquez des succès en continuant à vous entraîner."
+      ],
+      "ctaLabel": "CONNEXION / INSCRIPTION →"
+    }
+  }
+}

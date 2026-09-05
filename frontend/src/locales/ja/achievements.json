@@ -1,0 +1,9 @@
+{
+  "seo": { "title": "パフォーマンス実績 | Ascendancy", "description": "より速く、より正確にタイプし、Ascendancyのクラス分けを駆け上がることでパフォーマンス実績を解除しよう。" },
+  "overline": "パフォーマンスの節目",
+  "heading": "実績",
+  "authenticate": "認証する",
+  "authPromptSuffix": "ことで実績を追跡できます。",
+  "unlocked": "解除済み",
+  "locked": "ロック中"
+}

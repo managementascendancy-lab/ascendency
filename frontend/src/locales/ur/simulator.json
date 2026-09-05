@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "ٹائپنگ اسپیڈ سمیولیٹر | Ascendancy",
+    "description": "ٹائپنگ سمیولیشن چلائیں۔ 15، 30، 60 یا 120 سیکنڈ میں WPM، درستگی اور استحکام ناپیں۔"
+  },
+  "header": {
+    "overline1": "ٹریننگ سسٹم",
+    "overline2": "گیم نما ٹائپنگ مشق",
+    "heading": "سمیولیشن",
+    "statusLabel": "حیثیت",
+    "status": {
+      "ready": "تیار",
+      "active": "فعال",
+      "complete": "مکمل",
+      "initializing": "شروع ہو رہا ہے"
+    }
+  },
+  "duration": {
+    "label": "دورانیہ"
+  },
+  "topic": {
+    "label": "موضوع",
+    "items": {
+      "courage": "ہمت",
+      "sacrifice": "قربانی",
+      "legacy": "وراثت",
+      "adversity": "مشکلات",
+      "awakening": "بیداری"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "درستگی",
+    "time": "وقت",
+    "consistency": "استحکام"
+  },
+  "performanceCore": {
+    "label": "پرفارمنس کور",
+    "status": "مانیٹر"
+  },
+  "typingEnvironment": {
+    "label": "ٹائپنگ ماحول",
+    "statusLive": "لائیو",
+    "statusStandby": "انتظار میں"
+  },
+  "ready": {
+    "description": "سمیولیشن میں داخل ہوں۔ عبارت کو جتنی تیزی اور درستگی سے ممکن ہو ٹائپ کریں۔ آپ کی کارکردگی آپ کی ہیرو درجہ بندی طے کرتی ہے۔",
+    "beginButton": "سمیولیشن شروع کریں ←"
+  },
+  "countdown": {
+    "go": "جائیں"
+  },
+  "restartButton": "[ دوبارہ شروع کریں ]",
+  "bootLines": [
+    "سسٹم شروع ہو رہا ہے",
+    "نیورل لنک منسلک ہو گیا",
+    "پرفارمنس میٹرکس تیار ہے"
+  ],
+  "reveal": {
+    "stageComplete": "سمیولیشن مکمل",
+    "stageAnalyzing": "کارکردگی کا تجزیہ ہو رہا ہے",
+    "log1": "> پرفارمنس میٹرکس پڑھا جا رہا ہے...",
+    "log2": "> ہیرو آرکائیو چیک ہو رہی ہے...",
+    "log3": "> درجہ بندی جاری ہے...",
+    "heroProfileIdentified": "ہیرو پروفائل کی شناخت ہوئی",
+    "newClassification": "نئی درجہ بندی",
+    "unlockProgressLabel": "غیر مقفل ہو رہا ہے {{current}} / {{total}}",
+    "unlockedBadge": "غیر مقفل",
+    "classificationComplete": "درجہ بندی مکمل",
+    "powerLabel": "طاقت",
+    "scoreLabel": "اسکور",
+    "ascensionProgress": "بلندی کی پیش رفت",
+    "advanceToward": "{{name}} کی طرف بڑھیں — بلند ہونے کے لیے اپنی رفتار، درستگی اور استحکام بڑھائیں۔",
+    "apexReached": "آپ Ascendancy کی چوٹی تک پہنچ گئے ہیں۔",
+    "nextLabel": "اگلا: {{name}}",
+    "maxAscension": "زیادہ سے زیادہ بلندی",
+    "newRecord": "نیا ریکارڈ",
+    "ascensionCompleteBadge": "بلندی مکمل",
+    "retryButton": "سمیولیشن دوبارہ آزمائیں ←",
+    "viewProfileButton": "ہیرو پروفائل دیکھیں",
+    "viewLeaderboardButton": "لیڈر بورڈ دیکھیں",
+    "shareButton": "نتیجہ شیئر کریں",
+    "preparingButton": "تیاری ہو رہی ہے…",
+    "downloadCertButton": "ہیرو سرٹیفکیٹ ڈاؤن لوڈ کریں",
+    "downloadWpmCertButton": "WPM سرٹیفکیٹ ڈاؤن لوڈ کریں",
+    "generatingButton": "تیار ہو رہا ہے…",
+    "shareInstagramButton": "Instagram اسٹوری پر شیئر کریں",
+    "shareText": "میں نے ASCENDANCY پر {{name}} حاصل کر لیا!",
+    "guestAscendant": "مہمان ایسنڈنٹ",
+    "messages": {
+      "certificateSaved": "سرٹیفکیٹ آپ کے ڈاؤن لوڈز میں محفوظ ہو گیا",
+      "wpmCertificateSaved": "WPM سرٹیفکیٹ آپ کے ڈاؤن لوڈز میں محفوظ ہو گیا",
+      "shareLinkStorySticker": "لنک کاپی ہو گیا — اگر آپ اسٹوری/اسٹیٹس پر پوسٹ کریں تو اسے لنک اسٹیکر کے طور پر شامل کریں",
+      "shareImageDownloaded": "تصویر ڈاؤن لوڈ ہو گئی + لنک کاپی ہو گیا — اسے WhatsApp، Instagram، X وغیرہ پر شیئر کریں...",
+      "igPickInstagram": "شیئر مینو میں Instagram منتخب کریں، پھر لنک اسٹیکر شامل کریں — یہ پہلے ہی کاپی ہو چکا ہے",
+      "igNeedsPhone": "Instagram اسٹوریز کے لیے آپ کے فون کی ضرورت ہے — تصویر ڈاؤن لوڈ ہو گئی، لنک کاپی ہو گیا۔ پوسٹ کرنے کے لیے تصویر اپنے فون پر بھیجیں"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "کنسول مطابقت پذیر ہو رہا ہے...",
+  "guest": {
+    "seo": { "title": "ایسنڈنٹ پروفائل | Ascendancy", "description": "اپنی ایسنڈنٹ پروفائل، کارکردگی کا ڈیٹا، اور بلندی کی پیش رفت دیکھیں۔" },
+    "noSimulations": "کوئی سمیولیشن ریکارڈ نہیں ہوئی۔",
+    "prompt": "اپنا ایسنڈنٹ کنسول فعال کرنے کے لیے تصدیق کریں۔",
+    "accessButton": "نیٹ ورک تک رسائی حاصل کریں ←"
+  },
+  "seo": { "description": "آپ کی ایسنڈنٹ پروفائل، کارکردگی کا ڈیٹا، اور بلندی کی پیش رفت۔" },
+  "ascendantConsole": "ایسنڈنٹ کنسول",
+  "currentClassification": { "label": "موجودہ درجہ بندی", "status": "فعال" },
+  "ascension": {
+    "progress": "بلندی کی پیش رفت",
+    "next": "اگلا: {{name}}",
+    "max": "زیادہ سے زیادہ",
+    "requires": "درکار {{wpm}} WPM · {{accuracy}}% درستگی · {{consistency}}% استحکام",
+    "complete": "بلندی مکمل"
+  },
+  "stats": {
+    "bestWpm": "بہترین WPM",
+    "avgWpm": "اوسط WPM",
+    "bestAcc": "بہترین درستگی",
+    "avgAcc": "اوسط درستگی",
+    "bestCns": "بہترین استحکام",
+    "streak": "تسلسل",
+    "simulations": "سمیولیشنز",
+    "charsTyped": "ٹائپ کیے گئے حروف",
+    "score": "اسکور"
+  },
+  "charts": { "wpmHistory": "WPM تاریخ", "accuracyHistory": "درستگی کی تاریخ", "consistency": "استحکام" },
+  "loadingPerformanceData": "کارکردگی کا ڈیٹا لوڈ ہو رہا ہے...",
+  "dangerZone": {
+    "account": "اکاؤنٹ",
+    "heading": "خطرے کا علاقہ",
+    "restrictedStatus": "محدود",
+    "description": "اپنی ایسنڈنٹ پروفائل، سمیولیشن کی تاریخ، اور لیڈر بورڈ پوزیشن کو مستقل طور پر حذف کریں۔",
+    "deleteButton": "اکاؤنٹ حذف کریں",
+    "warning": "یہ عمل مستقل ہے۔ آپ کی پروفائل، سمیولیشن کی تاریخ، اور لیڈر بورڈ پوزیشن حذف ہو جائیں گی اور بحال نہیں کی جا سکیں گی۔",
+    "confirmAccessKey": "رسائی کلید کی تصدیق کریں",
+    "confirmCheckbox": "میں سمجھتا/سمجھتی ہوں کہ یہ واپس نہیں کیا جا سکتا۔",
+    "erasing": "حذف ہو رہا ہے...",
+    "confirmButton": "حذف کرنے کی تصدیق کریں ←",
+    "cancel": "منسوخ کریں"
+  }
+}

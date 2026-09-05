@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "타이핑 가이드 & 팁 | Ascendancy", "description": "타이핑 속도, 정확도, 인체공학, Ascendancy 등급 시스템에 대한 실용적인 가이드." },
+    "overline1": "리소스",
+    "overline2": "가이드",
+    "heading": "트레이닝 가이드",
+    "subtitle": "타이핑 속도, 정확도, 인체공학, 그리고 Ascendancy 등급 시스템이 실제로 어떻게 작동하는지에 대한 실용적이고 군더더기 없는 가이드.",
+    "readGuide": "가이드 읽기 →"
+  },
+  "article": {
+    "allGuides": "← 모든 가이드",
+    "practicePrompt": "실전에 적용할 준비가 되셨나요?",
+    "simulateCta": "타이핑 시뮬레이션 실행 →",
+    "unavailableNotice": "이 문서는 아직 회원님의 언어로 제공되지 않습니다 — 영어 버전을 표시합니다."
+  }
+}

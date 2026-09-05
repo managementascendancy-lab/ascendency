@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Heldenarchiv | Ascendancy", "description": "Zehn Helden. Ein Weg zum Aufstieg. Entdecke das Ascendancy-Helden-Klassifikationsarchiv." },
+  "heroArchive": "HELDENARCHIV",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Ein Helden-Klassifikationstest fürs Tippen mit zehn Helden — ein Weg zum Aufstieg. Deine Geschwindigkeit bestimmt deine Klasse. Deine Genauigkeit bestimmt, wie weit du kommst.",
+  "detail": {
+    "heroId": "HELD_{{index}}",
+    "close": "[ SCHLIESSEN ]",
+    "personality": "PERSÖNLICHKEIT",
+    "power": "KRAFT",
+    "metrics": { "wpm": "WPM", "acc": "GEN", "cns": "KON" },
+    "simulateButton": "SIMULIEREN ZUM KLASSIFIZIEREN →"
+  },
+  "heroCard": {
+    "locked": "PROFIL GESPERRT",
+    "classificationRequired": "KLASSIFIKATION ERFORDERLICH",
+    "metrics": { "wpm": "WPM", "acc": "GEN", "cns": "KON" },
+    "unlockProgress": "FREISCHALTFORTSCHRITT",
+    "classificationAvailable": "KLASSIFIKATION VERFÜGBAR"
+  }
+}

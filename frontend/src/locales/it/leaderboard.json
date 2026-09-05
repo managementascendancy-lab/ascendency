@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Classifica Globale | Ascendancy", "description": "Rete di prestazioni Ascendancy. Competi in PPM, precisione e punteggio di prestazione nella classifica globale." },
+  "overline": "RETE DI PRESTAZIONI",
+  "heading": "CLASSIFICA GLOBALE",
+  "subtitle": "Ogni simulazione alimenta questa classifica globale di digitazione, ordinata per velocità, precisione e costanza insieme — non solo il PPM grezzo.",
+  "sortBy": "ORDINA PER",
+  "sorts": { "score": "PUNTEGGIO", "wpm": "PPM", "accuracy": "PRECISIONE" },
+  "columns": { "rank": "RANGO", "ascendant": "ASCENDENTE", "wpm": "PPM", "acc": "PRE", "hero": "EROE", "score": "PUNTI" },
+  "loading": "CARICAMENTO RETE DI PRESTAZIONI...",
+  "loadError": "DATI NON DISPONIBILI — RETE DI PRESTAZIONI OFFLINE",
+  "empty": "NESSUN ASCENDENTE RILEVATO.",
+  "beginSimulation": "[ AVVIA SIMULAZIONE → ]",
+  "you": "TU"
+}

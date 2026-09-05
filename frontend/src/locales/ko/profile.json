@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "콘솔 동기화 중...",
+  "guest": {
+    "seo": { "title": "어센던트 프로필 | Ascendancy", "description": "당신의 어센던트 프로필, 퍼포먼스 데이터, 어센션 진행 상황을 확인하세요." },
+    "noSimulations": "기록된 시뮬레이션이 없습니다.",
+    "prompt": "어센던트 콘솔을 활성화하려면 인증하세요.",
+    "accessButton": "네트워크 접속 →"
+  },
+  "seo": { "description": "당신의 어센던트 프로필, 퍼포먼스 데이터, 어센션 진행 상황." },
+  "ascendantConsole": "어센던트 콘솔",
+  "currentClassification": { "label": "현재 등급", "status": "진행 중" },
+  "ascension": {
+    "progress": "어센션 진행도",
+    "next": "다음: {{name}}",
+    "max": "최대",
+    "requires": "필요: {{wpm}} WPM · {{accuracy}}% 정확 · {{consistency}}% 일관",
+    "complete": "어센션 완료"
+  },
+  "stats": {
+    "bestWpm": "최고 WPM",
+    "avgWpm": "평균 WPM",
+    "bestAcc": "최고 정확도",
+    "avgAcc": "평균 정확도",
+    "bestCns": "최고 일관성",
+    "streak": "연속 기록",
+    "simulations": "시뮬레이션 수",
+    "charsTyped": "입력한 문자 수",
+    "score": "점수"
+  },
+  "charts": { "wpmHistory": "WPM 기록", "accuracyHistory": "정확도 기록", "consistency": "일관성" },
+  "loadingPerformanceData": "퍼포먼스 데이터 로딩 중...",
+  "dangerZone": {
+    "account": "계정",
+    "heading": "위험 구역",
+    "restrictedStatus": "제한됨",
+    "description": "당신의 어센던트 프로필, 시뮬레이션 기록, 리더보드 순위를 영구적으로 삭제합니다.",
+    "deleteButton": "계정 삭제",
+    "warning": "이 작업은 되돌릴 수 없습니다. 프로필, 시뮬레이션 기록, 리더보드 순위가 삭제되며 복구할 수 없습니다.",
+    "confirmAccessKey": "접속 키 확인",
+    "confirmCheckbox": "되돌릴 수 없다는 것을 이해합니다.",
+    "erasing": "삭제 중...",
+    "confirmButton": "삭제 확인 →",
+    "cancel": "취소"
+  }
+}

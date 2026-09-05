@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "首次模拟", "desc": "完成你的第一次模拟。" },
+  "precision": { "name": "精准", "desc": "达到99%的准确率。" },
+  "speed_surge": { "name": "速度浪潮", "desc": "达到80 WPM。" },
+  "overdrive": { "name": "超速驱动", "desc": "达到100 WPM。" },
+  "break_the_limit": { "name": "突破极限", "desc": "达到120 WPM。" },
+  "perfect_execution": { "name": "完美执行", "desc": "达到100%的准确率。" },
+  "ascension": { "name": "飞升", "desc": "解锁ASCENDANT。" },
+  "velocity": { "name": "VELOCITY", "desc": "达到VELOCITY。" },
+  "sovereign": { "name": "SOVEREIGN", "desc": "达到最高分级。" }
+}

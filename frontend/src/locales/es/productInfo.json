@@ -1,0 +1,83 @@
+{
+  "backToHome": "VOLVER AL INICIO",
+  "pages": {
+    "training-simulator": {
+      "name": "SISTEMA DE ENTRENAMIENTO",
+      "eyebrow": "PRODUCTO",
+      "tagline": "MIDE CADA PULSACIÓN.",
+      "summary": "El núcleo de Ascendancy. Realiza una simulación de mecanografía cronometrada y obtén una lectura instantánea y precisa de qué tan rápido y limpio escribes en realidad.",
+      "features": [
+        "Elige una duración de 15 a 120 segundos, y un tema de pasaje sobre el concepto del heroísmo.",
+        "Lecturas en vivo de PPM, precisión, consistencia y tiempo restante mientras escribes.",
+        "Una visualización en tiempo real del Núcleo de Rendimiento que reacciona a tu intensidad de escritura.",
+        "Cada resultado alimenta directamente tu clasificación de héroe, racha y puntuación en la clasificación."
+      ],
+      "ctaLabel": "INICIAR UNA SIMULACIÓN →"
+    },
+    "classification-archive": {
+      "name": "ARCHIVO DE CLASIFICACIÓN",
+      "eyebrow": "PRODUCTO",
+      "tagline": "DIEZ HÉROES. UN CAMINO.",
+      "summary": "Diez clasificaciones deterministas, de NOVA a SOVEREIGN. Cada nivel tiene umbrales fijos de velocidad, precisión y consistencia — nada se califica con curva.",
+      "features": [
+        "Explora las diez clasificaciones de héroe y los umbrales exactos de PPM / precisión / consistencia que requiere cada una.",
+        "Consulta tu clasificación actual y qué tan cerca estás del siguiente nivel.",
+        "Una ejecución rápida pero imprecisa nunca superará a una más lenta pero limpia — las tres métricas importan.",
+        "Toda la historia, personalidad y poder de cada clasificación en el archivo."
+      ],
+      "ctaLabel": "VER EL ARCHIVO →"
+    },
+    "performance-network": {
+      "name": "RED DE RENDIMIENTO",
+      "eyebrow": "PRODUCTO",
+      "tagline": "COMPITE GLOBALMENTE.",
+      "summary": "Una clasificación global en vivo con la mejor ejecución verificada de cada ascendente — ordenable por puntuación, PPM o precisión.",
+      "features": [
+        "Ordena la red por puntuación total, mejor PPM o mejor precisión.",
+        "Consulta tu propio rango destacado directamente en la clasificación.",
+        "Los rangos se basan en tu mejor simulación, no en un promedio — una gran ejecución es todo lo que necesitas.",
+        "Actualizada en tiempo real conforme llegan nuevos resultados de toda la red."
+      ],
+      "ctaLabel": "VER CLASIFICACIÓN →"
+    },
+    "achievements": {
+      "name": "LOGROS",
+      "eyebrow": "PRODUCTO",
+      "tagline": "HITOS QUE IMPORTAN.",
+      "summary": "Nueve logros siguen hitos reales en tu progresión — desde tu primera simulación hasta alcanzar el apogeo de Ascendancy.",
+      "features": [
+        "Desbloquea logros por hitos de velocidad como Oleada de Velocidad, Sobrecarga y Rompe el Límite.",
+        "Consigue Precisión y Ejecución Perfecta por una precisión casi impecable e impecable.",
+        "Ascensión, Velocity y Sovereign marcan tu progreso a través de los niveles de héroe más altos.",
+        "Cada logro es permanente una vez desbloqueado y visible en tu Consola de Ascendente."
+      ],
+      "ctaLabel": "VER LOGROS →"
+    },
+    "ascendant-console": {
+      "name": "CONSOLA DEL ASCENDENTE",
+      "eyebrow": "CUENTA",
+      "tagline": "TU PROGRESO, EN UN SOLO LUGAR.",
+      "summary": "Tu panel personal en la red — clasificación de héroe actual, mejor rendimiento, historial completo de simulaciones y cada logro que has desbloqueado, todo en una sola consola.",
+      "features": [
+        "Tu clasificación de héroe actual, con un anillo de progreso en vivo hacia el siguiente nivel.",
+        "Mejor y promedio de PPM, precisión y consistencia, seguidos en cada simulación que has realizado.",
+        "Un historial completo de tus simulaciones recientes, graficado a lo largo del tiempo.",
+        "Cada logro que has desbloqueado, desde tu primera simulación hasta alcanzar el apogeo de Ascendancy."
+      ],
+      "ctaLabel": "VER TU CONSOLA →"
+    },
+    "sign-in-register": {
+      "name": "INICIAR SESIÓN / REGISTRARSE",
+      "eyebrow": "CUENTA",
+      "tagline": "CREA TU PERFIL DE ASCENDENTE.",
+      "summary": "Una cuenta de Ascendancy guarda cada simulación que realizas, sigue tu mejor rendimiento a lo largo del tiempo y te coloca en la clasificación global. Se crea en segundos.",
+      "features": [
+        "Cada simulación que realizas se guarda permanentemente en el historial de tu cuenta.",
+        "Tus mejores puntuaciones se registran y se usan para clasificar tu nivel de héroe actual.",
+        "Aparece en la clasificación global de la Red de Rendimiento, comparado con todos los demás ascendentes.",
+        "Construye una racha diaria y desbloquea logros mientras sigues entrenando."
+      ],
+      "ctaLabel": "INICIAR SESIÓN / REGISTRARSE →"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "最初のシミュレーション", "desc": "最初のシミュレーションを完了する。" },
+  "precision": { "name": "精密", "desc": "正確性99%に到達する。" },
+  "speed_surge": { "name": "スピードサージ", "desc": "80 WPMに到達する。" },
+  "overdrive": { "name": "オーバードライブ", "desc": "100 WPMに到達する。" },
+  "break_the_limit": { "name": "限界突破", "desc": "120 WPMに到達する。" },
+  "perfect_execution": { "name": "完璧な実行", "desc": "正確性100%に到達する。" },
+  "ascension": { "name": "アセンション", "desc": "ASCENDANTを解除する。" },
+  "velocity": { "name": "VELOCITY", "desc": "VELOCITYに到達する。" },
+  "sovereign": { "name": "SOVEREIGN", "desc": "最高のクラス分けに到達する。" }
+}

@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "Test de Vitesse de Frappe et MPM | Ascendancy",
+    "description": "Mesurez votre vitesse de frappe, précision et régularité. Réalisez des simulations, débloquez des classifications de héros et grimpez dans le classement Ascendancy."
+  },
+  "hero": {
+    "overline": "PROTOCOLE DE PERFORMANCE",
+    "headingLine1": "À QUELLE VITESSE",
+    "headingLine2Prefix": "POUVEZ-VOUS ",
+    "headingLine2Highlight": "TAPER ?",
+    "subtitle": "Ceci est un test de classification de héros par la frappe — entrez dans la simulation, mesurez votre performance et découvrez votre ascension. Obtenez votre certificat !",
+    "beginSimulation": "LANCER LA SIMULATION →",
+    "viewAscendancy": "VOIR ASCENDANCY",
+    "neuralLink": "LIEN NEURAL",
+    "stable": "STABLE",
+    "latency": "LATENCE 004ms",
+    "scanLoading": "ANALYSE EN COURS"
+  },
+  "performanceData": {
+    "ascendant": "ASCENDANT",
+    "guestHeading": "DONNÉES DE PERFORMANCE",
+    "guestSession": "SESSION INVITÉ"
+  },
+  "modules": {
+    "heading": "MODULES DU SYSTÈME",
+    "titlePrefix": "UN SYSTÈME. ",
+    "titleHighlight": "PLUSIEURS MODULES.",
+    "access": "ACCÉDER →",
+    "items": {
+      "training": { "name": "SYSTÈME D'ENTRAÎNEMENT", "desc": "Entrez dans la simulation et mesurez votre performance." },
+      "classification": { "name": "ARCHIVES DE CLASSIFICATION", "desc": "Dix niveaux de héros. Un seul chemin vers l'ascension." },
+      "performance": { "name": "RÉSEAU DE PERFORMANCE", "desc": "Affrontez le classement mondial." },
+      "console": { "name": "CONSOLE DE L'ASCENDANT", "desc": "Suivez votre ascension et vos données de performance." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "ARCHIVES DES HÉROS",
+    "titlePrefix": "DÉBLOQUEZ-LES TOUS. ",
+    "titleHighlight": "PROUVEZ VOTRE VITESSE.",
+    "viewAlt": "Voir {{name}} dans les archives de classification des héros d'Ascendancy"
+  },
+  "faq": {
+    "brand": "ASSISTANCE",
+    "overline": "QUESTIONS FRÉQUENTES",
+    "titlePrefix": "QUESTIONS, ",
+    "titleHighlight": "RÉPONSES.",
+    "items": [
+      { "q": "Qu'est-ce qu'Ascendancy ?", "a": "Ascendancy est un simulateur de frappe qui mesure votre vitesse, précision et régularité, puis vous classe parmi dix héros selon votre performance — de NOVA au départ à SOVEREIGN au sommet." },
+      { "q": "Ai-je besoin d'un compte pour faire une simulation ?", "a": "Non — n'importe qui peut faire une simulation en tant qu'invité et voir ses résultats. Créer un compte permet au réseau de sauvegarder votre historique, suivre vos meilleurs scores, débloquer des succès et vous placer dans le classement." },
+      { "q": "Comment ma classification de héros est-elle déterminée ?", "a": "Chaque héros a des seuils minimums de MPM, précision et régularité. Après chaque simulation, vous êtes classé comme le héros le plus élevé dont vous remplissez les exigences — la vitesse seule ne suffit pas, les trois mesures comptent." },
+      { "q": "Comment le MPM est-il calculé ?", "a": "Les mots par minute sont calculés à partir de vos caractères correctement tapés, selon la convention standard de 5 caractères par mot, divisé par le temps écoulé en minutes." },
+      { "q": "Puis-je obtenir une preuve de ma vitesse de frappe ?", "a": "Oui. Après une simulation, vous pouvez télécharger une carte de héros partageable, un certificat MPM professionnel adapté à un CV ou un portfolio, ou partager votre résultat directement sur WhatsApp, Instagram, X et plus." },
+      { "q": "Le classement est-il équitable ?", "a": "Votre score de classement se base sur votre meilleure simulation vérifiée, pondérant ensemble vitesse, précision et régularité — une course rapide mais bâclée ne dépassera donc pas une course plus lente mais plus propre." }
+    ]
+  }
+}

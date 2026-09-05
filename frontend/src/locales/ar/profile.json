@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "جارٍ مزامنة وحدة التحكم...",
+  "guest": {
+    "seo": { "title": "ملف الصاعد الشخصي | Ascendancy", "description": "اطّلع على ملفك الشخصي كصاعد وبيانات أدائك وتقدّم صعودك." },
+    "noSimulations": "لم تُسجَّل أي محاكاة.",
+    "prompt": "سجّل الدخول لتفعيل وحدة تحكم الصاعد الخاصة بك.",
+    "accessButton": "الوصول إلى الشبكة ←"
+  },
+  "seo": { "description": "ملفك الشخصي كصاعد، وبيانات أدائك، وتقدّم صعودك." },
+  "ascendantConsole": "وحدة تحكم الصاعد",
+  "currentClassification": { "label": "التصنيف الحالي", "status": "نشط" },
+  "ascension": {
+    "progress": "تقدّم الصعود",
+    "next": "التالي: {{name}}",
+    "max": "الأقصى",
+    "requires": "يتطلب {{wpm}} WPM · {{accuracy}}% دقة · {{consistency}}% ثبات",
+    "complete": "اكتمل الصعود"
+  },
+  "stats": {
+    "bestWpm": "أفضل WPM",
+    "avgWpm": "متوسط WPM",
+    "bestAcc": "أفضل دقة",
+    "avgAcc": "متوسط الدقة",
+    "bestCns": "أفضل ثبات",
+    "streak": "سلسلة الأيام",
+    "simulations": "المحاكاة",
+    "charsTyped": "الأحرف المكتوبة",
+    "score": "النتيجة"
+  },
+  "charts": { "wpmHistory": "سجل WPM", "accuracyHistory": "سجل الدقة", "consistency": "الثبات" },
+  "loadingPerformanceData": "جارٍ تحميل بيانات الأداء...",
+  "dangerZone": {
+    "account": "الحساب",
+    "heading": "منطقة الخطر",
+    "restrictedStatus": "مقيّد",
+    "description": "احذف نهائيًا ملفك الشخصي كصاعد وسجل محاكاتك ومركزك في لوحة الصدارة.",
+    "deleteButton": "حذف الحساب",
+    "warning": "هذا الإجراء نهائي. سيتم حذف ملفك الشخصي وسجل محاكاتك ومركزك في لوحة الصدارة، ولن يمكن استعادتها.",
+    "confirmAccessKey": "تأكيد مفتاح الوصول",
+    "confirmCheckbox": "أدرك أن هذا الإجراء لا يمكن التراجع عنه.",
+    "erasing": "جارٍ الحذف...",
+    "confirmButton": "تأكيد الحذف ←",
+    "cancel": "إلغاء"
+  }
+}

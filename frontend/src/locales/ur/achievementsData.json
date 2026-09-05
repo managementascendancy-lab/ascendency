@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "پہلی سمیولیشن", "desc": "اپنی پہلی سمیولیشن مکمل کریں۔" },
+  "precision": { "name": "درستگی", "desc": "99% درستگی حاصل کریں۔" },
+  "speed_surge": { "name": "رفتار کا اضافہ", "desc": "80 WPM حاصل کریں۔" },
+  "overdrive": { "name": "اووردرائیو", "desc": "100 WPM حاصل کریں۔" },
+  "break_the_limit": { "name": "حد توڑ دیں", "desc": "120 WPM حاصل کریں۔" },
+  "perfect_execution": { "name": "کامل عملدرآمد", "desc": "100% درستگی حاصل کریں۔" },
+  "ascension": { "name": "بلندی", "desc": "ASCENDANT کھولیں۔" },
+  "velocity": { "name": "VELOCITY", "desc": "VELOCITY حاصل کریں۔" },
+  "sovereign": { "name": "SOVEREIGN", "desc": "بلند ترین درجہ بندی حاصل کریں۔" }
+}

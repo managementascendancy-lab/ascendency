@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "첫 시뮬레이션", "desc": "첫 시뮬레이션을 완료하세요." },
+  "precision": { "name": "정밀함", "desc": "정확도 99%에 도달하세요." },
+  "speed_surge": { "name": "스피드 서지", "desc": "80 WPM에 도달하세요." },
+  "overdrive": { "name": "오버드라이브", "desc": "100 WPM에 도달하세요." },
+  "break_the_limit": { "name": "한계 돌파", "desc": "120 WPM에 도달하세요." },
+  "perfect_execution": { "name": "완벽한 실행", "desc": "정확도 100%에 도달하세요." },
+  "ascension": { "name": "어센션", "desc": "ASCENDANT를 해제하세요." },
+  "velocity": { "name": "VELOCITY", "desc": "VELOCITY에 도달하세요." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "최고 등급에 도달하세요." }
+}

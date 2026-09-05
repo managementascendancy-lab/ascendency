@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "PRIMERA SIMULACIÓN", "desc": "Completa tu primera simulación." },
+  "precision": { "name": "PRECISIÓN", "desc": "Alcanza el 99% de precisión." },
+  "speed_surge": { "name": "OLEADA DE VELOCIDAD", "desc": "Alcanza 80 PPM." },
+  "overdrive": { "name": "SOBRECARGA", "desc": "Alcanza 100 PPM." },
+  "break_the_limit": { "name": "ROMPE EL LÍMITE", "desc": "Alcanza 120 PPM." },
+  "perfect_execution": { "name": "EJECUCIÓN PERFECTA", "desc": "Alcanza el 100% de precisión." },
+  "ascension": { "name": "ASCENSIÓN", "desc": "Desbloquea ASCENDANT." },
+  "velocity": { "name": "VELOCITY", "desc": "Alcanza VELOCITY." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "Alcanza la clasificación más alta." }
+}

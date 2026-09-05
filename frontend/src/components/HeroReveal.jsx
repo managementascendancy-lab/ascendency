@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import html2canvas from "html2canvas";
+import { useTranslation } from "react-i18next";
 import AscensionRing from "@/components/AscensionRing";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import AscButton from "@/components/AscButton";
@@ -9,6 +10,10 @@ import CertificateCard from "@/components/CertificateCard";
 import { useSound } from "@/context/SoundContext";
 import { Sep, Mark } from "@/components/Sep";
 import { heroSrcSet } from "@/lib/heroImage";
+import { useTranslatedHero } from "@/data/useTranslatedHero";
+import { heroByIndex } from "@/data/heroes";
+
+const UNLOCK_STEP_MS = 750;
 
 function InstagramIcon({ size = 16 }) {
   return (
@@ -30,7 +35,15 @@ export default function HeroReveal({
   user,
   onRetry,
 }) {
+  const { t } = useTranslation("simulator");
+  const heroT = useTranslatedHero(hero);
+  const unlockedHeroes = (flags.newlyUnlockedIndices || []).map(heroByIndex);
+  // 0 = SIMULATION COMPLETE, 1 = ANALYZING, 2 = UNLOCKING (only when
+  // unlockedHeroes.length > 0 — a single run can cross several
+  // classifications at once), 3 = full REVEAL.
   const [stage, setStage] = useState(0);
+  const [unlockStep, setUnlockStep] = useState(0);
+  const unlockingHero = useTranslatedHero(unlockedHeroes[unlockStep] || null);
   const [sharing, setSharing] = useState(false);
   const [sharingIg, setSharingIg] = useState(false);
   const [downloading, setDownloading] = useState(false);
@@ -72,7 +85,7 @@ export default function HeroReveal({
       a.download = file.name;
       a.click();
       URL.revokeObjectURL(url);
-      flashMsg("CERTIFICATE SAVED TO YOUR DOWNLOADS");
+      flashMsg(t("reveal.messages.certificateSaved"));
     } finally {
       setDownloading(false);
     }
@@ -90,7 +103,7 @@ export default function HeroReveal({
       a.download = file.name;
       a.click();
       URL.revokeObjectURL(url);
-      flashMsg("WPM CERTIFICATE SAVED TO YOUR DOWNLOADS");
+      flashMsg(t("reveal.messages.wpmCertificateSaved"));
     } finally {
       setDownloadingCert(false);
     }
@@ -107,12 +120,12 @@ export default function HeroReveal({
 
       const file = await captureCard();
       if (!file) return;
-      const shareData = { files: [file], title: "ASCENDANCY", text: `I reached ${hero.name} on ASCENDANCY!` };
+      const shareData = { files: [file], title: "ASCENDANCY", text: t("reveal.shareText", { name: hero.name }) };
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
           await navigator.share(shareData);
-          flashMsg("LINK COPIED — ADD IT AS A LINK STICKER IF YOU POST TO A STORY/STATUS");
+          flashMsg(t("reveal.messages.shareLinkStorySticker"));
         } catch {
           /* user cancelled the share sheet */
         }
@@ -123,7 +136,7 @@ export default function HeroReveal({
         a.download = file.name;
         a.click();
         URL.revokeObjectURL(url);
-        flashMsg("IMAGE DOWNLOADED + LINK COPIED — SHARE IT ON WHATSAPP, INSTAGRAM, X...");
+        flashMsg(t("reveal.messages.shareImageDownloaded"));
       }
     } finally {
       setSharing(false);
@@ -141,8 +154,8 @@ export default function HeroReveal({
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
-          await navigator.share({ files: [file], title: "ASCENDANCY", text: `I reached ${hero.name} on ASCENDANCY!` });
-          flashMsg("PICK INSTAGRAM IN THE SHARE SHEET, THEN ADD THE LINK STICKER — IT'S COPIED");
+          await navigator.share({ files: [file], title: "ASCENDANCY", text: t("reveal.shareText", { name: hero.name }) });
+          flashMsg(t("reveal.messages.igPickInstagram"));
         } catch {
           /* user cancelled the share sheet */
         }
@@ -154,7 +167,7 @@ export default function HeroReveal({
         a.download = file.name;
         a.click();
         URL.revokeObjectURL(url);
-        flashMsg("INSTAGRAM STORIES NEEDS YOUR PHONE — IMAGE DOWNLOADED, LINK COPIED. SEND THE IMAGE TO YOUR PHONE TO POST IT");
+        flashMsg(t("reveal.messages.igNeedsPhone"));
       }
     } finally {
       setSharingIg(false);
@@ -162,18 +175,43 @@ export default function HeroReveal({
   };
 
   useEffect(() => {
-    const t1 = setTimeout(() => {
-      setStage(1);
-      sound?.play("analyze");
-    }, 900);
-    const t2 = setTimeout(() => {
-      setStage(2);
-      sound?.play("reveal");
-    }, 2600);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
+    const timers = [];
+    timers.push(
+      setTimeout(() => {
+        setStage(1);
+        sound?.play("analyze");
+      }, 900)
+    );
+
+    if (unlockedHeroes.length > 0) {
+      // Step through every newly-crossed hero one at a time before the
+      // final full reveal, so a multi-tier jump is legible as a sequence
+      // rather than just landing on the last classification.
+      unlockedHeroes.forEach((_, i) => {
+        timers.push(
+          setTimeout(() => {
+            setStage(2);
+            setUnlockStep(i);
+            sound?.play(i === 0 ? "reveal" : "click");
+          }, 2600 + i * UNLOCK_STEP_MS)
+        );
+      });
+      timers.push(
+        setTimeout(() => {
+          setStage(3);
+          sound?.play("reveal");
+        }, 2600 + unlockedHeroes.length * UNLOCK_STEP_MS)
+      );
+    } else {
+      timers.push(
+        setTimeout(() => {
+          setStage(3);
+          sound?.play("reveal");
+        }, 2600)
+      );
+    }
+
+    return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -191,7 +229,7 @@ export default function HeroReveal({
         <CertificateCard
           ref={certRef}
           result={result}
-          recipientName={user?.username ? user.username.toUpperCase() : "GUEST ASCENDANT"}
+          recipientName={user?.username ? user.username.toUpperCase() : t("reveal.guestAscendant")}
           certId={certId}
         />
       </div>
@@ -206,7 +244,7 @@ export default function HeroReveal({
             className="relative z-10 flex flex-col items-center gap-6 px-6 text-center"
           >
             <div className="font-display text-2xl font-700 tracking-[0.2em] text-cream sm:text-4xl">
-              {stage === 0 ? "SIMULATION COMPLETE" : "ANALYZING PERFORMANCE"}
+              {stage === 0 ? t("reveal.stageComplete") : t("reveal.stageAnalyzing")}
             </div>
             <div className="flex gap-2">
               {[0, 1, 2, 3, 4].map((i) => (
@@ -219,10 +257,40 @@ export default function HeroReveal({
               ))}
             </div>
             <div className="space-y-1 font-mono text-[11px] text-sage">
-              <div>{"> READING PERFORMANCE MATRIX..."}</div>
-              {stage === 1 && <div>{"> CROSS-REFERENCING HERO ARCHIVE..."}</div>}
-              {stage === 1 && <div className="text-gold-bright">{"> CLASSIFICATION IN PROGRESS..."}</div>}
+              <div>{t("reveal.log1")}</div>
+              {stage === 1 && <div>{t("reveal.log2")}</div>}
+              {stage === 1 && <div className="text-gold-bright">{t("reveal.log3")}</div>}
             </div>
+          </motion.div>
+        ) : stage === 2 ? (
+          <motion.div
+            key={`unlock-${unlockStep}`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="relative z-10 flex flex-col items-center gap-4 px-6 text-center"
+            data-testid="hero-unlock-step"
+          >
+            <span className="tech-label text-gold-bright">
+              {t("reveal.unlockProgressLabel", { current: unlockStep + 1, total: unlockedHeroes.length })}
+            </span>
+            <div className="relative h-40 w-40 overflow-hidden panel-clip-primary border border-gold-bright/60 sm:h-52 sm:w-52">
+              <img
+                src={unlockedHeroes[unlockStep]?.image}
+                srcSet={heroSrcSet(unlockedHeroes[unlockStep]?.image)}
+                sizes="208px"
+                alt={unlockedHeroes[unlockStep]?.name}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent" />
+            </div>
+            <div className="font-display text-3xl font-700 tracking-wide text-cream sm:text-4xl">
+              {unlockedHeroes[unlockStep]?.name}
+            </div>
+            <span className="tech-label text-red">{t("reveal.unlockedBadge")}</span>
+            <p className="max-w-xs font-body text-xs text-cream/60">{unlockingHero.title}</p>
           </motion.div>
         ) : (
           <motion.div
@@ -247,7 +315,7 @@ export default function HeroReveal({
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-navy-dark/40" />
-              <div className="absolute left-3 top-3 tech-label text-gold-bright">HERO PROFILE IDENTIFIED</div>
+              <div className="absolute left-3 top-3 tech-label text-gold-bright">{t("reveal.heroProfileIdentified")}</div>
               <div className="absolute bottom-3 left-3">
                 <ClassificationMarker index={hero.index} active size={40} />
               </div>
@@ -258,7 +326,7 @@ export default function HeroReveal({
                   transition={{ delay: 0.6, type: "spring" }}
                   className="absolute right-3 top-3 border border-red bg-navy-dark px-2 py-1 tech-label text-red"
                 >
-                  NEW CLASSIFICATION
+                  {t("reveal.newClassification")}
                 </motion.div>
               )}
             </motion.div>
@@ -266,14 +334,14 @@ export default function HeroReveal({
             {/* data */}
             <div className="flex flex-col justify-center">
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-                <span className="tech-label text-gold">CLASSIFICATION COMPLETE</span>
+                <span className="tech-label text-gold">{t("reveal.classificationComplete")}</span>
                 <h2 className="font-display text-5xl font-700 tracking-wide text-cream display-outline sm:text-6xl">
                   {hero.name}
                 </h2>
-                <p className="tech-label mt-1 text-gold-bright">{hero.title}<Sep tone="gold" />{hero.class}</p>
-                <p className="mt-3 max-w-md font-body text-sm text-cream/70">{hero.description}</p>
+                <p className="tech-label mt-1 text-gold-bright">{heroT.title}<Sep tone="gold" />{heroT.class}</p>
+                <p className="mt-3 max-w-md font-body text-sm text-cream/70">{heroT.description}</p>
                 <p className="mt-2 font-mono text-xs text-sage">
-                  <span className="text-gold-bright">POWER</span><Sep tone="sage" />{hero.power}
+                  <span className="text-gold-bright">{t("reveal.powerLabel")}</span><Sep tone="sage" />{heroT.power}
                 </p>
               </motion.div>
 
@@ -284,10 +352,10 @@ export default function HeroReveal({
                 className="mt-5 grid grid-cols-2 gap-px border border-bronze/40 bg-bronze/40 sm:grid-cols-4"
               >
                 {[
-                  ["WPM", Math.round(result.wpm), "text-gold-bright"],
-                  ["ACCURACY", `${result.accuracy.toFixed(0)}%`, "text-sage"],
-                  ["CONSISTENCY", `${Math.round(result.consistency)}%`, "text-cream"],
-                  ["SCORE", result.score, "text-red"],
+                  [t("metrics.wpm"), Math.round(result.wpm), "text-gold-bright"],
+                  [t("metrics.accuracy"), `${result.accuracy.toFixed(0)}%`, "text-sage"],
+                  [t("metrics.consistency"), `${Math.round(result.consistency)}%`, "text-cream"],
+                  [t("reveal.scoreLabel"), result.score, "text-red"],
                 ].map(([k, v, c]) => (
                   <div key={k} className="bg-navy-dark px-3 py-3">
                     <div className="tech-label text-highlight">{k}</div>
@@ -305,18 +373,16 @@ export default function HeroReveal({
                 <AscensionRing
                   progress={ascensionProgress}
                   label={hero.name}
-                  sublabel={nextHero ? `NEXT: ${nextHero.name}` : "MAX ASCENSION"}
+                  sublabel={nextHero ? t("reveal.nextLabel", { name: nextHero.name }) : t("reveal.maxAscension")}
                   size={150}
                 />
                 <div className="flex-1">
-                  <div className="tech-label text-gold-bright">ASCENSION PROGRESS</div>
+                  <div className="tech-label text-gold-bright">{t("reveal.ascensionProgress")}</div>
                   <p className="mt-2 font-body text-sm text-cream/70">
-                    {nextHero
-                      ? `Advance toward ${nextHero.name} — raise your speed, accuracy and consistency to ascend.`
-                      : "You have reached the apex of the Ascendancy."}
+                    {nextHero ? t("reveal.advanceToward", { name: nextHero.name }) : t("reveal.apexReached")}
                   </p>
-                  {flags.isPersonalBest && <div className="mt-2 tech-label text-gold-bright"><Mark tone="gold" />NEW RECORD</div>}
-                  {flags.isAscensionComplete && <div className="mt-1 tech-label text-red"><Mark tone="red" />ASCENSION COMPLETE</div>}
+                  {flags.isPersonalBest && <div className="mt-2 tech-label text-gold-bright"><Mark tone="gold" />{t("reveal.newRecord")}</div>}
+                  {flags.isAscensionComplete && <div className="mt-1 tech-label text-red"><Mark tone="red" />{t("reveal.ascensionCompleteBadge")}</div>}
                 </div>
               </motion.div>
 
@@ -327,26 +393,26 @@ export default function HeroReveal({
                 className="mt-6 grid grid-cols-2 gap-3"
               >
                 <AscButton variant="red" className="w-full justify-center" onClick={onRetry} data-testid="reveal-retry-btn">
-                  RETRY SIMULATION →
+                  {t("reveal.retryButton")}
                 </AscButton>
                 <AscButton className="w-full justify-center" to="/profile" data-testid="reveal-profile-btn">
-                  VIEW HERO PROFILE
+                  {t("reveal.viewProfileButton")}
                 </AscButton>
                 <AscButton className="w-full justify-center" to="/leaderboard" data-testid="reveal-leaderboard-btn">
-                  VIEW LEADERBOARD
+                  {t("reveal.viewLeaderboardButton")}
                 </AscButton>
                 <AscButton className="w-full justify-center" onClick={shareResult} disabled={sharing} data-testid="reveal-share-btn">
-                  {sharing ? "PREPARING…" : "SHARE RESULT"}
+                  {sharing ? t("reveal.preparingButton") : t("reveal.shareButton")}
                 </AscButton>
                 <AscButton className="w-full justify-center" onClick={downloadCertificate} disabled={downloading} data-testid="reveal-download-certificate-btn">
-                  {downloading ? "GENERATING…" : "DOWNLOAD HERO CERTIFICATE"}
+                  {downloading ? t("reveal.generatingButton") : t("reveal.downloadCertButton")}
                 </AscButton>
                 <AscButton className="w-full justify-center" onClick={downloadProfessionalCertificate} disabled={downloadingCert} data-testid="reveal-download-wpm-certificate-btn">
-                  {downloadingCert ? "GENERATING…" : "DOWNLOAD WPM CERTIFICATE"}
+                  {downloadingCert ? t("reveal.generatingButton") : t("reveal.downloadWpmCertButton")}
                 </AscButton>
                 <AscButton className="col-span-2 w-full justify-center" onClick={shareToInstagramStory} disabled={sharingIg} data-testid="reveal-share-instagram-btn">
                   <InstagramIcon size={16} />
-                  {sharingIg ? "PREPARING…" : "SHARE TO INSTAGRAM STORY"}
+                  {sharingIg ? t("reveal.preparingButton") : t("reveal.shareInstagramButton")}
                 </AscButton>
               </motion.div>
               {shareMsg && (

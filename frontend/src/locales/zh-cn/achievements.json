@@ -1,0 +1,9 @@
+{
+  "seo": { "title": "性能成就 | Ascendancy", "description": "随着你打字更快、更准确并在Ascendancy分级中不断攀升，解锁性能成就。" },
+  "overline": "性能里程碑",
+  "heading": "成就",
+  "authenticate": "进行身份验证",
+  "authPromptSuffix": "以追踪你的成就。",
+  "unlocked": "已解锁",
+  "locked": "已锁定"
+}

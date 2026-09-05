@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "ہوم",
+    "simulator": "سمیولیٹر",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "لیڈر بورڈ",
+    "guides": "گائیڈز",
+    "profile": "میری پروفائل",
+    "online": "آن لائن",
+    "muteSound": "آواز خاموش کریں",
+    "enableSound": "آواز فعال کریں",
+    "logout": "لاگ آؤٹ",
+    "access": "رسائی",
+    "brandTag": "ٹائپنگ انیشیٹو"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "گرڈ · ASC-CORE",
+    "sectorSignal": "سیکٹر · ASC-07",
+    "signalStable": "سگنل · مستحکم"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCY نیٹ ورک آن لائن",
+      "نیورل لنک فعال",
+      "سمیولیشن تیار ہے",
+      "پرفارمنس میٹرکس آن لائن",
+      "ایسنشن پروٹوکول فعال",
+      "ڈیٹا مطابقت پذیر",
+      "ٹریننگ سسٹم آن لائن"
+    ]
+  },
+  "footer": {
+    "tagline": "اپنی ٹائپنگ رفتار، درستگی اور استحکام ناپیں۔ ہیرو کی درجہ بندیاں کھولیں اور نیٹ ورک میں آگے بڑھیں۔",
+    "productHeading": "پروڈکٹ",
+    "accountHeading": "اکاؤنٹ",
+    "legalHeading": "قانونی",
+    "trainingSimulator": "ٹریننگ سمیولیٹر",
+    "classificationArchive": "درجہ بندی آرکائیو",
+    "performanceNetwork": "پرفارمنس نیٹ ورک",
+    "achievements": "کامیابیاں",
+    "guides": "گائیڈز",
+    "ascendantConsole": "ایسنڈنٹ کنسول",
+    "signInRegister": "سائن ان / رجسٹر",
+    "privacyPolicy": "پرائیویسی پالیسی",
+    "termsOfService": "شرائطِ خدمت",
+    "motto": "ٹائپ کریں۔ مشق کریں۔ بلند ہوں۔",
+    "copyright": "ASCENDANCY انیشیٹو © 2026",
+    "advertisement": "اشتہار"
+  }
+}

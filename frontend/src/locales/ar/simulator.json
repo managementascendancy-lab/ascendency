@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "محاكي سرعة الكتابة | Ascendancy",
+    "description": "شغّل محاكاة كتابة. قِس WPM والدقة والثبات خلال 15 أو 30 أو 60 أو 120 ثانية."
+  },
+  "header": {
+    "overline1": "نظام التدريب",
+    "overline2": "تدريب كتابة تفاعلي",
+    "heading": "المحاكاة",
+    "statusLabel": "الحالة",
+    "status": {
+      "ready": "جاهز",
+      "active": "نشط",
+      "complete": "مكتمل",
+      "initializing": "جارٍ البدء"
+    }
+  },
+  "duration": {
+    "label": "المدة"
+  },
+  "topic": {
+    "label": "الموضوع",
+    "items": {
+      "courage": "الشجاعة",
+      "sacrifice": "التضحية",
+      "legacy": "الإرث",
+      "adversity": "الشدائد",
+      "awakening": "الصحوة"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "الدقة",
+    "time": "الوقت",
+    "consistency": "الثبات"
+  },
+  "performanceCore": {
+    "label": "نواة الأداء",
+    "status": "مراقبة"
+  },
+  "typingEnvironment": {
+    "label": "بيئة الكتابة",
+    "statusLive": "مباشر",
+    "statusStandby": "في الانتظار"
+  },
+  "ready": {
+    "description": "ادخل المحاكاة. اكتب المقطع بأقصى سرعة ودقة ممكنة. أداؤك يحدد تصنيف بطلك.",
+    "beginButton": "ابدأ المحاكاة ←"
+  },
+  "countdown": {
+    "go": "انطلق"
+  },
+  "restartButton": "[ إعادة البدء ]",
+  "bootLines": [
+    "جارٍ تشغيل النظام",
+    "تم الاتصال بالرابط العصبي",
+    "مصفوفة الأداء جاهزة"
+  ],
+  "reveal": {
+    "stageComplete": "اكتملت المحاكاة",
+    "stageAnalyzing": "جارٍ تحليل الأداء",
+    "log1": "> جارٍ قراءة مصفوفة الأداء...",
+    "log2": "> جارٍ مراجعة أرشيف الأبطال...",
+    "log3": "> التصنيف جارٍ...",
+    "heroProfileIdentified": "تم التعرّف على ملف البطل",
+    "newClassification": "تصنيف جديد",
+    "unlockProgressLabel": "جارٍ فتح {{current}} / {{total}}",
+    "unlockedBadge": "تم الفتح",
+    "classificationComplete": "اكتمل التصنيف",
+    "powerLabel": "القوة",
+    "scoreLabel": "النتيجة",
+    "ascensionProgress": "تقدّم الصعود",
+    "advanceToward": "تقدّم نحو {{name}} — ارفع سرعتك ودقتك وثباتك للصعود.",
+    "apexReached": "لقد بلغت قمة Ascendancy.",
+    "nextLabel": "التالي: {{name}}",
+    "maxAscension": "أقصى صعود",
+    "newRecord": "رقم قياسي جديد",
+    "ascensionCompleteBadge": "اكتمل الصعود",
+    "retryButton": "أعد المحاكاة ←",
+    "viewProfileButton": "عرض ملف البطل",
+    "viewLeaderboardButton": "عرض لوحة الصدارة",
+    "shareButton": "شارك النتيجة",
+    "preparingButton": "جارٍ التحضير…",
+    "downloadCertButton": "تنزيل شهادة البطل",
+    "downloadWpmCertButton": "تنزيل شهادة WPM",
+    "generatingButton": "جارٍ الإنشاء…",
+    "shareInstagramButton": "شارك في قصة Instagram",
+    "shareText": "وصلت إلى {{name}} على ASCENDANCY!",
+    "guestAscendant": "صاعد زائر",
+    "messages": {
+      "certificateSaved": "تم حفظ الشهادة في مجلد التنزيلات",
+      "wpmCertificateSaved": "تم حفظ شهادة WPM في مجلد التنزيلات",
+      "shareLinkStorySticker": "تم نسخ الرابط — أضفه كملصق رابط إذا نشرت في قصة/حالة",
+      "shareImageDownloaded": "تم تنزيل الصورة ونسخ الرابط — شاركها على WhatsApp أو Instagram أو X...",
+      "igPickInstagram": "اختر Instagram من قائمة المشاركة، ثم أضف ملصق الرابط — تم نسخه بالفعل",
+      "igNeedsPhone": "تحتاج قصص Instagram إلى هاتفك — تم تنزيل الصورة ونسخ الرابط. أرسل الصورة إلى هاتفك لنشرها"
+    }
+  }
+}

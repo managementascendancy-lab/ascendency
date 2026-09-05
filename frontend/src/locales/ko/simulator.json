@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "타이핑 속도 시뮬레이터 | Ascendancy",
+    "description": "타이핑 시뮬레이션을 실행하세요. 15초, 30초, 60초, 120초 동안 WPM, 정확도, 일관성을 측정합니다."
+  },
+  "header": {
+    "overline1": "트레이닝 시스템",
+    "overline2": "게임화된 타이핑 연습",
+    "heading": "시뮬레이션",
+    "statusLabel": "상태",
+    "status": {
+      "ready": "준비됨",
+      "active": "진행 중",
+      "complete": "완료",
+      "initializing": "초기화 중"
+    }
+  },
+  "duration": {
+    "label": "시간"
+  },
+  "topic": {
+    "label": "주제",
+    "items": {
+      "courage": "용기",
+      "sacrifice": "희생",
+      "legacy": "유산",
+      "adversity": "역경",
+      "awakening": "각성"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "정확도",
+    "time": "시간",
+    "consistency": "일관성"
+  },
+  "performanceCore": {
+    "label": "퍼포먼스 코어",
+    "status": "모니터"
+  },
+  "typingEnvironment": {
+    "label": "타이핑 환경",
+    "statusLive": "라이브",
+    "statusStandby": "대기 중"
+  },
+  "ready": {
+    "description": "시뮬레이션에 참가하세요. 가능한 한 빠르고 정확하게 문장을 입력하세요. 당신의 성능이 히어로 등급을 결정합니다.",
+    "beginButton": "시뮬레이션 시작 →"
+  },
+  "countdown": {
+    "go": "시작"
+  },
+  "restartButton": "[ 재시작 ]",
+  "bootLines": [
+    "시스템 초기화 중",
+    "뉴럴 링크 연결됨",
+    "퍼포먼스 매트릭스 준비 완료"
+  ],
+  "reveal": {
+    "stageComplete": "시뮬레이션 완료",
+    "stageAnalyzing": "성능 분석 중",
+    "log1": "> 퍼포먼스 매트릭스 읽는 중...",
+    "log2": "> 히어로 아카이브 조회 중...",
+    "log3": "> 등급 분류 진행 중...",
+    "heroProfileIdentified": "히어로 프로필 확인됨",
+    "newClassification": "새로운 등급",
+    "unlockProgressLabel": "잠금 해제 중 {{current}} / {{total}}",
+    "unlockedBadge": "잠금 해제됨",
+    "classificationComplete": "등급 분류 완료",
+    "powerLabel": "파워",
+    "scoreLabel": "점수",
+    "ascensionProgress": "어센션 진행도",
+    "advanceToward": "{{name}}을(를) 향해 나아가세요 — 어센션을 위해 속도, 정확도, 일관성을 높이세요.",
+    "apexReached": "Ascendancy의 정점에 도달했습니다.",
+    "nextLabel": "다음: {{name}}",
+    "maxAscension": "최대 어센션",
+    "newRecord": "신기록",
+    "ascensionCompleteBadge": "어센션 완료",
+    "retryButton": "시뮬레이션 다시 시도 →",
+    "viewProfileButton": "히어로 프로필 보기",
+    "viewLeaderboardButton": "리더보드 보기",
+    "shareButton": "결과 공유",
+    "preparingButton": "준비 중…",
+    "downloadCertButton": "히어로 인증서 다운로드",
+    "downloadWpmCertButton": "WPM 인증서 다운로드",
+    "generatingButton": "생성 중…",
+    "shareInstagramButton": "인스타그램 스토리에 공유",
+    "shareText": "ASCENDANCY에서 {{name}}에 도달했습니다!",
+    "guestAscendant": "게스트 어센던트",
+    "messages": {
+      "certificateSaved": "인증서가 다운로드 폴더에 저장되었습니다",
+      "wpmCertificateSaved": "WPM 인증서가 다운로드 폴더에 저장되었습니다",
+      "shareLinkStorySticker": "링크가 복사되었습니다 — 스토리/상태에 게시할 경우 링크 스티커로 추가하세요",
+      "shareImageDownloaded": "이미지가 다운로드되고 링크가 복사되었습니다 — WhatsApp, Instagram, X 등에 공유하세요...",
+      "igPickInstagram": "공유 메뉴에서 인스타그램을 선택한 다음 링크 스티커를 추가하세요 — 이미 복사되었습니다",
+      "igNeedsPhone": "인스타그램 스토리는 휴대폰이 필요합니다 — 이미지가 다운로드되고 링크가 복사되었습니다. 게시하려면 이미지를 휴대폰으로 전송하세요"
+    }
+  }
+}

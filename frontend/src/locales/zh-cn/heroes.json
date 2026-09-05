@@ -1,0 +1,12 @@
+{
+  "nova": { "title": "新星英雄", "description": "飞升的第一缕火花。每位飞升者都从NOVA开始——等待网络校准的原始潜力。", "personality": "好奇、不知疲倦、尚未证明自己。", "power": "动能点火——每次按键都在加速冲劲。", "class": "新兵" },
+  "vanguard": { "title": "守护者", "description": "坚定的前线分级。VANGUARD以严谨、可靠的输入坚守阵地。", "personality": "有保护欲、脚踏实地、坚定不移。", "power": "堡垒协议——吸收压力而不打乱节奏。", "class": "防御者" },
+  "phantom": { "title": "暗影", "description": "沉默而精准。PHANTOM在间隔之间出击，直到分析完成前始终隐匿无踪。", "personality": "难以捉摸、精于算计、沉默寡言。", "power": "隐匿矢量——移动速度快到系统无法追踪。", "class": "渗透者" },
+  "titan": { "title": "力量之巨", "description": "压倒性的力量。TITAN将原始产出转化为贯穿整个矩阵的无可阻挡的压力。", "personality": "强势、厚重、不可撼动。", "power": "攻城引擎——持续不断、永不屈服的输出。", "class": "重装" },
+  "aegis": { "title": "精准守卫", "description": "无懈可击的自律。AEGIS只能通过近乎完美的准确率解锁——每一个字符都经过验证。", "personality": "严谨、有保护欲、一丝不苟。", "power": "完美壁垒——由零失误锻造而成的盾牌。", "class": "守卫" },
+  "pulse": { "title": "反应者", "description": "纯粹的反应速度。PULSE在节奏中蓬勃发展，将反射转化为持续不断的表现浪潮。", "personality": "充满活力、适应力强、如电流般迅捷。", "power": "反射浪涌——对每个信号的瞬时响应。", "class": "反应堆" },
+  "nexus": { "title": "策略家", "description": "汇聚之点。NEXUS将速度、准确率和稳定性平衡为单一的优化流程。", "personality": "善于分析、沉着冷静、富有策略。", "power": "网络同步——将每项指标协调统一。", "class": "指挥官" },
+  "ascendant": { "title": "精英", "description": "超越门槛。ASCENDANT标志着表现转化为精通的那一刻。", "personality": "精炼、强势、卓尔不群。", "power": "超越协议——在标准极限之上运作。", "class": "精英" },
+  "velocity": { "title": "速度专家", "description": "极限速度。VELOCITY将产出推向网络所能记录的极限。", "personality": "无所畏惧、疾如闪电、精准无比。", "power": "超矢量——一种超越感知的运动。", "class": "专家" },
+  "sovereign": { "title": "终极", "description": "Ascendancy的巅峰。SOVEREIGN是最终分级——速度、精准与掌控的完全融合。", "personality": "绝对、威严、超凡脱俗。", "power": "完全飞升——网络所能测量的最高状态。", "class": "SOVEREIGN" }
+}

@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Guías y Consejos de Mecanografía | Ascendancy", "description": "Guías prácticas sobre velocidad de escritura, precisión, ergonomía y el sistema de clasificación de Ascendancy." },
+    "overline1": "RECURSOS",
+    "overline2": "GUÍAS",
+    "heading": "GUÍAS DE ENTRENAMIENTO",
+    "subtitle": "Guías prácticas y sin rodeos sobre velocidad de escritura, precisión, ergonomía y cómo funciona realmente el sistema de clasificación de Ascendancy.",
+    "readGuide": "LEER GUÍA →"
+  },
+  "article": {
+    "allGuides": "← TODAS LAS GUÍAS",
+    "practicePrompt": "¿Listo para ponerlo en práctica?",
+    "simulateCta": "REALIZAR UNA SIMULACIÓN →",
+    "unavailableNotice": "Este artículo aún no está disponible en tu idioma — mostrando la versión en inglés."
+  }
+}

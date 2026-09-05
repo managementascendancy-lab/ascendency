@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — 히어로 아카이브 | Ascendancy", "description": "열 명의 히어로. 어센션으로 향하는 단 하나의 길. Ascendancy 히어로 등급 아카이브를 탐험하세요." },
+  "heroArchive": "히어로 아카이브",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "열 명의 히어로에 걸친 타이핑 기반 히어로 등급 테스트 — 어센션으로 향하는 단 하나의 길. 당신의 속도가 등급을 결정하고, 정확도가 얼마나 높이 오를지를 결정합니다.",
+  "detail": {
+    "heroId": "히어로_{{index}}",
+    "close": "[ 닫기 ]",
+    "personality": "성격",
+    "power": "파워",
+    "metrics": { "wpm": "WPM", "acc": "정확", "cns": "일관" },
+    "simulateButton": "시뮬레이션으로 등급 받기 →"
+  },
+  "heroCard": {
+    "locked": "프로필 잠김",
+    "classificationRequired": "등급 필요",
+    "metrics": { "wpm": "WPM", "acc": "정확", "cns": "일관" },
+    "unlockProgress": "해제 진행도",
+    "classificationAvailable": "등급 사용 가능"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "Guias e Dicas de Digitação | Ascendancy", "description": "Guias práticos sobre velocidade de digitação, precisão, ergonomia e o sistema de classificação da Ascendancy." },
+    "overline1": "RECURSOS",
+    "overline2": "GUIAS",
+    "heading": "GUIAS DE TREINAMENTO",
+    "subtitle": "Guias práticos e diretos sobre velocidade de digitação, precisão, ergonomia e como o sistema de classificação da Ascendancy realmente funciona.",
+    "readGuide": "LER GUIA →"
+  },
+  "article": {
+    "allGuides": "← TODOS OS GUIAS",
+    "practicePrompt": "Pronto para colocar em prática?",
+    "simulateCta": "RODAR UMA SIMULAÇÃO →",
+    "unavailableNotice": "Este artigo ainda não está disponível no seu idioma — exibindo a versão em inglês."
+  }
+}

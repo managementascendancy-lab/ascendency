@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "ГЛАВНАЯ",
+    "simulator": "СИМУЛЯТОР",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "РЕЙТИНГ",
+    "guides": "ГАЙДЫ",
+    "profile": "МОЙ ПРОФИЛЬ",
+    "online": "ОНЛАЙН",
+    "muteSound": "Выключить звук",
+    "enableSound": "Включить звук",
+    "logout": "Выйти",
+    "access": "ВХОД",
+    "brandTag": "ИНИЦИАТИВА ПЕЧАТИ"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "СЕТКА · ASC-CORE",
+    "sectorSignal": "СЕКТОР · ASC-07",
+    "signalStable": "СИГНАЛ · СТАБИЛЕН"
+  },
+  "systemTicker": {
+    "messages": [
+      "СЕТЬ ASCENDANCY ОНЛАЙН",
+      "НЕЙРОСВЯЗЬ АКТИВНА",
+      "СИМУЛЯЦИЯ ГОТОВА",
+      "МАТРИЦА ПРОИЗВОДИТЕЛЬНОСТИ ОНЛАЙН",
+      "ПРОТОКОЛ ВОСХОЖДЕНИЯ АКТИВЕН",
+      "ДАННЫЕ СИНХРОНИЗИРОВАНЫ",
+      "СИСТЕМА ТРЕНИРОВКИ ОНЛАЙН"
+    ]
+  },
+  "footer": {
+    "tagline": "Измеряйте скорость печати, точность и стабильность. Открывайте классы героев и поднимайтесь в сети.",
+    "productHeading": "ПРОДУКТ",
+    "accountHeading": "АККАУНТ",
+    "legalHeading": "ПРАВОВАЯ ИНФОРМАЦИЯ",
+    "trainingSimulator": "Тренировочный симулятор",
+    "classificationArchive": "Архив классификации",
+    "performanceNetwork": "Сеть производительности",
+    "achievements": "Достижения",
+    "guides": "Гайды",
+    "ascendantConsole": "Консоль восходящего",
+    "signInRegister": "Вход / Регистрация",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfService": "Условия использования",
+    "motto": "ПЕЧАТАЙ. ТРЕНИРУЙСЯ. ВОСХОДИ.",
+    "copyright": "ИНИЦИАТИВА ASCENDANCY © 2026",
+    "advertisement": "РЕКЛАМА"
+  }
+}

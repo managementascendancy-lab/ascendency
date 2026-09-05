@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "ACCUEIL",
+    "simulator": "SIMULATEUR",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "CLASSEMENT",
+    "guides": "GUIDES",
+    "profile": "MON PROFIL",
+    "online": "EN LIGNE",
+    "muteSound": "Couper le son",
+    "enableSound": "Activer le son",
+    "logout": "Se déconnecter",
+    "access": "ACCÉDER",
+    "brandTag": "INITIATIVE DE FRAPPE"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "GRILLE · ASC-CORE",
+    "sectorSignal": "SECTEUR · ASC-07",
+    "signalStable": "SIGNAL · STABLE"
+  },
+  "systemTicker": {
+    "messages": [
+      "RÉSEAU ASCENDANCY EN LIGNE",
+      "LIEN NEURAL ACTIF",
+      "SIMULATION PRÊTE",
+      "MATRICE DE PERFORMANCE EN LIGNE",
+      "PROTOCOLE D'ASCENSION ACTIF",
+      "DONNÉES SYNCHRONISÉES",
+      "SYSTÈME D'ENTRAÎNEMENT EN LIGNE"
+    ]
+  },
+  "footer": {
+    "tagline": "Mesurez votre vitesse de frappe, précision et régularité. Débloquez des classifications de héros et grimpez dans le réseau.",
+    "productHeading": "PRODUIT",
+    "accountHeading": "COMPTE",
+    "legalHeading": "MENTIONS LÉGALES",
+    "trainingSimulator": "Simulateur d'Entraînement",
+    "classificationArchive": "Archives de Classification",
+    "performanceNetwork": "Réseau de Performance",
+    "achievements": "Succès",
+    "guides": "Guides",
+    "ascendantConsole": "Console de l'Ascendant",
+    "signInRegister": "Connexion / Inscription",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation",
+    "motto": "TAPEZ. ENTRAÎNEZ-VOUS. ASCENDEZ.",
+    "copyright": "INITIATIVE ASCENDANCY © 2026",
+    "advertisement": "PUBLICITÉ"
+  }
+}

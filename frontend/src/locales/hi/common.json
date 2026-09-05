@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "होम",
+    "simulator": "सिम्युलेटर",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "लीडरबोर्ड",
+    "guides": "गाइड",
+    "profile": "मेरी प्रोफ़ाइल",
+    "online": "ऑनलाइन",
+    "muteSound": "ध्वनि म्यूट करें",
+    "enableSound": "ध्वनि चालू करें",
+    "logout": "लॉग आउट",
+    "access": "एक्सेस करें",
+    "brandTag": "टाइपिंग पहल"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "ग्रिड · ASC-CORE",
+    "sectorSignal": "सेक्टर · ASC-07",
+    "signalStable": "सिग्नल · स्थिर"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCY नेटवर्क ऑनलाइन",
+      "न्यूरल लिंक सक्रिय",
+      "सिमुलेशन तैयार है",
+      "परफॉर्मेंस मैट्रिक्स ऑनलाइन",
+      "असेंशन प्रोटोकॉल सक्रिय",
+      "डेटा सिंक्रोनाइज़्ड",
+      "ट्रेनिंग सिस्टम ऑनलाइन"
+    ]
+  },
+  "footer": {
+    "tagline": "अपनी टाइपिंग स्पीड, सटीकता और स्थिरता मापें। हीरो वर्गीकरण अनलॉक करें और नेटवर्क में ऊपर चढ़ें।",
+    "productHeading": "प्रोडक्ट",
+    "accountHeading": "अकाउंट",
+    "legalHeading": "कानूनी",
+    "trainingSimulator": "ट्रेनिंग सिम्युलेटर",
+    "classificationArchive": "वर्गीकरण संग्रह",
+    "performanceNetwork": "परफॉर्मेंस नेटवर्क",
+    "achievements": "उपलब्धियाँ",
+    "guides": "गाइड",
+    "ascendantConsole": "एसेंडेंट कंसोल",
+    "signInRegister": "साइन इन / रजिस्टर करें",
+    "privacyPolicy": "गोपनीयता नीति",
+    "termsOfService": "सेवा की शर्तें",
+    "motto": "टाइप करें। अभ्यास करें। ऊपर उठें।",
+    "copyright": "ASCENDANCY पहल © 2026",
+    "advertisement": "विज्ञापन"
+  }
+}

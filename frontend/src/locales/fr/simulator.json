@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Simulateur de Vitesse de Frappe | Ascendancy",
+    "description": "Réalisez une simulation de frappe. Mesurez MPM, précision et régularité en 15, 30, 60 ou 120 secondes."
+  },
+  "header": {
+    "overline1": "SYSTÈME D'ENTRAÎNEMENT",
+    "overline2": "PRATIQUE DE FRAPPE LUDIFIÉE",
+    "heading": "SIMULATION",
+    "statusLabel": "STATUT",
+    "status": {
+      "ready": "PRÊT",
+      "active": "ACTIF",
+      "complete": "TERMINÉ",
+      "initializing": "INITIALISATION"
+    }
+  },
+  "duration": {
+    "label": "DURÉE"
+  },
+  "topic": {
+    "label": "SUJET",
+    "items": {
+      "courage": "COURAGE",
+      "sacrifice": "SACRIFICE",
+      "legacy": "HÉRITAGE",
+      "adversity": "ADVERSITÉ",
+      "awakening": "ÉVEIL"
+    }
+  },
+  "metrics": {
+    "wpm": "MPM",
+    "accuracy": "PRÉCISION",
+    "time": "TEMPS",
+    "consistency": "RÉGULARITÉ"
+  },
+  "performanceCore": {
+    "label": "NOYAU DE PERFORMANCE",
+    "status": "MONITEUR"
+  },
+  "typingEnvironment": {
+    "label": "ENVIRONNEMENT DE FRAPPE",
+    "statusLive": "EN DIRECT",
+    "statusStandby": "EN ATTENTE"
+  },
+  "ready": {
+    "description": "Entrez dans la simulation. Tapez le passage aussi vite et précisément que possible. Votre performance détermine votre classification de héros.",
+    "beginButton": "LANCER LA SIMULATION →"
+  },
+  "countdown": {
+    "go": "GO"
+  },
+  "restartButton": "[ RECOMMENCER ]",
+  "bootLines": [
+    "INITIALISATION DU SYSTÈME",
+    "LIEN NEURAL CONNECTÉ",
+    "MATRICE DE PERFORMANCE PRÊTE"
+  ],
+  "reveal": {
+    "stageComplete": "SIMULATION TERMINÉE",
+    "stageAnalyzing": "ANALYSE DE LA PERFORMANCE",
+    "log1": "> LECTURE DE LA MATRICE DE PERFORMANCE...",
+    "log2": "> CONSULTATION DES ARCHIVES DES HÉROS...",
+    "log3": "> CLASSIFICATION EN COURS...",
+    "heroProfileIdentified": "PROFIL DE HÉROS IDENTIFIÉ",
+    "newClassification": "NOUVELLE CLASSIFICATION",
+    "unlockProgressLabel": "DÉBLOCAGE {{current}} / {{total}}",
+    "unlockedBadge": "DÉBLOQUÉ",
+    "classificationComplete": "CLASSIFICATION TERMINÉE",
+    "powerLabel": "POUVOIR",
+    "scoreLabel": "SCORE",
+    "ascensionProgress": "PROGRESSION DE L'ASCENSION",
+    "advanceToward": "Progressez vers {{name}} — augmentez votre vitesse, précision et régularité pour ascender.",
+    "apexReached": "Vous avez atteint l'apogée d'Ascendancy.",
+    "nextLabel": "SUIVANT : {{name}}",
+    "maxAscension": "ASCENSION MAXIMALE",
+    "newRecord": "NOUVEAU RECORD",
+    "ascensionCompleteBadge": "ASCENSION TERMINÉE",
+    "retryButton": "RÉESSAYER LA SIMULATION →",
+    "viewProfileButton": "VOIR LE PROFIL DE HÉROS",
+    "viewLeaderboardButton": "VOIR LE CLASSEMENT",
+    "shareButton": "PARTAGER LE RÉSULTAT",
+    "preparingButton": "PRÉPARATION…",
+    "downloadCertButton": "TÉLÉCHARGER LE CERTIFICAT DE HÉROS",
+    "downloadWpmCertButton": "TÉLÉCHARGER LE CERTIFICAT MPM",
+    "generatingButton": "GÉNÉRATION…",
+    "shareInstagramButton": "PARTAGER EN STORY INSTAGRAM",
+    "shareText": "J'ai atteint {{name}} sur ASCENDANCY !",
+    "guestAscendant": "ASCENDANT INVITÉ",
+    "messages": {
+      "certificateSaved": "CERTIFICAT ENREGISTRÉ DANS VOS TÉLÉCHARGEMENTS",
+      "wpmCertificateSaved": "CERTIFICAT MPM ENREGISTRÉ DANS VOS TÉLÉCHARGEMENTS",
+      "shareLinkStorySticker": "LIEN COPIÉ — AJOUTEZ-LE COMME STICKER DE LIEN SI VOUS PUBLIEZ EN STORY/STATUT",
+      "shareImageDownloaded": "IMAGE TÉLÉCHARGÉE + LIEN COPIÉ — PARTAGEZ-LE SUR WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "CHOISISSEZ INSTAGRAM DANS LE MENU DE PARTAGE, PUIS AJOUTEZ LE STICKER DE LIEN — IL EST DÉJÀ COPIÉ",
+      "igNeedsPhone": "INSTAGRAM STORIES A BESOIN DE VOTRE TÉLÉPHONE — IMAGE TÉLÉCHARGÉE, LIEN COPIÉ. ENVOYEZ L'IMAGE SUR VOTRE TÉLÉPHONE POUR LA PUBLIER"
+    }
+  }
+}

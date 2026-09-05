@@ -1,0 +1,83 @@
+{
+  "backToHome": "KEMBALI KE BERANDA",
+  "pages": {
+    "training-simulator": {
+      "name": "SISTEM PELATIHAN",
+      "eyebrow": "PRODUK",
+      "tagline": "UKUR SETIAP KETUKAN TOMBOL.",
+      "summary": "Inti dari Ascendancy. Jalankan simulasi mengetik dengan waktu terbatas dan dapatkan pembacaan instan dan tepat tentang seberapa cepat dan bersih Anda benar-benar mengetik.",
+      "features": [
+        "Pilih durasi dari 15 hingga 120 detik, dan topik teks tentang konsep kepahlawanan.",
+        "Pembacaan langsung untuk WPM, akurasi, konsistensi, dan waktu tersisa saat Anda mengetik.",
+        "Visualisasi Inti Performa secara real-time yang bereaksi terhadap intensitas mengetik Anda.",
+        "Setiap hasil langsung memengaruhi klasifikasi pahlawan, rentetan, dan skor papan peringkat Anda."
+      ],
+      "ctaLabel": "MULAI SIMULASI →"
+    },
+    "classification-archive": {
+      "name": "ARSIP KLASIFIKASI",
+      "eyebrow": "PRODUK",
+      "tagline": "SEPULUH PAHLAWAN. SATU JALAN.",
+      "summary": "Sepuluh klasifikasi deterministik, dari NOVA hingga SOVEREIGN. Setiap tingkat memiliki ambang batas tetap untuk kecepatan, akurasi, dan konsistensi — tidak ada yang dinilai berdasarkan kurva.",
+      "features": [
+        "Jelajahi seluruh sepuluh klasifikasi pahlawan dan ambang batas WPM/akurasi/konsistensi yang tepat yang dibutuhkan masing-masing.",
+        "Lihat klasifikasi Anda saat ini dan seberapa dekat Anda dengan tingkat berikutnya.",
+        "Sesi yang cepat tapi tidak akurat tidak akan pernah mengungguli sesi yang lebih lambat tapi lebih bersih — ketiga metrik itu penting.",
+        "Kisah, kepribadian, dan kekuatan lengkap untuk setiap klasifikasi dalam arsip."
+      ],
+      "ctaLabel": "LIHAT ARSIP →"
+    },
+    "performance-network": {
+      "name": "JARINGAN PERFORMA",
+      "eyebrow": "PRODUK",
+      "tagline": "BERSAING SECARA GLOBAL.",
+      "summary": "Papan peringkat global secara langsung dari sesi terverifikasi terbaik setiap ascendant — dapat diurutkan berdasarkan skor, WPM, atau akurasi.",
+      "features": [
+        "Urutkan jaringan berdasarkan skor keseluruhan, WPM terbaik, atau akurasi terbaik.",
+        "Lihat peringkat Anda sendiri disorot langsung dalam klasemen.",
+        "Peringkat diambil dari simulasi terbaik Anda, bukan rata-rata — satu sesi hebat sudah cukup.",
+        "Diperbarui secara real-time seiring masuknya hasil baru dari seluruh jaringan."
+      ],
+      "ctaLabel": "LIHAT PAPAN PERINGKAT →"
+    },
+    "achievements": {
+      "name": "PENCAPAIAN",
+      "eyebrow": "PRODUK",
+      "tagline": "TONGGAK YANG BERARTI.",
+      "summary": "Sembilan pencapaian melacak tonggak nyata dalam progres Anda — dari simulasi pertama Anda hingga mencapai puncak Ascendancy.",
+      "features": [
+        "Buka pencapaian untuk tonggak kecepatan seperti Lonjakan Kecepatan, Overdrive, dan Terobos Batas.",
+        "Raih Presisi dan Eksekusi Sempurna untuk akurasi yang hampir sempurna dan sempurna.",
+        "Asensi, Velocity, dan Sovereign menandai progres Anda melalui tingkat pahlawan tertinggi.",
+        "Setiap pencapaian bersifat permanen setelah terbuka dan terlihat di Konsol Ascendant Anda."
+      ],
+      "ctaLabel": "LIHAT PENCAPAIAN →"
+    },
+    "ascendant-console": {
+      "name": "KONSOL ASCENDANT",
+      "eyebrow": "AKUN",
+      "tagline": "PROGRES ANDA, DALAM SATU TEMPAT.",
+      "summary": "Dasbor pribadi Anda di jaringan — klasifikasi pahlawan saat ini, performa terbaik, riwayat simulasi lengkap, dan setiap pencapaian yang telah Anda buka, semuanya dalam satu konsol.",
+      "features": [
+        "Klasifikasi pahlawan Anda saat ini, dengan cincin progres langsung menuju tingkat berikutnya.",
+        "WPM, akurasi, dan konsistensi terbaik serta rata-rata, dilacak di setiap simulasi yang Anda jalankan.",
+        "Riwayat lengkap simulasi terbaru Anda, digambarkan dalam grafik seiring waktu.",
+        "Setiap pencapaian yang telah Anda buka, dari simulasi pertama hingga mencapai puncak Ascendancy."
+      ],
+      "ctaLabel": "LIHAT KONSOL ANDA →"
+    },
+    "sign-in-register": {
+      "name": "MASUK / DAFTAR",
+      "eyebrow": "AKUN",
+      "tagline": "BUAT PROFIL ASCENDANT ANDA.",
+      "summary": "Akun Ascendancy menyimpan setiap simulasi yang Anda jalankan, melacak performa terbaik Anda seiring waktu, dan menempatkan Anda di papan peringkat global. Pembuatannya hanya butuh beberapa detik.",
+      "features": [
+        "Setiap simulasi yang Anda jalankan disimpan secara permanen dalam riwayat akun Anda.",
+        "Skor terbaik Anda dicatat dan digunakan untuk mengklasifikasikan tingkat pahlawan Anda saat ini.",
+        "Muncul di papan peringkat global Jaringan Performa, diperingkat melawan setiap ascendant lainnya.",
+        "Bangun rentetan harian dan buka pencapaian saat Anda terus berlatih."
+      ],
+      "ctaLabel": "MASUK / DAFTAR →"
+    }
+  }
+}

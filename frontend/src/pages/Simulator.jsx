@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import HudPanel from "@/components/HudPanel";
 import PerformanceCore from "@/components/PerformanceCore";
@@ -7,22 +8,25 @@ import AscButton from "@/components/AscButton";
 import HeroReveal from "@/components/HeroReveal";
 import { buildStream, TOPICS } from "@/data/passages";
 import { calcWpm, calcAccuracy, calcConsistency, classifyIndex, computeScore } from "@/lib/typing";
-import { heroByIndex, HEROES } from "@/data/heroes";
+import { heroByIndex, HEROES, getLocaleHeroProgress } from "@/data/heroes";
+import { RTL_LOCALE_CODES } from "@/i18n/locales";
 import { useAuth } from "@/context/AuthContext";
 import { useSound } from "@/context/SoundContext";
 import api from "@/lib/api";
 import { Mark, Sep } from "@/components/Sep";
 
 const MODES = [15, 30, 60, 120];
-const BOOT_LINES = ["SYSTEM INITIALIZING", "NEURAL LINK CONNECTED", "PERFORMANCE MATRIX READY"];
 
 export default function Simulator() {
+  const { t, i18n } = useTranslation("simulator");
+  const BOOT_LINES = t("bootLines", { returnObjects: true });
   const { user, setUser } = useAuth();
   const sound = useSound();
+  const isRtl = RTL_LOCALE_CODES.includes(i18n.language);
 
   const [duration, setDuration] = useState(30);
   const [topic, setTopic] = useState(TOPICS[0].key);
-  const [text, setText] = useState(() => buildStream(1000, TOPICS[0].key));
+  const [text, setText] = useState(() => buildStream(1000, TOPICS[0].key, i18n.language));
   const [input, setInput] = useState("");
   const [phase, setPhase] = useState("ready"); // ready | boot | countdown | running | done
   const [bootIndex, setBootIndex] = useState(0);
@@ -34,12 +38,14 @@ export default function Simulator() {
   const [showReveal, setShowReveal] = useState(false);
   const inputRef = useRef("");
   const textRef = useRef(text);
+  const samplesRef = useRef(samples);
   const startRef = useRef(0);
   const lastSecRef = useRef(0);
   const finishedRef = useRef(false);
   const containerRef = useRef(null);
 
   useEffect(() => { inputRef.current = input; }, [input]);
+  useEffect(() => { samplesRef.current = samples; }, [samples]);
   useEffect(() => { textRef.current = text; }, [text]);
 
   // derived metrics
@@ -69,11 +75,11 @@ export default function Simulator() {
     setResult(null);
     setFlags({});
     setShowReveal(false);
-    setText(buildStream(1000, topic));
+    setText(buildStream(1000, topic, i18n.language));
     setPhase("ready");
     setCount(3);
     setBootIndex(0);
-  }, [topic]);
+  }, [topic, i18n.language]);
 
   const finish = useCallback(async () => {
     if (finishedRef.current) return;
@@ -84,40 +90,72 @@ export default function Simulator() {
     const secs = Math.max((Date.now() - startRef.current) / 1000, 0.5);
     const wpm = calcWpm(c, secs);
     const acc = inp.length ? calcAccuracy(c, inp.length) : 0;
-    setSamples((prev) => {
-      const cons = calcConsistency(prev.length ? prev : [wpm]);
-      const score = computeScore(wpm, acc, cons);
-      const heroIndex = classifyIndex(wpm, acc, cons);
-      const res = {
-        wpm, accuracy: acc, consistency: cons,
-        correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length,
-        duration, score, heroIndex,
-      };
-      setResult(res);
+    // Read via ref rather than a setSamples((prev) => ...) updater: the
+    // updater form used to wrap this entire block (API call included), and
+    // React 18 StrictMode double-invokes state-updater functions in dev to
+    // catch exactly this kind of impurity — so the simulation got submitted
+    // twice per run. The second, redundant submission would see the
+    // already-updated highestHeroIndex from the first one and report
+    // isNewClassification: false, silently clobbering the correct flags the
+    // first call had just set.
+    const prevSamples = samplesRef.current;
+    const cons = calcConsistency(prevSamples.length ? prevSamples : [wpm]);
+    const score = computeScore(wpm, acc, cons);
+    const heroIndex = classifyIndex(wpm, acc, cons);
+    const res = {
+      wpm, accuracy: acc, consistency: cons,
+      correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length,
+      duration, score, heroIndex,
+    };
+    setResult(res);
 
-      if (user) {
-        api
-          .post("/simulations", {
-            wpm, accuracy: acc, consistency: cons,
-            correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length, duration,
-          })
-          .then(({ data }) => {
-            setFlags({
-              isPersonalBest: data.isPersonalBest,
-              isNewClassification: data.isNewClassification,
-              isAscensionComplete: data.isAscensionComplete,
-            });
-            setUser(data.user);
-          })
-          .catch(() => {});
-      } else {
-        setFlags({});
-      }
-      return prev;
-    });
-    setPhase("done");
-    setShowReveal(true);
-  }, [duration, user, setUser]);
+    if (user) {
+      // Hero unlocks are scoped per language the test was typed in — see
+      // getLocaleHeroProgress — so the "before" snapshot has to come from
+      // this locale specifically, not the user's global highest.
+      const previousHighest = getLocaleHeroProgress(user, i18n.language).highestHeroIndex;
+      api
+        .post("/simulations", {
+          wpm, accuracy: acc, consistency: cons,
+          correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length, duration,
+          locale: i18n.language,
+        })
+        .then(({ data }) => {
+          const newHighest = getLocaleHeroProgress(data.user, i18n.language).highestHeroIndex;
+          // Classifications cascade: reaching hero N means every hero
+          // below N is also unlocked (see Ascendancy.jsx's `locked =
+          // index > highest`). A single strong run can cross several
+          // tiers at once for a new/returning ascendant, so surface the
+          // whole newly-crossed range here rather than just the final one.
+          const newlyUnlockedIndices = data.isNewClassification
+            ? Array.from({ length: newHighest - previousHighest }, (_, k) => previousHighest + 1 + k)
+            : [];
+          setFlags({
+            isPersonalBest: data.isPersonalBest,
+            isNewClassification: data.isNewClassification,
+            isAscensionComplete: data.isAscensionComplete,
+            newlyUnlockedIndices,
+          });
+          setUser(data.user);
+        })
+        .catch(() => {
+          setFlags({});
+        })
+        .finally(() => {
+          // HeroReveal reads flags.newlyUnlockedIndices in a mount-time
+          // (deps-less) effect to schedule its unlock sequence, so it must
+          // not mount until this response (success or failure) has landed
+          // — otherwise it always mounts with stale/empty flags and the
+          // per-hero unlock sequence never has anything to show.
+          setPhase("done");
+          setShowReveal(true);
+        });
+    } else {
+      setFlags({});
+      setPhase("done");
+      setShowReveal(true);
+    }
+  }, [duration, user, setUser, i18n.language]);
 
   // boot + countdown sequence
   const begin = useCallback(() => {
@@ -230,27 +268,27 @@ export default function Simulator() {
 
   return (
     <div className="py-10">
-      <SEO title="Typing Speed Simulator | Ascendancy" description="Run a typing simulation. Measure WPM, accuracy and consistency in 15, 30, 60 or 120 seconds." />
+      <SEO title={t("seo.title")} description={t("seo.description")} />
 
       {/* header */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="tech-label text-gold-bright">TRAINING SYSTEM<Sep tone="gold" />GAMIFIED TYPING PRACTICE</span>
+          <span className="tech-label text-gold-bright">{t("header.overline1")}<Sep tone="gold" />{t("header.overline2")}</span>
           <h1 className="font-display text-3xl font-700 tracking-tight text-cream sm:text-4xl">
-            SIMULATION <span className="inline-flex items-center text-red"><Mark tone="red" />001</span>
+            {t("header.heading")} <span className="inline-flex items-center text-red"><Mark tone="red" />001</span>
           </h1>
         </div>
         <div className="flex items-center gap-2">
-          <span className="tech-label text-gold-bright">STATUS</span>
+          <span className="tech-label text-gold-bright">{t("header.statusLabel")}</span>
           <span className={`font-mono text-sm ${phase === "running" ? "text-red" : phase === "done" ? "text-gold-bright" : "text-sage"}`}>
-            {phase === "ready" ? "READY" : phase === "running" ? "ACTIVE" : phase === "done" ? "COMPLETE" : "INITIALIZING"}
+            {phase === "ready" ? t("header.status.ready") : phase === "running" ? t("header.status.active") : phase === "done" ? t("header.status.complete") : t("header.status.initializing")}
           </span>
         </div>
       </div>
 
       {/* mode switch */}
       <div className="mt-6 flex flex-wrap items-center gap-2">
-        <span className="tech-label text-gold-bright">DURATION</span>
+        <span className="tech-label text-gold-bright">{t("duration.label")}</span>
         {MODES.map((m) => (
           <button
             key={m}
@@ -271,21 +309,21 @@ export default function Simulator() {
 
       {/* topic switch */}
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <span className="tech-label text-gold-bright">TOPIC</span>
-        {TOPICS.map((t) => (
+        <span className="tech-label text-gold-bright">{t("topic.label")}</span>
+        {TOPICS.map((tp) => (
           <button
-            key={t.key}
+            key={tp.key}
             disabled={phase === "running" || phase === "boot" || phase === "countdown"}
             onClick={() => {
-              setTopic(t.key);
+              setTopic(tp.key);
               sound?.play("click");
             }}
-            data-testid={`topic-${t.key}`}
+            data-testid={`topic-${tp.key}`}
             className={`border px-4 py-1.5 font-mono text-sm transition-colors disabled:opacity-40 ${
-              topic === t.key ? "border-gold-bright bg-gold-bright text-navy-dark" : "border-bronze/50 text-cream/70 hover:text-cream"
+              topic === tp.key ? "border-gold-bright bg-gold-bright text-navy-dark" : "border-bronze/50 text-cream/70 hover:text-cream"
             }`}
           >
-            {t.label}
+            {t(`topic.items.${tp.key}`)}
           </button>
         ))}
       </div>
@@ -293,35 +331,33 @@ export default function Simulator() {
       {/* metrics readouts */}
       <div className="mt-6 grid grid-cols-2 gap-px border border-bronze/40 bg-bronze/40 sm:grid-cols-4">
         {[
-          ["WPM", Math.round(liveWpm), "text-gold-bright"],
-          ["ACCURACY", `${liveAcc.toFixed(0)}%`, "text-sage"],
-          ["TIME", `${Math.ceil(remaining)}s`, "text-red"],
-          ["CONSISTENCY", `${Math.round(liveCons)}%`, "text-cream"],
+          ["wpm", Math.round(liveWpm), "text-gold-bright"],
+          ["accuracy", `${liveAcc.toFixed(0)}%`, "text-sage"],
+          ["time", `${Math.ceil(remaining)}s`, "text-red"],
+          ["consistency", `${Math.round(liveCons)}%`, "text-cream"],
         ].map(([k, v, c]) => (
           <div key={k} className="bg-navy-dark px-4 py-3">
-            <div className="tech-label text-highlight">{k}</div>
-            <div className={`mt-1 font-mono text-3xl font-700 ${c}`} data-testid={`metric-${k.toLowerCase()}`}>{v}</div>
+            <div className="tech-label text-highlight">{t(`metrics.${k}`)}</div>
+            <div className={`mt-1 font-mono text-3xl font-700 ${c}`} data-testid={`metric-${k}`}>{v}</div>
           </div>
         ))}
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.5fr]">
         {/* performance core */}
-        <HudPanel type="system" label="PERFORMANCE CORE" status="MONITOR" bodyClassName="flex items-center justify-center p-6">
+        <HudPanel type="system" label={t("performanceCore.label")} status={t("performanceCore.status")} bodyClassName="flex items-center justify-center p-6">
           <PerformanceCore wpm={liveWpm} accuracy={liveAcc} consistency={liveCons} intensity={intensity} size={300} />
         </HudPanel>
 
         {/* typing arena */}
-        <HudPanel type="primary" label="TYPING ENVIRONMENT" status={phase === "running" ? "LIVE" : "STANDBY"} bodyClassName="p-6">
+        <HudPanel type="primary" label={t("typingEnvironment.label")} status={phase === "running" ? t("typingEnvironment.statusLive") : t("typingEnvironment.statusStandby")} bodyClassName="p-6">
           <NeuralTrace intensity={intensity} error={recentError} className="mb-5" />
 
           {phase === "ready" && (
             <div className="flex min-h-[220px] flex-col items-center justify-center gap-5 text-center">
-              <p className="max-w-md font-body text-cream/60">
-                Enter the simulation. Type the passage as fast and accurately as you can. Your performance determines your hero classification.
-              </p>
+              <p className="max-w-md font-body text-cream/60">{t("ready.description")}</p>
               <AscButton variant="red" onClick={begin} data-testid="simulator-start-btn">
-                BEGIN SIMULATION →
+                {t("ready.beginButton")}
               </AscButton>
             </div>
           )}
@@ -337,7 +373,7 @@ export default function Simulator() {
           {phase === "countdown" && (
             <div className="flex min-h-[220px] items-center justify-center">
               <span className="font-display text-8xl font-700 text-red" style={{ textShadow: "0 0 30px rgba(223,53,13,0.6)" }}>
-                {count === 0 ? "GO" : count}
+                {count === 0 ? t("countdown.go") : count}
               </span>
             </div>
           )}
@@ -348,6 +384,7 @@ export default function Simulator() {
               tabIndex={0}
               onClick={() => containerRef.current?.focus()}
               data-testid="typing-arena"
+              dir={isRtl ? "rtl" : "ltr"}
               className="min-h-[220px] cursor-text select-none font-mono text-2xl leading-relaxed tracking-wide outline-none"
             >
               {chars}
@@ -357,7 +394,7 @@ export default function Simulator() {
           {phase === "running" && (
             <div className="mt-6 flex justify-end">
               <button onClick={reset} data-testid="simulator-restart-btn" className="tech-label text-bronze hover:text-red">
-                [ RESTART ]
+                {t("restartButton")}
               </button>
             </div>
           )}

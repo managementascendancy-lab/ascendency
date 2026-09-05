@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import HeroCard from "@/components/HeroCard";
 import Reveal from "@/components/Reveal";
 import AscButton from "@/components/AscButton";
 import ClassificationMarker from "@/components/ClassificationMarker";
-import { HEROES } from "@/data/heroes";
+import { HEROES, getLocaleHeroProgress } from "@/data/heroes";
+import { useTranslatedHero } from "@/data/useTranslatedHero";
 import { useAuth } from "@/context/AuthContext";
 import { Sep } from "@/components/Sep";
 import { heroSrcSet } from "@/lib/heroImage";
@@ -18,31 +20,30 @@ function unlockProgress(hero, user) {
 }
 
 export default function Ascendancy() {
+  const { t, i18n } = useTranslation("ascendancy");
   const { user } = useAuth();
-  const [selected, setSelected] = useState(null);
-  const highest = user?.highestHeroIndex ?? 0;
+  const [selectedRaw, setSelected] = useState(null);
+  const selected = useTranslatedHero(selectedRaw);
+  const highest = getLocaleHeroProgress(user, i18n.language).highestHeroIndex;
 
   return (
     <div className="py-14">
-      <SEO title="The Ascendancy — Hero Archive | Ascendancy" description="Ten heroes. One path to ascension. Explore the Ascendancy hero classification archive." />
+      <SEO title={t("seo.title")} description={t("seo.description")} />
 
       <Reveal>
-        <span className="tech-label text-gold-bright">HERO ARCHIVE</span>
+        <span className="tech-label text-gold-bright">{t("heroArchive")}</span>
         <div className="relative mt-2 block">
           <h1 className="font-display text-5xl font-700 tracking-tight text-cream display-outline sm:text-6xl">
-            THE ASCENDANCY
+            {t("heading")}
           </h1>
           <span
             aria-hidden="true"
             className="text-sweep pointer-events-none absolute inset-0 font-display text-5xl font-700 tracking-tight sm:text-6xl"
           >
-            THE ASCENDANCY
+            {t("heading")}
           </span>
         </div>
-        <p className="mt-4 max-w-xl font-body text-cream/70">
-          A hero classification typing test spanning ten heroes — one path to ascension. Your speed
-          determines your class. Your accuracy determines how far you rise.
-        </p>
+        <p className="mt-4 max-w-xl font-body text-cream/70">{t("subtitle")}</p>
       </Reveal>
 
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -89,9 +90,9 @@ export default function Ascendancy() {
             </div>
             <div className="p-6">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] text-gold-bright">HERO_{String(selected.index).padStart(2, "0")}</span>
+                <span className="font-mono text-[10px] text-gold-bright">{t("detail.heroId", { index: String(selected.index).padStart(2, "0") })}</span>
                 <button onClick={() => setSelected(null)} className="tech-label text-red" data-testid="hero-detail-close">
-                  [ CLOSE ]
+                  {t("detail.close")}
                 </button>
               </div>
               <h2 className="mt-3 font-display text-4xl font-700 tracking-wide text-cream">{selected.name}</h2>
@@ -100,20 +101,20 @@ export default function Ascendancy() {
 
               <div className="mt-4 space-y-2 font-mono text-xs">
                 <div className="flex justify-between border-b border-bronze/30 pb-1">
-                  <span className="text-gold-bright">PERSONALITY</span>
+                  <span className="text-gold-bright">{t("detail.personality")}</span>
                   <span className="text-cream/80">{selected.personality}</span>
                 </div>
                 <div className="flex justify-between border-b border-bronze/30 pb-1">
-                  <span className="text-gold-bright">POWER</span>
+                  <span className="text-gold-bright">{t("detail.power")}</span>
                   <span className="max-w-[60%] text-right text-cream/80">{selected.power}</span>
                 </div>
               </div>
 
               <div className="mt-5 grid grid-cols-3 gap-px border border-bronze/40 bg-bronze/40">
                 {[
-                  ["WPM", `${selected.minWpm}+`, "text-gold-bright"],
-                  ["ACC", `${selected.minAccuracy}%`, "text-sage"],
-                  ["CNS", `${selected.minConsistency}%`, "text-cream"],
+                  [t("detail.metrics.wpm"), `${selected.minWpm}+`, "text-gold-bright"],
+                  [t("detail.metrics.acc"), `${selected.minAccuracy}%`, "text-sage"],
+                  [t("detail.metrics.cns"), `${selected.minConsistency}%`, "text-cream"],
                 ].map(([k, v, c]) => (
                   <div key={k} className="bg-navy-dark px-3 py-2 text-center">
                     <div className="tech-label text-highlight">{k}</div>
@@ -124,7 +125,7 @@ export default function Ascendancy() {
 
               <div className="mt-6">
                 <AscButton variant="red" to="/simulator" data-testid="hero-detail-simulate">
-                  SIMULATE TO CLASSIFY →
+                  {t("detail.simulateButton")}
                 </AscButton>
               </div>
             </div>

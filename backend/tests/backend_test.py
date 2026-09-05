@@ -2,14 +2,22 @@
 import os
 import time
 import uuid
+from pathlib import Path
+
 import pytest
 import requests
+from dotenv import load_dotenv
+
+# Same .env the running backend loads (server.py's ROOT_DIR is backend/,
+# one level up from this tests/ dir) — so admin credentials here can never
+# silently drift from what the server under test is actually configured with.
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "http://localhost:8001").rstrip("/")
 API = f"{BASE_URL}/api"
 
-ADMIN_EMAIL = "admin@ascendancy.io"
-ADMIN_PASSWORD = "Ascend@2026"
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
 
 @pytest.fixture(scope="module")
@@ -64,6 +72,8 @@ class TestAuth:
         assert r.status_code == 401
 
     def test_admin_login(self):
+        if not ADMIN_EMAIL or not ADMIN_PASSWORD:
+            pytest.skip("ADMIN_EMAIL/ADMIN_PASSWORD not set in backend/.env — nothing to test")
         s = requests.Session()
         r = s.post(f"{API}/auth/login", json={"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD})
         assert r.status_code == 200, r.text

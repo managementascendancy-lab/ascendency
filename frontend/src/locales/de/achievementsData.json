@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "ERSTE SIMULATION", "desc": "Schließe deine erste Simulation ab." },
+  "precision": { "name": "PRÄZISION", "desc": "Erreiche 99% Genauigkeit." },
+  "speed_surge": { "name": "GESCHWINDIGKEITSSCHUB", "desc": "Erreiche 80 WPM." },
+  "overdrive": { "name": "OVERDRIVE", "desc": "Erreiche 100 WPM." },
+  "break_the_limit": { "name": "DURCHBRICH DAS LIMIT", "desc": "Erreiche 120 WPM." },
+  "perfect_execution": { "name": "PERFEKTE AUSFÜHRUNG", "desc": "Erreiche 100% Genauigkeit." },
+  "ascension": { "name": "AUFSTIEG", "desc": "Schalte ASCENDANT frei." },
+  "velocity": { "name": "VELOCITY", "desc": "Erreiche VELOCITY." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "Erreiche die höchste Klassifikation." }
+}

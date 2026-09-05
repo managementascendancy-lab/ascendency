@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "控制台同步中...",
+  "guest": {
+    "seo": { "title": "飞升者档案 | Ascendancy", "description": "查看你的飞升者档案、性能数据和飞升进度。" },
+    "noSimulations": "尚未记录任何模拟。",
+    "prompt": "进行身份验证以激活你的飞升者控制台。",
+    "accessButton": "接入网络 →"
+  },
+  "seo": { "description": "你的飞升者档案、性能数据和飞升进度。" },
+  "ascendantConsole": "飞升者控制台",
+  "currentClassification": { "label": "当前分级", "status": "进行中" },
+  "ascension": {
+    "progress": "飞升进度",
+    "next": "下一级：{{name}}",
+    "max": "最高",
+    "requires": "需要 {{wpm}} WPM · {{accuracy}}% 准确率 · {{consistency}}% 稳定性",
+    "complete": "飞升完成"
+  },
+  "stats": {
+    "bestWpm": "最佳WPM",
+    "avgWpm": "平均WPM",
+    "bestAcc": "最佳准确率",
+    "avgAcc": "平均准确率",
+    "bestCns": "最佳稳定性",
+    "streak": "连续天数",
+    "simulations": "模拟次数",
+    "charsTyped": "已输入字符数",
+    "score": "得分"
+  },
+  "charts": { "wpmHistory": "WPM历史", "accuracyHistory": "准确率历史", "consistency": "稳定性" },
+  "loadingPerformanceData": "正在加载性能数据...",
+  "dangerZone": {
+    "account": "账户",
+    "heading": "危险区域",
+    "restrictedStatus": "受限",
+    "description": "永久删除你的飞升者档案、模拟历史记录和排行榜排名。",
+    "deleteButton": "删除账户",
+    "warning": "此操作不可撤销。你的档案、模拟历史记录和排行榜排名将被删除，且无法恢复。",
+    "confirmAccessKey": "确认访问密钥",
+    "confirmCheckbox": "我理解此操作无法撤销。",
+    "erasing": "删除中...",
+    "confirmButton": "确认删除 →",
+    "cancel": "取消"
+  }
+}

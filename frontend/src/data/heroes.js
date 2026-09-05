@@ -166,3 +166,14 @@ export const HEROES = [
 
 export const heroById = (id) => HEROES.find((h) => h.id === id) || HEROES[0];
 export const heroByIndex = (i) => HEROES[Math.max(0, Math.min(i, HEROES.length - 1))];
+
+// Hero unlocks are scoped per language — proving a WPM in English doesn't
+// unlock anything for, say, Japanese, so each locale keeps its own
+// highestHeroIndex/currentHero rather than sharing a single global value.
+export const getLocaleHeroProgress = (user, locale) => {
+  const progress = user?.heroProgress?.[locale];
+  return {
+    highestHeroIndex: progress?.highestHeroIndex ?? 0,
+    currentHero: progress?.currentHero ?? "nova",
+  };
+};

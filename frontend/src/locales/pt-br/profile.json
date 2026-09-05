@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "SINCRONIZANDO CONSOLE...",
+  "guest": {
+    "seo": { "title": "Perfil do Ascendente | Ascendancy", "description": "Veja seu perfil de ascendente, dados de desempenho e progresso de ascensão." },
+    "noSimulations": "NENHUMA SIMULAÇÃO REGISTRADA.",
+    "prompt": "Autentique-se para ativar seu Console de Ascendente.",
+    "accessButton": "ACESSAR REDE →"
+  },
+  "seo": { "description": "Seu perfil de ascendente, dados de desempenho e progresso de ascensão." },
+  "ascendantConsole": "CONSOLE DO ASCENDENTE",
+  "currentClassification": { "label": "CLASSIFICAÇÃO ATUAL", "status": "ATIVO" },
+  "ascension": {
+    "progress": "PROGRESSO DE ASCENSÃO",
+    "next": "PRÓXIMO: {{name}}",
+    "max": "MÁXIMO",
+    "requires": "Requer {{wpm}} PPM · {{accuracy}}% PRE · {{consistency}}% CNS",
+    "complete": "ASCENSÃO COMPLETA"
+  },
+  "stats": {
+    "bestWpm": "MELHOR PPM",
+    "avgWpm": "PPM MÉDIO",
+    "bestAcc": "MELHOR PRE",
+    "avgAcc": "PRE MÉDIA",
+    "bestCns": "MELHOR CNS",
+    "streak": "SEQUÊNCIA",
+    "simulations": "SIMULAÇÕES",
+    "charsTyped": "CARACT. DIGITADOS",
+    "score": "PONTUAÇÃO"
+  },
+  "charts": { "wpmHistory": "HISTÓRICO DE PPM", "accuracyHistory": "HISTÓRICO DE PRECISÃO", "consistency": "CONSISTÊNCIA" },
+  "loadingPerformanceData": "CARREGANDO DADOS DE DESEMPENHO...",
+  "dangerZone": {
+    "account": "CONTA",
+    "heading": "ZONA DE PERIGO",
+    "restrictedStatus": "RESTRITO",
+    "description": "Apague permanentemente seu perfil de ascendente, histórico de simulações e posição no ranking.",
+    "deleteButton": "EXCLUIR CONTA",
+    "warning": "ESTA AÇÃO É PERMANENTE. Seu perfil, histórico de simulações e posição no ranking serão apagados e não poderão ser recuperados.",
+    "confirmAccessKey": "CONFIRMAR CHAVE DE ACESSO",
+    "confirmCheckbox": "Eu entendo que isso não pode ser desfeito.",
+    "erasing": "APAGANDO...",
+    "confirmButton": "CONFIRMAR EXCLUSÃO →",
+    "cancel": "CANCELAR"
+  }
+}

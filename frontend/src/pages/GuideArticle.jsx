@@ -1,6 +1,8 @@
 import React from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
+import { LocalizedLink, useLocalizedPath } from "@/i18n/links";
 import Reveal from "@/components/Reveal";
 import { Sep } from "@/components/Sep";
 import { guideBySlug } from "@/lib/guides";
@@ -44,10 +46,12 @@ function splitGuideBody(html) {
 }
 
 export default function GuideArticle() {
+  const { t } = useTranslation("guides");
   const { slug } = useParams();
   const guide = guideBySlug(slug);
+  const guidesHref = useLocalizedPath("/guides");
 
-  if (!guide) return <Navigate to="/guides" replace />;
+  if (!guide) return <Navigate to={guidesHref} replace />;
 
   const canonical = `${SITE_URL}/guides/${guide.slug}`;
   const jsonLd = {
@@ -73,9 +77,9 @@ export default function GuideArticle() {
       />
 
       <Reveal>
-        <Link to="/guides" className="tech-label text-bronze transition-colors hover:text-gold-bright">
-          ← ALL GUIDES
-        </Link>
+        <LocalizedLink to="/guides" className="tech-label text-bronze transition-colors hover:text-gold-bright">
+          {t("article.allGuides")}
+        </LocalizedLink>
         <div className="mt-4 flex items-center gap-3">
           {guide.date && <span className="font-mono text-xs text-sage">{guide.date}</span>}
           {guide.date && guide.readTime && <Sep tone="bronze" />}
@@ -94,14 +98,14 @@ export default function GuideArticle() {
 
       <Reveal delay={120}>
         <div className="mt-10 max-w-2xl border-t border-bronze/30 pt-8">
-          <p className="font-body text-sm text-cream/70">Ready to put it into practice?</p>
-          <Link
+          <p className="font-body text-sm text-cream/70">{t("article.practicePrompt")}</p>
+          <LocalizedLink
             to="/simulator"
             className="tech-label mt-2 inline-block text-gold-bright transition-colors hover:text-gold"
             data-testid="guide-article-simulate-cta"
           >
-            RUN A TYPING SIMULATION →
-          </Link>
+            {t("article.simulateCta")}
+          </LocalizedLink>
         </div>
       </Reveal>
     </div>

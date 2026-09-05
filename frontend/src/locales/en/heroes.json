@@ -1,0 +1,72 @@
+{
+  "nova": {
+    "title": "THE RISING HERO",
+    "description": "The first spark of ascension. Every ascendant begins as NOVA — raw potential awaiting calibration by the network.",
+    "personality": "Curious, relentless, unproven.",
+    "power": "Kinetic ignition — accelerating momentum with every keystroke.",
+    "class": "INITIATE"
+  },
+  "vanguard": {
+    "title": "THE DEFENDER",
+    "description": "A steadfast frontline classification. VANGUARD holds the line with disciplined, dependable input.",
+    "personality": "Protective, grounded, unshakable.",
+    "power": "Bulwark protocol — absorbing pressure without breaking rhythm.",
+    "class": "DEFENDER"
+  },
+  "phantom": {
+    "title": "THE SHADOW",
+    "description": "Silent and precise. PHANTOM strikes between the intervals, unseen until the analysis is complete.",
+    "personality": "Elusive, calculating, quiet.",
+    "power": "Cloak vector — moving faster than the system can trace.",
+    "class": "INFILTRATOR"
+  },
+  "titan": {
+    "title": "THE POWERHOUSE",
+    "description": "Overwhelming force. TITAN converts raw throughput into unstoppable pressure across the matrix.",
+    "personality": "Dominant, heavy, immovable.",
+    "power": "Siege engine — sustained output that never yields.",
+    "class": "HEAVY"
+  },
+  "aegis": {
+    "title": "THE PRECISION GUARDIAN",
+    "description": "Flawless discipline. AEGIS is unlocked only through near-perfect accuracy — every character verified.",
+    "personality": "Exacting, protective, meticulous.",
+    "power": "Perfect ward — a shield forged from zero errors.",
+    "class": "GUARDIAN"
+  },
+  "pulse": {
+    "title": "THE REACTIVE",
+    "description": "Pure reaction speed. PULSE thrives on rhythm, converting reflex into a continuous wave of output.",
+    "personality": "Energetic, adaptive, electric.",
+    "power": "Reflex surge — instant response to every signal.",
+    "class": "REACTOR"
+  },
+  "nexus": {
+    "title": "THE STRATEGIST",
+    "description": "The convergence point. NEXUS balances speed, accuracy and consistency into a single optimized flow.",
+    "personality": "Analytical, composed, strategic.",
+    "power": "Network sync — orchestrating every metric in harmony.",
+    "class": "COMMANDER"
+  },
+  "ascendant": {
+    "title": "THE ELITE",
+    "description": "Beyond the threshold. ASCENDANT marks the point where performance becomes mastery.",
+    "personality": "Refined, dominant, elite.",
+    "power": "Transcend protocol — operating above standard limits.",
+    "class": "ELITE"
+  },
+  "velocity": {
+    "title": "THE SPEED SPECIALIST",
+    "description": "Terminal velocity. VELOCITY pushes throughput to the edge of what the network can register.",
+    "personality": "Fearless, blistering, precise.",
+    "power": "Hypervector — motion that outruns perception.",
+    "class": "SPECIALIST"
+  },
+  "sovereign": {
+    "title": "THE ULTIMATE",
+    "description": "The apex of the Ascendancy. SOVEREIGN is the final classification — the complete convergence of speed, precision and control.",
+    "personality": "Absolute, commanding, transcendent.",
+    "power": "Total ascension — the highest state the network can measure.",
+    "class": "SOVEREIGN"
+  }
+}

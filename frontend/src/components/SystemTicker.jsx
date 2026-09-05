@@ -1,16 +1,9 @@
 import React from "react";
-
-const MESSAGES = [
-  "ASCENDANCY NETWORK ONLINE",
-  "NEURAL LINK ACTIVE",
-  "SIMULATION READY",
-  "PERFORMANCE MATRIX ONLINE",
-  "ASCENSION PROTOCOL ACTIVE",
-  "DATA SYNCHRONIZED",
-  "TRAINING SYSTEM ONLINE",
-];
+import { useTranslation } from "react-i18next";
 
 export default function SystemTicker() {
+  const { t } = useTranslation();
+  const MESSAGES = t("systemTicker.messages", { returnObjects: true });
   const line = [...MESSAGES, ...MESSAGES];
   return (
     <div

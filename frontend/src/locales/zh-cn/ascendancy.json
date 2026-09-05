@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — 英雄档案 | Ascendancy", "description": "十位英雄。通往飞升的唯一道路。探索Ascendancy英雄分级档案。" },
+  "heroArchive": "英雄档案",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "一项涵盖十位英雄的打字英雄分级测试——通往飞升的唯一道路。你的速度决定你的等级，你的准确率决定你能攀升多高。",
+  "detail": {
+    "heroId": "英雄_{{index}}",
+    "close": "[ 关闭 ]",
+    "personality": "性格",
+    "power": "能力",
+    "metrics": { "wpm": "WPM", "acc": "准确", "cns": "稳定" },
+    "simulateButton": "进行模拟以完成分级 →"
+  },
+  "heroCard": {
+    "locked": "档案已锁定",
+    "classificationRequired": "需要分级",
+    "metrics": { "wpm": "WPM", "acc": "准确", "cns": "稳定" },
+    "unlockProgress": "解锁进度",
+    "classificationAvailable": "分级可用"
+  }
+}

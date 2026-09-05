@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Globale Bestenliste | Ascendancy", "description": "Ascendancy-Leistungsnetzwerk. Tritt in WPM, Genauigkeit und Leistungspunktzahl in der globalen Bestenliste an." },
+  "overline": "LEISTUNGSNETZWERK",
+  "heading": "GLOBALE BESTENLISTE",
+  "subtitle": "Jede Simulation fließt in diese globale Tipp-Bestenliste ein, sortiert nach Geschwindigkeit, Genauigkeit und Konstanz zusammen — nicht nur nach reinem WPM.",
+  "sortBy": "SORTIEREN NACH",
+  "sorts": { "score": "PUNKTZAHL", "wpm": "WPM", "accuracy": "GENAUIGKEIT" },
+  "columns": { "rank": "RANG", "ascendant": "AUFSTEIGER", "wpm": "WPM", "acc": "GEN", "hero": "HELD", "score": "PUNKTE" },
+  "loading": "LEISTUNGSNETZWERK WIRD GELADEN...",
+  "loadError": "DATEN NICHT VERFÜGBAR — LEISTUNGSNETZWERK OFFLINE",
+  "empty": "KEINE AUFSTEIGER ERKANNT.",
+  "beginSimulation": "[ SIMULATION STARTEN → ]",
+  "you": "DU"
+}

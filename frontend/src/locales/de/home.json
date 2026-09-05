@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "Tippgeschwindigkeitstest & WPM-Test | Ascendancy",
+    "description": "Miss deine Tippgeschwindigkeit, Genauigkeit und Konstanz. Absolviere Simulationen, schalte Helden-Klassifikationen frei und steig in der Ascendancy-Bestenliste auf."
+  },
+  "hero": {
+    "overline": "LEISTUNGSPROTOKOLL",
+    "headingLine1": "WIE SCHNELL",
+    "headingLine2Prefix": "KANNST DU ",
+    "headingLine2Highlight": "TIPPEN?",
+    "subtitle": "Dies ist ein Helden-Klassifikationstest fürs Tippen — starte die Simulation, miss deine Leistung und entdecke deinen Aufstieg. Hol dir dein Zertifikat!",
+    "beginSimulation": "SIMULATION STARTEN →",
+    "viewAscendancy": "ASCENDANCY ANSEHEN",
+    "neuralLink": "NEURALE VERBINDUNG",
+    "stable": "STABIL",
+    "latency": "LATENZ 004ms",
+    "scanLoading": "SCAN LÄUFT"
+  },
+  "performanceData": {
+    "ascendant": "AUFSTEIGER",
+    "guestHeading": "LEISTUNGSDATEN",
+    "guestSession": "GASTSITZUNG"
+  },
+  "modules": {
+    "heading": "SYSTEMMODULE",
+    "titlePrefix": "EIN SYSTEM. ",
+    "titleHighlight": "VIELE MODULE.",
+    "access": "ÖFFNEN →",
+    "items": {
+      "training": { "name": "TRAININGSSYSTEM", "desc": "Starte die Simulation und miss deine Leistung." },
+      "classification": { "name": "KLASSIFIKATIONSARCHIV", "desc": "Zehn Helden-Stufen. Ein Weg zum Aufstieg." },
+      "performance": { "name": "LEISTUNGSNETZWERK", "desc": "Tritt in der globalen Bestenliste an." },
+      "console": { "name": "AUFSTEIGER-KONSOLE", "desc": "Verfolge deinen Aufstieg und deine Leistungsdaten." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "HELDENARCHIV",
+    "titlePrefix": "SCHALTE SIE ALLE FREI. ",
+    "titleHighlight": "BEWEISE DEINE GESCHWINDIGKEIT.",
+    "viewAlt": "{{name}} im Ascendancy-Helden-Klassifikationsarchiv ansehen"
+  },
+  "faq": {
+    "brand": "SUPPORT",
+    "overline": "HÄUFIGE FRAGEN",
+    "titlePrefix": "FRAGEN, ",
+    "titleHighlight": "BEANTWORTET.",
+    "items": [
+      { "q": "Was ist Ascendancy?", "a": "Ascendancy ist ein Tipp-Simulator, der deine Geschwindigkeit, Genauigkeit und Konstanz misst und dich dann als einen von zehn Helden einstuft, basierend auf deiner Leistung — von NOVA am Anfang bis SOVEREIGN an der Spitze." },
+      { "q": "Brauche ich ein Konto, um eine Simulation durchzuführen?", "a": "Nein — jeder kann eine Simulation als Gast durchführen und seine Ergebnisse sehen. Ein Konto ermöglicht es dem Netzwerk, deinen Verlauf zu speichern, deine Bestwerte zu verfolgen, Erfolge freizuschalten und dich in der Bestenliste zu platzieren." },
+      { "q": "Wie wird meine Helden-Klassifikation bestimmt?", "a": "Jeder Held hat Mindestschwellen für WPM, Genauigkeit und Konstanz. Nach jeder Simulation wirst du als der höchste Held eingestuft, dessen Anforderungen du erfüllst — Geschwindigkeit allein reicht nicht, alle drei Werte zählen." },
+      { "q": "Wie wird WPM berechnet?", "a": "Wörter pro Minute werden aus deinen korrekt getippten Zeichen berechnet, nach der Standardkonvention von 5 Zeichen pro Wort, geteilt durch die verstrichene Zeit in Minuten." },
+      { "q": "Kann ich einen Nachweis meiner Tippgeschwindigkeit erhalten?", "a": "Ja. Nach einer Simulation kannst du eine teilbare Heldenkarte, ein professionelles WPM-Zertifikat für Lebenslauf oder Portfolio herunterladen oder dein Ergebnis direkt über WhatsApp, Instagram, X und mehr teilen." },
+      { "q": "Ist die Bestenliste fair?", "a": "Deine Punktzahl in der Bestenliste basiert auf deiner besten verifizierten Simulation, wobei Geschwindigkeit, Genauigkeit und Konstanz gemeinsam gewichtet werden — ein schneller, aber schlampiger Lauf überholt also keinen langsameren, saubereren." }
+    ]
+  }
+}

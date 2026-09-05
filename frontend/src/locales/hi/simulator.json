@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "टाइपिंग स्पीड सिम्युलेटर | Ascendancy",
+    "description": "एक टाइपिंग सिमुलेशन चलाएं। 15, 30, 60 या 120 सेकंड में WPM, सटीकता और स्थिरता मापें।"
+  },
+  "header": {
+    "overline1": "ट्रेनिंग सिस्टम",
+    "overline2": "गेमिफाइड टाइपिंग अभ्यास",
+    "heading": "सिमुलेशन",
+    "statusLabel": "स्टेटस",
+    "status": {
+      "ready": "तैयार",
+      "active": "सक्रिय",
+      "complete": "पूर्ण",
+      "initializing": "शुरू हो रहा है"
+    }
+  },
+  "duration": {
+    "label": "अवधि"
+  },
+  "topic": {
+    "label": "विषय",
+    "items": {
+      "courage": "साहस",
+      "sacrifice": "बलिदान",
+      "legacy": "विरासत",
+      "adversity": "विपत्ति",
+      "awakening": "जागृति"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "सटीकता",
+    "time": "समय",
+    "consistency": "स्थिरता"
+  },
+  "performanceCore": {
+    "label": "परफॉर्मेंस कोर",
+    "status": "मॉनिटर"
+  },
+  "typingEnvironment": {
+    "label": "टाइपिंग वातावरण",
+    "statusLive": "लाइव",
+    "statusStandby": "स्टैंडबाय"
+  },
+  "ready": {
+    "description": "सिमुलेशन में प्रवेश करें। पैसेज को जितनी तेज़ी और सटीकता से हो सके टाइप करें। आपका प्रदर्शन आपका हीरो वर्गीकरण तय करता है।",
+    "beginButton": "सिमुलेशन शुरू करें →"
+  },
+  "countdown": {
+    "go": "जाएं"
+  },
+  "restartButton": "[ पुनः आरंभ करें ]",
+  "bootLines": [
+    "सिस्टम शुरू हो रहा है",
+    "न्यूरल लिंक जुड़ा",
+    "परफॉर्मेंस मैट्रिक्स तैयार"
+  ],
+  "reveal": {
+    "stageComplete": "सिमुलेशन पूर्ण",
+    "stageAnalyzing": "प्रदर्शन का विश्लेषण हो रहा है",
+    "log1": "> परफॉर्मेंस मैट्रिक्स पढ़ा जा रहा है...",
+    "log2": "> हीरो संग्रह की जाँच हो रही है...",
+    "log3": "> वर्गीकरण जारी है...",
+    "heroProfileIdentified": "हीरो प्रोफ़ाइल की पहचान हुई",
+    "newClassification": "नया वर्गीकरण",
+    "unlockProgressLabel": "अनलॉक हो रहा है {{current}} / {{total}}",
+    "unlockedBadge": "अनलॉक हुआ",
+    "classificationComplete": "वर्गीकरण पूर्ण",
+    "powerLabel": "शक्ति",
+    "scoreLabel": "स्कोर",
+    "ascensionProgress": "असेंशन प्रगति",
+    "advanceToward": "{{name}} की ओर आगे बढ़ें — ऊपर उठने के लिए अपनी स्पीड, सटीकता और स्थिरता बढ़ाएं।",
+    "apexReached": "आपने Ascendancy का शिखर हासिल कर लिया है।",
+    "nextLabel": "अगला: {{name}}",
+    "maxAscension": "अधिकतम असेंशन",
+    "newRecord": "नया रिकॉर्ड",
+    "ascensionCompleteBadge": "असेंशन पूर्ण",
+    "retryButton": "सिमुलेशन फिर से आज़माएं →",
+    "viewProfileButton": "हीरो प्रोफ़ाइल देखें",
+    "viewLeaderboardButton": "लीडरबोर्ड देखें",
+    "shareButton": "परिणाम शेयर करें",
+    "preparingButton": "तैयार हो रहा है…",
+    "downloadCertButton": "हीरो सर्टिफिकेट डाउनलोड करें",
+    "downloadWpmCertButton": "WPM सर्टिफिकेट डाउनलोड करें",
+    "generatingButton": "जनरेट हो रहा है…",
+    "shareInstagramButton": "Instagram स्टोरी पर शेयर करें",
+    "shareText": "मैंने ASCENDANCY पर {{name}} हासिल किया!",
+    "guestAscendant": "गेस्ट एसेंडेंट",
+    "messages": {
+      "certificateSaved": "सर्टिफिकेट आपके डाउनलोड में सहेजा गया",
+      "wpmCertificateSaved": "WPM सर्टिफिकेट आपके डाउनलोड में सहेजा गया",
+      "shareLinkStorySticker": "लिंक कॉपी हो गया — अगर आप स्टोरी/स्टेटस पर पोस्ट करते हैं तो इसे लिंक स्टिकर के रूप में जोड़ें",
+      "shareImageDownloaded": "इमेज डाउनलोड हुई + लिंक कॉपी हुआ — इसे WhatsApp, Instagram, X पर शेयर करें...",
+      "igPickInstagram": "शेयर मेनू में Instagram चुनें, फिर लिंक स्टिकर जोड़ें — यह पहले से कॉपी हो चुका है",
+      "igNeedsPhone": "Instagram स्टोरीज़ के लिए आपके फ़ोन की ज़रूरत है — इमेज डाउनलोड हुई, लिंक कॉपी हुआ। पोस्ट करने के लिए इमेज अपने फ़ोन पर भेजें"
+    }
+  }
+}

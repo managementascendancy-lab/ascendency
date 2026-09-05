@@ -1,39 +1,43 @@
 import React, { Suspense } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import AscendancyGrid from "@/components/AscendancyGrid";
 import SystemTicker from "@/components/SystemTicker";
 import Navbar from "@/components/Navbar";
 import RouteLoader from "@/components/RouteLoader";
+import { LocalizedLink } from "@/i18n/links";
 import { Sep } from "@/components/Sep";
 
-const FOOTER_COLUMNS = [
-  {
-    heading: "PRODUCT",
-    links: [
-      { to: "/product/training-simulator", label: "Training Simulator" },
-      { to: "/product/classification-archive", label: "Classification Archive" },
-      { to: "/product/performance-network", label: "Performance Network" },
-      { to: "/product/achievements", label: "Achievements" },
-      { to: "/guides", label: "Guides" },
-    ],
-  },
-  {
-    heading: "ACCOUNT",
-    links: [
-      { to: "/account/ascendant-console", label: "Ascendant Console" },
-      { to: "/account/sign-in-register", label: "Sign In / Register" },
-    ],
-  },
-  {
-    heading: "LEGAL",
-    links: [
-      { to: "/privacy-policy", label: "Privacy Policy" },
-      { to: "/terms-of-service", label: "Terms of Service" },
-    ],
-  },
-];
-
 export default function Layout() {
+  const { t } = useTranslation();
+
+  const FOOTER_COLUMNS = [
+    {
+      heading: t("footer.productHeading"),
+      links: [
+        { to: "/product/training-simulator", label: t("footer.trainingSimulator") },
+        { to: "/product/classification-archive", label: t("footer.classificationArchive") },
+        { to: "/product/performance-network", label: t("footer.performanceNetwork") },
+        { to: "/product/achievements", label: t("footer.achievements") },
+        { to: "/guides", label: t("footer.guides") },
+      ],
+    },
+    {
+      heading: t("footer.accountHeading"),
+      links: [
+        { to: "/account/ascendant-console", label: t("footer.ascendantConsole") },
+        { to: "/account/sign-in-register", label: t("footer.signInRegister") },
+      ],
+    },
+    {
+      heading: t("footer.legalHeading"),
+      links: [
+        { to: "/privacy-policy", label: t("footer.privacyPolicy") },
+        { to: "/terms-of-service", label: t("footer.termsOfService") },
+      ],
+    },
+  ];
+
   return (
     <div className="relative min-h-screen hud-frame">
       <AscendancyGrid />
@@ -47,7 +51,7 @@ export default function Layout() {
 
       {/* reserved ad slot — drop the AdSense <ins> unit in here */}
       <div className="mx-auto mt-16 flex min-h-[120px] max-w-[1040px] items-center justify-center border border-dashed border-bronze/30 px-4 sm:px-8" data-testid="ad-slot">
-        <span className="tech-label text-bronze/60">ADVERTISEMENT</span>
+        <span className="tech-label text-bronze/60">{t("footer.advertisement")}</span>
       </div>
 
       <footer className="mx-auto mt-16 max-w-[1040px] border-t border-bronze/30 px-4 py-10 sm:px-8">
@@ -57,7 +61,7 @@ export default function Layout() {
               ASCEND<span className="text-red">ANCY</span>
             </div>
             <p className="mt-3 max-w-[220px] font-body text-xs leading-relaxed text-cream/60">
-              Measure your typing speed, accuracy and consistency. Unlock hero classifications and climb the network.
+              {t("footer.tagline")}
             </p>
           </div>
 
@@ -67,9 +71,9 @@ export default function Layout() {
               <ul className="mt-3 space-y-2">
                 {col.links.map((l) => (
                   <li key={l.to}>
-                    <Link to={l.to} className="font-body text-xs text-cream/70 transition-colors hover:text-gold-bright">
+                    <LocalizedLink to={l.to} className="font-body text-xs text-cream/70 transition-colors hover:text-gold-bright">
                       {l.label}
-                    </Link>
+                    </LocalizedLink>
                   </li>
                 ))}
               </ul>
@@ -78,7 +82,7 @@ export default function Layout() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-bronze/20 pt-6 sm:flex-row sm:items-center">
-          <div className="tech-label text-gold-bright">TYPE. TRAIN. ASCEND.<Sep tone="red" />ASCENDANCY INITIATIVE © 2026</div>
+          <div className="tech-label text-gold-bright">{t("footer.motto")}<Sep tone="red" />{t("footer.copyright")}</div>
           <div className="flex items-center gap-4">
             <a href="mailto:support@ascendancy.io" className="font-mono text-[11px] text-cream/50 transition-colors hover:text-gold-bright">
               support@ascendancy.io

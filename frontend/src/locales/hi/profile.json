@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "कंसोल सिंक हो रहा है...",
+  "guest": {
+    "seo": { "title": "एसेंडेंट प्रोफ़ाइल | Ascendancy", "description": "अपनी एसेंडेंट प्रोफ़ाइल, परफॉर्मेंस डेटा और असेंशन प्रगति देखें।" },
+    "noSimulations": "कोई सिमुलेशन दर्ज नहीं हुआ।",
+    "prompt": "अपना एसेंडेंट कंसोल सक्रिय करने के लिए ऑथेंटिकेट करें।",
+    "accessButton": "नेटवर्क एक्सेस करें →"
+  },
+  "seo": { "description": "आपकी एसेंडेंट प्रोफ़ाइल, परफॉर्मेंस डेटा और असेंशन प्रगति।" },
+  "ascendantConsole": "एसेंडेंट कंसोल",
+  "currentClassification": { "label": "वर्तमान वर्गीकरण", "status": "सक्रिय" },
+  "ascension": {
+    "progress": "असेंशन प्रगति",
+    "next": "अगला: {{name}}",
+    "max": "अधिकतम",
+    "requires": "आवश्यक {{wpm}} WPM · {{accuracy}}% सटी · {{consistency}}% स्थि",
+    "complete": "असेंशन पूर्ण"
+  },
+  "stats": {
+    "bestWpm": "सर्वश्रेष्ठ WPM",
+    "avgWpm": "औसत WPM",
+    "bestAcc": "सर्वश्रेष्ठ सटी",
+    "avgAcc": "औसत सटी",
+    "bestCns": "सर्वश्रेष्ठ स्थि",
+    "streak": "स्ट्रीक",
+    "simulations": "सिमुलेशन",
+    "charsTyped": "टाइप किए अक्षर",
+    "score": "स्कोर"
+  },
+  "charts": { "wpmHistory": "WPM इतिहास", "accuracyHistory": "सटीकता इतिहास", "consistency": "स्थिरता" },
+  "loadingPerformanceData": "परफॉर्मेंस डेटा लोड हो रहा है...",
+  "dangerZone": {
+    "account": "अकाउंट",
+    "heading": "खतरे का क्षेत्र",
+    "restrictedStatus": "प्रतिबंधित",
+    "description": "अपनी एसेंडेंट प्रोफ़ाइल, सिमुलेशन इतिहास और लीडरबोर्ड स्थिति को स्थायी रूप से मिटा दें।",
+    "deleteButton": "अकाउंट हटाएं",
+    "warning": "यह क्रिया स्थायी है। आपकी प्रोफ़ाइल, सिमुलेशन इतिहास और लीडरबोर्ड स्थिति मिटा दी जाएगी और इसे वापस नहीं लाया जा सकेगा।",
+    "confirmAccessKey": "एक्सेस की की पुष्टि करें",
+    "confirmCheckbox": "मैं समझता/समझती हूँ कि इसे पूर्ववत नहीं किया जा सकता।",
+    "erasing": "मिटाया जा रहा है...",
+    "confirmButton": "हटाने की पुष्टि करें →",
+    "cancel": "रद्द करें"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Simulador de Velocidade de Digitação | Ascendancy",
+    "description": "Rode uma simulação de digitação. Meça PPM, precisão e consistência em 15, 30, 60 ou 120 segundos."
+  },
+  "header": {
+    "overline1": "SISTEMA DE TREINAMENTO",
+    "overline2": "PRÁTICA DE DIGITAÇÃO GAMIFICADA",
+    "heading": "SIMULAÇÃO",
+    "statusLabel": "STATUS",
+    "status": {
+      "ready": "PRONTO",
+      "active": "ATIVO",
+      "complete": "COMPLETO",
+      "initializing": "INICIANDO"
+    }
+  },
+  "duration": {
+    "label": "DURAÇÃO"
+  },
+  "topic": {
+    "label": "TEMA",
+    "items": {
+      "courage": "CORAGEM",
+      "sacrifice": "SACRIFÍCIO",
+      "legacy": "LEGADO",
+      "adversity": "ADVERSIDADE",
+      "awakening": "DESPERTAR"
+    }
+  },
+  "metrics": {
+    "wpm": "PPM",
+    "accuracy": "PRECISÃO",
+    "time": "TEMPO",
+    "consistency": "CONSISTÊNCIA"
+  },
+  "performanceCore": {
+    "label": "NÚCLEO DE DESEMPENHO",
+    "status": "MONITOR"
+  },
+  "typingEnvironment": {
+    "label": "AMBIENTE DE DIGITAÇÃO",
+    "statusLive": "AO VIVO",
+    "statusStandby": "EM ESPERA"
+  },
+  "ready": {
+    "description": "Entre na simulação. Digite a passagem o mais rápido e precisamente possível. Seu desempenho determina sua classificação de herói.",
+    "beginButton": "INICIAR SIMULAÇÃO →"
+  },
+  "countdown": {
+    "go": "VAI"
+  },
+  "restartButton": "[ REINICIAR ]",
+  "bootLines": [
+    "INICIANDO SISTEMA",
+    "LINK NEURAL CONECTADO",
+    "MATRIZ DE DESEMPENHO PRONTA"
+  ],
+  "reveal": {
+    "stageComplete": "SIMULAÇÃO COMPLETA",
+    "stageAnalyzing": "ANALISANDO DESEMPENHO",
+    "log1": "> LENDO MATRIZ DE DESEMPENHO...",
+    "log2": "> CONSULTANDO ARQUIVO DE HERÓIS...",
+    "log3": "> CLASSIFICAÇÃO EM ANDAMENTO...",
+    "heroProfileIdentified": "PERFIL DE HERÓI IDENTIFICADO",
+    "newClassification": "NOVA CLASSIFICAÇÃO",
+    "unlockProgressLabel": "DESBLOQUEANDO {{current}} / {{total}}",
+    "unlockedBadge": "DESBLOQUEADO",
+    "classificationComplete": "CLASSIFICAÇÃO COMPLETA",
+    "powerLabel": "PODER",
+    "scoreLabel": "PONTUAÇÃO",
+    "ascensionProgress": "PROGRESSO DE ASCENSÃO",
+    "advanceToward": "Avance rumo a {{name}} — aumente sua velocidade, precisão e consistência para ascender.",
+    "apexReached": "Você alcançou o ápice da Ascendancy.",
+    "nextLabel": "PRÓXIMO: {{name}}",
+    "maxAscension": "ASCENSÃO MÁXIMA",
+    "newRecord": "NOVO RECORDE",
+    "ascensionCompleteBadge": "ASCENSÃO COMPLETA",
+    "retryButton": "REPETIR SIMULAÇÃO →",
+    "viewProfileButton": "VER PERFIL DE HERÓI",
+    "viewLeaderboardButton": "VER RANKING",
+    "shareButton": "COMPARTILHAR RESULTADO",
+    "preparingButton": "PREPARANDO…",
+    "downloadCertButton": "BAIXAR CERTIFICADO DE HERÓI",
+    "downloadWpmCertButton": "BAIXAR CERTIFICADO DE PPM",
+    "generatingButton": "GERANDO…",
+    "shareInstagramButton": "COMPARTILHAR NO STORY DO INSTAGRAM",
+    "shareText": "Eu alcancei {{name}} na ASCENDANCY!",
+    "guestAscendant": "ASCENDENTE CONVIDADO",
+    "messages": {
+      "certificateSaved": "CERTIFICADO SALVO NOS SEUS DOWNLOADS",
+      "wpmCertificateSaved": "CERTIFICADO DE PPM SALVO NOS SEUS DOWNLOADS",
+      "shareLinkStorySticker": "LINK COPIADO — ADICIONE COMO STICKER DE LINK SE POSTAR NO STORY/STATUS",
+      "shareImageDownloaded": "IMAGEM BAIXADA + LINK COPIADO — COMPARTILHE NO WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "ESCOLHA O INSTAGRAM NO MENU DE COMPARTILHAMENTO E ADICIONE O STICKER DE LINK — JÁ ESTÁ COPIADO",
+      "igNeedsPhone": "O INSTAGRAM STORIES PRECISA DO SEU CELULAR — IMAGEM BAIXADA, LINK COPIADO. ENVIE A IMAGEM PARA SEU CELULAR PARA POSTAR"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "全球排行榜 | Ascendancy", "description": "Ascendancy性能网络。在全球排行榜中比拼WPM、准确率和性能得分。" },
+  "overline": "性能网络",
+  "heading": "全球排行榜",
+  "subtitle": "每一次模拟都会计入这个全球打字排行榜，排名依据速度、准确率和稳定性共同计算——而不仅仅是原始WPM。",
+  "sortBy": "排序方式",
+  "sorts": { "score": "得分", "wpm": "WPM", "accuracy": "准确率" },
+  "columns": { "rank": "排名", "ascendant": "飞升者", "wpm": "WPM", "acc": "准确", "hero": "英雄", "score": "得分" },
+  "loading": "正在加载性能网络...",
+  "loadError": "数据不可用——性能网络已离线",
+  "empty": "未检测到任何飞升者。",
+  "beginSimulation": "[ 开始模拟 → ]",
+  "you": "你"
+}

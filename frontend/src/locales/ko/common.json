@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "홈",
+    "simulator": "시뮬레이터",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "리더보드",
+    "guides": "가이드",
+    "profile": "내 프로필",
+    "online": "온라인",
+    "muteSound": "소리 음소거",
+    "enableSound": "소리 켜기",
+    "logout": "로그아웃",
+    "access": "접속",
+    "brandTag": "타이핑 이니셔티브"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "그리드 · ASC-CORE",
+    "sectorSignal": "섹터 · ASC-07",
+    "signalStable": "신호 · 안정"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCY 네트워크 온라인",
+      "뉴럴 링크 활성화",
+      "시뮬레이션 준비 완료",
+      "퍼포먼스 매트릭스 온라인",
+      "어센션 프로토콜 활성화",
+      "데이터 동기화 완료",
+      "트레이닝 시스템 온라인"
+    ]
+  },
+  "footer": {
+    "tagline": "타이핑 속도, 정확도, 일관성을 측정하세요. 히어로 등급을 해제하고 네트워크에서 올라가세요.",
+    "productHeading": "제품",
+    "accountHeading": "계정",
+    "legalHeading": "법적 고지",
+    "trainingSimulator": "트레이닝 시뮬레이터",
+    "classificationArchive": "등급 아카이브",
+    "performanceNetwork": "퍼포먼스 네트워크",
+    "achievements": "업적",
+    "guides": "가이드",
+    "ascendantConsole": "어센던트 콘솔",
+    "signInRegister": "로그인 / 회원가입",
+    "privacyPolicy": "개인정보처리방침",
+    "termsOfService": "이용약관",
+    "motto": "입력하라. 훈련하라. 상승하라.",
+    "copyright": "ASCENDANCY 이니셔티브 © 2026",
+    "advertisement": "광고"
+  }
+}

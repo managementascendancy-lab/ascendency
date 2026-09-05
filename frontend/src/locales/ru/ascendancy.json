@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Архив героев | Ascendancy", "description": "Десять героев. Один путь к восхождению. Изучите архив классификации героев Ascendancy." },
+  "heroArchive": "АРХИВ ГЕРОЕВ",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Тест на классификацию героя по скорости печати, охватывающий десять героев — один путь к восхождению. Твоя скорость определяет класс. Твоя точность определяет, как высоко ты поднимешься.",
+  "detail": {
+    "heroId": "ГЕРОЙ_{{index}}",
+    "close": "[ ЗАКРЫТЬ ]",
+    "personality": "ЛИЧНОСТЬ",
+    "power": "СИЛА",
+    "metrics": { "wpm": "WPM", "acc": "ТЧН", "cns": "СТБ" },
+    "simulateButton": "СИМУЛИРОВАТЬ ДЛЯ КЛАССИФИКАЦИИ →"
+  },
+  "heroCard": {
+    "locked": "ПРОФИЛЬ ЗАБЛОКИРОВАН",
+    "classificationRequired": "ТРЕБУЕТСЯ КЛАССИФИКАЦИЯ",
+    "metrics": { "wpm": "WPM", "acc": "ТЧН", "cns": "СТБ" },
+    "unlockProgress": "ПРОГРЕСС РАЗБЛОКИРОВКИ",
+    "classificationAvailable": "КЛАССИФИКАЦИЯ ДОСТУПНА"
+  }
+}

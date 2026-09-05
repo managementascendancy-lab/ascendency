@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "글로벌 리더보드 | Ascendancy", "description": "Ascendancy 퍼포먼스 네트워크. 글로벌 리더보드에서 WPM, 정확도, 퍼포먼스 점수로 경쟁하세요." },
+  "overline": "퍼포먼스 네트워크",
+  "heading": "글로벌 리더보드",
+  "subtitle": "모든 시뮬레이션이 이 글로벌 타이핑 리더보드에 반영되며, 순수 WPM이 아닌 속도·정확도·일관성을 함께 반영해 순위가 매겨집니다.",
+  "sortBy": "정렬 기준",
+  "sorts": { "score": "점수", "wpm": "WPM", "accuracy": "정확도" },
+  "columns": { "rank": "순위", "ascendant": "어센던트", "wpm": "WPM", "acc": "정확", "hero": "히어로", "score": "점수" },
+  "loading": "퍼포먼스 네트워크 로딩 중...",
+  "loadError": "데이터를 사용할 수 없음 — 퍼포먼스 네트워크가 오프라인 상태입니다",
+  "empty": "감지된 어센던트가 없습니다.",
+  "beginSimulation": "[ 시뮬레이션 시작 → ]",
+  "you": "당신"
+}

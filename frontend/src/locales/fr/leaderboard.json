@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Classement Mondial | Ascendancy", "description": "Réseau de performance Ascendancy. Affrontez le classement mondial en MPM, précision et score de performance." },
+  "overline": "RÉSEAU DE PERFORMANCE",
+  "heading": "CLASSEMENT MONDIAL",
+  "subtitle": "Chaque simulation alimente ce classement mondial de frappe, trié par vitesse, précision et régularité ensemble — pas seulement le MPM brut.",
+  "sortBy": "TRIER PAR",
+  "sorts": { "score": "SCORE", "wpm": "MPM", "accuracy": "PRÉCISION" },
+  "columns": { "rank": "RANG", "ascendant": "ASCENDANT", "wpm": "MPM", "acc": "PRÉ", "hero": "HÉROS", "score": "SCORE" },
+  "loading": "CHARGEMENT DU RÉSEAU DE PERFORMANCE...",
+  "loadError": "DONNÉES INDISPONIBLES — RÉSEAU DE PERFORMANCE HORS LIGNE",
+  "empty": "AUCUN ASCENDANT DÉTECTÉ.",
+  "beginSimulation": "[ LANCER UNE SIMULATION → ]",
+  "you": "VOUS"
+}

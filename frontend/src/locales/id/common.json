@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "BERANDA",
+    "simulator": "SIMULATOR",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "PAPAN PERINGKAT",
+    "guides": "PANDUAN",
+    "profile": "PROFIL SAYA",
+    "online": "ONLINE",
+    "muteSound": "Bisukan suara",
+    "enableSound": "Aktifkan suara",
+    "logout": "Keluar",
+    "access": "AKSES",
+    "brandTag": "INISIATIF MENGETIK"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "GRID · ASC-CORE",
+    "sectorSignal": "SEKTOR · ASC-07",
+    "signalStable": "SINYAL · STABIL"
+  },
+  "systemTicker": {
+    "messages": [
+      "JARINGAN ASCENDANCY ONLINE",
+      "TAUTAN NEURAL AKTIF",
+      "SIMULASI SIAP",
+      "MATRIKS PERFORMA ONLINE",
+      "PROTOKOL ASENSI AKTIF",
+      "DATA TERSINKRONISASI",
+      "SISTEM PELATIHAN ONLINE"
+    ]
+  },
+  "footer": {
+    "tagline": "Ukur kecepatan mengetik, akurasi, dan konsistensi Anda. Buka klasifikasi pahlawan dan naik peringkat di jaringan.",
+    "productHeading": "PRODUK",
+    "accountHeading": "AKUN",
+    "legalHeading": "LEGAL",
+    "trainingSimulator": "Simulator Pelatihan",
+    "classificationArchive": "Arsip Klasifikasi",
+    "performanceNetwork": "Jaringan Performa",
+    "achievements": "Pencapaian",
+    "guides": "Panduan",
+    "ascendantConsole": "Konsol Ascendant",
+    "signInRegister": "Masuk / Daftar",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Ketentuan Layanan",
+    "motto": "KETIK. LATIH. NAIK KELAS.",
+    "copyright": "INISIATIF ASCENDANCY © 2026",
+    "advertisement": "IKLAN"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Arquivo de Heróis | Ascendancy", "description": "Dez heróis. Um único caminho para a ascensão. Explore o arquivo de classificação de heróis da Ascendancy." },
+  "heroArchive": "ARQUIVO DE HERÓIS",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "Um teste de classificação de heróis por digitação com dez heróis — um único caminho para a ascensão. Sua velocidade determina sua classe. Sua precisão determina até onde você chega.",
+  "detail": {
+    "heroId": "HERÓI_{{index}}",
+    "close": "[ FECHAR ]",
+    "personality": "PERSONALIDADE",
+    "power": "PODER",
+    "metrics": { "wpm": "PPM", "acc": "PRE", "cns": "CNS" },
+    "simulateButton": "SIMULAR PARA CLASSIFICAR →"
+  },
+  "heroCard": {
+    "locked": "PERFIL BLOQUEADO",
+    "classificationRequired": "CLASSIFICAÇÃO NECESSÁRIA",
+    "metrics": { "wpm": "PPM", "acc": "PRE", "cns": "CNS" },
+    "unlockProgress": "PROGRESSO DE DESBLOQUEIO",
+    "classificationAvailable": "CLASSIFICAÇÃO DISPONÍVEL"
+  }
+}

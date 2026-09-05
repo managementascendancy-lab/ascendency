@@ -1,0 +1,83 @@
+{
+  "backToHome": "TORNA ALLA HOME",
+  "pages": {
+    "training-simulator": {
+      "name": "SISTEMA DI ALLENAMENTO",
+      "eyebrow": "PRODOTTO",
+      "tagline": "MISURA OGNI TASTO.",
+      "summary": "Il cuore di Ascendancy. Esegui una simulazione di digitazione a tempo e ottieni una lettura istantanea e precisa di quanto sei veloce e pulito nella digitazione.",
+      "features": [
+        "Scegli una durata da 15 a 120 secondi e un tema del brano sul concetto di eroismo.",
+        "Letture in tempo reale di PPM, precisione, costanza e tempo rimanente mentre digiti.",
+        "Una visualizzazione in tempo reale del Nucleo di Prestazione che reagisce alla tua intensità di digitazione.",
+        "Ogni risultato alimenta direttamente la tua classificazione eroe, serie e punteggio in classifica."
+      ],
+      "ctaLabel": "AVVIA UNA SIMULAZIONE →"
+    },
+    "classification-archive": {
+      "name": "ARCHIVIO DI CLASSIFICAZIONE",
+      "eyebrow": "PRODOTTO",
+      "tagline": "DIECI EROI. UN CAMMINO.",
+      "summary": "Dieci classificazioni deterministiche, da NOVA a SOVEREIGN. Ogni livello ha soglie fisse di velocità, precisione e costanza — niente è valutato su una curva.",
+      "features": [
+        "Sfoglia tutte e dieci le classificazioni eroe e le soglie esatte di PPM / precisione / costanza richieste da ciascuna.",
+        "Vedi la tua classificazione attuale e quanto sei vicino al livello successivo.",
+        "Un'esecuzione veloce ma imprecisa non supererà mai una più lenta ma pulita — contano tutte e tre le metriche.",
+        "Storia, personalità e potere completi per ogni classificazione nell'archivio."
+      ],
+      "ctaLabel": "VEDI L'ARCHIVIO →"
+    },
+    "performance-network": {
+      "name": "RETE DI PRESTAZIONI",
+      "eyebrow": "PRODOTTO",
+      "tagline": "COMPETI GLOBALMENTE.",
+      "summary": "Una classifica globale dal vivo con la migliore esecuzione verificata di ogni ascendente — ordinabile per punteggio, PPM o precisione.",
+      "features": [
+        "Ordina la rete per punteggio totale, miglior PPM o miglior precisione.",
+        "Vedi il tuo rango evidenziato direttamente in classifica.",
+        "I ranghi si basano sulla tua migliore simulazione, non su una media — basta un'ottima esecuzione.",
+        "Aggiornata in tempo reale man mano che arrivano nuovi risultati da tutta la rete."
+      ],
+      "ctaLabel": "VEDI CLASSIFICA →"
+    },
+    "achievements": {
+      "name": "OBIETTIVI",
+      "eyebrow": "PRODOTTO",
+      "tagline": "TRAGUARDI CHE CONTANO.",
+      "summary": "Nove obiettivi tracciano traguardi reali nella tua progressione — dalla tua prima simulazione fino a raggiungere l'apice di Ascendancy.",
+      "features": [
+        "Sblocca obiettivi per traguardi di velocità come Scatto di Velocità, Overdrive e Supera il Limite.",
+        "Conquista Precisione ed Esecuzione Perfetta per una precisione quasi impeccabile e impeccabile.",
+        "Ascesa, Velocity e Sovereign segnano il tuo progresso attraverso i livelli eroe più alti.",
+        "Ogni obiettivo è permanente una volta sbloccato ed è visibile nella tua Console dell'Ascendente."
+      ],
+      "ctaLabel": "VEDI OBIETTIVI →"
+    },
+    "ascendant-console": {
+      "name": "CONSOLE DELL'ASCENDENTE",
+      "eyebrow": "ACCOUNT",
+      "tagline": "I TUOI PROGRESSI, IN UN SOLO POSTO.",
+      "summary": "La tua dashboard personale sulla rete — classificazione eroe attuale, migliore prestazione, cronologia completa delle simulazioni e ogni obiettivo sbloccato, tutto in un'unica console.",
+      "features": [
+        "La tua classificazione eroe attuale, con un anello di progresso dal vivo verso il livello successivo.",
+        "Miglior PPM, precisione e costanza medi, tracciati su ogni simulazione eseguita.",
+        "Una cronologia completa delle tue simulazioni recenti, rappresentata graficamente nel tempo.",
+        "Ogni obiettivo che hai sbloccato, dalla tua prima simulazione fino a raggiungere l'apice di Ascendancy."
+      ],
+      "ctaLabel": "VEDI LA TUA CONSOLE →"
+    },
+    "sign-in-register": {
+      "name": "ACCEDI / REGISTRATI",
+      "eyebrow": "ACCOUNT",
+      "tagline": "CREA IL TUO PROFILO DI ASCENDENTE.",
+      "summary": "Un account Ascendancy salva ogni simulazione eseguita, traccia la tua migliore prestazione nel tempo e ti inserisce nella classifica globale. Si crea in pochi secondi.",
+      "features": [
+        "Ogni simulazione eseguita viene salvata permanentemente nella cronologia del tuo account.",
+        "I tuoi punteggi migliori vengono registrati e usati per classificare il tuo livello eroe attuale.",
+        "Compari nella classifica globale della Rete di Prestazioni, a confronto con tutti gli altri ascendenti.",
+        "Costruisci una serie giornaliera e sblocca obiettivi mentre continui ad allenarti."
+      ],
+      "ctaLabel": "ACCEDI / REGISTRATI →"
+    }
+  }
+}

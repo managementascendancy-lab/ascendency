@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "タイピングガイド & ヒント | Ascendancy", "description": "タイピング速度、正確性、人間工学、Ascendancyのクラス分けシステムに関する実践的なガイド。" },
+    "overline1": "リソース",
+    "overline2": "ガイド",
+    "heading": "トレーニングガイド",
+    "subtitle": "タイピング速度、正確性、人間工学、そしてAscendancyのクラス分けシステムが実際にどう機能するかについての、実践的で率直なガイド。",
+    "readGuide": "ガイドを読む →"
+  },
+  "article": {
+    "allGuides": "← すべてのガイド",
+    "practicePrompt": "実践する準備はできましたか？",
+    "simulateCta": "タイピングシミュレーションを実行 →",
+    "unavailableNotice": "この記事はまだあなたの言語で利用できません — 英語版を表示しています。"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — أرشيف الأبطال | Ascendancy", "description": "عشرة أبطال. طريق واحد نحو الصعود. استكشف أرشيف تصنيف أبطال Ascendancy." },
+  "heroArchive": "أرشيف الأبطال",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "اختبار تصنيف أبطال قائم على الكتابة يضم عشرة أبطال — طريق واحد نحو الصعود. سرعتك تحدد فئتك، ودقتك تحدد إلى أي مدى ترتقي.",
+  "detail": {
+    "heroId": "البطل_{{index}}",
+    "close": "[ إغلاق ]",
+    "personality": "الشخصية",
+    "power": "القوة",
+    "metrics": { "wpm": "WPM", "acc": "دقة", "cns": "ثبات" },
+    "simulateButton": "حاكِ لتصنيفك ←"
+  },
+  "heroCard": {
+    "locked": "الملف مقفل",
+    "classificationRequired": "التصنيف مطلوب",
+    "metrics": { "wpm": "WPM", "acc": "دقة", "cns": "ثبات" },
+    "unlockProgress": "تقدّم الفتح",
+    "classificationAvailable": "التصنيف متاح"
+  }
+}

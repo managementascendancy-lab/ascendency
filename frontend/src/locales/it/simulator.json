@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Simulatore di Velocità di Digitazione | Ascendancy",
+    "description": "Esegui una simulazione di digitazione. Misura PPM, precisione e costanza in 15, 30, 60 o 120 secondi."
+  },
+  "header": {
+    "overline1": "SISTEMA DI ALLENAMENTO",
+    "overline2": "PRATICA DI DIGITAZIONE LUDICIZZATA",
+    "heading": "SIMULAZIONE",
+    "statusLabel": "STATO",
+    "status": {
+      "ready": "PRONTO",
+      "active": "ATTIVO",
+      "complete": "COMPLETATO",
+      "initializing": "INIZIALIZZAZIONE"
+    }
+  },
+  "duration": {
+    "label": "DURATA"
+  },
+  "topic": {
+    "label": "ARGOMENTO",
+    "items": {
+      "courage": "CORAGGIO",
+      "sacrifice": "SACRIFICIO",
+      "legacy": "EREDITÀ",
+      "adversity": "AVVERSITÀ",
+      "awakening": "RISVEGLIO"
+    }
+  },
+  "metrics": {
+    "wpm": "PPM",
+    "accuracy": "PRECISIONE",
+    "time": "TEMPO",
+    "consistency": "COSTANZA"
+  },
+  "performanceCore": {
+    "label": "NUCLEO DI PRESTAZIONE",
+    "status": "MONITOR"
+  },
+  "typingEnvironment": {
+    "label": "AMBIENTE DI DIGITAZIONE",
+    "statusLive": "IN DIRETTA",
+    "statusStandby": "IN ATTESA"
+  },
+  "ready": {
+    "description": "Entra nella simulazione. Digita il brano il più velocemente e precisamente possibile. Le tue prestazioni determinano la tua classificazione eroe.",
+    "beginButton": "AVVIA SIMULAZIONE →"
+  },
+  "countdown": {
+    "go": "VIA"
+  },
+  "restartButton": "[ RIAVVIA ]",
+  "bootLines": [
+    "INIZIALIZZAZIONE DEL SISTEMA",
+    "COLLEGAMENTO NEURALE ATTIVO",
+    "MATRICE DI PRESTAZIONE PRONTA"
+  ],
+  "reveal": {
+    "stageComplete": "SIMULAZIONE COMPLETATA",
+    "stageAnalyzing": "ANALISI DELLE PRESTAZIONI",
+    "log1": "> LETTURA MATRICE DI PRESTAZIONE...",
+    "log2": "> CONSULTAZIONE ARCHIVIO EROI...",
+    "log3": "> CLASSIFICAZIONE IN CORSO...",
+    "heroProfileIdentified": "PROFILO EROE IDENTIFICATO",
+    "newClassification": "NUOVA CLASSIFICAZIONE",
+    "unlockProgressLabel": "SBLOCCO {{current}} / {{total}}",
+    "unlockedBadge": "SBLOCCATO",
+    "classificationComplete": "CLASSIFICAZIONE COMPLETATA",
+    "powerLabel": "POTERE",
+    "scoreLabel": "PUNTEGGIO",
+    "ascensionProgress": "PROGRESSO DI ASCESA",
+    "advanceToward": "Avanza verso {{name}} — aumenta velocità, precisione e costanza per ascendere.",
+    "apexReached": "Hai raggiunto l'apice di Ascendancy.",
+    "nextLabel": "PROSSIMO: {{name}}",
+    "maxAscension": "ASCESA MASSIMA",
+    "newRecord": "NUOVO RECORD",
+    "ascensionCompleteBadge": "ASCESA COMPLETATA",
+    "retryButton": "RIPETI SIMULAZIONE →",
+    "viewProfileButton": "VEDI PROFILO EROE",
+    "viewLeaderboardButton": "VEDI CLASSIFICA",
+    "shareButton": "CONDIVIDI RISULTATO",
+    "preparingButton": "PREPARAZIONE…",
+    "downloadCertButton": "SCARICA CERTIFICATO EROE",
+    "downloadWpmCertButton": "SCARICA CERTIFICATO PPM",
+    "generatingButton": "GENERAZIONE…",
+    "shareInstagramButton": "CONDIVIDI NELLE STORIE INSTAGRAM",
+    "shareText": "Ho raggiunto {{name}} su ASCENDANCY!",
+    "guestAscendant": "ASCENDENTE OSPITE",
+    "messages": {
+      "certificateSaved": "CERTIFICATO SALVATO NEI TUOI DOWNLOAD",
+      "wpmCertificateSaved": "CERTIFICATO PPM SALVATO NEI TUOI DOWNLOAD",
+      "shareLinkStorySticker": "LINK COPIATO — AGGIUNGILO COME STICKER LINK SE PUBBLICHI IN UNA STORIA/STATO",
+      "shareImageDownloaded": "IMMAGINE SCARICATA + LINK COPIATO — CONDIVIDILO SU WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "SCEGLI INSTAGRAM NEL MENU DI CONDIVISIONE, POI AGGIUNGI LO STICKER LINK — È GIÀ COPIATO",
+      "igNeedsPhone": "INSTAGRAM STORIES RICHIEDE IL TUO TELEFONO — IMMAGINE SCARICATA, LINK COPIATO. INVIA L'IMMAGINE AL TUO TELEFONO PER PUBBLICARLA"
+    }
+  }
+}

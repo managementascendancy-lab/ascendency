@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — ہیرو آرکائیو | Ascendancy", "description": "دس ہیروز۔ بلندی کی طرف صرف ایک راستہ۔ Ascendancy ہیرو درجہ بندی آرکائیو دریافت کریں۔" },
+  "heroArchive": "ہیرو آرکائیو",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "دس ہیروز پر مشتمل ایک ٹائپنگ پر مبنی ہیرو درجہ بندی ٹیسٹ — بلندی کی طرف صرف ایک راستہ۔ آپ کی رفتار آپ کی کلاس طے کرتی ہے۔ آپ کی درستگی طے کرتی ہے کہ آپ کتنی بلندی تک جاتے ہیں۔",
+  "detail": {
+    "heroId": "ہیرو_{{index}}",
+    "close": "[ بند کریں ]",
+    "personality": "شخصیت",
+    "power": "طاقت",
+    "metrics": { "wpm": "WPM", "acc": "درست", "cns": "استحکام" },
+    "simulateButton": "درجہ بندی کے لیے سمیولیٹ کریں ←"
+  },
+  "heroCard": {
+    "locked": "پروفائل مقفل ہے",
+    "classificationRequired": "درجہ بندی درکار ہے",
+    "metrics": { "wpm": "WPM", "acc": "درست", "cns": "استحکام" },
+    "unlockProgress": "کھلنے کی پیش رفت",
+    "classificationAvailable": "درجہ بندی دستیاب ہے"
+  }
+}

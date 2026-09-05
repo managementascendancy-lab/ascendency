@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "打字速度测试与WPM测试 | Ascendancy",
+    "description": "测量你的打字速度、准确率和稳定性。完成模拟，解锁英雄分级，在Ascendancy排行榜中不断攀升。"
+  },
+  "hero": {
+    "overline": "性能协议",
+    "headingLine1": "你能打字",
+    "headingLine2Prefix": "",
+    "headingLine2Highlight": "多快？",
+    "subtitle": "这是一项基于打字的英雄分级测试——进入模拟，测量你的表现，发现你的飞升之路。获取你的证书！",
+    "beginSimulation": "开始模拟 →",
+    "viewAscendancy": "查看 ASCENDANCY",
+    "neuralLink": "神经链接",
+    "stable": "稳定",
+    "latency": "延迟 004ms",
+    "scanLoading": "扫描中"
+  },
+  "performanceData": {
+    "ascendant": "飞升者",
+    "guestHeading": "性能数据",
+    "guestSession": "访客会话"
+  },
+  "modules": {
+    "heading": "系统模块",
+    "titlePrefix": "一个系统。 ",
+    "titleHighlight": "多种模块。",
+    "access": "进入 →",
+    "items": {
+      "training": { "name": "训练系统", "desc": "进入模拟，测量你的表现。" },
+      "classification": { "name": "分级档案", "desc": "十个英雄等级。通往飞升的唯一道路。" },
+      "performance": { "name": "性能网络", "desc": "在全球排行榜中一较高下。" },
+      "console": { "name": "飞升者控制台", "desc": "追踪你的飞升进程和性能数据。" }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "英雄档案",
+    "titlePrefix": "全部解锁。 ",
+    "titleHighlight": "证明你的速度。",
+    "viewAlt": "在Ascendancy英雄分级档案中查看{{name}}"
+  },
+  "faq": {
+    "brand": "支持",
+    "overline": "常见问题",
+    "titlePrefix": "问题，",
+    "titleHighlight": "已解答。",
+    "items": [
+      { "q": "什么是Ascendancy？", "a": "Ascendancy是一款打字模拟器，测量你的速度、准确率和稳定性，然后根据表现将你分类为十位英雄之一——从最初的NOVA到巅峰的SOVEREIGN。" },
+      { "q": "运行模拟需要账户吗？", "a": "不需要——任何人都可以作为访客运行模拟并查看结果。创建账户可以让网络保存你的历史记录、追踪你的最佳成绩、解锁成就，并将你列入排行榜。" },
+      { "q": "我的英雄分级是如何决定的？", "a": "每位英雄都有WPM、准确率和稳定性的最低门槛。每次模拟后，你会被分类为你所达到要求中最高的英雄——仅有速度是不够的，三项指标都很重要。" },
+      { "q": "WPM是如何计算的？", "a": "每分钟字数是根据你正确输入的字符数计算的，采用每个单词5个字符的标准惯例，再除以经过的时间（分钟）。" },
+      { "q": "我能获得打字速度的证明吗？", "a": "可以。模拟结束后，你可以下载可分享的英雄卡片、适合简历或作品集的专业WPM证书，或直接将结果分享到WhatsApp、Instagram、X等平台。" },
+      { "q": "排行榜公平吗？", "a": "你的排行榜得分基于你最佳的已验证模拟，将速度、准确率和稳定性共同加权计算——因此快速但草率的表现不会超过较慢但更干净的表现。" }
+    ]
+  }
+}

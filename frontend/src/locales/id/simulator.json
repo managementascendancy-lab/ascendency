@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Simulator Kecepatan Mengetik | Ascendancy",
+    "description": "Jalankan simulasi mengetik. Ukur WPM, akurasi, dan konsistensi dalam 15, 30, 60, atau 120 detik."
+  },
+  "header": {
+    "overline1": "SISTEM PELATIHAN",
+    "overline2": "LATIHAN MENGETIK BERGAYA GAME",
+    "heading": "SIMULASI",
+    "statusLabel": "STATUS",
+    "status": {
+      "ready": "SIAP",
+      "active": "AKTIF",
+      "complete": "SELESAI",
+      "initializing": "MEMULAI"
+    }
+  },
+  "duration": {
+    "label": "DURASI"
+  },
+  "topic": {
+    "label": "TOPIK",
+    "items": {
+      "courage": "KEBERANIAN",
+      "sacrifice": "PENGORBANAN",
+      "legacy": "WARISAN",
+      "adversity": "KESULITAN",
+      "awakening": "KEBANGKITAN"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "AKURASI",
+    "time": "WAKTU",
+    "consistency": "KONSISTENSI"
+  },
+  "performanceCore": {
+    "label": "INTI PERFORMA",
+    "status": "MONITOR"
+  },
+  "typingEnvironment": {
+    "label": "LINGKUNGAN MENGETIK",
+    "statusLive": "LANGSUNG",
+    "statusStandby": "SIAGA"
+  },
+  "ready": {
+    "description": "Masuk ke simulasi. Ketik teks secepat dan seakurat mungkin. Performa Anda menentukan klasifikasi pahlawan Anda.",
+    "beginButton": "MULAI SIMULASI →"
+  },
+  "countdown": {
+    "go": "MULAI"
+  },
+  "restartButton": "[ MULAI ULANG ]",
+  "bootLines": [
+    "MEMULAI SISTEM",
+    "TAUTAN NEURAL TERHUBUNG",
+    "MATRIKS PERFORMA SIAP"
+  ],
+  "reveal": {
+    "stageComplete": "SIMULASI SELESAI",
+    "stageAnalyzing": "MENGANALISIS PERFORMA",
+    "log1": "> MEMBACA MATRIKS PERFORMA...",
+    "log2": "> MEMERIKSA ARSIP PAHLAWAN...",
+    "log3": "> KLASIFIKASI SEDANG BERLANGSUNG...",
+    "heroProfileIdentified": "PROFIL PAHLAWAN TERIDENTIFIKASI",
+    "newClassification": "KLASIFIKASI BARU",
+    "unlockProgressLabel": "MEMBUKA KUNCI {{current}} / {{total}}",
+    "unlockedBadge": "TERBUKA",
+    "classificationComplete": "KLASIFIKASI SELESAI",
+    "powerLabel": "KEKUATAN",
+    "scoreLabel": "SKOR",
+    "ascensionProgress": "PROGRES ASENSI",
+    "advanceToward": "Maju menuju {{name}} — tingkatkan kecepatan, akurasi, dan konsistensi Anda untuk naik kelas.",
+    "apexReached": "Anda telah mencapai puncak Ascendancy.",
+    "nextLabel": "BERIKUTNYA: {{name}}",
+    "maxAscension": "ASENSI MAKSIMUM",
+    "newRecord": "REKOR BARU",
+    "ascensionCompleteBadge": "ASENSI SELESAI",
+    "retryButton": "ULANGI SIMULASI →",
+    "viewProfileButton": "LIHAT PROFIL PAHLAWAN",
+    "viewLeaderboardButton": "LIHAT PAPAN PERINGKAT",
+    "shareButton": "BAGIKAN HASIL",
+    "preparingButton": "MEMPERSIAPKAN…",
+    "downloadCertButton": "UNDUH SERTIFIKAT PAHLAWAN",
+    "downloadWpmCertButton": "UNDUH SERTIFIKAT WPM",
+    "generatingButton": "MEMBUAT…",
+    "shareInstagramButton": "BAGIKAN KE STORY INSTAGRAM",
+    "shareText": "Saya mencapai {{name}} di ASCENDANCY!",
+    "guestAscendant": "ASCENDANT TAMU",
+    "messages": {
+      "certificateSaved": "SERTIFIKAT DISIMPAN DI UNDUHAN ANDA",
+      "wpmCertificateSaved": "SERTIFIKAT WPM DISIMPAN DI UNDUHAN ANDA",
+      "shareLinkStorySticker": "TAUTAN DISALIN — TAMBAHKAN SEBAGAI STIKER TAUTAN JIKA ANDA MEMPOSTING DI STORY/STATUS",
+      "shareImageDownloaded": "GAMBAR DIUNDUH + TAUTAN DISALIN — BAGIKAN DI WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "PILIH INSTAGRAM DI MENU BAGIKAN, LALU TAMBAHKAN STIKER TAUTAN — SUDAH TERSALIN",
+      "igNeedsPhone": "INSTAGRAM STORIES MEMERLUKAN PONSEL ANDA — GAMBAR TELAH DIUNDUH, TAUTAN TELAH DISALIN. KIRIM GAMBAR KE PONSEL ANDA UNTUK MEMPOSTINGNYA"
+    }
+  }
+}

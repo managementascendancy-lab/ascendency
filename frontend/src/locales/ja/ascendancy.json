@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — ヒーローアーカイブ | Ascendancy", "description": "10人のヒーロー。アセンションへの唯一の道。Ascendancyのヒーロークラス分けアーカイブを探索しよう。" },
+  "heroArchive": "ヒーローアーカイブ",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "10人のヒーローにわたるタイピングによるヒーロークラス分けテスト — アセンションへの唯一の道。速度がクラスを決め、正確性がどこまで昇れるかを決める。",
+  "detail": {
+    "heroId": "ヒーロー_{{index}}",
+    "close": "[ 閉じる ]",
+    "personality": "性格",
+    "power": "パワー",
+    "metrics": { "wpm": "WPM", "acc": "正確", "cns": "安定" },
+    "simulateButton": "シミュレートしてクラス分けする →"
+  },
+  "heroCard": {
+    "locked": "プロフィールロック中",
+    "classificationRequired": "クラス分けが必要",
+    "metrics": { "wpm": "WPM", "acc": "正確", "cns": "安定" },
+    "unlockProgress": "解除の進行度",
+    "classificationAvailable": "クラス分け可能"
+  }
+}

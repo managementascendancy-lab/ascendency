@@ -55,6 +55,10 @@ const AVATAR_WIDTH_FRACTION = 0.6;
 const AVATAR_OUTPUT_WIDTH = 160;
 const AVATAR_QUALITY = 82;
 
+// Slight brightness lift applied to every hero variant (full art + avatar
+// crop) so it's consistent everywhere hero art appears, not just one size.
+const HERO_BRIGHTNESS = 1.3;
+
 const BG_MAX_WIDTH = 1920;
 const BG_QUALITY = 70; // decorative, rendered at 25% opacity under a scrim + grid overlay in AscendancyGrid.jsx — safe to compress hard
 
@@ -79,7 +83,11 @@ async function optimizeHero(file) {
   const results = [];
   for (const v of HERO_VARIANTS) {
     const outPath = path.join(HEROES_OUT, `${name}${v.suffix}.webp`);
-    await sharp(srcPath).resize(v.width, v.width, { fit: "cover" }).webp({ quality: v.quality }).toFile(outPath);
+    await sharp(srcPath)
+      .resize(v.width, v.width, { fit: "cover" })
+      .modulate({ brightness: HERO_BRIGHTNESS })
+      .webp({ quality: v.quality })
+      .toFile(outPath);
     results.push({ file: path.relative(ROOT, outPath), bytes: fs.statSync(outPath).size, width: v.width, quality: v.quality });
   }
   return { name, srcBytes, results };
@@ -95,6 +103,7 @@ async function optimizeHeroAvatar(file) {
   await sharp(srcPath)
     .extract({ left, top: 0, width: cropSize, height: cropSize })
     .resize(AVATAR_OUTPUT_WIDTH, AVATAR_OUTPUT_WIDTH)
+    .modulate({ brightness: HERO_BRIGHTNESS })
     .webp({ quality: AVATAR_QUALITY })
     .toFile(outPath);
   return { file: path.relative(ROOT, outPath), bytes: fs.statSync(outPath).size };

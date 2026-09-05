@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "MENYINKRONKAN KONSOL...",
+  "guest": {
+    "seo": { "title": "Profil Ascendant | Ascendancy", "description": "Lihat profil ascendant, data performa, dan progres asensi Anda." },
+    "noSimulations": "TIDAK ADA SIMULASI YANG TERCATAT.",
+    "prompt": "Masuk untuk mengaktifkan Konsol Ascendant Anda.",
+    "accessButton": "AKSES JARINGAN →"
+  },
+  "seo": { "description": "Profil ascendant, data performa, dan progres asensi Anda." },
+  "ascendantConsole": "KONSOL ASCENDANT",
+  "currentClassification": { "label": "KLASIFIKASI SAAT INI", "status": "AKTIF" },
+  "ascension": {
+    "progress": "PROGRES ASENSI",
+    "next": "BERIKUTNYA: {{name}}",
+    "max": "MAKSIMUM",
+    "requires": "Membutuhkan {{wpm}} WPM · {{accuracy}}% AKU · {{consistency}}% KON",
+    "complete": "ASENSI SELESAI"
+  },
+  "stats": {
+    "bestWpm": "WPM TERBAIK",
+    "avgWpm": "WPM RATA-RATA",
+    "bestAcc": "AKURASI TERBAIK",
+    "avgAcc": "AKURASI RATA-RATA",
+    "bestCns": "KONSISTENSI TERBAIK",
+    "streak": "RENTETAN",
+    "simulations": "SIMULASI",
+    "charsTyped": "KARAKTER DIKETIK",
+    "score": "SKOR"
+  },
+  "charts": { "wpmHistory": "RIWAYAT WPM", "accuracyHistory": "RIWAYAT AKURASI", "consistency": "KONSISTENSI" },
+  "loadingPerformanceData": "MEMUAT DATA PERFORMA...",
+  "dangerZone": {
+    "account": "AKUN",
+    "heading": "ZONA BAHAYA",
+    "restrictedStatus": "DIBATASI",
+    "description": "Hapus permanen profil ascendant, riwayat simulasi, dan posisi papan peringkat Anda.",
+    "deleteButton": "HAPUS AKUN",
+    "warning": "TINDAKAN INI BERSIFAT PERMANEN. Profil, riwayat simulasi, dan posisi papan peringkat Anda akan dihapus dan tidak dapat dipulihkan.",
+    "confirmAccessKey": "KONFIRMASI KUNCI AKSES",
+    "confirmCheckbox": "Saya memahami bahwa ini tidak dapat dibatalkan.",
+    "erasing": "MENGHAPUS...",
+    "confirmButton": "KONFIRMASI PENGHAPUSAN →",
+    "cancel": "BATAL"
+  }
+}

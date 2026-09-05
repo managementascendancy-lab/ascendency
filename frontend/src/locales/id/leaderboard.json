@@ -1,0 +1,14 @@
+{
+  "seo": { "title": "Papan Peringkat Global | Ascendancy", "description": "Jaringan performa Ascendancy. Bersaing dalam WPM, akurasi, dan skor performa di papan peringkat global." },
+  "overline": "JARINGAN PERFORMA",
+  "heading": "PAPAN PERINGKAT GLOBAL",
+  "subtitle": "Setiap simulasi memberi masukan ke papan peringkat mengetik global ini, diurutkan berdasarkan kecepatan, akurasi, dan konsistensi secara bersamaan — bukan hanya WPM mentah.",
+  "sortBy": "URUTKAN BERDASARKAN",
+  "sorts": { "score": "SKOR", "wpm": "WPM", "accuracy": "AKURASI" },
+  "columns": { "rank": "PERINGKAT", "ascendant": "ASCENDANT", "wpm": "WPM", "acc": "AKU", "hero": "PAHLAWAN", "score": "SKOR" },
+  "loading": "MEMUAT JARINGAN PERFORMA...",
+  "loadError": "DATA TIDAK TERSEDIA — JARINGAN PERFORMA SEDANG OFFLINE",
+  "empty": "TIDAK ADA ASCENDANT YANG TERDETEKSI.",
+  "beginSimulation": "[ MULAI SIMULASI → ]",
+  "you": "ANDA"
+}

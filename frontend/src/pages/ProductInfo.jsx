@@ -1,17 +1,31 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import AscButton from "@/components/AscButton";
 import { Mark } from "@/components/Sep";
 import { productBySlug } from "@/data/products";
 import { accountPageBySlug } from "@/data/accountPages";
+import { useLocalizedPath } from "@/i18n/links";
 
 export default function ProductInfo() {
+  const { t } = useTranslation("productInfo");
   const { slug } = useParams();
-  const product = productBySlug(slug) || accountPageBySlug(slug);
+  const productRaw = productBySlug(slug) || accountPageBySlug(slug);
+  const homeHref = useLocalizedPath("/");
 
-  if (!product) return <Navigate to="/" replace />;
+  if (!productRaw) return <Navigate to={homeHref} replace />;
+
+  const product = {
+    ...productRaw,
+    name: t(`pages.${productRaw.slug}.name`),
+    eyebrow: t(`pages.${productRaw.slug}.eyebrow`),
+    tagline: t(`pages.${productRaw.slug}.tagline`),
+    summary: t(`pages.${productRaw.slug}.summary`),
+    features: t(`pages.${productRaw.slug}.features`, { returnObjects: true }),
+    ctaLabel: t(`pages.${productRaw.slug}.ctaLabel`),
+  };
 
   return (
     <div className="py-14">
@@ -54,7 +68,7 @@ export default function ProductInfo() {
             {product.ctaLabel}
           </AscButton>
           <AscButton to="/" data-testid="product-home-btn">
-            BACK TO HOME
+            {t("backToHome")}
           </AscButton>
         </div>
       </Reveal>

@@ -1,0 +1,16 @@
+{
+  "list": {
+    "seo": { "title": "打字指南与技巧 | Ascendancy", "description": "关于打字速度、准确率、人体工学和Ascendancy分级系统的实用指南。" },
+    "overline1": "资源",
+    "overline2": "指南",
+    "heading": "训练指南",
+    "subtitle": "关于打字速度、准确率、人体工学以及Ascendancy分级系统实际运作方式的实用、直接的指南。",
+    "readGuide": "阅读指南 →"
+  },
+  "article": {
+    "allGuides": "← 所有指南",
+    "practicePrompt": "准备好付诸实践了吗？",
+    "simulateCta": "运行一次打字模拟 →",
+    "unavailableNotice": "该文章尚未提供你所用语言的版本——正在显示英文版本。"
+  }
+}

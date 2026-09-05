@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 
 const SECTIONS = [
   {
@@ -46,6 +48,7 @@ Automatically collected data: we use cookies to keep you signed in (an authentic
 ];
 
 export default function PrivacyPolicy() {
+  const { t, i18n } = useTranslation("legal");
   return (
     <div className="py-14">
       <SEO title="Privacy Policy | Ascendancy" description="How Ascendancy collects, uses and protects your information." />
@@ -56,6 +59,12 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mt-3 font-mono text-xs text-sage">LAST UPDATED: SEPTEMBER 2026</p>
       </Reveal>
+
+      {i18n.language !== DEFAULT_LOCALE && (
+        <div className="mt-6 max-w-2xl border border-gold-bright/50 bg-gold-bright/10 px-4 py-3 font-mono text-xs text-gold-bright" data-testid="legal-english-only-notice">
+          {t("englishOnlyNotice")}
+        </div>
+      )}
 
       <div className="mt-10 max-w-2xl space-y-8">
         {SECTIONS.map((s) => (

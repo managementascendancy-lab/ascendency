@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "タイピング速度シミュレーター | Ascendancy",
+    "description": "タイピングシミュレーションを実行。15秒、30秒、60秒、120秒でWPM、正確性、安定性を測定。"
+  },
+  "header": {
+    "overline1": "トレーニングシステム",
+    "overline2": "ゲーム感覚のタイピング練習",
+    "heading": "シミュレーション",
+    "statusLabel": "ステータス",
+    "status": {
+      "ready": "準備完了",
+      "active": "アクティブ",
+      "complete": "完了",
+      "initializing": "初期化中"
+    }
+  },
+  "duration": {
+    "label": "時間"
+  },
+  "topic": {
+    "label": "テーマ",
+    "items": {
+      "courage": "勇気",
+      "sacrifice": "犠牲",
+      "legacy": "遺産",
+      "adversity": "逆境",
+      "awakening": "目覚め"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "正確性",
+    "time": "時間",
+    "consistency": "安定性"
+  },
+  "performanceCore": {
+    "label": "パフォーマンスコア",
+    "status": "モニター"
+  },
+  "typingEnvironment": {
+    "label": "タイピング環境",
+    "statusLive": "ライブ",
+    "statusStandby": "スタンバイ"
+  },
+  "ready": {
+    "description": "シミュレーションに入ろう。文章をできるだけ速く、正確にタイプせよ。あなたのパフォーマンスがヒーロークラスを決定する。",
+    "beginButton": "シミュレーション開始 →"
+  },
+  "countdown": {
+    "go": "スタート"
+  },
+  "restartButton": "[ 再開 ]",
+  "bootLines": [
+    "システム初期化中",
+    "ニューラルリンク接続完了",
+    "パフォーマンスマトリックス準備完了"
+  ],
+  "reveal": {
+    "stageComplete": "シミュレーション完了",
+    "stageAnalyzing": "パフォーマンス分析中",
+    "log1": "> パフォーマンスマトリックスを読み込み中...",
+    "log2": "> ヒーローアーカイブを照合中...",
+    "log3": "> クラス分け処理中...",
+    "heroProfileIdentified": "ヒーロープロフィールを識別",
+    "newClassification": "新しいクラス分け",
+    "unlockProgressLabel": "アンロック中 {{current}} / {{total}}",
+    "unlockedBadge": "アンロック",
+    "classificationComplete": "クラス分け完了",
+    "powerLabel": "パワー",
+    "scoreLabel": "スコア",
+    "ascensionProgress": "アセンション進行度",
+    "advanceToward": "{{name}}に向かって前進せよ — アセンションのために速度、正確性、安定性を高めよう。",
+    "apexReached": "Ascendancyの頂点に到達しました。",
+    "nextLabel": "次: {{name}}",
+    "maxAscension": "最大アセンション",
+    "newRecord": "新記録",
+    "ascensionCompleteBadge": "アセンション完了",
+    "retryButton": "シミュレーションをやり直す →",
+    "viewProfileButton": "ヒーロープロフィールを見る",
+    "viewLeaderboardButton": "リーダーボードを見る",
+    "shareButton": "結果を共有",
+    "preparingButton": "準備中…",
+    "downloadCertButton": "ヒーロー証明書をダウンロード",
+    "downloadWpmCertButton": "WPM証明書をダウンロード",
+    "generatingButton": "生成中…",
+    "shareInstagramButton": "Instagramストーリーで共有",
+    "shareText": "ASCENDANCYで{{name}}に到達しました！",
+    "guestAscendant": "ゲスト・アセンダント",
+    "messages": {
+      "certificateSaved": "証明書がダウンロードフォルダに保存されました",
+      "wpmCertificateSaved": "WPM証明書がダウンロードフォルダに保存されました",
+      "shareLinkStorySticker": "リンクをコピーしました — ストーリー/ステータスに投稿する場合はリンクステッカーとして追加してください",
+      "shareImageDownloaded": "画像をダウンロードし、リンクをコピーしました — WhatsApp、Instagram、Xなどで共有しよう",
+      "igPickInstagram": "共有メニューでInstagramを選び、リンクステッカーを追加してください — すでにコピー済みです",
+      "igNeedsPhone": "Instagramストーリーにはスマートフォンが必要です — 画像はダウンロード済み、リンクはコピー済みです。投稿するには画像をスマートフォンに送信してください"
+    }
+  }
+}

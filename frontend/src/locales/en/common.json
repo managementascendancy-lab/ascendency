@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "HOME",
+    "simulator": "SIMULATOR",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "LEADERBOARD",
+    "guides": "GUIDES",
+    "profile": "MY PROFILE",
+    "online": "ONLINE",
+    "muteSound": "Mute sound",
+    "enableSound": "Enable sound",
+    "logout": "Log out",
+    "access": "ACCESS",
+    "brandTag": "TYPING INITIATIVE"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "GRID · ASC-CORE",
+    "sectorSignal": "SECTOR · ASC-07",
+    "signalStable": "SIGNAL · STABLE"
+  },
+  "systemTicker": {
+    "messages": [
+      "ASCENDANCY NETWORK ONLINE",
+      "NEURAL LINK ACTIVE",
+      "SIMULATION READY",
+      "PERFORMANCE MATRIX ONLINE",
+      "ASCENSION PROTOCOL ACTIVE",
+      "DATA SYNCHRONIZED",
+      "TRAINING SYSTEM ONLINE"
+    ]
+  },
+  "footer": {
+    "tagline": "Measure your typing speed, accuracy and consistency. Unlock hero classifications and climb the network.",
+    "productHeading": "PRODUCT",
+    "accountHeading": "ACCOUNT",
+    "legalHeading": "LEGAL",
+    "trainingSimulator": "Training Simulator",
+    "classificationArchive": "Classification Archive",
+    "performanceNetwork": "Performance Network",
+    "achievements": "Achievements",
+    "guides": "Guides",
+    "ascendantConsole": "Ascendant Console",
+    "signInRegister": "Sign In / Register",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "motto": "TYPE. TRAIN. ASCEND.",
+    "copyright": "ASCENDANCY INITIATIVE © 2026",
+    "advertisement": "ADVERTISEMENT"
+  }
+}

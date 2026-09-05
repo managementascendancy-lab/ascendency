@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — Hero Archive | Ascendancy", "description": "Ten heroes. One path to ascension. Explore the Ascendancy hero classification archive." },
+  "heroArchive": "HERO ARCHIVE",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "A hero classification typing test spanning ten heroes — one path to ascension. Your speed determines your class. Your accuracy determines how far you rise.",
+  "detail": {
+    "heroId": "HERO_{{index}}",
+    "close": "[ CLOSE ]",
+    "personality": "PERSONALITY",
+    "power": "POWER",
+    "metrics": { "wpm": "WPM", "acc": "ACC", "cns": "CNS" },
+    "simulateButton": "SIMULATE TO CLASSIFY →"
+  },
+  "heroCard": {
+    "locked": "PROFILE LOCKED",
+    "classificationRequired": "CLASSIFICATION REQUIRED",
+    "metrics": { "wpm": "WPM", "acc": "ACC", "cns": "CNS" },
+    "unlockProgress": "UNLOCK PROGRESS",
+    "classificationAvailable": "CLASSIFICATION AVAILABLE"
+  }
+}

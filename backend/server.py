@@ -7,6 +7,7 @@ load_dotenv(ROOT_DIR / '.env')
 
 from fastapi import FastAPI, APIRouter, Request, Response, HTTPException, Depends
 from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import JSONResponse
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional
@@ -16,6 +17,12 @@ import logging
 import bcrypt
 import jwt
 import re
+import uuid
+
+from slowapi import Limiter
+from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
+from slowapi.util import get_remote_address
 
 from google.oauth2 import id_token as google_id_token
 from google.auth.transport import requests as google_requests
@@ -38,8 +45,45 @@ def get_google_client_id() -> str:
     return os.environ.get("GOOGLE_CLIENT_ID", "")
 
 
+ENVIRONMENT = os.environ.get("ENVIRONMENT", "production").strip().lower()
+
+# A previously-documented default that must never be accepted again, even if
+# someone pastes it into a real .env out of habit.
+_LEAKED_DEFAULT_ADMIN_PASSWORD = "Ascend@2026"
+_MIN_ADMIN_PASSWORD_LENGTH = 10
+
+# Per-IP request limits on auth endpoints, tunable without a code change.
+# slowapi's rate-string format: "<count>/<second|minute|hour|day>".
+LOGIN_RATE_LIMIT = os.environ.get("LOGIN_RATE_LIMIT", "5/minute")
+REGISTER_RATE_LIMIT = os.environ.get("REGISTER_RATE_LIMIT", "10/hour")
+REFRESH_RATE_LIMIT = os.environ.get("REFRESH_RATE_LIMIT", "20/minute")
+FORGOT_PASSWORD_RATE_LIMIT = os.environ.get("FORGOT_PASSWORD_RATE_LIMIT", "5/hour")
+RESET_PASSWORD_RATE_LIMIT = os.environ.get("RESET_PASSWORD_RATE_LIMIT", "10/hour")
+DELETE_ACCOUNT_RATE_LIMIT = os.environ.get("DELETE_ACCOUNT_RATE_LIMIT", "5/hour")
+
+# Used to build the link in the (dev-stub) password reset email — see
+# forgot_password() below. No email infra exists yet; this only affects the
+# URL that gets logged to the console.
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:3000").rstrip("/")
+
+
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
+
+# In-memory (per-process) limiter — fine for a single backend instance; would
+# need a shared Redis storage backend if this ever runs as multiple replicas.
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_middleware(SlowAPIMiddleware)
+
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded) -> JSONResponse:
+    response = JSONResponse(
+        status_code=429,
+        content={"detail": f"Too many requests — rate limit exceeded ({exc.detail})"},
+    )
+    return limiter._inject_headers(response, request.state.view_rate_limit)
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -70,11 +114,33 @@ def create_refresh_token(user_id: str) -> str:
     return jwt.encode(payload, get_jwt_secret(), algorithm=JWT_ALGORITHM)
 
 
+def create_password_reset_token(user_id: str, jti: str) -> str:
+    payload = {"sub": user_id, "jti": jti, "type": "password_reset",
+               "exp": datetime.now(timezone.utc) + timedelta(minutes=30)}
+    return jwt.encode(payload, get_jwt_secret(), algorithm=JWT_ALGORITHM)
+
+
 def set_auth_cookies(response: Response, access: str, refresh: str):
     response.set_cookie("access_token", access, httponly=True, secure=True,
                         samesite="none", max_age=900, path="/")
     response.set_cookie("refresh_token", refresh, httponly=True, secure=True,
                         samesite="none", max_age=604800, path="/")
+
+
+def hero_progress_with_legacy_fallback(user: dict) -> dict:
+    """heroProgress didn't exist before per-locale unlocks were introduced,
+    so every simulation run before then is undated with no locale attached.
+    Those all happened under the app's default locale (English) — seed an
+    "en" entry from the old global fields so accounts that already have
+    progress don't appear to suddenly lose it, while every other locale
+    correctly starts at zero, unproven."""
+    hero_progress = dict(user.get("heroProgress", {}))
+    if "en" not in hero_progress and user.get("highestHeroIndex", 0) > 0:
+        hero_progress["en"] = {
+            "highestHeroIndex": user.get("highestHeroIndex", 0),
+            "currentHero": user.get("currentHero", "nova"),
+        }
+    return hero_progress
 
 
 def public_user(user: dict) -> dict:
@@ -85,6 +151,7 @@ def public_user(user: dict) -> dict:
         "role": user.get("role", "ascendant"),
         "currentHero": user.get("currentHero", "nova"),
         "highestHeroIndex": user.get("highestHeroIndex", 0),
+        "heroProgress": hero_progress_with_legacy_fallback(user),
         "bestWpm": user.get("bestWpm", 0),
         "averageWpm": round(user.get("sumWpm", 0) / user["totalTests"]) if user.get("totalTests") else 0,
         "bestAccuracy": user.get("bestAccuracy", 0),
@@ -133,6 +200,19 @@ class LoginInput(BaseModel):
     password: str
 
 
+class ForgotPasswordInput(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordInput(BaseModel):
+    token: str
+    new_password: str = Field(min_length=6, max_length=128)
+
+
+class DeleteAccountInput(BaseModel):
+    password: str
+
+
 class GoogleAuthInput(BaseModel):
     credential: str
 
@@ -151,6 +231,7 @@ class SimulationInput(BaseModel):
     incorrectCharacters: int
     totalCharacters: int
     duration: int
+    locale: str = Field(default="en", max_length=16)
 
 
 ACHIEVEMENT_IDS = [
@@ -186,7 +267,8 @@ def compute_achievements(user: dict) -> List[str]:
 # ---------------------------------------------------------------- auth routes
 
 @api_router.post("/auth/register")
-async def register(input: RegisterInput, response: Response):
+@limiter.limit(REGISTER_RATE_LIMIT)
+async def register(request: Request, input: RegisterInput, response: Response):
     email = input.email.lower().strip()
     username = re.sub(r"[^A-Za-z0-9_\-]", "", input.username).strip()
     if len(username) < 3:
@@ -217,7 +299,8 @@ async def register(input: RegisterInput, response: Response):
 
 
 @api_router.post("/auth/login")
-async def login(input: LoginInput, response: Response):
+@limiter.limit(LOGIN_RATE_LIMIT)
+async def login(request: Request, input: LoginInput, response: Response):
     email = input.email.lower().strip()
     user = await db.users.find_one({"email": email})
     if not user or not verify_password(input.password, user["password_hash"]):
@@ -226,6 +309,60 @@ async def login(input: LoginInput, response: Response):
     refresh = create_refresh_token(str(user["_id"]))
     set_auth_cookies(response, access, refresh)
     return public_user(user)
+
+
+@api_router.post("/auth/forgot-password")
+@limiter.limit(FORGOT_PASSWORD_RATE_LIMIT)
+async def forgot_password(request: Request, input: ForgotPasswordInput):
+    email = input.email.lower().strip()
+    user = await db.users.find_one({"email": email})
+
+    if user:
+        jti = uuid.uuid4().hex
+        # Overwriting the stored jti also invalidates any link from a
+        # previous forgot-password call — only the most recent one works.
+        await db.users.update_one({"_id": user["_id"]}, {"$set": {"reset_token_jti": jti}})
+        token = create_password_reset_token(str(user["_id"]), jti)
+        reset_url = f"{FRONTEND_URL}/reset-password?token={token}"
+        # No email-sending infra exists in this codebase yet (SendGrid/SES/
+        # Postmark etc. would need to be wired up separately) — logging the
+        # link is a deliberate dev-only stand-in, not the finished feature.
+        logger.warning(f"[DEV] Password reset link for {email}: {reset_url}")
+
+    # Always the same response, whether or not the email is registered —
+    # otherwise this endpoint becomes an account-enumeration oracle.
+    return {"message": "If an account with that email exists, a password reset link has been sent."}
+
+
+@api_router.post("/auth/reset-password")
+@limiter.limit(RESET_PASSWORD_RATE_LIMIT)
+async def reset_password(request: Request, input: ResetPasswordInput):
+    try:
+        payload = jwt.decode(input.token, get_jwt_secret(), algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "password_reset":
+            raise HTTPException(status_code=400, detail="Invalid or expired reset link")
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=400, detail="This reset link has expired — request a new one")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=400, detail="Invalid or expired reset link")
+
+    user = await db.users.find_one({"_id": ObjectId(payload["sub"])})
+    # The jti match is what makes the token single-use: a successful reset
+    # (or a newer forgot-password request) clears/overwrites it below, so a
+    # replayed or superseded token no longer matches.
+    if not user or user.get("reset_token_jti") != payload.get("jti"):
+        raise HTTPException(status_code=400, detail="Invalid or expired reset link")
+
+    await db.users.update_one(
+        {"_id": user["_id"]},
+        {"$set": {"password_hash": hash_password(input.new_password)},
+         "$unset": {"reset_token_jti": ""}},
+    )
+    # Known limitation: refresh tokens are stateless signed JWTs with no
+    # server-side revocation list, so any refresh token issued before this
+    # reset remains valid until it naturally expires (see create_refresh_token).
+    # Building revocation is a separate piece of work, not a side effect of this one.
+    return {"message": "Password reset successful — sign in with your new password."}
 
 
 @api_router.post("/auth/google")
@@ -320,7 +457,30 @@ async def me(user: dict = Depends(get_current_user)):
     return public_user(user)
 
 
+@api_router.delete("/auth/account")
+@limiter.limit(DELETE_ACCOUNT_RATE_LIMIT)
+async def delete_account(request: Request, input: DeleteAccountInput, response: Response,
+                          user: dict = Depends(get_current_user)):
+    if not verify_password(input.password, user["password_hash"]):
+        raise HTTPException(status_code=401, detail="Incorrect password")
+
+    # Leaderboard rows are derived live from user documents (bestWpm,
+    # leaderboardScore, etc. on db.users) rather than aggregated from
+    # db.simulations at read time, and no endpoint exposes simulations
+    # across users — so deleting this user's simulation rows alongside
+    # their account has no effect on anyone else's leaderboard integrity,
+    # and there's nothing left that could ever read the orphaned rows.
+    # Full cascading delete, not anonymization, is the correct call here.
+    await db.simulations.delete_many({"user_id": str(user["_id"])})
+    await db.users.delete_one({"_id": user["_id"]})
+
+    response.delete_cookie("access_token", path="/")
+    response.delete_cookie("refresh_token", path="/")
+    return {"message": "Account deleted"}
+
+
 @api_router.post("/auth/refresh")
+@limiter.limit(REFRESH_RATE_LIMIT)
 async def refresh_token_route(request: Request, response: Response):
     token = request.cookies.get("refresh_token")
     if not token:
@@ -351,6 +511,10 @@ async def submit_simulation(input: SimulationInput, user: dict = Depends(get_cur
     score = compute_score(wpm, accuracy, consistency)
     hero_index = classify(wpm, accuracy, consistency)
     hero_id = hero_id_for_index(hero_index)
+    # Hero unlocks are scoped per language: typing fast in English proves
+    # nothing about typing fast in, say, Japanese, so each locale keeps its
+    # own high-water mark rather than sharing the global one.
+    locale = re.sub(r"[^a-z0-9-]", "", (input.locale or "en").strip().lower())[:16] or "en"
 
     now = datetime.now(timezone.utc)
     sim = {
@@ -366,6 +530,7 @@ async def submit_simulation(input: SimulationInput, user: dict = Depends(get_cur
         "score": score,
         "hero": hero_id,
         "heroIndex": hero_index,
+        "locale": locale,
         "created_at": now.isoformat(),
     }
     await db.simulations.insert_one(sim)
@@ -394,10 +559,19 @@ async def submit_simulation(input: SimulationInput, user: dict = Depends(get_cur
     new_best_wpm = max(user.get("bestWpm", 0), round(wpm, 1))
     new_best_acc = max(user.get("bestAccuracy", 0), round(accuracy, 1))
     new_best_cons = max(user.get("bestConsistency", 0), round(consistency, 1))
+    # Global high-water mark across all locales — still used for the
+    # cross-language achievement badges (ascension/velocity/sovereign) and
+    # the leaderboard's decorative hero column, neither of which is
+    # language-specific.
     highest_index = max(user.get("highestHeroIndex", 0), hero_index)
 
+    hero_progress = hero_progress_with_legacy_fallback(user)
+    previous_locale_highest = hero_progress.get(locale, {}).get("highestHeroIndex", 0)
+    locale_highest = max(previous_locale_highest, hero_index)
+    hero_progress[locale] = {"highestHeroIndex": locale_highest, "currentHero": hero_id}
+
     is_personal_best = round(wpm, 1) > user.get("bestWpm", 0)
-    is_new_classification = hero_index > user.get("highestHeroIndex", 0)
+    is_new_classification = hero_index > previous_locale_highest
 
     updated = {
         **user,
@@ -410,6 +584,7 @@ async def submit_simulation(input: SimulationInput, user: dict = Depends(get_cur
         "totalCharacters": user.get("totalCharacters", 0) + input.totalCharacters,
         "currentHero": hero_id,
         "highestHeroIndex": highest_index,
+        "heroProgress": hero_progress,
         "leaderboardScore": max(user.get("leaderboardScore", 0), score),
         "streak": streak,
         "lastTestDate": now.isoformat(),
@@ -426,6 +601,7 @@ async def submit_simulation(input: SimulationInput, user: dict = Depends(get_cur
         "totalCharacters": updated["totalCharacters"],
         "currentHero": updated["currentHero"],
         "highestHeroIndex": updated["highestHeroIndex"],
+        "heroProgress": updated["heroProgress"],
         "leaderboardScore": updated["leaderboardScore"],
         "streak": updated["streak"],
         "lastTestDate": updated["lastTestDate"],
@@ -496,8 +672,33 @@ async def leaderboard(sort: str = "score", request: Request = None):
 @app.on_event("startup")
 async def startup():
     await db.users.create_index("email", unique=True)
-    admin_email = os.environ.get("ADMIN_EMAIL", "admin@ascendancy.io")
-    admin_password = os.environ.get("ADMIN_PASSWORD", "Ascend@2026")
+
+    admin_email = os.environ.get("ADMIN_EMAIL")
+    admin_password = os.environ.get("ADMIN_PASSWORD")
+
+    if not admin_email or not admin_password:
+        if ENVIRONMENT == "development":
+            logger.warning(
+                "ADMIN_EMAIL/ADMIN_PASSWORD not set — skipping admin account creation "
+                "(ENVIRONMENT=development)."
+            )
+            return
+        raise RuntimeError(
+            "ADMIN_EMAIL and ADMIN_PASSWORD must both be set in the environment — "
+            "there is no default admin account. Set ENVIRONMENT=development to boot "
+            "without one during local development."
+        )
+
+    if admin_password == _LEAKED_DEFAULT_ADMIN_PASSWORD:
+        raise RuntimeError(
+            "ADMIN_PASSWORD is set to a previously public default value and must be "
+            "changed before startup."
+        )
+    if len(admin_password) < _MIN_ADMIN_PASSWORD_LENGTH:
+        raise RuntimeError(
+            f"ADMIN_PASSWORD must be at least {_MIN_ADMIN_PASSWORD_LENGTH} characters."
+        )
+
     existing = await db.users.find_one({"email": admin_email})
     if existing is None:
         await db.users.insert_one({

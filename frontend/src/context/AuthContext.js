@@ -74,8 +74,41 @@ export function AuthProvider({ children }) {
     setUser(false);
   };
 
+  const forgotPassword = async (email) => {
+    try {
+      await api.post("/auth/forgot-password", { email });
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message };
+    }
+  };
+
+  const resetPassword = async (token, newPassword) => {
+    try {
+      await api.post("/auth/reset-password", { token, new_password: newPassword });
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message };
+    }
+  };
+
+  const deleteAccount = async (password) => {
+    try {
+      await api.delete("/auth/account", { data: { password } });
+      setUser(false);
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message };
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, checking, login, register, loginWithGoogle, completeGoogleSignup, logout, setUser, refresh }}>
+    <AuthContext.Provider
+      value={{
+        user, checking, login, register, loginWithGoogle, completeGoogleSignup, logout,
+        forgotPassword, resetPassword, deleteAccount, setUser, refresh,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

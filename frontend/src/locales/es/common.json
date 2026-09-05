@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "INICIO",
+    "simulator": "SIMULADOR",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "CLASIFICACIÓN",
+    "guides": "GUÍAS",
+    "profile": "MI PERFIL",
+    "online": "EN LÍNEA",
+    "muteSound": "Silenciar sonido",
+    "enableSound": "Activar sonido",
+    "logout": "Cerrar sesión",
+    "access": "ACCESO",
+    "brandTag": "INICIATIVA DE MECANOGRAFÍA"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "CUADRÍCULA · ASC-CORE",
+    "sectorSignal": "SECTOR · ASC-07",
+    "signalStable": "SEÑAL · ESTABLE"
+  },
+  "systemTicker": {
+    "messages": [
+      "RED ASCENDANCY EN LÍNEA",
+      "ENLACE NEURAL ACTIVO",
+      "SIMULACIÓN LISTA",
+      "MATRIZ DE RENDIMIENTO EN LÍNEA",
+      "PROTOCOLO DE ASCENSIÓN ACTIVO",
+      "DATOS SINCRONIZADOS",
+      "SISTEMA DE ENTRENAMIENTO EN LÍNEA"
+    ]
+  },
+  "footer": {
+    "tagline": "Mide tu velocidad, precisión y consistencia al escribir. Desbloquea clasificaciones de héroe y asciende en la red.",
+    "productHeading": "PRODUCTO",
+    "accountHeading": "CUENTA",
+    "legalHeading": "LEGAL",
+    "trainingSimulator": "Simulador de Entrenamiento",
+    "classificationArchive": "Archivo de Clasificación",
+    "performanceNetwork": "Red de Rendimiento",
+    "achievements": "Logros",
+    "guides": "Guías",
+    "ascendantConsole": "Consola del Ascendente",
+    "signInRegister": "Iniciar Sesión / Registrarse",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "motto": "ESCRIBE. ENTRENA. ASCIENDE.",
+    "copyright": "INICIATIVA ASCENDANCY © 2026",
+    "advertisement": "PUBLICIDAD"
+  }
+}

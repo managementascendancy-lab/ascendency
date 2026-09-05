@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "HOME",
+    "simulator": "SIMULATORE",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "CLASSIFICA",
+    "guides": "GUIDE",
+    "profile": "IL MIO PROFILO",
+    "online": "ONLINE",
+    "muteSound": "Disattiva audio",
+    "enableSound": "Attiva audio",
+    "logout": "Esci",
+    "access": "ACCEDI",
+    "brandTag": "INIZIATIVA DI DATTILOGRAFIA"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "GRIGLIA · ASC-CORE",
+    "sectorSignal": "SETTORE · ASC-07",
+    "signalStable": "SEGNALE · STABILE"
+  },
+  "systemTicker": {
+    "messages": [
+      "RETE ASCENDANCY ONLINE",
+      "COLLEGAMENTO NEURALE ATTIVO",
+      "SIMULAZIONE PRONTA",
+      "MATRICE DI PRESTAZIONE ONLINE",
+      "PROTOCOLLO DI ASCESA ATTIVO",
+      "DATI SINCRONIZZATI",
+      "SISTEMA DI ALLENAMENTO ONLINE"
+    ]
+  },
+  "footer": {
+    "tagline": "Misura la tua velocità di digitazione, precisione e costanza. Sblocca classificazioni eroe e scala la rete.",
+    "productHeading": "PRODOTTO",
+    "accountHeading": "ACCOUNT",
+    "legalHeading": "LEGALE",
+    "trainingSimulator": "Simulatore di Allenamento",
+    "classificationArchive": "Archivio di Classificazione",
+    "performanceNetwork": "Rete di Prestazioni",
+    "achievements": "Obiettivi",
+    "guides": "Guide",
+    "ascendantConsole": "Console dell'Ascendente",
+    "signInRegister": "Accedi / Registrati",
+    "privacyPolicy": "Informativa sulla Privacy",
+    "termsOfService": "Termini di Servizio",
+    "motto": "DIGITA. ALLENATI. ASCENDI.",
+    "copyright": "INIZIATIVA ASCENDANCY © 2026",
+    "advertisement": "PUBBLICITÀ"
+  }
+}

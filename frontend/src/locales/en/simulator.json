@@ -1,0 +1,88 @@
+{
+  "seo": {
+    "title": "Typing Speed Simulator | Ascendancy",
+    "description": "Run a typing simulation. Measure WPM, accuracy and consistency in 15, 30, 60 or 120 seconds."
+  },
+  "header": {
+    "overline1": "TRAINING SYSTEM",
+    "overline2": "GAMIFIED TYPING PRACTICE",
+    "heading": "SIMULATION",
+    "statusLabel": "STATUS",
+    "status": {
+      "ready": "READY",
+      "active": "ACTIVE",
+      "complete": "COMPLETE",
+      "initializing": "INITIALIZING"
+    }
+  },
+  "duration": { "label": "DURATION" },
+  "topic": {
+    "label": "TOPIC",
+    "items": {
+      "courage": "COURAGE",
+      "sacrifice": "SACRIFICE",
+      "legacy": "LEGACY",
+      "adversity": "ADVERSITY",
+      "awakening": "AWAKENING"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "ACCURACY",
+    "time": "TIME",
+    "consistency": "CONSISTENCY"
+  },
+  "performanceCore": { "label": "PERFORMANCE CORE", "status": "MONITOR" },
+  "typingEnvironment": {
+    "label": "TYPING ENVIRONMENT",
+    "statusLive": "LIVE",
+    "statusStandby": "STANDBY"
+  },
+  "ready": {
+    "description": "Enter the simulation. Type the passage as fast and accurately as you can. Your performance determines your hero classification.",
+    "beginButton": "BEGIN SIMULATION →"
+  },
+  "countdown": { "go": "GO" },
+  "restartButton": "[ RESTART ]",
+  "bootLines": ["SYSTEM INITIALIZING", "NEURAL LINK CONNECTED", "PERFORMANCE MATRIX READY"],
+  "reveal": {
+    "stageComplete": "SIMULATION COMPLETE",
+    "stageAnalyzing": "ANALYZING PERFORMANCE",
+    "log1": "> READING PERFORMANCE MATRIX...",
+    "log2": "> CROSS-REFERENCING HERO ARCHIVE...",
+    "log3": "> CLASSIFICATION IN PROGRESS...",
+    "heroProfileIdentified": "HERO PROFILE IDENTIFIED",
+    "newClassification": "NEW CLASSIFICATION",
+    "unlockProgressLabel": "UNLOCKING {{current}} / {{total}}",
+    "unlockedBadge": "UNLOCKED",
+    "classificationComplete": "CLASSIFICATION COMPLETE",
+    "powerLabel": "POWER",
+    "scoreLabel": "SCORE",
+    "ascensionProgress": "ASCENSION PROGRESS",
+    "advanceToward": "Advance toward {{name}} — raise your speed, accuracy and consistency to ascend.",
+    "apexReached": "You have reached the apex of the Ascendancy.",
+    "nextLabel": "NEXT: {{name}}",
+    "maxAscension": "MAX ASCENSION",
+    "newRecord": "NEW RECORD",
+    "ascensionCompleteBadge": "ASCENSION COMPLETE",
+    "retryButton": "RETRY SIMULATION →",
+    "viewProfileButton": "VIEW HERO PROFILE",
+    "viewLeaderboardButton": "VIEW LEADERBOARD",
+    "shareButton": "SHARE RESULT",
+    "preparingButton": "PREPARING…",
+    "downloadCertButton": "DOWNLOAD HERO CERTIFICATE",
+    "downloadWpmCertButton": "DOWNLOAD WPM CERTIFICATE",
+    "generatingButton": "GENERATING…",
+    "shareInstagramButton": "SHARE TO INSTAGRAM STORY",
+    "shareText": "I reached {{name}} on ASCENDANCY!",
+    "guestAscendant": "GUEST ASCENDANT",
+    "messages": {
+      "certificateSaved": "CERTIFICATE SAVED TO YOUR DOWNLOADS",
+      "wpmCertificateSaved": "WPM CERTIFICATE SAVED TO YOUR DOWNLOADS",
+      "shareLinkStorySticker": "LINK COPIED — ADD IT AS A LINK STICKER IF YOU POST TO A STORY/STATUS",
+      "shareImageDownloaded": "IMAGE DOWNLOADED + LINK COPIED — SHARE IT ON WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "PICK INSTAGRAM IN THE SHARE SHEET, THEN ADD THE LINK STICKER — IT'S COPIED",
+      "igNeedsPhone": "INSTAGRAM STORIES NEEDS YOUR PHONE — IMAGE DOWNLOADED, LINK COPIED. SEND THE IMAGE TO YOUR PHONE TO POST IT"
+    }
+  }
+}

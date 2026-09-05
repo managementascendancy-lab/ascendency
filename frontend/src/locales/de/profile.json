@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "KONSOLE WIRD SYNCHRONISIERT...",
+  "guest": {
+    "seo": { "title": "Aufsteiger-Profil | Ascendancy", "description": "Sieh dir dein Aufsteiger-Profil, Leistungsdaten und Aufstiegsfortschritt an." },
+    "noSimulations": "KEINE SIMULATIONEN AUFGEZEICHNET.",
+    "prompt": "Melde dich an, um deine Aufsteiger-Konsole zu aktivieren.",
+    "accessButton": "NETZWERK BETRETEN →"
+  },
+  "seo": { "description": "Dein Aufsteiger-Profil, Leistungsdaten und Aufstiegsfortschritt." },
+  "ascendantConsole": "AUFSTEIGER-KONSOLE",
+  "currentClassification": { "label": "AKTUELLE KLASSIFIKATION", "status": "AKTIV" },
+  "ascension": {
+    "progress": "AUFSTIEGSFORTSCHRITT",
+    "next": "NÄCHSTES: {{name}}",
+    "max": "MAXIMUM",
+    "requires": "Erfordert {{wpm}} WPM · {{accuracy}}% GEN · {{consistency}}% KON",
+    "complete": "AUFSTIEG ABGESCHLOSSEN"
+  },
+  "stats": {
+    "bestWpm": "BESTES WPM",
+    "avgWpm": "WPM DURCHSCHNITT",
+    "bestAcc": "BESTE GEN",
+    "avgAcc": "GEN DURCHSCHNITT",
+    "bestCns": "BESTE KON",
+    "streak": "SERIE",
+    "simulations": "SIMULATIONEN",
+    "charsTyped": "GETIPPTE ZEICHEN",
+    "score": "PUNKTZAHL"
+  },
+  "charts": { "wpmHistory": "WPM-VERLAUF", "accuracyHistory": "GENAUIGKEITSVERLAUF", "consistency": "KONSTANZ" },
+  "loadingPerformanceData": "LEISTUNGSDATEN WERDEN GELADEN...",
+  "dangerZone": {
+    "account": "KONTO",
+    "heading": "GEFAHRENZONE",
+    "restrictedStatus": "EINGESCHRÄNKT",
+    "description": "Lösche dein Aufsteiger-Profil, deinen Simulationsverlauf und deine Bestenlisten-Position dauerhaft.",
+    "deleteButton": "KONTO LÖSCHEN",
+    "warning": "DIESE AKTION IST ENDGÜLTIG. Dein Profil, Simulationsverlauf und deine Bestenlisten-Position werden gelöscht und können nicht wiederhergestellt werden.",
+    "confirmAccessKey": "ZUGANGSSCHLÜSSEL BESTÄTIGEN",
+    "confirmCheckbox": "Mir ist bewusst, dass dies nicht rückgängig gemacht werden kann.",
+    "erasing": "WIRD GELÖSCHT...",
+    "confirmButton": "LÖSCHUNG BESTÄTIGEN →",
+    "cancel": "ABBRECHEN"
+  }
+}

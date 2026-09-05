@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "ПЕРВАЯ СИМУЛЯЦИЯ", "desc": "Завершите свою первую симуляцию." },
+  "precision": { "name": "ТОЧНОСТЬ", "desc": "Достигните 99% точности." },
+  "speed_surge": { "name": "ВСПЛЕСК СКОРОСТИ", "desc": "Достигните 80 WPM." },
+  "overdrive": { "name": "ФОРСАЖ", "desc": "Достигните 100 WPM." },
+  "break_the_limit": { "name": "ПРЕОДОЛЕЙ ПРЕДЕЛ", "desc": "Достигните 120 WPM." },
+  "perfect_execution": { "name": "ИДЕАЛЬНОЕ ИСПОЛНЕНИЕ", "desc": "Достигните 100% точности." },
+  "ascension": { "name": "ВОСХОЖДЕНИЕ", "desc": "Откройте ASCENDANT." },
+  "velocity": { "name": "VELOCITY", "desc": "Достигните VELOCITY." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "Достигните высшей классификации." }
+}

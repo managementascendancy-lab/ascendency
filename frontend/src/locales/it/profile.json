@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "SINCRONIZZAZIONE CONSOLE...",
+  "guest": {
+    "seo": { "title": "Profilo dell'Ascendente | Ascendancy", "description": "Visualizza il tuo profilo di ascendente, i dati di prestazione e il progresso di ascesa." },
+    "noSimulations": "NESSUNA SIMULAZIONE REGISTRATA.",
+    "prompt": "Autenticati per attivare la tua Console dell'Ascendente.",
+    "accessButton": "ACCEDI ALLA RETE →"
+  },
+  "seo": { "description": "Il tuo profilo di ascendente, i dati di prestazione e il progresso di ascesa." },
+  "ascendantConsole": "CONSOLE DELL'ASCENDENTE",
+  "currentClassification": { "label": "CLASSIFICAZIONE ATTUALE", "status": "ATTIVO" },
+  "ascension": {
+    "progress": "PROGRESSO DI ASCESA",
+    "next": "PROSSIMO: {{name}}",
+    "max": "MASSIMO",
+    "requires": "Richiede {{wpm}} PPM · {{accuracy}}% PRE · {{consistency}}% CST",
+    "complete": "ASCESA COMPLETATA"
+  },
+  "stats": {
+    "bestWpm": "MIGLIOR PPM",
+    "avgWpm": "PPM MEDIO",
+    "bestAcc": "MIGLIOR PRE",
+    "avgAcc": "PRE MEDIA",
+    "bestCns": "MIGLIOR CST",
+    "streak": "SERIE",
+    "simulations": "SIMULAZIONI",
+    "charsTyped": "CARATT. DIGITATI",
+    "score": "PUNTEGGIO"
+  },
+  "charts": { "wpmHistory": "CRONOLOGIA PPM", "accuracyHistory": "CRONOLOGIA PRECISIONE", "consistency": "COSTANZA" },
+  "loadingPerformanceData": "CARICAMENTO DATI DI PRESTAZIONE...",
+  "dangerZone": {
+    "account": "ACCOUNT",
+    "heading": "ZONA PERICOLOSA",
+    "restrictedStatus": "RISTRETTO",
+    "description": "Elimina permanentemente il tuo profilo di ascendente, la cronologia delle simulazioni e la posizione in classifica.",
+    "deleteButton": "ELIMINA ACCOUNT",
+    "warning": "QUESTA AZIONE È PERMANENTE. Il tuo profilo, la cronologia delle simulazioni e la posizione in classifica verranno eliminati e non potranno essere recuperati.",
+    "confirmAccessKey": "CONFERMA CHIAVE DI ACCESSO",
+    "confirmCheckbox": "Comprendo che questa azione non può essere annullata.",
+    "erasing": "ELIMINAZIONE IN CORSO...",
+    "confirmButton": "CONFERMA ELIMINAZIONE →",
+    "cancel": "ANNULLA"
+  }
+}

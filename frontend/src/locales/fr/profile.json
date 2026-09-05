@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "SYNCHRONISATION DE LA CONSOLE...",
+  "guest": {
+    "seo": { "title": "Profil d'Ascendant | Ascendancy", "description": "Consultez votre profil d'ascendant, données de performance et progression d'ascension." },
+    "noSimulations": "AUCUNE SIMULATION ENREGISTRÉE.",
+    "prompt": "Authentifiez-vous pour activer votre Console d'Ascendant.",
+    "accessButton": "ACCÉDER AU RÉSEAU →"
+  },
+  "seo": { "description": "Votre profil d'ascendant, données de performance et progression d'ascension." },
+  "ascendantConsole": "CONSOLE DE L'ASCENDANT",
+  "currentClassification": { "label": "CLASSIFICATION ACTUELLE", "status": "ACTIF" },
+  "ascension": {
+    "progress": "PROGRESSION DE L'ASCENSION",
+    "next": "SUIVANT : {{name}}",
+    "max": "MAXIMUM",
+    "requires": "Nécessite {{wpm}} MPM · {{accuracy}}% PRÉ · {{consistency}}% RÉG",
+    "complete": "ASCENSION TERMINÉE"
+  },
+  "stats": {
+    "bestWpm": "MEILLEUR MPM",
+    "avgWpm": "MPM MOYEN",
+    "bestAcc": "MEILLEURE PRÉ",
+    "avgAcc": "PRÉ MOYENNE",
+    "bestCns": "MEILLEURE RÉG",
+    "streak": "SÉRIE",
+    "simulations": "SIMULATIONS",
+    "charsTyped": "CARACT. TAPÉS",
+    "score": "SCORE"
+  },
+  "charts": { "wpmHistory": "HISTORIQUE MPM", "accuracyHistory": "HISTORIQUE DE PRÉCISION", "consistency": "RÉGULARITÉ" },
+  "loadingPerformanceData": "CHARGEMENT DES DONNÉES DE PERFORMANCE...",
+  "dangerZone": {
+    "account": "COMPTE",
+    "heading": "ZONE DE DANGER",
+    "restrictedStatus": "RESTREINT",
+    "description": "Effacez définitivement votre profil d'ascendant, historique de simulations et position au classement.",
+    "deleteButton": "SUPPRIMER LE COMPTE",
+    "warning": "CETTE ACTION EST DÉFINITIVE. Votre profil, historique de simulations et position au classement seront effacés et ne pourront pas être récupérés.",
+    "confirmAccessKey": "CONFIRMER LA CLÉ D'ACCÈS",
+    "confirmCheckbox": "Je comprends que cette action est irréversible.",
+    "erasing": "SUPPRESSION...",
+    "confirmButton": "CONFIRMER LA SUPPRESSION →",
+    "cancel": "ANNULER"
+  }
+}

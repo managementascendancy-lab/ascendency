@@ -1,0 +1,21 @@
+{
+  "seo": { "title": "The Ascendancy — हीरो संग्रह | Ascendancy", "description": "दस हीरो। असेंशन की ओर एक ही रास्ता। Ascendancy हीरो वर्गीकरण संग्रह देखें।" },
+  "heroArchive": "हीरो संग्रह",
+  "heading": "THE ASCENDANCY",
+  "subtitle": "दस हीरो पर आधारित एक हीरो वर्गीकरण टाइपिंग टेस्ट — असेंशन की ओर एक ही रास्ता। आपकी स्पीड आपकी क्लास तय करती है। आपकी सटीकता तय करती है कि आप कितनी ऊँचाई तक जाते हैं।",
+  "detail": {
+    "heroId": "हीरो_{{index}}",
+    "close": "[ बंद करें ]",
+    "personality": "व्यक्तित्व",
+    "power": "शक्ति",
+    "metrics": { "wpm": "WPM", "acc": "सटी", "cns": "स्थि" },
+    "simulateButton": "वर्गीकरण के लिए सिमुलेट करें →"
+  },
+  "heroCard": {
+    "locked": "प्रोफ़ाइल लॉक है",
+    "classificationRequired": "वर्गीकरण आवश्यक",
+    "metrics": { "wpm": "WPM", "acc": "सटी", "cns": "स्थि" },
+    "unlockProgress": "अनलॉक प्रगति",
+    "classificationAvailable": "वर्गीकरण उपलब्ध"
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSound } from "@/context/SoundContext";
+import { LocalizedLink } from "@/i18n/links";
 
 // ASCENDANCY button with tactical bracket hover, no pill shapes.
 // Pass `to` for real in-app navigation — renders a crawlable <Link> (real
@@ -40,9 +40,9 @@ export default function AscButton({
 
   if (to && !disabled) {
     return (
-      <Link to={to} onMouseEnter={handleHover} onClick={handleClick} className={classes} {...rest}>
+      <LocalizedLink to={to} onMouseEnter={handleHover} onClick={handleClick} className={classes} {...rest}>
         {decorations}
-      </Link>
+      </LocalizedLink>
     );
   }
 

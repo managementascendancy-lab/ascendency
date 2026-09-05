@@ -1,0 +1,12 @@
+{
+  "nova": { "title": "떠오르는 영웅", "description": "어센션의 첫 불꽃. 모든 어센던트는 NOVA로 시작합니다 — 네트워크의 조정을 기다리는 원초적인 잠재력.", "personality": "호기심 많고, 지치지 않으며, 아직 증명되지 않음.", "power": "키네틱 이그니션 — 매 입력마다 가속되는 추진력.", "class": "이니시에이트" },
+  "vanguard": { "title": "수호자", "description": "확고한 최전선의 등급. VANGUARD는 규율 있고 신뢰할 수 있는 입력으로 자리를 지킵니다.", "personality": "보호적이고, 굳건하며, 흔들리지 않음.", "power": "벌워크 프로토콜 — 리듬을 깨지 않고 압력을 흡수합니다.", "class": "디펜더" },
+  "phantom": { "title": "그림자", "description": "조용하고 정확함. PHANTOM은 간격 사이를 공격하며, 분석이 끝날 때까지 보이지 않습니다.", "personality": "종잡을 수 없고, 계산적이며, 조용함.", "power": "클로크 벡터 — 시스템이 추적할 수 없을 만큼 빠르게 움직입니다.", "class": "인필트레이터" },
+  "titan": { "title": "괴력", "description": "압도적인 힘. TITAN은 원초적인 처리량을 매트릭스 전체에 걸친 멈출 수 없는 압박으로 바꿉니다.", "personality": "지배적이고, 묵직하며, 흔들리지 않음.", "power": "공성 엔진 — 결코 굴복하지 않는 지속적인 출력.", "class": "헤비" },
+  "aegis": { "title": "정밀의 수호자", "description": "흠잡을 데 없는 규율. AEGIS는 거의 완벽한 정확도로만 해제됩니다 — 모든 문자가 검증됩니다.", "personality": "까다롭고, 보호적이며, 꼼꼼함.", "power": "퍼펙트 워드 — 오류 없이 만들어진 방패.", "class": "가디언" },
+  "pulse": { "title": "반응자", "description": "순수한 반응 속도. PULSE는 리듬 속에서 번영하며, 반사를 지속적인 성능의 물결로 바꿉니다.", "personality": "활기차고, 적응력이 뛰어나며, 전기적임.", "power": "리플렉스 서지 — 모든 신호에 대한 즉각적인 반응.", "class": "리액터" },
+  "nexus": { "title": "전략가", "description": "수렴점. NEXUS는 속도, 정확도, 일관성을 하나의 최적화된 흐름으로 균형 잡습니다.", "personality": "분석적이고, 차분하며, 전략적임.", "power": "네트워크 동기화 — 모든 지표를 조화롭게 조율합니다.", "class": "커맨더" },
+  "ascendant": { "title": "엘리트", "description": "경계를 넘어서. ASCENDANT는 성능이 숙련으로 바뀌는 지점을 나타냅니다.", "personality": "세련되고, 지배적이며, 엘리트다움.", "power": "트랜센드 프로토콜 — 표준 한계를 넘어 작동합니다.", "class": "엘리트" },
+  "velocity": { "title": "속도 전문가", "description": "종단 속도. VELOCITY는 네트워크가 기록할 수 있는 한계까지 처리량을 밀어붙입니다.", "personality": "두려움 없고, 눈부시게 빠르며, 정확함.", "power": "하이퍼벡터 — 인식을 뛰어넘는 움직임.", "class": "스페셜리스트" },
+  "sovereign": { "title": "궁극", "description": "Ascendancy의 정점. SOVEREIGN은 최종 등급입니다 — 속도, 정밀함, 통제의 완전한 융합.", "personality": "절대적이고, 위엄 있으며, 초월적임.", "power": "완전한 어센션 — 네트워크가 측정할 수 있는 가장 높은 상태.", "class": "SOVEREIGN" }
+}

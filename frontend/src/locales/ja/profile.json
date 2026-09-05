@@ -1,0 +1,45 @@
+{
+  "syncingConsole": "コンソール同期中...",
+  "guest": {
+    "seo": { "title": "アセンダント・プロフィール | Ascendancy", "description": "あなたのアセンダントプロフィール、パフォーマンスデータ、アセンション進行度を確認しよう。" },
+    "noSimulations": "シミュレーション記録がありません。",
+    "prompt": "アセンダント・コンソールを有効にするには認証してください。",
+    "accessButton": "ネットワークにアクセス →"
+  },
+  "seo": { "description": "あなたのアセンダントプロフィール、パフォーマンスデータ、アセンション進行度。" },
+  "ascendantConsole": "アセンダント・コンソール",
+  "currentClassification": { "label": "現在のクラス分け", "status": "アクティブ" },
+  "ascension": {
+    "progress": "アセンション進行度",
+    "next": "次: {{name}}",
+    "max": "最大",
+    "requires": "必要: {{wpm}} WPM · {{accuracy}}% 正確 · {{consistency}}% 安定",
+    "complete": "アセンション完了"
+  },
+  "stats": {
+    "bestWpm": "最高WPM",
+    "avgWpm": "平均WPM",
+    "bestAcc": "最高正確性",
+    "avgAcc": "平均正確性",
+    "bestCns": "最高安定性",
+    "streak": "連続記録",
+    "simulations": "シミュレーション数",
+    "charsTyped": "タイプ文字数",
+    "score": "スコア"
+  },
+  "charts": { "wpmHistory": "WPM履歴", "accuracyHistory": "正確性履歴", "consistency": "安定性" },
+  "loadingPerformanceData": "パフォーマンスデータを読み込み中...",
+  "dangerZone": {
+    "account": "アカウント",
+    "heading": "危険地帯",
+    "restrictedStatus": "制限あり",
+    "description": "アセンダントプロフィール、シミュレーション履歴、リーダーボードの順位を完全に削除します。",
+    "deleteButton": "アカウントを削除",
+    "warning": "この操作は取り消せません。プロフィール、シミュレーション履歴、リーダーボードの順位が削除され、復元できなくなります。",
+    "confirmAccessKey": "アクセスキーの確認",
+    "confirmCheckbox": "これが取り消せないことを理解しています。",
+    "erasing": "削除中...",
+    "confirmButton": "削除を確定 →",
+    "cancel": "キャンセル"
+  }
+}

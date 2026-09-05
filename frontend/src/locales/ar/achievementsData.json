@@ -1,0 +1,11 @@
+{
+  "first_simulation": { "name": "أول محاكاة", "desc": "أكمل محاكاتك الأولى." },
+  "precision": { "name": "الدقة", "desc": "حقّق دقة 99%." },
+  "speed_surge": { "name": "اندفاع السرعة", "desc": "حقّق 80 WPM." },
+  "overdrive": { "name": "الاندفاع الأقصى", "desc": "حقّق 100 WPM." },
+  "break_the_limit": { "name": "تجاوز الحد", "desc": "حقّق 120 WPM." },
+  "perfect_execution": { "name": "التنفيذ المثالي", "desc": "حقّق دقة 100%." },
+  "ascension": { "name": "الصعود", "desc": "افتح ASCENDANT." },
+  "velocity": { "name": "VELOCITY", "desc": "حقّق VELOCITY." },
+  "sovereign": { "name": "SOVEREIGN", "desc": "حقّق أعلى تصنيف." }
+}

@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Tippgeschwindigkeits-Simulator | Ascendancy",
+    "description": "Führe eine Tipp-Simulation durch. Miss WPM, Genauigkeit und Konstanz in 15, 30, 60 oder 120 Sekunden."
+  },
+  "header": {
+    "overline1": "TRAININGSSYSTEM",
+    "overline2": "SPIELERISCHES TIPPTRAINING",
+    "heading": "SIMULATION",
+    "statusLabel": "STATUS",
+    "status": {
+      "ready": "BEREIT",
+      "active": "AKTIV",
+      "complete": "ABGESCHLOSSEN",
+      "initializing": "INITIALISIERUNG"
+    }
+  },
+  "duration": {
+    "label": "DAUER"
+  },
+  "topic": {
+    "label": "THEMA",
+    "items": {
+      "courage": "MUT",
+      "sacrifice": "OPFER",
+      "legacy": "VERMÄCHTNIS",
+      "adversity": "WIDRIGKEIT",
+      "awakening": "ERWACHEN"
+    }
+  },
+  "metrics": {
+    "wpm": "WPM",
+    "accuracy": "GENAUIGKEIT",
+    "time": "ZEIT",
+    "consistency": "KONSTANZ"
+  },
+  "performanceCore": {
+    "label": "LEISTUNGSKERN",
+    "status": "MONITOR"
+  },
+  "typingEnvironment": {
+    "label": "TIPPUMGEBUNG",
+    "statusLive": "LIVE",
+    "statusStandby": "BEREITSCHAFT"
+  },
+  "ready": {
+    "description": "Starte die Simulation. Tippe den Text so schnell und genau wie möglich. Deine Leistung bestimmt deine Helden-Klassifikation.",
+    "beginButton": "SIMULATION STARTEN →"
+  },
+  "countdown": {
+    "go": "LOS"
+  },
+  "restartButton": "[ NEUSTART ]",
+  "bootLines": [
+    "SYSTEM WIRD INITIALISIERT",
+    "NEURALE VERBINDUNG HERGESTELLT",
+    "LEISTUNGSMATRIX BEREIT"
+  ],
+  "reveal": {
+    "stageComplete": "SIMULATION ABGESCHLOSSEN",
+    "stageAnalyzing": "LEISTUNG WIRD ANALYSIERT",
+    "log1": "> LESE LEISTUNGSMATRIX...",
+    "log2": "> DURCHSUCHE HELDENARCHIV...",
+    "log3": "> KLASSIFIZIERUNG LÄUFT...",
+    "heroProfileIdentified": "HELDENPROFIL IDENTIFIZIERT",
+    "newClassification": "NEUE KLASSIFIKATION",
+    "unlockProgressLabel": "FREISCHALTUNG {{current}} / {{total}}",
+    "unlockedBadge": "FREIGESCHALTET",
+    "classificationComplete": "KLASSIFIZIERUNG ABGESCHLOSSEN",
+    "powerLabel": "KRAFT",
+    "scoreLabel": "PUNKTZAHL",
+    "ascensionProgress": "AUFSTIEGSFORTSCHRITT",
+    "advanceToward": "Arbeite dich zu {{name}} vor — steigere Geschwindigkeit, Genauigkeit und Konstanz, um aufzusteigen.",
+    "apexReached": "Du hast den Gipfel von Ascendancy erreicht.",
+    "nextLabel": "NÄCHSTES: {{name}}",
+    "maxAscension": "MAXIMALER AUFSTIEG",
+    "newRecord": "NEUER REKORD",
+    "ascensionCompleteBadge": "AUFSTIEG ABGESCHLOSSEN",
+    "retryButton": "SIMULATION WIEDERHOLEN →",
+    "viewProfileButton": "HELDENPROFIL ANSEHEN",
+    "viewLeaderboardButton": "BESTENLISTE ANSEHEN",
+    "shareButton": "ERGEBNIS TEILEN",
+    "preparingButton": "WIRD VORBEREITET…",
+    "downloadCertButton": "HELDENZERTIFIKAT HERUNTERLADEN",
+    "downloadWpmCertButton": "WPM-ZERTIFIKAT HERUNTERLADEN",
+    "generatingButton": "WIRD ERSTELLT…",
+    "shareInstagramButton": "IN INSTAGRAM-STORY TEILEN",
+    "shareText": "Ich habe {{name}} auf ASCENDANCY erreicht!",
+    "guestAscendant": "GAST-AUFSTEIGER",
+    "messages": {
+      "certificateSaved": "ZERTIFIKAT IN DEINEN DOWNLOADS GESPEICHERT",
+      "wpmCertificateSaved": "WPM-ZERTIFIKAT IN DEINEN DOWNLOADS GESPEICHERT",
+      "shareLinkStorySticker": "LINK KOPIERT — FÜGE IHN ALS LINK-STICKER HINZU, WENN DU IN EINER STORY/STATUS POSTEST",
+      "shareImageDownloaded": "BILD HERUNTERGELADEN + LINK KOPIERT — TEILE ES AUF WHATSAPP, INSTAGRAM, X...",
+      "igPickInstagram": "WÄHLE INSTAGRAM IM TEILEN-MENÜ UND FÜGE DANN DEN LINK-STICKER HINZU — ER IST BEREITS KOPIERT",
+      "igNeedsPhone": "INSTAGRAM STORIES BENÖTIGT DEIN TELEFON — BILD HERUNTERGELADEN, LINK KOPIERT. SENDE DAS BILD AN DEIN TELEFON, UM ES ZU POSTEN"
+    }
+  }
+}

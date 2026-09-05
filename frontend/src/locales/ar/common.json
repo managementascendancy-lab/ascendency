@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "simulator": "المحاكي",
+    "ascendancy": "ASCENDANCY",
+    "leaderboard": "لوحة الصدارة",
+    "guides": "الأدلة",
+    "profile": "ملفي الشخصي",
+    "online": "متصل",
+    "muteSound": "كتم الصوت",
+    "enableSound": "تفعيل الصوت",
+    "logout": "تسجيل الخروج",
+    "access": "الدخول",
+    "brandTag": "مبادرة الكتابة"
+  },
+  "grid": {
+    "coordinates": "X:0000 · Y:0000",
+    "gridCore": "الشبكة · ASC-CORE",
+    "sectorSignal": "القطاع · ASC-07",
+    "signalStable": "الإشارة · مستقرة"
+  },
+  "systemTicker": {
+    "messages": [
+      "شبكة ASCENDANCY متصلة",
+      "الرابط العصبي نشط",
+      "المحاكاة جاهزة",
+      "مصفوفة الأداء متصلة",
+      "بروتوكول الصعود نشط",
+      "تمت مزامنة البيانات",
+      "نظام التدريب متصل"
+    ]
+  },
+  "footer": {
+    "tagline": "قِس سرعة كتابتك ودقتك وثباتك. افتح تصنيفات الأبطال وارتقِ في الشبكة.",
+    "productHeading": "المنتج",
+    "accountHeading": "الحساب",
+    "legalHeading": "قانوني",
+    "trainingSimulator": "محاكي التدريب",
+    "classificationArchive": "أرشيف التصنيف",
+    "performanceNetwork": "شبكة الأداء",
+    "achievements": "الإنجازات",
+    "guides": "الأدلة",
+    "ascendantConsole": "وحدة تحكم الصاعد",
+    "signInRegister": "تسجيل الدخول / التسجيل",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة",
+    "motto": "اكتب. تدرّب. اصعد.",
+    "copyright": "مبادرة ASCENDANCY © 2026",
+    "advertisement": "إعلان"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const GSI_SRC = "https://accounts.google.com/gsi/client";
 
@@ -24,6 +25,7 @@ function loadGsiScript() {
 // Renders Google's own "Sign in with Google" button and forwards the
 // resulting ID token credential to the caller for server-side verification.
 export default function GoogleSignInButton({ onCredential, onError }) {
+  const { t } = useTranslation("auth");
   const divRef = useRef(null);
   const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -45,7 +47,7 @@ export default function GoogleSignInButton({ onCredential, onError }) {
           width: 344,
         });
       })
-      .catch(() => onError && onError("Failed to load Google Sign-In"));
+      .catch(() => onError && onError(t("googleLoadFailed")));
 
     return () => {
       cancelled = true;
@@ -56,7 +58,7 @@ export default function GoogleSignInButton({ onCredential, onError }) {
   if (!clientId) {
     return (
       <div className="border border-dashed border-bronze/40 px-4 py-3 text-center font-mono text-[11px] text-bronze">
-        GOOGLE SIGN-IN NOT CONFIGURED
+        {t("googleNotConfigured")}
       </div>
     );
   }

@@ -1,0 +1,75 @@
+{
+  "seo": {
+    "title": "Test de Velocidad de Escritura y PPM | Ascendancy",
+    "description": "Mide tu velocidad de escritura, precisión y consistencia. Completa simulaciones, desbloquea clasificaciones de héroe y asciende en la clasificación de Ascendancy."
+  },
+  "hero": {
+    "overline": "PROTOCOLO DE RENDIMIENTO",
+    "headingLine1": "¿QUÉ TAN RÁPIDO",
+    "headingLine2Prefix": "PUEDES ",
+    "headingLine2Highlight": "ESCRIBIR?",
+    "subtitle": "Este es un test de clasificación de héroes por mecanografía — entra en la simulación, mide tu rendimiento y descubre tu ascensión. ¡Consigue tu certificado!",
+    "beginSimulation": "INICIAR SIMULACIÓN →",
+    "viewAscendancy": "VER ASCENDANCY",
+    "neuralLink": "ENLACE NEURAL",
+    "stable": "ESTABLE",
+    "latency": "LATENCIA 004ms",
+    "scanLoading": "ESCANEANDO"
+  },
+  "performanceData": {
+    "ascendant": "ASCENDENTE",
+    "guestHeading": "DATOS DE RENDIMIENTO",
+    "guestSession": "SESIÓN DE INVITADO"
+  },
+  "modules": {
+    "heading": "MÓDULOS DEL SISTEMA",
+    "titlePrefix": "UN SISTEMA. ",
+    "titleHighlight": "MUCHOS MÓDULOS.",
+    "access": "ACCEDER →",
+    "items": {
+      "training": { "name": "SISTEMA DE ENTRENAMIENTO", "desc": "Entra en la simulación y mide tu rendimiento." },
+      "classification": { "name": "ARCHIVO DE CLASIFICACIÓN", "desc": "Diez niveles de héroe. Un solo camino hacia la ascensión." },
+      "performance": { "name": "RED DE RENDIMIENTO", "desc": "Compite en la clasificación global." },
+      "console": { "name": "CONSOLA DEL ASCENDENTE", "desc": "Sigue tu ascensión y tus datos de rendimiento." }
+    }
+  },
+  "heroStrip": {
+    "brand": "THE ASCENDANCY",
+    "overline": "ARCHIVO DE HÉROES",
+    "titlePrefix": "DESBLOQUÉALOS A TODOS. ",
+    "titleHighlight": "DEMUESTRA TU VELOCIDAD.",
+    "viewAlt": "Ver a {{name}} en el archivo de clasificación de héroes de Ascendancy"
+  },
+  "faq": {
+    "brand": "SOPORTE",
+    "overline": "PREGUNTAS FRECUENTES",
+    "titlePrefix": "PREGUNTAS, ",
+    "titleHighlight": "RESUELTAS.",
+    "items": [
+      {
+        "q": "¿Qué es Ascendancy?",
+        "a": "Ascendancy es un simulador de mecanografía que mide tu velocidad, precisión y consistencia, y luego te clasifica como uno de diez héroes según tu rendimiento — desde NOVA al principio hasta SOVEREIGN en la cima."
+      },
+      {
+        "q": "¿Necesito una cuenta para hacer una simulación?",
+        "a": "No — cualquiera puede hacer una simulación como invitado y ver sus resultados. Crear una cuenta permite guardar tu historial, seguir tus mejores puntuaciones, desbloquear logros y aparecer en la clasificación."
+      },
+      {
+        "q": "¿Cómo se decide mi clasificación de héroe?",
+        "a": "Cada héroe tiene umbrales mínimos de PPM, precisión y consistencia. Después de cada simulación, se te clasifica como el héroe más alto cuyos requisitos cumples — la velocidad sola no basta, las tres métricas importan."
+      },
+      {
+        "q": "¿Cómo se calculan las PPM?",
+        "a": "Las palabras por minuto se calculan a partir de tus caracteres correctamente escritos, usando la convención estándar de 5 caracteres por palabra, dividido entre el tiempo transcurrido en minutos."
+      },
+      {
+        "q": "¿Puedo obtener una prueba de mi velocidad de escritura?",
+        "a": "Sí. Después de una simulación, puedes descargar una tarjeta de héroe para compartir, un certificado profesional de PPM apto para un currículum o portafolio, o compartir tu resultado directamente en WhatsApp, Instagram, X y más."
+      },
+      {
+        "q": "¿Es justa la clasificación?",
+        "a": "Tu puntuación en la clasificación se basa en tu mejor simulación verificada, ponderando juntas la velocidad, la precisión y la consistencia — así que una ejecución rápida pero descuidada no superará a una más lenta pero limpia."
+      }
+    ]
+  }
+}
