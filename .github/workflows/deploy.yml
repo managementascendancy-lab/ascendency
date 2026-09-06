@@ -50,6 +50,7 @@ jobs:
       - name: Build (postbuild prerender runs automatically)
         env:
           REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
+          REACT_APP_GOOGLE_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}
         run: yarn build
 
       - uses: cloudflare/wrangler-action@v3
