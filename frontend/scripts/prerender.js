@@ -72,14 +72,23 @@ function startStaticServer() {
 async function prerenderRoute(browser, route) {
   const page = await browser.newPage();
   try {
-    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: "networkidle0", timeout: 30000 });
+    // networkidle0 (zero connections for 500ms) hung indefinitely on "/"
+    // specifically in GitHub Actions' sandboxed runner — confirmed via a
+    // real CI failure log ("Navigation timeout of 30000 ms exceeded"),
+    // reproducible there but not on a local machine, so most likely some
+    // low-level connection (the 3D scanner's asset/texture loading, or a
+    // script it pulls in) that never fully settles to zero in that specific
+    // environment. networkidle2 (tolerates up to 2 lingering connections)
+    // is the standard remedy for exactly this failure signature, plus a
+    // larger timeout for headroom on a slower/more constrained CI machine.
+    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: "networkidle2", timeout: 45000 });
     // Pages are route-split with React.lazy()/Suspense (see App.js), and
     // Home additionally lazy-loads its 3D scanner — every Suspense fallback
     // in the app marks itself with data-loading="true" (see RouteLoader.jsx
-    // and HoloScannerFallback in Home.jsx). networkidle0 above almost
-    // always already covers this (the lazy chunk fetch is itself a network
-    // request), but wait explicitly too so a slow chunk eval never gets
-    // snapshotted mid-loading-state.
+    // and HoloScannerFallback in Home.jsx). The network-idle wait above
+    // almost always already covers this (the lazy chunk fetch is itself a
+    // network request), but wait explicitly too so a slow chunk eval never
+    // gets snapshotted mid-loading-state.
     await page
       .waitForFunction(() => document.querySelectorAll('[data-loading="true"]').length === 0, { timeout: 15000 })
       .catch(() => {});
