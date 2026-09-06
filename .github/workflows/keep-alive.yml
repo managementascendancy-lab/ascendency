@@ -1,0 +1,31 @@
+name: Keep backend awake
+
+# Only useful on a host that sleeps the service after inactivity (e.g.
+# Render's free tier). If you're on Northflank (or any always-on host),
+# this workflow is unnecessary and can be deleted or left disabled.
+#
+# Setup: add a repository variable named BACKEND_HEALTH_URL pointing at
+# your deployed backend's health endpoint, e.g.
+# https://your-backend.onrender.com/api/health
+# (Settings -> Secrets and variables -> Actions -> Variables -> New repository variable)
+
+on:
+  schedule:
+    # Every 10 minutes — comfortably under Render's 15-minute idle timeout.
+    # GitHub may occasionally delay scheduled runs under load; this isn't a
+    # hard real-time guarantee, just a reasonable best-effort buffer.
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping backend health endpoint
+        run: |
+          if [ -z "${{ vars.BACKEND_HEALTH_URL }}" ]; then
+            echo "BACKEND_HEALTH_URL repository variable is not set — skipping ping."
+            echo "Set it once the backend is deployed (see comment at the top of this file)."
+            exit 0
+          fi
+          curl -fsS --max-time 20 "${{ vars.BACKEND_HEALTH_URL }}"

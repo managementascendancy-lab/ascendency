@@ -922,6 +922,16 @@ async def update_name(input: UpdateNameInput, user: dict = Depends(get_current_u
     return public_user(user)
 
 
+# ---------------------------------------------------------------- health
+
+@api_router.get("/health")
+async def health():
+    # No DB round-trip and no rate limit on purpose — this exists to be
+    # pinged frequently (e.g. an external keep-alive job) without touching
+    # real data or counting against any user-facing limiter.
+    return {"status": "ok"}
+
+
 # ---------------------------------------------------------------- leaderboard
 
 @api_router.get("/leaderboard")
