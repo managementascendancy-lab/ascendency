@@ -1,0 +1,42 @@
+name: Deploy frontend to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+
+      - run: yarn install --frozen-lockfile
+
+      # Same fix already proven necessary in frontend/Dockerfile for the
+      # postbuild prerender step (scripts/prerender.js) to launch Chrome.
+      - run: npx puppeteer browsers install chrome --install-deps
+
+      - name: Build (postbuild prerender runs automatically)
+        env:
+          REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
+        run: yarn build
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: frontend
+          command: pages deploy build --project-name=ascendancytyping --branch=main

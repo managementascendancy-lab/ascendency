@@ -41,17 +41,32 @@ persisted in a named volume.
 
 ## Deploying
 
-1. **Database**: a MongoDB Atlas free-tier cluster is the least-effort option;
-   self-hosting `mongod` works too. Set `MONGO_URL`/`DB_NAME` accordingly.
-2. **Backend**: deploy `backend/` (via its `Dockerfile`, or any Python host)
-   behind HTTPS. Set `JWT_SECRET`, `MONGO_URL`, `DB_NAME`, `CORS_ORIGINS`
-   (the frontend's exact origin), `ADMIN_EMAIL`, `ADMIN_PASSWORD`.
-3. **Frontend**: build with `REACT_APP_BACKEND_URL` pointed at the backend's
-   public HTTPS URL, then serve the static `build/` output (via the provided
-   `Dockerfile`+nginx, or any static host).
+Production (`ascendancytyping.com`) runs the frontend and backend on
+separate hosts:
+
+1. **Database**: MongoDB Atlas. Set `MONGO_URL`/`DB_NAME` on the backend
+   accordingly.
+2. **Backend**: deployed separately (Render, via `backend/Dockerfile`) behind
+   HTTPS. Set `JWT_SECRET`, `MONGO_URL`, `DB_NAME`, `CORS_ORIGINS` (the
+   frontend's exact origin), `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `RESEND_API_KEY`,
+   `RESEND_FROM_EMAIL`, `FRONTEND_URL`.
+3. **Frontend**: deployed to **Cloudflare Pages**, automatically, via
+   `.github/workflows/deploy.yml` on every push to `main` that touches
+   `frontend/`. The workflow builds with `REACT_APP_BACKEND_URL` (from a
+   repo secret) pointed at the backend's public HTTPS URL, then runs
+   `wrangler pages deploy` — no manual build/upload step. Requires these
+   GitHub repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`,
+   `REACT_APP_BACKEND_URL`.
 4. **HTTPS is required on both**: auth cookies are set with
    `samesite="none"; secure=true`, so browsers will silently drop them over
-   plain HTTP or on a mismatched origin.
+   plain HTTP or on a mismatched origin. Render and Cloudflare Pages both
+   provide this automatically.
+
+**Self-hosted alternative**: the `Dockerfile`+nginx setup under `frontend/`
+(and the `docker compose` setup above) still works for building and serving
+the frontend yourself instead of Cloudflare Pages — useful for local
+testing or a fully self-hosted deployment, but it's not what production
+actually runs.
 
 ## SEO / Static Prerendering
 
