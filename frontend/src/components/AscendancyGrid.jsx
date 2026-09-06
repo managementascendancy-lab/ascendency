@@ -18,32 +18,6 @@ export default function AscendancyGrid() {
     []
   );
 
-  const glowParticles = useMemo(
-    () =>
-      Array.from({ length: 80 }).map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        size: 12 + Math.random() * 18,
-        duration: `${14 + Math.random() * 14}s`,
-        delay: `${Math.random() * 14}s`,
-        opacity: 0.12 + Math.random() * 0.14,
-      })),
-    []
-  );
-
-  const centerGlowParticles = useMemo(
-    () =>
-      Array.from({ length: 150 }).map(() => ({
-        left: `${32 + Math.random() * 36}%`,
-        top: `${32 + Math.random() * 36}%`,
-        size: 3 + Math.random() * 5,
-        duration: `${10 + Math.random() * 12}s`,
-        delay: `${Math.random() * 12}s`,
-        opacity: 0.19 + Math.random() * 0.16,
-      })),
-    []
-  );
-
   return (
     <div aria-hidden="true" className="fixed inset-0 -z-10 overflow-hidden bg-navy-dark">
       {/* deep base vignette */}
@@ -159,40 +133,6 @@ export default function AscendancyGrid() {
             boxShadow: `0 0 6px ${p.color}`,
             animationDuration: p.duration,
             animationDelay: p.delay,
-          }}
-        />
-      ))}
-
-      {/* muted golden glow particles */}
-      {glowParticles.map((p, i) => (
-        <span
-          key={i}
-          className="asc-glow-particle"
-          style={{
-            left: p.left,
-            top: p.top,
-            width: p.size,
-            height: p.size,
-            animationDuration: p.duration,
-            animationDelay: p.delay,
-            "--glow-op": p.opacity,
-          }}
-        />
-      ))}
-
-      {/* extra small glow particles concentrated in the center */}
-      {centerGlowParticles.map((p, i) => (
-        <span
-          key={i}
-          className="asc-glow-particle"
-          style={{
-            left: p.left,
-            top: p.top,
-            width: p.size,
-            height: p.size,
-            animationDuration: p.duration,
-            animationDelay: p.delay,
-            "--glow-op": p.opacity,
           }}
         />
       ))}
