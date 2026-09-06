@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Volume2, VolumeX } from "lucide-react";
 import SEO from "@/components/SEO";
 import HudPanel from "@/components/HudPanel";
 import PerformanceCore from "@/components/PerformanceCore";
 import NeuralTrace from "@/components/NeuralTrace";
 import AscButton from "@/components/AscButton";
 import HeroReveal from "@/components/HeroReveal";
+import VirtualKeyboard from "@/components/VirtualKeyboard";
 import { buildStream, TOPICS } from "@/data/passages";
 import { calcWpm, calcAccuracy, calcConsistency, classifyIndex, computeScore } from "@/lib/typing";
 import { heroByIndex, HEROES, getLocaleHeroProgress } from "@/data/heroes";
@@ -16,6 +18,8 @@ import api from "@/lib/api";
 import { Mark, Sep } from "@/components/Sep";
 
 const MODES = [15, 30, 60, 120];
+const KEYBOARD_MODE_STORAGE_KEY = "ascendancy:keyboardMode";
+const isTouchDevice = typeof window !== "undefined" && (("ontouchstart" in window) || navigator.maxTouchPoints > 0);
 
 export default function Simulator() {
   const { t, i18n } = useTranslation("simulator");
@@ -36,6 +40,18 @@ export default function Simulator() {
   const [result, setResult] = useState(null);
   const [flags, setFlags] = useState({});
   const [showReveal, setShowReveal] = useState(false);
+  // Only offered on touch devices, and only for English — the on-screen
+  // layout covers exactly the character set the English passages use
+  // (verified directly against passages/en.js), which isn't guaranteed for
+  // other locales' accented characters, so those stick to the native keyboard.
+  const [keyboardMode, setKeyboardMode] = useState(() => {
+    try {
+      return localStorage.getItem(KEYBOARD_MODE_STORAGE_KEY) || "native";
+    } catch {
+      return "native";
+    }
+  });
+  const offerVirtualKeyboard = isTouchDevice && i18n.language === "en";
   const inputRef = useRef("");
   const textRef = useRef(text);
   const samplesRef = useRef(samples);
@@ -118,6 +134,7 @@ export default function Simulator() {
         .post("/simulations", {
           wpm, accuracy: acc, consistency: cons,
           correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length, duration,
+          elapsedSeconds: secs,
           locale: i18n.language,
         })
         .then(({ data }) => {
@@ -188,7 +205,17 @@ export default function Simulator() {
     lastSecRef.current = 0;
     finishedRef.current = false;
     setPhase("running");
-    setTimeout(() => containerRef.current?.focus(), 30);
+    // On mobile, focusing scrolls the browser's default way (often centering
+    // the element, which can still leave it partly under the keyboard once
+    // one appears). Pinning it to the top of the viewport instead leaves the
+    // keyboard the whole lower half of the screen to occupy without covering
+    // the text.
+    setTimeout(() => {
+      containerRef.current?.focus();
+      if (isTouchDevice) {
+        containerRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
+    }, 30);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, count]);
 
@@ -210,32 +237,67 @@ export default function Simulator() {
     return () => clearInterval(id);
   }, [phase, duration, finish]);
 
-  // keystroke capture
-  useEffect(() => {
-    if (phase !== "running") return;
-    const handler = (e) => {
-      if (e.key === "Tab") return;
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key === "Backspace") {
-        e.preventDefault();
-        setInput((prev) => prev.slice(0, -1));
-        return;
+  // keystroke capture — driven by a real (visually hidden) <input>'s onChange
+  // rather than raw keydown, so this actually works on mobile: a bare div
+  // never triggers the on-screen keyboard, and even when a keyboard is
+  // present, most mobile keyboards (autocomplete/predictive ones especially)
+  // don't reliably fire a keydown per character the way a physical keyboard does.
+  const handleInputChange = useCallback(
+    (e) => {
+      const raw = e.target.value;
+      const txt = textRef.current;
+      const next = raw.length > txt.length ? raw.slice(0, txt.length) : raw;
+      if (next.length > inputRef.current.length) {
+        const correctChar = next[next.length - 1] === txt[next.length - 1];
+        sound?.play(correctChar ? "key" : "error");
       }
-      if (e.key.length === 1) {
-        e.preventDefault();
-        setInput((prev) => {
-          if (prev.length >= textRef.current.length) return prev;
-          const next = prev + e.key;
-          const correctChar = e.key === textRef.current[prev.length];
-          sound?.play(correctChar ? "key" : "error");
-          if (next.length >= textRef.current.length) setTimeout(finish, 10);
-          return next;
-        });
-      }
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [phase, finish, sound]);
+      setInput(next);
+      if (next.length >= txt.length) setTimeout(finish, 10);
+    },
+    [finish, sound]
+  );
+
+  // Typing is append-only (the highlighted range assumes the cursor is
+  // always at the end) — pin the real input's caret there so clicking or
+  // arrow-keying into the middle can't desync it from that assumption.
+  const pinCaretToEnd = useCallback((e) => {
+    const el = e.target;
+    if (el.selectionStart !== el.value.length || el.selectionEnd !== el.value.length) {
+      el.setSelectionRange(el.value.length, el.value.length);
+    }
+  }, []);
+
+  const blockPaste = useCallback((e) => e.preventDefault(), []);
+
+  // Shared by the on-screen VirtualKeyboard, which sends one character at a
+  // time and bypasses the real (inputMode="none") input's onChange entirely.
+  const appendChar = useCallback(
+    (ch) => {
+      const txt = textRef.current;
+      setInput((prev) => {
+        if (prev.length >= txt.length) return prev;
+        const next = prev + ch;
+        const correctChar = ch === txt[prev.length];
+        sound?.play(correctChar ? "key" : "error");
+        if (next.length >= txt.length) setTimeout(finish, 10);
+        return next;
+      });
+    },
+    [finish, sound]
+  );
+
+  const backspaceChar = useCallback(() => {
+    setInput((prev) => prev.slice(0, -1));
+  }, []);
+
+  const selectKeyboardMode = useCallback((mode) => {
+    setKeyboardMode(mode);
+    try {
+      localStorage.setItem(KEYBOARD_MODE_STORAGE_KEY, mode);
+    } catch {
+      /* private browsing / storage disabled — the choice just won't persist */
+    }
+  }, []);
 
   // render typing text with windowed range around cursor
   const startWin = Math.max(0, input.length - 60);
@@ -267,7 +329,7 @@ export default function Simulator() {
       : 100;
 
   return (
-    <div className="py-10">
+    <div className={`py-10 ${offerVirtualKeyboard && keyboardMode === "virtual" && phase === "running" ? "pb-64" : ""}`}>
       <SEO title={t("seo.title")} description={t("seo.description")} />
 
       {/* header */}
@@ -344,18 +406,63 @@ export default function Simulator() {
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.5fr]">
-        {/* performance core */}
-        <HudPanel type="system" label={t("performanceCore.label")} status={t("performanceCore.status")} bodyClassName="flex items-center justify-center p-6">
+        {/* performance core — ordered after the typing arena on mobile, since
+            stacking it above would push the actual typing text further down
+            the page, deeper under where an on-screen keyboard covers it */}
+        <HudPanel type="system" label={t("performanceCore.label")} status={t("performanceCore.status")} bodyClassName="flex items-center justify-center p-6" className="order-2 lg:order-none">
           <PerformanceCore wpm={liveWpm} accuracy={liveAcc} consistency={liveCons} intensity={intensity} size={300} />
         </HudPanel>
 
         {/* typing arena */}
-        <HudPanel type="primary" label={t("typingEnvironment.label")} status={phase === "running" ? t("typingEnvironment.statusLive") : t("typingEnvironment.statusStandby")} bodyClassName="p-6">
+        <HudPanel
+          type="primary"
+          label={t("typingEnvironment.label")}
+          status={phase === "running" ? t("typingEnvironment.statusLive") : t("typingEnvironment.statusStandby")}
+          actions={
+            <button
+              type="button"
+              onClick={() => {
+                sound?.toggleKeySound();
+                sound?.play("toggle");
+              }}
+              aria-label={sound?.keySoundEnabled ? t("typingEnvironment.muteKeySound") : t("typingEnvironment.unmuteKeySound")}
+              data-testid="key-sound-toggle"
+              className="border border-bronze/50 p-1.5 text-cream/70 transition-colors hover:border-gold-bright hover:text-gold-bright"
+            >
+              {sound?.keySoundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+            </button>
+          }
+          bodyClassName="p-6"
+          className="order-1 lg:order-none"
+        >
           <NeuralTrace intensity={intensity} error={recentError} className="mb-5" />
 
           {phase === "ready" && (
             <div className="flex min-h-[220px] flex-col items-center justify-center gap-5 text-center">
               <p className="max-w-md font-body text-cream/60">{t("ready.description")}</p>
+
+              {offerVirtualKeyboard && (
+                <div className="flex flex-col items-center gap-2">
+                  <span className="tech-label text-gold-bright">{t("ready.keyboardChoice.label")}</span>
+                  <div className="flex gap-2">
+                    {["native", "virtual"].map((mode) => (
+                      <button
+                        key={mode}
+                        onClick={() => selectKeyboardMode(mode)}
+                        data-testid={`keyboard-mode-${mode}`}
+                        className={`border px-3 py-1.5 font-mono text-xs transition-colors ${
+                          keyboardMode === mode
+                            ? "border-gold-bright bg-gold-bright text-navy-dark"
+                            : "border-bronze/50 text-cream/70 hover:text-cream"
+                        }`}
+                      >
+                        {t(`ready.keyboardChoice.${mode}`)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <AscButton variant="red" onClick={begin} data-testid="simulator-start-btn">
                 {t("ready.beginButton")}
               </AscButton>
@@ -380,14 +487,44 @@ export default function Simulator() {
 
           {(phase === "running" || phase === "done") && (
             <div
-              ref={containerRef}
-              tabIndex={0}
-              onClick={() => containerRef.current?.focus()}
-              data-testid="typing-arena"
-              dir={isRtl ? "rtl" : "ltr"}
-              className="min-h-[220px] cursor-text select-none font-mono text-2xl leading-relaxed tracking-wide outline-none"
+              className="relative min-h-[220px] cursor-text"
+              onClick={() => {
+                containerRef.current?.focus();
+                if (isTouchDevice) {
+                  containerRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+                }
+              }}
             >
-              {chars}
+              {/* Real (visually hidden) input — this is what actually
+                  receives keystrokes and, critically, is what triggers the
+                  on-screen keyboard on mobile. The colored text below it is
+                  a pointer-events-none visual overlay only. */}
+              <input
+                ref={containerRef}
+                type="text"
+                inputMode={offerVirtualKeyboard && keyboardMode === "virtual" ? "none" : "text"}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
+                disabled={phase !== "running"}
+                value={input}
+                onChange={handleInputChange}
+                onSelect={pinCaretToEnd}
+                onPaste={blockPaste}
+                onCut={blockPaste}
+                onDrop={blockPaste}
+                aria-label={t("typingEnvironment.label")}
+                data-testid="typing-input"
+                className="absolute inset-0 h-full w-full cursor-text border-none bg-transparent p-0 text-transparent caret-transparent outline-none"
+              />
+              <div
+                data-testid="typing-arena"
+                dir={isRtl ? "rtl" : "ltr"}
+                className="pointer-events-none select-none font-mono text-2xl leading-relaxed tracking-wide"
+              >
+                {chars}
+              </div>
             </div>
           )}
 
@@ -400,6 +537,10 @@ export default function Simulator() {
           )}
         </HudPanel>
       </div>
+
+      {offerVirtualKeyboard && keyboardMode === "virtual" && phase === "running" && (
+        <VirtualKeyboard onChar={appendChar} onBackspace={backspaceChar} />
+      )}
 
       {showReveal && hero && result && (
         <HeroReveal

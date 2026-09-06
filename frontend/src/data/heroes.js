@@ -172,8 +172,20 @@ export const heroByIndex = (i) => HEROES[Math.max(0, Math.min(i, HEROES.length -
 // highestHeroIndex/currentHero rather than sharing a single global value.
 export const getLocaleHeroProgress = (user, locale) => {
   const progress = user?.heroProgress?.[locale];
+  const totalTests = progress?.totalTests ?? 0;
+  const sumWpm = progress?.sumWpm ?? 0;
+  const sumAccuracy = progress?.sumAccuracy ?? 0;
   return {
     highestHeroIndex: progress?.highestHeroIndex ?? 0,
     currentHero: progress?.currentHero ?? "nova",
+    bestWpm: progress?.bestWpm ?? 0,
+    bestAccuracy: progress?.bestAccuracy ?? 0,
+    bestConsistency: progress?.bestConsistency ?? 0,
+    averageWpm: totalTests ? Math.round(sumWpm / totalTests) : 0,
+    averageAccuracy: totalTests ? Math.round((sumAccuracy / totalTests) * 10) / 10 : 0,
+    totalTests,
+    totalCharacters: progress?.totalCharacters ?? 0,
+    streak: progress?.streak ?? 0,
+    leaderboardScore: progress?.leaderboardScore ?? 0,
   };
 };

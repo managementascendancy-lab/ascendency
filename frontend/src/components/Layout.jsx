@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import AscendancyGrid from "@/components/AscendancyGrid";
-import SystemTicker from "@/components/SystemTicker";
+import AdSenseAutoAds from "@/components/AdSenseAutoAds";
 import Navbar from "@/components/Navbar";
 import RouteLoader from "@/components/RouteLoader";
 import { LocalizedLink } from "@/i18n/links";
@@ -40,8 +40,8 @@ export default function Layout() {
 
   return (
     <div className="relative min-h-screen hud-frame">
+      <AdSenseAutoAds />
       <AscendancyGrid />
-      <SystemTicker />
       <Navbar />
       <main className="mx-auto max-w-[1040px] px-4 sm:px-8">
         <Suspense fallback={<RouteLoader />}>
@@ -84,8 +84,8 @@ export default function Layout() {
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-bronze/20 pt-6 sm:flex-row sm:items-center">
           <div className="tech-label text-gold-bright">{t("footer.motto")}<Sep tone="red" />{t("footer.copyright")}</div>
           <div className="flex items-center gap-4">
-            <a href="mailto:support@ascendancy.io" className="font-mono text-[11px] text-cream/50 transition-colors hover:text-gold-bright">
-              support@ascendancy.io
+            <a href="mailto:support@ascendancytyping.com" className="font-mono text-[11px] text-cream/50 transition-colors hover:text-gold-bright">
+              support@ascendancytyping.com
             </a>
           </div>
         </div>

@@ -9,6 +9,8 @@ import { useAuth } from "@/context/AuthContext";
 import { useSound } from "@/context/SoundContext";
 import { Sep } from "@/components/Sep";
 import GoogleSignInButton from "@/components/GoogleSignInButton";
+import PasswordField from "@/components/PasswordField";
+import { passwordMeetsRequirements, PASSWORD_MIN_LENGTH } from "@/lib/passwordRequirements";
 import { useLocalizedNavigate } from "@/i18n/links";
 
 export default function Auth() {
@@ -16,6 +18,8 @@ export default function Auth() {
   const [mode, setMode] = useState("login"); // login | register | forgot
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -26,6 +30,14 @@ export default function Auth() {
   const navigate = useLocalizedNavigate();
   const [searchParams] = useSearchParams();
   const resetSuccess = searchParams.get("reset") === "success";
+
+  const requirementLabels = {
+    length: t("passwordRequirements.length"),
+    upper: t("passwordRequirements.upper"),
+    lower: t("passwordRequirements.lower"),
+    digit: t("passwordRequirements.digit"),
+    special: t("passwordRequirements.special"),
+  };
 
   const handleGoogleCredential = async (credential) => {
     setError("");
@@ -40,6 +52,10 @@ export default function Auth() {
     if (res.needsSetup) {
       setUsername("");
       setPassword("");
+      // prefilled from Google's own profile data, but still shown and
+      // editable — the ascendant confirms the name, it isn't taken silently.
+      setFirstName(res.firstName || "");
+      setLastName(res.lastName || "");
       setGoogleSetup({ email: res.email, setupToken: res.setupToken });
       play("click");
       return;
@@ -52,7 +68,7 @@ export default function Auth() {
     e.preventDefault();
     setError("");
     setBusy(true);
-    const res = await completeGoogleSignup(googleSetup.setupToken, username, password);
+    const res = await completeGoogleSignup(googleSetup.setupToken, username, password, firstName, lastName);
     setBusy(false);
     if (res.ok) {
       play("boot");
@@ -70,7 +86,7 @@ export default function Auth() {
     const res =
       mode === "login"
         ? await login(email, password)
-        : await register(email, username, password);
+        : await register(email, username, password, firstName, lastName);
     setBusy(false);
     if (res.ok) {
       play("boot");
@@ -109,6 +125,35 @@ export default function Auth() {
           </p>
 
           <form onSubmit={submitGoogleSetup} className="mt-4 space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="tech-label text-gold-bright">{t("fields.firstName")}</label>
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                  maxLength={50}
+                  autoFocus
+                  data-testid="google-setup-first-name"
+                  className={`mt-1 ${field}`}
+                  placeholder={t("fields.firstNamePlaceholder")}
+                />
+              </div>
+              <div>
+                <label className="tech-label text-gold-bright">{t("fields.lastName")}</label>
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                  maxLength={50}
+                  data-testid="google-setup-last-name"
+                  className={`mt-1 ${field}`}
+                  placeholder={t("fields.lastNamePlaceholder")}
+                />
+              </div>
+            </div>
             <div>
               <label className="tech-label text-gold-bright">{t("fields.callsign")}</label>
               <input
@@ -118,7 +163,6 @@ export default function Auth() {
                 required
                 minLength={3}
                 maxLength={20}
-                autoFocus
                 data-testid="google-setup-username"
                 className={`mt-1 ${field}`}
                 placeholder={t("fields.callsignPlaceholder")}
@@ -126,14 +170,16 @@ export default function Auth() {
             </div>
             <div>
               <label className="tech-label text-gold-bright">{t("fields.accessKey")}</label>
-              <input
-                type="password"
+              <PasswordField
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                minLength={6}
+                showLabel={t("showAccessKey")}
+                hideLabel={t("hideAccessKey")}
+                showRequirements
+                requirementLabels={requirementLabels}
                 data-testid="google-setup-password"
-                className={`mt-1 ${field}`}
+                className="mt-1"
                 placeholder="••••••••"
               />
             </div>
@@ -146,7 +192,7 @@ export default function Auth() {
 
             <NeuralTrace intensity={busy ? 3 : 1} className="my-2" />
 
-            <AscButton type="submit" variant="red" disabled={busy} className="w-full justify-center" data-testid="google-setup-submit">
+            <AscButton type="submit" variant="red" disabled={busy || !passwordMeetsRequirements(password)} className="w-full justify-center" data-testid="google-setup-submit">
               {busy ? t("connecting") : t("initializeProfileButton")}
             </AscButton>
             <button
@@ -278,31 +324,64 @@ export default function Auth() {
             />
           </div>
           {mode === "register" && (
-            <div>
-              <label className="tech-label text-gold-bright">{t("fields.callsign")}</label>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                minLength={3}
-                maxLength={20}
-                data-testid="auth-username"
-                className={`mt-1 ${field}`}
-                placeholder={t("fields.callsignPlaceholder")}
-              />
-            </div>
+            <>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="tech-label text-gold-bright">{t("fields.firstName")}</label>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                    maxLength={50}
+                    data-testid="auth-first-name"
+                    className={`mt-1 ${field}`}
+                    placeholder={t("fields.firstNamePlaceholder")}
+                  />
+                </div>
+                <div>
+                  <label className="tech-label text-gold-bright">{t("fields.lastName")}</label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                    maxLength={50}
+                    data-testid="auth-last-name"
+                    className={`mt-1 ${field}`}
+                    placeholder={t("fields.lastNamePlaceholder")}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="tech-label text-gold-bright">{t("fields.callsign")}</label>
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  minLength={3}
+                  maxLength={20}
+                  data-testid="auth-username"
+                  className={`mt-1 ${field}`}
+                  placeholder={t("fields.callsignPlaceholder")}
+                />
+              </div>
+            </>
           )}
           <div>
             <label className="tech-label text-gold-bright">{t("fields.accessKey")}</label>
-            <input
-              type="password"
+            <PasswordField
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              minLength={6}
+              minLength={mode === "register" ? PASSWORD_MIN_LENGTH : 6}
+              showLabel={t("showAccessKey")}
+              hideLabel={t("hideAccessKey")}
+              showRequirements={mode === "register"}
+              requirementLabels={requirementLabels}
               data-testid="auth-password"
-              className={`mt-1 ${field}`}
+              className="mt-1"
               placeholder="••••••••"
             />
             {mode === "login" && (
@@ -330,7 +409,13 @@ export default function Auth() {
 
           <NeuralTrace intensity={busy ? 3 : 1} className="my-2" />
 
-          <AscButton type="submit" variant="red" disabled={busy} className="w-full justify-center" data-testid="auth-submit">
+          <AscButton
+            type="submit"
+            variant="red"
+            disabled={busy || (mode === "register" && !passwordMeetsRequirements(password))}
+            className="w-full justify-center"
+            data-testid="auth-submit"
+          >
             {busy ? t("connecting") : mode === "login" ? t("authenticateButton") : t("initializeProfileButton")}
           </AscButton>
         </form>

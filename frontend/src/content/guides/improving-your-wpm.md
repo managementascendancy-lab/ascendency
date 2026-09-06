@@ -34,3 +34,5 @@ Just like any physical skill, your hands benefit from a short warm-up. Run one o
 ## Put it into practice
 
 Head to the [Training Simulator](/simulator) and run a 60-second session focused purely on accuracy first. Once you're consistently above 97%, gradually push your pace on the next few attempts. Progress compounds — small, steady gains beat one-off lucky bursts.
+
+Once you've set a new personal best, it's worth having proof of it — your [Profile](/profile) page lets you download an official WPM certificate, based on your best recorded run, anytime you want it.

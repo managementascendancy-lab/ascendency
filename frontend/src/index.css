@@ -263,8 +263,8 @@ input:focus-visible,
   100% { transform: translateY(-110px) translateX(-12px) scale(0.8); opacity: 0; }
 }
 
-/* full-viewport HUD frame brackets */
-.hud-frame::before,
+/* full-viewport HUD frame bracket (bottom-right only — the top-left one
+   paired with the removed coordinate readout) */
 .hud-frame::after {
   content: "";
   position: fixed;
@@ -272,13 +272,6 @@ input:focus-visible,
   height: 26px;
   z-index: 30;
   pointer-events: none;
-}
-.hud-frame::before {
-  top: 96px; left: 10px;
-  border-top: 1px solid rgba(200, 137, 0, 0.5);
-  border-left: 1px solid rgba(200, 137, 0, 0.5);
-}
-.hud-frame::after {
   bottom: 10px; right: 10px;
   border-bottom: 1px solid rgba(200, 137, 0, 0.5);
   border-right: 1px solid rgba(200, 137, 0, 0.5);

@@ -37,6 +37,10 @@ Repetitive strain builds up from volume over time, not from any single session. 
 
 A lot of typing advice fixates on mechanical switches, split keyboards, or specific layouts. These can help at the margins, but good technique on a mediocre keyboard will always beat bad technique on an expensive one. Fix your fundamentals first — upgrade hardware later if you still want to.
 
+## Typing on a phone
+
+Most serious practice happens on a physical keyboard, but if you're running a simulation from your phone, Ascendancy lets you choose between your phone's own keyboard or a built-in on-screen keyboard designed to match the simulator — pick whichever one you type more comfortably on from the options shown before a simulation starts.
+
 ## Bring it into your training
 
 Good ergonomics isn't separate from performance — it's what lets you sustain consistency over a full [simulation](/simulator) instead of degrading in the back half from discomfort. Set up your space once, and every session after benefits from it.

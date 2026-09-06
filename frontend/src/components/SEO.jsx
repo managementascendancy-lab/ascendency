@@ -4,8 +4,14 @@ const SITE_URL = "https://ascendancytyping.com";
 const JSONLD_ID = "seo-jsonld";
 
 function setMetaByName(name, content) {
-  if (content == null) return;
   let tag = document.querySelector(`meta[name="${name}"]`);
+  if (content == null) {
+    // A stale tag from a previous route (e.g. a "noindex" left over from the
+    // 404 page) must not silently survive client-side navigation to a page
+    // that never sets this meta at all.
+    if (tag) tag.remove();
+    return;
+  }
   if (!tag) {
     tag = document.createElement("meta");
     tag.setAttribute("name", name);
@@ -40,11 +46,12 @@ function setLinkRel(rel, href) {
 // card and JSON-LD tags. Always updates an existing tag in place rather than
 // appending a new one, so repeated navigation (client-side routing) never
 // accumulates duplicate <meta>/<link> tags in <head>.
-export default function SEO({ title, description, canonical, image, type = "website", publishedTime, jsonLd }) {
+export default function SEO({ title, description, canonical, image, type = "website", publishedTime, jsonLd, noindex = false }) {
   useEffect(() => {
     if (title) document.title = title;
 
     setMetaByName("description", description);
+    setMetaByName("robots", noindex ? "noindex, nofollow" : null);
     setMetaByProperty("og:title", title);
     setMetaByProperty("og:description", description);
     setMetaByProperty("og:type", type);

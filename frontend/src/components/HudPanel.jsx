@@ -5,6 +5,7 @@ export default function HudPanel({
   type = "primary",
   label,
   status,
+  actions,
   className = "",
   bodyClassName = "",
   children,
@@ -28,7 +29,7 @@ export default function HudPanel({
       <span className="pointer-events-none absolute left-1/2 top-0 h-1.5 w-px -translate-x-1/2 bg-bronze/50" />
       <span className="pointer-events-none absolute left-1/2 bottom-0 h-1.5 w-px -translate-x-1/2 bg-bronze/50" />
 
-      {(label || status) && (
+      {(label || status || actions) && (
         <div className="relative z-10 flex items-center justify-between border-b border-bronze/40 px-4 py-2">
           <div className="flex items-center gap-2">
             {/* status LEDs */}
@@ -39,12 +40,15 @@ export default function HudPanel({
             </span>
             {label && <span className="tech-label">{label}</span>}
           </div>
-          {status && (
-            <span className="flex items-center gap-2 tech-label text-sage">
-              <span className="h-1.5 w-1.5 animate-pulse-ring bg-sage" />
-              {status}
-            </span>
-          )}
+          <div className="flex items-center gap-3">
+            {status && (
+              <span className="flex items-center gap-2 tech-label text-sage">
+                <span className="h-1.5 w-1.5 animate-pulse-ring bg-sage" />
+                {status}
+              </span>
+            )}
+            {actions}
+          </div>
         </div>
       )}
       <div className={`relative z-10 ${bodyClassName}`}>{children}</div>

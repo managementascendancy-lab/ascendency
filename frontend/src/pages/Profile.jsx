@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import html2canvas from "html2canvas";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import HudPanel from "@/components/HudPanel";
@@ -7,13 +8,16 @@ import AscensionRing from "@/components/AscensionRing";
 import PerformanceChart from "@/components/PerformanceChart";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import AscButton from "@/components/AscButton";
+import ShareCard from "@/components/ShareCard";
+import CertificateCard from "@/components/CertificateCard";
 import api from "@/lib/api";
-import { heroById, heroByIndex, HEROES, getLocaleHeroProgress } from "@/data/heroes";
+import { heroByIndex, HEROES, getLocaleHeroProgress } from "@/data/heroes";
 import { useTranslatedHero } from "@/data/useTranslatedHero";
 import { useAuth } from "@/context/AuthContext";
 import { useSound } from "@/context/SoundContext";
 import { Sep } from "@/components/Sep";
 import { heroSrcSet } from "@/lib/heroImage";
+import { certificateRecipientName } from "@/lib/certificate";
 import { LocalizedLink, useLocalizedNavigate } from "@/i18n/links";
 
 function Stat({ label, value, color = "text-cream" }) {
@@ -25,25 +29,39 @@ function Stat({ label, value, color = "text-cream" }) {
   );
 }
 
-function nextAscension(user, idx) {
+// Progress toward the next hero must come from the same locale as the
+// classification it's paired with — mixing in the global (all-language)
+// bests here would let the bar read 100% while the classification next to
+// it is still stuck at a lower tier for this language.
+function nextAscension(localeProgress, idx) {
   if (idx >= HEROES.length - 1) return { next: null, progress: 100 };
   const next = heroByIndex(idx + 1);
-  const w = next.minWpm ? Math.min(user.bestWpm / next.minWpm, 1) : 1;
-  const a = next.minAccuracy ? Math.min(user.bestAccuracy / next.minAccuracy, 1) : 1;
-  const c = next.minConsistency ? Math.min(user.bestConsistency / next.minConsistency, 1) : 1;
+  const w = next.minWpm ? Math.min(localeProgress.bestWpm / next.minWpm, 1) : 1;
+  const a = next.minAccuracy ? Math.min(localeProgress.bestAccuracy / next.minAccuracy, 1) : 1;
+  const c = next.minConsistency ? Math.min(localeProgress.bestConsistency / next.minConsistency, 1) : 1;
   return { next, progress: Math.round(Math.min(w, a, c) * 100) };
 }
 
 export default function Profile() {
   const { t, i18n } = useTranslation("profile");
-  const { user, checking, deleteAccount } = useAuth();
+  const { user, checking, deleteAccount, updateName } = useAuth();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [nameOpen, setNameOpen] = useState(false);
+  const [firstNameInput, setFirstNameInput] = useState("");
+  const [lastNameInput, setLastNameInput] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [nameBusy, setNameBusy] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deletePassword, setDeletePassword] = useState("");
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
   const [deleteError, setDeleteError] = useState("");
   const [deleteBusy, setDeleteBusy] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [downloadingCert, setDownloadingCert] = useState(false);
+  const [certMsg, setCertMsg] = useState("");
+  const cardRef = useRef(null);
+  const certRef = useRef(null);
   const { play } = useSound();
   const navigate = useLocalizedNavigate();
 
@@ -55,6 +73,36 @@ export default function Profile() {
       .catch(() => setData(null))
       .finally(() => setLoading(false));
   }, [user]);
+
+  // A certificate certifies one real, actually-achieved run, not a synthetic
+  // mix of independently-maximized bestWpm/bestAccuracy/bestConsistency —
+  // those three can come from three different sessions. The single completed
+  // simulation with the highest score is the best run that actually happened.
+  const history = data?.history || [];
+  const bestRun = history.length
+    ? history.reduce((best, h) => (h.score > best.score ? h : best), history[0])
+    : null;
+  const certId = bestRun
+    ? `ASC-${bestRun.score}-${new Date(bestRun.created_at).getTime().toString(36).toUpperCase()}`
+    : null;
+
+  const submitUpdateName = async (e) => {
+    e.preventDefault();
+    setNameError("");
+    setNameBusy(true);
+    const res = await updateName(firstNameInput.trim(), lastNameInput.trim());
+    setNameBusy(false);
+    if (res.ok) {
+      // Certificates read from `data.user`, not the auth context's `user`,
+      // so the recipient name updates immediately without a page reload.
+      setData((prev) => (prev ? { ...prev, user: res.user } : prev));
+      setNameOpen(false);
+      play("click");
+    } else {
+      setNameError(res.error);
+      play("error");
+    }
+  };
 
   const submitDeleteAccount = async (e) => {
     e.preventDefault();
@@ -76,12 +124,70 @@ export default function Profile() {
   // branch on `user`/`checking` after every hook for this render has run.
   const profile = data?.user || user || null;
   const localeProgress = getLocaleHeroProgress(profile, i18n.language);
-  const heroRaw = profile ? heroById(localeProgress.currentHero) : null;
+  // The classification panel always shows the peak hero ever reached, not
+  // whatever the most recent run happened to classify as — a single slower
+  // session shouldn't visually "demote" someone who already proved a higher
+  // tier. A concern message below covers the case where the latest run undershot it.
+  const heroRaw = profile ? heroByIndex(localeProgress.highestHeroIndex) : null;
   const hero = useTranslatedHero(heroRaw);
   const { next: nextRaw, progress } = profile
-    ? nextAscension(profile, localeProgress.highestHeroIndex)
+    ? nextAscension(localeProgress, localeProgress.highestHeroIndex)
     : { next: null, progress: 0 };
   const next = useTranslatedHero(nextRaw);
+  const bestRunHeroRaw = bestRun ? heroByIndex(bestRun.heroIndex) : null;
+  const bestRunHero = useTranslatedHero(bestRunHeroRaw);
+
+  const latestLocaleSim = [...history].reverse().find((h) => (h.locale || "en") === i18n.language) || null;
+  const isBelowPeak = !!(latestLocaleSim && latestLocaleSim.heroIndex < localeProgress.highestHeroIndex);
+  const latestSimHeroRaw = isBelowPeak ? heroByIndex(latestLocaleSim.heroIndex) : null;
+  const latestSimHero = useTranslatedHero(latestSimHeroRaw);
+
+  const flashCertMsg = (msg) => {
+    setCertMsg(msg);
+    setTimeout(() => setCertMsg(""), 4500);
+  };
+
+  const captureNode = async (node, filename) => {
+    const canvas = await html2canvas(node, { backgroundColor: null, scale: 3, useCORS: true });
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    if (!blob) return null;
+    return new File([blob], filename, { type: "image/png" });
+  };
+
+  const downloadFile = (file) => {
+    const url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = file.name;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadCertificate = async () => {
+    if (!cardRef.current || downloading) return;
+    setDownloading(true);
+    try {
+      const file = await captureNode(cardRef.current, `ascendancy-${bestRunHero.id}.png`);
+      if (!file) return;
+      downloadFile(file);
+      flashCertMsg(t("certificates.messages.certificateSaved"));
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const downloadProfessionalCertificate = async () => {
+    if (!certRef.current || downloadingCert) return;
+    setDownloadingCert(true);
+    try {
+      const file = await captureNode(certRef.current, `ascendancy-wpm-certificate-${bestRunHero.id}.png`);
+      if (!file) return;
+      downloadFile(file);
+      flashCertMsg(t("certificates.messages.wpmCertificateSaved"));
+    } finally {
+      setDownloadingCert(false);
+    }
+  };
 
   if (checking) return <div className="py-24 text-center font-mono text-sm text-sage">{t("syncingConsole")}</div>;
 
@@ -96,10 +202,13 @@ export default function Profile() {
     );
   }
 
-  const history = data?.history || [];
-  const wpmData = history.map((h) => Math.round(h.wpm));
-  const accData = history.map((h) => Math.round(h.accuracy));
-  const consData = history.map((h) => Math.round(h.consistency));
+  // Charts sit directly under the now per-locale stats grid, so they stay
+  // scoped to the same locale — otherwise switching languages would show an
+  // empty-looking stats grid next to a chart still plotting other-language runs.
+  const localeHistory = history.filter((h) => (h.locale || "en") === i18n.language);
+  const wpmData = localeHistory.map((h) => Math.round(h.wpm));
+  const accData = localeHistory.map((h) => Math.round(h.accuracy));
+  const consData = localeHistory.map((h) => Math.round(h.consistency));
 
   return (
     <div className="py-14">
@@ -152,24 +261,149 @@ export default function Profile() {
                 )}
               </div>
             </div>
+            {isBelowPeak && (
+              <div className="mx-5 mb-5 border border-red/60 bg-red/10 px-3 py-2 font-mono text-xs text-red" data-testid="profile-below-peak-warning">
+                {t("currentClassification.belowPeakWarning", { latest: latestSimHero.name, peak: hero.name })}
+              </div>
+            )}
           </HudPanel>
         </Reveal>
 
         {/* stats grid */}
         <Reveal delay={100}>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            <Stat label={t("stats.bestWpm")} value={profile.bestWpm} color="text-gold-bright" />
-            <Stat label={t("stats.avgWpm")} value={profile.averageWpm} color="text-gold" />
-            <Stat label={t("stats.bestAcc")} value={`${profile.bestAccuracy}%`} color="text-sage" />
-            <Stat label={t("stats.avgAcc")} value={`${profile.averageAccuracy}%`} color="text-sage" />
-            <Stat label={t("stats.bestCns")} value={`${profile.bestConsistency}%`} color="text-cream" />
-            <Stat label={t("stats.streak")} value={`${profile.streak}d`} color="text-red" />
-            <Stat label={t("stats.simulations")} value={profile.totalTests} color="text-cream" />
-            <Stat label={t("stats.charsTyped")} value={profile.totalCharacters} color="text-cream" />
-            <Stat label={t("stats.score")} value={profile.leaderboardScore} color="text-red" />
+            <Stat label={t("stats.bestWpm")} value={localeProgress.bestWpm} color="text-gold-bright" />
+            <Stat label={t("stats.avgWpm")} value={localeProgress.averageWpm} color="text-gold" />
+            <Stat label={t("stats.bestAcc")} value={`${localeProgress.bestAccuracy}%`} color="text-sage" />
+            <Stat label={t("stats.avgAcc")} value={`${localeProgress.averageAccuracy}%`} color="text-sage" />
+            <Stat label={t("stats.bestCns")} value={`${localeProgress.bestConsistency}%`} color="text-cream" />
+            <Stat label={t("stats.streak")} value={`${localeProgress.streak}d`} color="text-red" />
+            <Stat label={t("stats.simulations")} value={localeProgress.totalTests} color="text-cream" />
+            <Stat label={t("stats.charsTyped")} value={localeProgress.totalCharacters} color="text-cream" />
+            <Stat label={t("stats.score")} value={localeProgress.leaderboardScore} color="text-red" />
           </div>
         </Reveal>
       </div>
+
+      {/* certificates — unlocked once at least one simulation is on record */}
+      {bestRun && (
+        <Reveal delay={150}>
+          <HudPanel
+            type="primary"
+            label={<>{t("certificates.account")}<Sep tone="gold" />{t("certificates.heading")}</>}
+            status={t("certificates.status")}
+            className="mt-8"
+            bodyClassName="p-5"
+          >
+            {/* offscreen nodes rasterized for download */}
+            <div style={{ position: "fixed", left: -9999, top: 0, pointerEvents: "none" }} aria-hidden="true">
+              <ShareCard ref={cardRef} hero={bestRunHero} result={bestRun} />
+            </div>
+            <div style={{ position: "fixed", left: -9999, top: 0, pointerEvents: "none" }} aria-hidden="true">
+              <CertificateCard
+                ref={certRef}
+                result={bestRun}
+                recipientName={certificateRecipientName(profile)}
+                certId={certId}
+              />
+            </div>
+
+            <p className="font-body text-sm text-cream/70">
+              {t("certificates.description", { name: bestRunHero.name, wpm: Math.round(bestRun.wpm) })}
+            </p>
+
+            <div className="mt-3 border border-bronze/30 bg-navy px-4 py-3">
+              {!nameOpen ? (
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <div className="tech-label text-gold-bright">{t("certificates.nameLabel")}</div>
+                    <div className="mt-1 font-mono text-sm text-cream">{certificateRecipientName(profile)}</div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFirstNameInput(profile.firstName || "");
+                      setLastNameInput(profile.lastName || "");
+                      setNameError("");
+                      setNameOpen(true);
+                    }}
+                    data-testid="profile-edit-name-open"
+                    className="font-mono text-xs text-gold-bright transition-colors hover:text-gold"
+                  >
+                    {t("certificates.editNameButton")}
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={submitUpdateName} className="space-y-3">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <input
+                      type="text"
+                      value={firstNameInput}
+                      onChange={(e) => setFirstNameInput(e.target.value)}
+                      required
+                      autoFocus
+                      placeholder={t("certificates.firstNamePlaceholder")}
+                      data-testid="profile-edit-firstname"
+                      className="border border-bronze/50 bg-navy-dark px-3 py-2 font-mono text-sm text-cream placeholder:text-cream/35 focus:border-gold-bright focus:outline-none"
+                    />
+                    <input
+                      type="text"
+                      value={lastNameInput}
+                      onChange={(e) => setLastNameInput(e.target.value)}
+                      required
+                      placeholder={t("certificates.lastNamePlaceholder")}
+                      data-testid="profile-edit-lastname"
+                      className="border border-bronze/50 bg-navy-dark px-3 py-2 font-mono text-sm text-cream placeholder:text-cream/35 focus:border-gold-bright focus:outline-none"
+                    />
+                  </div>
+                  {nameError && (
+                    <div className="border border-red/60 bg-red/10 px-3 py-2 font-mono text-xs text-red" data-testid="profile-edit-name-error">
+                      {nameError}
+                    </div>
+                  )}
+                  <div className="flex gap-3">
+                    <AscButton type="submit" disabled={nameBusy} data-testid="profile-edit-name-save">
+                      {nameBusy ? t("certificates.savingButton") : t("certificates.saveNameButton")}
+                    </AscButton>
+                    <button
+                      type="button"
+                      onClick={() => setNameOpen(false)}
+                      className="font-mono text-xs text-cream/50 transition-colors hover:text-cream"
+                      data-testid="profile-edit-name-cancel"
+                    >
+                      {t("dangerZone.cancel")}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <AscButton
+                className="w-full justify-center"
+                onClick={downloadCertificate}
+                disabled={downloading}
+                data-testid="profile-download-certificate-btn"
+              >
+                {downloading ? t("certificates.generatingButton") : t("certificates.downloadCertButton")}
+              </AscButton>
+              <AscButton
+                className="w-full justify-center"
+                onClick={downloadProfessionalCertificate}
+                disabled={downloadingCert}
+                data-testid="profile-download-wpm-certificate-btn"
+              >
+                {downloadingCert ? t("certificates.generatingButton") : t("certificates.downloadWpmCertButton")}
+              </AscButton>
+            </div>
+            {certMsg && (
+              <p className="mt-3 font-mono text-xs text-gold-bright" data-testid="profile-certificate-msg">
+                {certMsg}
+              </p>
+            )}
+          </HudPanel>
+        </Reveal>
+      )}
 
       {/* charts */}
       <div className="mt-8 grid gap-6 lg:grid-cols-3">

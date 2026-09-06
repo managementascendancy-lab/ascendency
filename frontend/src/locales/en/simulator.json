@@ -36,11 +36,18 @@
   "typingEnvironment": {
     "label": "TYPING ENVIRONMENT",
     "statusLive": "LIVE",
-    "statusStandby": "STANDBY"
+    "statusStandby": "STANDBY",
+    "muteKeySound": "MUTE TYPING SOUND",
+    "unmuteKeySound": "UNMUTE TYPING SOUND"
   },
   "ready": {
     "description": "Enter the simulation. Type the passage as fast and accurately as you can. Your performance determines your hero classification.",
-    "beginButton": "BEGIN SIMULATION →"
+    "beginButton": "BEGIN SIMULATION →",
+    "keyboardChoice": {
+      "label": "KEYBOARD",
+      "native": "PHONE KEYBOARD",
+      "virtual": "ON-SCREEN KEYBOARD"
+    }
   },
   "countdown": { "go": "GO" },
   "restartButton": "[ RESTART ]",

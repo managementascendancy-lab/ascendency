@@ -8,6 +8,8 @@ import NeuralTrace from "@/components/NeuralTrace";
 import { useAuth } from "@/context/AuthContext";
 import { useSound } from "@/context/SoundContext";
 import { Sep } from "@/components/Sep";
+import PasswordField from "@/components/PasswordField";
+import { passwordMeetsRequirements } from "@/lib/passwordRequirements";
 import { useLocalizedNavigate, useLocalizedPath } from "@/i18n/links";
 
 export default function ResetPassword() {
@@ -23,8 +25,13 @@ export default function ResetPassword() {
   const navigate = useLocalizedNavigate();
   const authHref = useLocalizedPath("/auth");
 
-  const field =
-    "w-full border border-bronze/50 bg-navy px-4 py-3 font-mono text-sm text-cream placeholder:text-cream/35 focus:border-gold-bright focus:outline-none";
+  const requirementLabels = {
+    length: t("passwordRequirements.length"),
+    upper: t("passwordRequirements.upper"),
+    lower: t("passwordRequirements.lower"),
+    digit: t("passwordRequirements.digit"),
+    special: t("passwordRequirements.special"),
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -75,28 +82,30 @@ export default function ResetPassword() {
         <form onSubmit={submit} className="mt-4 space-y-3">
           <div>
             <label className="tech-label text-gold-bright">{t("fields.newAccessKey")}</label>
-            <input
-              type="password"
+            <PasswordField
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              minLength={6}
               autoFocus
+              showLabel={t("showAccessKey")}
+              hideLabel={t("hideAccessKey")}
+              showRequirements
+              requirementLabels={requirementLabels}
               data-testid="reset-password"
-              className={`mt-1 ${field}`}
+              className="mt-1"
               placeholder="••••••••"
             />
           </div>
           <div>
             <label className="tech-label text-gold-bright">{t("fields.confirmAccessKey")}</label>
-            <input
-              type="password"
+            <PasswordField
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              minLength={6}
+              showLabel={t("showAccessKey")}
+              hideLabel={t("hideAccessKey")}
               data-testid="reset-password-confirm"
-              className={`mt-1 ${field}`}
+              className="mt-1"
               placeholder="••••••••"
             />
           </div>
@@ -109,7 +118,13 @@ export default function ResetPassword() {
 
           <NeuralTrace intensity={busy ? 3 : 1} className="my-2" />
 
-          <AscButton type="submit" variant="red" disabled={busy} className="w-full justify-center" data-testid="reset-submit">
+          <AscButton
+            type="submit"
+            variant="red"
+            disabled={busy || !passwordMeetsRequirements(password)}
+            className="w-full justify-center"
+            data-testid="reset-submit"
+          >
             {busy ? t("transmitting") : t("submitButton")}
           </AscButton>
         </form>

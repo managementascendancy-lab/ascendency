@@ -211,10 +211,6 @@ export default function AscendancyGrid() {
       />
 
       {/* corner coordinate markers */}
-      <div className="absolute left-6 top-28 tech-label opacity-40" style={{ animation: "flicker-op 7s linear infinite" }}>
-        {t("grid.coordinates")}
-      </div>
-      <div className="absolute right-6 top-28 tech-label opacity-40">{t("grid.gridCore")}</div>
       <div className="absolute bottom-6 left-6 tech-label opacity-40">{t("grid.sectorSignal")}</div>
       <div className="absolute bottom-6 right-6 tech-label opacity-40" style={{ animation: "flicker-op 9s linear infinite" }}>
         {t("grid.signalStable")}

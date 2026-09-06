@@ -10,6 +10,7 @@ import CertificateCard from "@/components/CertificateCard";
 import { useSound } from "@/context/SoundContext";
 import { Sep, Mark } from "@/components/Sep";
 import { heroSrcSet } from "@/lib/heroImage";
+import { certificateRecipientName } from "@/lib/certificate";
 import { useTranslatedHero } from "@/data/useTranslatedHero";
 import { heroByIndex } from "@/data/heroes";
 
@@ -229,7 +230,7 @@ export default function HeroReveal({
         <CertificateCard
           ref={certRef}
           result={result}
-          recipientName={user?.username ? user.username.toUpperCase() : t("reveal.guestAscendant")}
+          recipientName={user ? certificateRecipientName(user) : t("reveal.guestAscendant")}
           certId={certId}
         />
       </div>

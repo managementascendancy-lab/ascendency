@@ -23,6 +23,7 @@ const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 const Guides = lazy(() => import("@/pages/Guides"));
 const GuideArticle = lazy(() => import("@/pages/GuideArticle"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const SEO_LANDING = {
   "/typing-speed-test": { title: "Typing Speed Test | Ascendancy", description: "Take a free typing speed test. Measure your WPM, accuracy and consistency, then unlock hero classifications on Ascendancy." },
@@ -54,7 +55,7 @@ const pageRoutes = [
   { path: "guides", element: <Guides /> },
   { path: "guides/:slug", element: <GuideArticle /> },
   ...Object.entries(SEO_LANDING).map(([path, seo]) => ({ path: path.slice(1), element: <Home seo={seo} /> })),
-  { path: "*", element: <Home /> },
+  { path: "*", element: <NotFound /> },
 ];
 
 // Every route below except the homepage is a straight reuse of pageRoutes

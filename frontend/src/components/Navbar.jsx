@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-bronze/40 bg-navy-dark/85 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-[1040px] items-center justify-between px-4 py-3 sm:px-8">
+      <nav className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-4 py-3 sm:px-8">
         <LocalizedLink to="/" className="group flex flex-col leading-none" data-testid="brand-logo">
           <span className="font-display text-xl font-700 tracking-[0.12em] text-cream transition-colors group-hover:text-gold-bright">
             ASCEND<span className="text-red transition-colors group-hover:text-gold-bright">ANCY</span>
@@ -31,7 +31,7 @@ export default function Navbar() {
           <span className="tech-label mt-0.5 text-[9px] text-gold-bright">{t("nav.brandTag")}</span>
         </LocalizedLink>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           {NAV.map((n) => (
             <LocalizedNavLink
               key={n.to}
@@ -58,7 +58,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <div className="hidden items-center gap-2 sm:flex">
             <span className="h-1.5 w-1.5 animate-pulse-ring bg-sage" />
             <span className="tech-label text-sage">{t("nav.online")}</span>

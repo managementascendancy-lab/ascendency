@@ -10,6 +10,13 @@ export function SoundProvider({ children }) {
       return true;
     }
   });
+  const [keySoundEnabled, setKeySoundEnabled] = useState(() => {
+    try {
+      return localStorage.getItem("asc_key_sound") !== "off";
+    } catch {
+      return true;
+    }
+  });
   const ctxRef = useRef(null);
 
   const getCtx = useCallback(() => {
@@ -45,6 +52,7 @@ export function SoundProvider({ children }) {
 
   const play = useCallback(
     (name) => {
+      if ((name === "key" || name === "error") && !keySoundEnabled) return;
       switch (name) {
         case "click":
           tone(420, 0.05, "square", 0.04);
@@ -57,7 +65,7 @@ export function SoundProvider({ children }) {
           tone(520, 0.05, "triangle", 0.04, 0.05);
           break;
         case "key":
-          tone(180 + Math.random() * 40, 0.02, "square", 0.015);
+          tone(380 + Math.random() * 60, 0.045, "square", 0.04);
           break;
         case "error":
           tone(120, 0.09, "sawtooth", 0.05);
@@ -94,7 +102,7 @@ export function SoundProvider({ children }) {
           break;
       }
     },
-    [tone]
+    [tone, keySoundEnabled]
   );
 
   const toggle = useCallback(() => {
@@ -107,8 +115,20 @@ export function SoundProvider({ children }) {
     });
   }, []);
 
+  const toggleKeySound = useCallback(() => {
+    setKeySoundEnabled((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem("asc_key_sound", next ? "on" : "off");
+      } catch {}
+      return next;
+    });
+  }, []);
+
   return (
-    <SoundContext.Provider value={{ enabled, toggle, play }}>{children}</SoundContext.Provider>
+    <SoundContext.Provider value={{ enabled, toggle, play, keySoundEnabled, toggleKeySound }}>
+      {children}
+    </SoundContext.Provider>
   );
 }
 

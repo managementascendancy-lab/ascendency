@@ -30,6 +30,15 @@
       "TRAINING SYSTEM ONLINE"
     ]
   },
+  "notFound": {
+    "seo": { "title": "404 — Signal Lost | Ascendancy", "description": "The page you're looking for doesn't exist." },
+    "label": "NAVIGATION ERROR",
+    "status": "NO SIGNAL",
+    "subtitle": "SECTOR NOT FOUND",
+    "description": "This coordinate doesn't exist in the Ascendancy network. The page may have been moved, renamed, or never existed.",
+    "homeButton": "RETURN TO BASE →",
+    "simulatorButton": "ENTER SIMULATION →"
+  },
   "footer": {
     "tagline": "Measure your typing speed, accuracy and consistency. Unlock hero classifications and climb the network.",
     "productHeading": "PRODUCT",

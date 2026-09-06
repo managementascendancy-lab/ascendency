@@ -11,11 +11,14 @@ import { useAuth } from "@/context/AuthContext";
 import { Sep } from "@/components/Sep";
 import { heroSrcSet } from "@/lib/heroImage";
 
-function unlockProgress(hero, user) {
-  if (!user || hero.index === 0) return 100;
-  const w = hero.minWpm ? Math.min(user.bestWpm / hero.minWpm, 1) : 1;
-  const a = hero.minAccuracy ? Math.min(user.bestAccuracy / hero.minAccuracy, 1) : 1;
-  const c = hero.minConsistency ? Math.min(user.bestConsistency / hero.minConsistency, 1) : 1;
+// Scoped to the same locale as `highest` below — mixing in the global
+// (all-language) bests here would let a card read 100% unlock progress
+// while still showing as LOCKED for this language.
+function unlockProgress(hero, localeProgress) {
+  if (!localeProgress || hero.index === 0) return 100;
+  const w = hero.minWpm ? Math.min(localeProgress.bestWpm / hero.minWpm, 1) : 1;
+  const a = hero.minAccuracy ? Math.min(localeProgress.bestAccuracy / hero.minAccuracy, 1) : 1;
+  const c = hero.minConsistency ? Math.min(localeProgress.bestConsistency / hero.minConsistency, 1) : 1;
   return Math.round(Math.min(w, a, c) * 100);
 }
 
@@ -24,7 +27,8 @@ export default function Ascendancy() {
   const { user } = useAuth();
   const [selectedRaw, setSelected] = useState(null);
   const selected = useTranslatedHero(selectedRaw);
-  const highest = getLocaleHeroProgress(user, i18n.language).highestHeroIndex;
+  const localeProgress = getLocaleHeroProgress(user, i18n.language);
+  const highest = localeProgress.highestHeroIndex;
 
   return (
     <div className="py-14">
@@ -55,7 +59,7 @@ export default function Ascendancy() {
                 hero={h}
                 locked={locked}
                 active={user && h.index === highest}
-                progress={unlockProgress(h, user)}
+                progress={unlockProgress(h, user ? localeProgress : null)}
                 onClick={() => setSelected(h)}
               />
             </Reveal>

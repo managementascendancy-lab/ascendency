@@ -8,7 +8,11 @@
   },
   "seo": { "description": "Your ascendant profile, performance data and ascension progress." },
   "ascendantConsole": "ASCENDANT CONSOLE",
-  "currentClassification": { "label": "CURRENT CLASSIFICATION", "status": "ACTIVE" },
+  "currentClassification": {
+    "label": "CURRENT CLASSIFICATION",
+    "status": "ACTIVE",
+    "belowPeakWarning": "Your latest run classified as {{latest}} — below your peak of {{peak}}. Keep training to reclaim your rank."
+  },
   "ascension": {
     "progress": "ASCENSION PROGRESS",
     "next": "NEXT: {{name}}",
@@ -29,6 +33,25 @@
   },
   "charts": { "wpmHistory": "WPM HISTORY", "accuracyHistory": "ACCURACY HISTORY", "consistency": "CONSISTENCY" },
   "loadingPerformanceData": "LOADING PERFORMANCE DATA...",
+  "certificates": {
+    "account": "ACCOUNT",
+    "heading": "CERTIFICATES",
+    "status": "AVAILABLE",
+    "description": "Verified certificate for your best recorded run — {{wpm}} WPM as {{name}}.",
+    "downloadCertButton": "DOWNLOAD HERO CERTIFICATE",
+    "downloadWpmCertButton": "DOWNLOAD WPM CERTIFICATE",
+    "generatingButton": "GENERATING...",
+    "nameLabel": "CERTIFICATE NAME",
+    "editNameButton": "EDIT NAME",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "saveNameButton": "SAVE NAME",
+    "savingButton": "SAVING...",
+    "messages": {
+      "certificateSaved": "CERTIFICATE SAVED TO YOUR DOWNLOADS",
+      "wpmCertificateSaved": "WPM CERTIFICATE SAVED TO YOUR DOWNLOADS"
+    }
+  },
   "dangerZone": {
     "account": "ACCOUNT",
     "heading": "DANGER ZONE",
