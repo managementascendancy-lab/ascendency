@@ -64,6 +64,12 @@ export default function Simulator() {
   const lastSecRef = useRef(0);
   const finishedRef = useRef(false);
   const containerRef = useRef(null);
+  // Resolves to a session_id from POST /simulations/start, or null for a
+  // guest (who never submits) / on request failure. Stored as a promise
+  // rather than state so finish() can await it directly without racing an
+  // unusually fast typist against a network round-trip that hasn't
+  // resolved yet.
+  const sessionPromiseRef = useRef(null);
 
   useEffect(() => { inputRef.current = input; }, [input]);
   useEffect(() => { samplesRef.current = samples; }, [samples]);
@@ -135,11 +141,17 @@ export default function Simulator() {
       // getLocaleHeroProgress — so the "before" snapshot has to come from
       // this locale specifically, not the user's global highest.
       const previousHighest = getLocaleHeroProgress(user, i18n.language).highestHeroIndex;
+      const sessionId = await sessionPromiseRef.current;
       api
         .post("/simulations", {
           wpm, accuracy: acc, consistency: cons,
           correctCharacters: c, incorrectCharacters: w, totalCharacters: inp.length, duration,
+          // Still sent for now, but no longer what the backend actually
+          // times against — session_id below (from /simulations/start) is
+          // the server-authoritative clock; elapsedSeconds is left in place
+          // rather than ripped out.
           elapsedSeconds: secs,
+          session_id: sessionId,
           locale: i18n.language,
         })
         .then(({ data }) => {
@@ -209,6 +221,13 @@ export default function Simulator() {
     startRef.current = Date.now();
     lastSecRef.current = 0;
     finishedRef.current = false;
+    // The server's own clock (created_at on this session) becomes the
+    // authoritative elapsed-time source at submission — this is the actual
+    // moment typing becomes possible, not the earlier "Begin" click, which
+    // still has the boot/countdown ceremony ahead of it.
+    sessionPromiseRef.current = user
+      ? api.post("/simulations/start").then(({ data }) => data.session_id).catch(() => null)
+      : Promise.resolve(null);
     setPhase("running");
     // On mobile, focusing scrolls the browser's default way (often centering
     // the element, which can still leave it partly under the keyboard once

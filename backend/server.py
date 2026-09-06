@@ -10,7 +10,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field, EmailStr, field_validator
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timezone, timedelta
 from bson import ObjectId
 from pymongo.collation import Collation
@@ -62,10 +62,14 @@ REFRESH_RATE_LIMIT = os.environ.get("REFRESH_RATE_LIMIT", "20/minute")
 FORGOT_PASSWORD_RATE_LIMIT = os.environ.get("FORGOT_PASSWORD_RATE_LIMIT", "5/hour")
 RESET_PASSWORD_RATE_LIMIT = os.environ.get("RESET_PASSWORD_RATE_LIMIT", "10/hour")
 DELETE_ACCOUNT_RATE_LIMIT = os.environ.get("DELETE_ACCOUNT_RATE_LIMIT", "5/hour")
-# A genuine practice session realistically tops out at a handful of runs a
-# minute (each run takes 15s+ plus reading/reset time) — this is generous
-# headroom for a serious session while still bounding a scripted flood.
-SIMULATION_SUBMIT_RATE_LIMIT = os.environ.get("SIMULATION_SUBMIT_RATE_LIMIT", "40/hour")
+# Keyed per-user (see get_user_or_ip_key below), not per-IP like every other
+# limiter in this file — submission abuse is meaningfully an account-level
+# concern here, not an IP-level one.
+SIMULATION_SUBMIT_RATE_LIMIT = os.environ.get("SIMULATION_SUBMIT_RATE_LIMIT", "20/hour")
+# How long a /simulations/start session stays redeemable before the TTL
+# index reaps it. Not env-configurable — this isn't a knob anyone would
+# tune per-deployment the way the rate limits above are.
+SIMULATION_SESSION_MINUTES = 5
 
 # Used to build the link in the password reset email — see forgot_password()
 # below.
@@ -110,6 +114,26 @@ api_router = APIRouter(prefix="/api")
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
 app.add_middleware(SlowAPIMiddleware)
+
+
+def get_user_or_ip_key(request: Request) -> str:
+    """Rate-limit key for /simulations specifically: by authenticated user
+    rather than IP, since submission abuse is an account-level concern here
+    (falls back to IP only if the token can't be read/decoded, which
+    shouldn't happen for an already-authenticated route in practice)."""
+    token = request.cookies.get("access_token")
+    if not token:
+        auth_header = request.headers.get("Authorization", "")
+        if auth_header.startswith("Bearer "):
+            token = auth_header[7:]
+    if token:
+        try:
+            payload = jwt.decode(token, get_jwt_secret(), algorithms=[JWT_ALGORITHM])
+            if payload.get("type") == "access" and payload.get("sub"):
+                return f"user:{payload['sub']}"
+        except Exception:
+            pass
+    return get_remote_address(request)
 
 
 @app.exception_handler(RateLimitExceeded)
@@ -410,11 +434,16 @@ class SimulationInput(BaseModel):
     incorrectCharacters: int = Field(ge=0)
     totalCharacters: int = Field(ge=0)
     duration: int
-    # Actual wall-clock seconds the run took, per the client's own timer —
-    # used to recompute wpm/accuracy server-side instead of trusting the
-    # client's numbers directly (see submit_simulation()).
+    # Actual wall-clock seconds the run took, per the client's own timer.
+    # Superseded by the server-tracked simulation_sessions timing below for
+    # the actual wpm computation, but still accepted/stored for now rather
+    # than ripped out — see submit_simulation()'s duration-handling comment.
     elapsedSeconds: float = Field(gt=0)
     locale: str = Field(default="en", max_length=16)
+    # Optional (not Field(...) required) specifically so a missing session_id
+    # can be rejected with a deliberate 400 + clear message in the route body,
+    # rather than FastAPI's generic 422 for a missing required field.
+    session_id: Optional[str] = None
 
     @field_validator("duration")
     @classmethod
@@ -742,26 +771,114 @@ async def refresh_token_route(request: Request, response: Response):
 
 # ---------------------------------------------------------------- simulation
 
+@api_router.post("/simulations/start")
+async def start_simulation_session(user: dict = Depends(get_current_user)):
+    """Issues a short-lived, single-use session the client must present when
+    it later submits a result — created_at becomes the server's own clock
+    for that run, replacing reliance on the client's self-reported elapsed
+    time. No rate limit here on purpose (not asked for, and the submit
+    endpoint's own per-user limit already bounds how many actual scored
+    submissions can land per hour regardless of how many sessions get
+    started)."""
+    now = datetime.now(timezone.utc)
+    session_id = uuid.uuid4().hex
+    await db.simulation_sessions.insert_one({
+        "session_id": session_id,
+        "user_id": str(user["_id"]),
+        "created_at": now,
+        "expires_at": now + timedelta(minutes=SIMULATION_SESSION_MINUTES),
+        "used": False,
+    })
+    return {"session_id": session_id, "server_start_time": now.isoformat()}
+
+
 @api_router.post("/simulations")
-@limiter.limit(SIMULATION_SUBMIT_RATE_LIMIT)
+@limiter.limit(SIMULATION_SUBMIT_RATE_LIMIT, key_func=get_user_or_ip_key)
 async def submit_simulation(request: Request, input: SimulationInput, user: dict = Depends(get_current_user)):
     if input.correctCharacters + input.incorrectCharacters != input.totalCharacters:
         raise HTTPException(status_code=400, detail="Character counts don't add up")
-    # No upper bound is enforced on elapsedSeconds vs. duration: a background-
-    # tab timer can legitimately drift well past the selected duration before
-    # firing, and a *larger* elapsed time for the same character count can
-    # only push the recomputed wpm below of what it actually was — never
-    # inflate it — so there's no cheating incentive to reject here. The wpm
-    # cap below and the character-count check above are what carry the
-    # actual anti-forgery weight.
 
-    # wpm/accuracy are recomputed from the reported character counts and
-    # elapsed time rather than trusted directly from the client — this closes
-    # the trivial "just POST wpm: 400" path to a forged leaderboard entry or
-    # certificate. This is a plausibility floor, not full anti-cheat: a
-    # scripted client can still fabricate internally-consistent character
-    # counts, since nothing here verifies a real passage was actually typed.
-    wpm = max(0.0, min((input.correctCharacters / 5) / (input.elapsedSeconds / 60), 250.0))
+    # ---- session validation (server-authoritative timer) ----
+    # Distinct messages per failure mode, per spec, so the frontend can show
+    # something sensible rather than one generic "invalid session" string.
+    if not input.session_id:
+        raise HTTPException(status_code=400, detail="session_id is required")
+
+    session = await db.simulation_sessions.find_one(
+        {"session_id": input.session_id, "user_id": str(user["_id"])}
+    )
+    if not session:
+        raise HTTPException(status_code=400, detail="Simulation session not found")
+
+    now = datetime.now(timezone.utc)
+    # Motor/pymongo hand back naive datetimes (this client wasn't constructed
+    # with tz_aware=True, matching the rest of this codebase) — every other
+    # timestamp in this app is stored/compared as an ISO string instead, but
+    # a TTL index requires a real BSON Date, so this collection is a
+    # deliberate one-off exception. Treat the naive value as UTC explicitly
+    # rather than let a naive/aware comparison raise TypeError.
+    expires_at = session["expires_at"]
+    if expires_at.tzinfo is None:
+        expires_at = expires_at.replace(tzinfo=timezone.utc)
+    if now > expires_at:
+        raise HTTPException(status_code=400, detail="Simulation session expired")
+
+    # Atomic compare-and-swap: the filter re-checks used=False at write time,
+    # so of two concurrent requests racing on the same session, only one can
+    # ever flip it — the loser sees modified_count == 0 and is rejected here,
+    # same as a genuinely-already-used session. This closes the replay race
+    # a naive "read used, then separately write used=True" would leave open.
+    # It runs before any plausibility check below on purpose: a submission
+    # that gets rejected for implausible stats still burns the session, so
+    # repeatedly probing one session_id with tweaked numbers isn't a way to
+    # get multiple guesses — each attempt needs a fresh /simulations/start
+    # call, which the submit endpoint's own rate limit ultimately bounds.
+    claim_result = await db.simulation_sessions.update_one(
+        {"_id": session["_id"], "used": False},
+        {"$set": {"used": True}},
+    )
+    if claim_result.modified_count == 0:
+        raise HTTPException(status_code=400, detail="Simulation session already used")
+
+    created_at = session["created_at"]
+    if created_at.tzinfo is None:
+        created_at = created_at.replace(tzinfo=timezone.utc)
+    # Floor at 1s: a near-instant replay attempt right after /start would
+    # otherwise blow up the expected-wpm division below.
+    server_duration_seconds = max((now - created_at).total_seconds(), 1.0)
+
+    # ---- plausibility checks (422) ----
+    if input.wpm > 250:
+        raise HTTPException(status_code=422, detail="Reported WPM exceeds plausible maximum (250)")
+    if input.accuracy > 100 or input.accuracy < 0:
+        raise HTTPException(status_code=422, detail="Reported accuracy must be between 0 and 100")
+    if input.correctCharacters > 0:
+        # Spec's own formula uses totalCharacters, but that's not what "wpm"
+        # actually means anywhere else in this codebase (frontend calcWpm and
+        # this same endpoint's own recomputation below both use CORRECT
+        # characters) — using totalCharacters here would inflate the
+        # expected baseline for anyone with typos and could reject a
+        # legitimate, merely-imperfect typist. Using correctCharacters
+        # instead, to match the app's actual, established WPM definition.
+        expected_wpm = (input.correctCharacters / 5) / (server_duration_seconds / 60)
+        # 15%, per spec's own "roughly" — tunable, not derived from anything
+        # more rigorous. Accounts for network/setTimeout jitter between the
+        # client's last keystroke and this request landing.
+        tolerance = 0.15
+        if expected_wpm > 0 and abs(input.wpm - expected_wpm) / expected_wpm > tolerance:
+            raise HTTPException(
+                status_code=422,
+                detail="Reported WPM is inconsistent with character count and elapsed time",
+            )
+
+    # wpm/accuracy are recomputed from the reported character counts and the
+    # server-tracked duration above rather than trusted directly from the
+    # client — this closes the trivial "just POST wpm: 400" path to a forged
+    # leaderboard entry or certificate. This is a plausibility floor, not
+    # full anti-cheat: a scripted client can still fabricate
+    # internally-consistent character counts, since nothing here verifies a
+    # real passage was actually typed.
+    wpm = max(0.0, min((input.correctCharacters / 5) / (server_duration_seconds / 60), 250.0))
     accuracy = (
         max(0.0, min((input.correctCharacters / input.totalCharacters) * 100, 100.0))
         if input.totalCharacters > 0
@@ -978,6 +1095,11 @@ async def startup():
     await db.users.create_index(
         "username", unique=True, collation=Collation(locale="en", strength=2)
     )
+    # TTL index: MongoDB reaps a document once its expires_at value (a real
+    # BSON Date — see start_simulation_session()) is expireAfterSeconds=0
+    # seconds in the past, i.e. as soon as it's expired. No manual cleanup
+    # job needed.
+    await db.simulation_sessions.create_index("expires_at", expireAfterSeconds=0)
 
     admin_email = os.environ.get("ADMIN_EMAIL")
     admin_password = os.environ.get("ADMIN_PASSWORD")
