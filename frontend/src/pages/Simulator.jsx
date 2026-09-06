@@ -24,6 +24,11 @@ const isTouchDevice = typeof window !== "undefined" && (("ontouchstart" in windo
 export default function Simulator() {
   const { t, i18n } = useTranslation("simulator");
   const BOOT_LINES = t("bootLines", { returnObjects: true });
+  // t() with returnObjects doesn't guarantee a stable array reference across
+  // renders, so the boot-sequence effect below depends on this primitive
+  // count rather than BOOT_LINES itself — the effect only actually cares how
+  // many lines there are, not the array identity.
+  const bootLinesCount = BOOT_LINES.length;
   const { user, setUser } = useAuth();
   const sound = useSound();
   const isRtl = RTL_LOCALE_CODES.includes(i18n.language);
@@ -183,7 +188,7 @@ export default function Simulator() {
 
   useEffect(() => {
     if (phase !== "boot") return;
-    if (bootIndex < BOOT_LINES.length) {
+    if (bootIndex < bootLinesCount) {
       const t = setTimeout(() => setBootIndex((i) => i + 1), 380);
       return () => clearTimeout(t);
     }
@@ -192,7 +197,7 @@ export default function Simulator() {
       setCount(3);
     }, 200);
     return () => clearTimeout(t);
-  }, [phase, bootIndex]);
+  }, [phase, bootIndex, bootLinesCount]);
 
   useEffect(() => {
     if (phase !== "countdown") return;

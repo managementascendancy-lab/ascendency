@@ -79,7 +79,7 @@ export default function SEO({ title, description, canonical, image, type = "webs
     } else if (ldScript) {
       ldScript.remove();
     }
-  }, [title, description, canonical, image, type, publishedTime, jsonLd]);
+  }, [title, description, canonical, image, type, publishedTime, jsonLd, noindex]);
 
   return null;
 }
