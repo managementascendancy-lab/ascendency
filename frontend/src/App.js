@@ -19,6 +19,7 @@ const Achievements = lazy(() => import("@/pages/Achievements"));
 const Auth = lazy(() => import("@/pages/Auth"));
 const ResetPassword = lazy(() => import("@/pages/ResetPassword"));
 const ProductInfo = lazy(() => import("@/pages/ProductInfo"));
+const About = lazy(() => import("@/pages/About"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 const Guides = lazy(() => import("@/pages/Guides"));
@@ -50,6 +51,7 @@ const pageRoutes = [
   { path: "reset-password", element: <ResetPassword /> },
   { path: "product/:slug", element: <ProductInfo /> },
   { path: "account/:slug", element: <ProductInfo /> },
+  { path: "about", element: <About /> },
   { path: "privacy-policy", element: <PrivacyPolicy /> },
   { path: "terms-of-service", element: <TermsOfService /> },
   { path: "guides", element: <Guides /> },

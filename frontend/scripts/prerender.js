@@ -17,6 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 const puppeteer = require("puppeteer");
+const { ALL: STATIC_INFO_ROUTES } = require("./static-routes");
 
 const ROOT = path.join(__dirname, "..");
 const BUILD_DIR = path.join(ROOT, "build");
@@ -49,7 +50,7 @@ function guideSlugs() {
 }
 
 function routes() {
-  return ["/", "/guides", ...guideSlugs().map((slug) => `/guides/${slug}`)];
+  return ["/", "/guides", ...STATIC_INFO_ROUTES, ...guideSlugs().map((slug) => `/guides/${slug}`)];
 }
 
 function startStaticServer() {
