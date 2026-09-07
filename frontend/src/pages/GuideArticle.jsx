@@ -9,6 +9,7 @@ import { guideBySlug } from "@/lib/guides";
 import HeroProgressionStrip from "@/components/HeroProgressionStrip";
 import WpmProgressionChart from "@/components/WpmProgressionChart";
 import AccuracySpeedTradeoffChart from "@/components/AccuracySpeedTradeoffChart";
+import ConsistencyWaveformChart from "@/components/ConsistencyWaveformChart";
 
 const SITE_URL = "https://ascendancytyping.com";
 
@@ -22,6 +23,7 @@ const COMPONENT_MARKERS = {
   HERO_PROGRESSION_STRIP: HeroProgressionStrip,
   WPM_PROGRESSION_CHART: WpmProgressionChart,
   ACCURACY_SPEED_CHART: AccuracySpeedTradeoffChart,
+  CONSISTENCY_WAVEFORM_CHART: ConsistencyWaveformChart,
 };
 
 function splitGuideBody(html) {
