@@ -3,6 +3,7 @@ title: Why Accuracy Matters More Than Speed
 description: A fast run with sloppy accuracy will never outrank a clean one on Ascendancy. Here's why accuracy is the metric worth optimizing first.
 date: 2026-01-18
 readTime: 5 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -53,3 +54,5 @@ That's fatigue, and it's common — see "Watch for fatigue-driven accuracy drops
 
 ### Is accuracy the same thing as consistency?
 No — they measure different things entirely. Accuracy is how many characters you got right; consistency is how steady your pace was while typing them. A run can be highly accurate and still wildly inconsistent, or the reverse.
+
+{{AUTHOR_BIO}}

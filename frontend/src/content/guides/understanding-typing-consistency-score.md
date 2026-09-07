@@ -3,6 +3,7 @@ title: Understanding Your Typing Consistency Score
 description: Typing consistency vs accuracy — they measure completely different things. Here's what your consistency score actually tracks and why it matters beyond raw WPM.
 date: 2026-02-05
 readTime: 5 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -53,3 +54,5 @@ Consistency is very likely the answer — check your [Ascendant Console](/profil
 
 ### Does slowing down my whole run improve consistency?
 No — see "It's measured against your own average, not a fixed pace" above. A sustained 40 WPM scores exactly as well on consistency as a sustained 90 WPM. What actually improves it is eliminating the burst-then-crash pattern, which is a separate problem from overall pace — the same drilling approach covered in [improving your typing speed](/guides/improving-your-wpm) applies here too.
+
+{{AUTHOR_BIO}}

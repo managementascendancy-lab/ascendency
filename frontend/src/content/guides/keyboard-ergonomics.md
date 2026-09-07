@@ -3,6 +3,7 @@ title: Keyboard Ergonomics for Faster, Safer Typing
 description: Posture, hand position and keyboard setup affect your ceiling more than most people realize. A quick guide to typing without hurting yourself.
 date: 2026-01-22
 readTime: 5 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -69,3 +70,5 @@ Ergonomics first, by a wide margin. Bad habits formed while chasing early speed 
 
 ### Is typing on a phone bad for ergonomics compared to a physical keyboard?
 It's a different set of tradeoffs rather than strictly worse, and most serious practice still happens on a physical keyboard. If you are running a simulation from your phone, Ascendancy's built-in on-screen keyboard is designed to match the simulator specifically, so use whichever input method — your phone's own keyboard or the built-in one — you find more comfortable to sustain.
+
+{{AUTHOR_BIO}}

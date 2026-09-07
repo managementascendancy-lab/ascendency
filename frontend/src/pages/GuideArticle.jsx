@@ -12,6 +12,7 @@ import AccuracySpeedTradeoffChart from "@/components/AccuracySpeedTradeoffChart"
 import ConsistencyWaveformChart from "@/components/ConsistencyWaveformChart";
 import PracticeCurveChart from "@/components/PracticeCurveChart";
 import TierWpmChart from "@/components/TierWpmChart";
+import AuthorBio from "@/components/AuthorBio";
 
 const SITE_URL = "https://ascendancytyping.com";
 
@@ -28,6 +29,7 @@ const COMPONENT_MARKERS = {
   CONSISTENCY_WAVEFORM_CHART: ConsistencyWaveformChart,
   PRACTICE_CURVE_CHART: PracticeCurveChart,
   TIER_WPM_CHART: TierWpmChart,
+  AUTHOR_BIO: AuthorBio,
 };
 
 function splitGuideBody(html) {
@@ -67,7 +69,7 @@ export default function GuideArticle() {
     description: guide.description,
     datePublished: guide.date || undefined,
     url: canonical,
-    author: { "@type": "Organization", name: "Ascendancy" },
+    author: { "@type": "Organization", name: guide.author || "Ascendancy" },
     publisher: { "@type": "Organization", name: "Ascendancy" },
   };
 
@@ -87,6 +89,8 @@ export default function GuideArticle() {
           {t("article.allGuides")}
         </LocalizedLink>
         <div className="mt-4 flex items-center gap-3">
+          {guide.author && <span className="tech-label text-gold-bright" data-testid="guide-article-byline">By {guide.author}</span>}
+          {guide.author && (guide.date || guide.readTime) && <Sep tone="bronze" />}
           {guide.date && <span className="font-mono text-xs text-sage">{guide.date}</span>}
           {guide.date && guide.readTime && <Sep tone="bronze" />}
           {guide.readTime && <span className="tech-label text-bronze">{guide.readTime}</span>}

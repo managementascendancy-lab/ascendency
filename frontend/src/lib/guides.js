@@ -41,6 +41,7 @@ export const GUIDES = files
       description: data.description || "",
       date: data.date || null,
       readTime: data.readTime || null,
+      author: data.author || null,
       body: content,
       html: marked.parse(content),
     };

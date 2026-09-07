@@ -11,7 +11,9 @@ const SECTIONS = [
     title: "Why we built this",
     body: (
       <>
-        Most typing tests measure one thing and stop there: a number, once, with nowhere for it to go. We didn't
+        We're The Ascendancy Team — the people who design, build and write everything on this site, from the
+        simulator itself to every guide in the archive. Most typing tests measure one thing and stop there: a
+        number, once, with nowhere for it to go. We didn't
         think that was the interesting part. The interesting part is what happens when a measurement becomes
         something you actually want to come back and beat — a classification, a rank, a personal best worth
         chasing. Ascendancy started from that idea: keep the measurement rigorous, but give it a system built

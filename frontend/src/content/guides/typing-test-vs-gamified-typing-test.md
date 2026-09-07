@@ -3,6 +3,7 @@ title: "Typing Test vs. Gamified Typing Test: What's Different"
 description: What separates a plain typing test from a gamified typing speed test with leaderboard and progression — and which one actually keeps you practicing.
 date: 2026-02-01
 readTime: 5 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -51,3 +52,5 @@ Classification alone gives you a fixed target; the [leaderboard](/leaderboard) a
 
 ### Does this same logic apply outside of gaming-adjacent typing practice?
 Yes — the gamer angle is one entry point, but the underlying mechanism (measurement plus a rank plus a title worth defending) works the same way for anyone using typing practice as a recurring habit. See [typing speed test for gamers](/guides/typing-speed-test-for-gamers) for that specific angle in more depth.
+
+{{AUTHOR_BIO}}

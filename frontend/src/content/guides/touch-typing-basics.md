@@ -3,6 +3,7 @@ title: "Touch Typing Basics: A Beginner's Guide"
 description: New to touch typing entirely? Start here — home row, finger assignment, and why looking at your keyboard is the habit worth breaking first.
 date: 2026-01-24
 readTime: 7 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -71,3 +72,5 @@ They're worth building together rather than strictly sequencing — bad wrist ha
 
 ### What comes after I've got the basics down?
 Speed. Once finger placement is automatic rather than effortful, our guide on [improving your typing speed](/guides/improving-your-wpm) picks up exactly from there.
+
+{{AUTHOR_BIO}}

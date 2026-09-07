@@ -3,6 +3,7 @@ title: "Typing Speed Test for Gamers: Why WPM Matters Beyond Typing"
 description: A typing speed test for gamers isn't just about typing faster — it's the same reflex, precision and sustained-input systems that competitive play runs on.
 date: 2026-02-08
 readTime: 5 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -47,3 +48,5 @@ No — the overlap is about precision under sustained pace, not raw starting spe
 
 ### Where should I actually check which of the three metrics is holding me back?
 Run a [simulation](/simulator) and check the result against the [hero classification mental model](/guides/understanding-hero-classification) — it explains exactly how the system shows you which of WPM, accuracy or consistency is your current bottleneck.
+
+{{AUTHOR_BIO}}

@@ -3,6 +3,7 @@ title: "How to Improve Your Typing Speed: A Beginner's Roadmap"
 description: A step-by-step roadmap for typing beginners — posture, home row, the plateau you'll hit, and how often to actually practice.
 date: 2026-02-03
 readTime: 6 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -67,3 +68,5 @@ Run a [simulation](/simulator) periodically and check your result against the [h
 
 ### What if I keep hesitating on the same few keys no matter how much I practice?
 That's usually a sign the practice itself isn't targeted enough — general typing volume reinforces what you already do well more than it fixes a specific weak spot. Deliberately typing words and short phrases that lean on exactly those keys, slowly and correctly, tends to close the gap faster than more general-purpose practice at your usual pace.
+
+{{AUTHOR_BIO}}

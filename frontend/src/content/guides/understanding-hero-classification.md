@@ -3,6 +3,7 @@ title: Understanding Your Hero Classification
 description: How Ascendancy's ten-tier classification system actually works, and why a fast-but-sloppy run will never outrank a slower, cleaner one.
 date: 2026-01-25
 readTime: 4 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -53,3 +54,5 @@ Because classification is tracked entirely separately per language — your Engl
 
 ### Where do I find the exact WPM, accuracy and consistency numbers for every tier?
 This article covers the mental model; the [full threshold table](/guides/hero-classification-system-explained) has the exact numbers for all ten tiers, from NOVA through SOVEREIGN.
+
+{{AUTHOR_BIO}}

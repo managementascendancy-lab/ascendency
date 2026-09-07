@@ -3,6 +3,7 @@ title: "How the Hero Classification Typing Test Grades Every Run"
 description: Ascendancy's hero classification typing test scores every run against ten fixed tiers. Here's the exact WPM, accuracy and consistency threshold for each one, NOVA to SOVEREIGN.
 date: 2026-01-28
 readTime: 6 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -68,3 +69,5 @@ The threshold numbers are the same, but your classification itself is tracked se
 
 ### Gamers specifically — does this system reward the same skills competitive play does?
 More than it might look at first. Sustained, precise input under pace is the common thread between the two — see the [typing speed test for gamers](/guides/typing-speed-test-for-gamers) guide for the full comparison, including how the [accuracy requirement](/guides/typing-accuracy-guide) specifically maps onto controlled, high-pressure execution.
+
+{{AUTHOR_BIO}}

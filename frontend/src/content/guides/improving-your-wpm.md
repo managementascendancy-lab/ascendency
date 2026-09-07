@@ -3,6 +3,7 @@ title: How to Improve Your Typing Speed (WPM)
 description: A practical, no-fluff guide to raising your words-per-minute without sacrificing accuracy — the drills that actually move the number.
 date: 2026-01-15
 readTime: 6 min read
+author: The Ascendancy Team
 ---
 
 *Last updated: September 7, 2026*
@@ -59,3 +60,5 @@ They're not the same thing at all — consistency measures how steady your pace 
 
 ### Should I focus on speed or accuracy first if I can only work on one?
 Accuracy, without much competition — it's the foundation the other two metrics are built on. The [full case for prioritizing accuracy](/guides/typing-accuracy-guide) walks through exactly why a fast, sloppy run consistently underperforms a slower, clean one.
+
+{{AUTHOR_BIO}}
