@@ -5,6 +5,8 @@ date: 2026-01-24
 readTime: 7 min read
 ---
 
+*Last updated: September 7, 2026*
+
 ## What touch typing actually means
 
 Touch typing is typing without looking at the keyboard, using a consistent mapping of fingers to keys so your hands can move on muscle memory alone. It's the single biggest unlock for anyone starting from hunt-and-peck typing — most of the WPM ceiling in early-stage typing isn't about finger speed, it's about the time lost glancing down and re-finding your place.
@@ -48,3 +50,24 @@ If you're switching from an established hunt-and-peck habit to proper touch typi
 Start with short, low-pressure [simulations](/simulator) at 15 or 30 seconds, focused entirely on correct finger placement rather than speed. Once the finger map feels automatic rather than effortful, gradually introduce longer sessions and let speed follow naturally.
 
 Once your finger placement is solid, our guide on [improving your typing speed](/guides/improving-your-wpm) picks up from here.
+
+## Worked example: what the transition actually feels like
+
+Say you currently hunt-and-peck at around 25 WPM. In the first week of deliberately switching to the finger map above, it's realistic to drop into the high teens — you're consciously routing every keystroke through a finger assignment you haven't automated yet, which is slower than even a familiar bad habit. That dip is temporary: as the finger map becomes automatic rather than something you're actively thinking about, your WPM climbs back past your old 25 WPM baseline and keeps going, because touch typing has a much higher ceiling than hunt-and-peck ever could. The [beginner's roadmap](/guides/beginners-roadmap-to-faster-typing) covers this same dip-then-climb pattern in more depth, including what comes after it.
+
+## Frequently Asked Questions
+
+### How long until my fingers stop needing to think about where keys are?
+It varies by how much you practice, but for most people the finger map starts feeling automatic within the first couple of weeks of consistent, deliberate practice — not from typing volume alone, but specifically from resisting the urge to look down described above.
+
+### Is it okay to peek at the keyboard occasionally while I'm still learning?
+It slows the process down, but it isn't fatal. Every glance reinforces hunt-and-peck slightly, so the guideline is to genuinely try recalling the finger map first, and only look as a last resort — not to ban looking outright on day one.
+
+### Which fingers are hardest to train?
+The pinky fingers, consistently. They're responsible for punctuation and the far outer keys, and they're the weakest, least-practiced fingers for almost everyone coming from hunt-and-peck. Expect them to feel the most unnatural for the longest.
+
+### Should I learn touch typing before worrying about posture and wrist position?
+They're worth building together rather than strictly sequencing — bad wrist habits formed while learning the finger map are harder to correct later. The [keyboard ergonomics guide](/guides/keyboard-ergonomics) covers the setup side in full and pairs directly with the finger map above.
+
+### What comes after I've got the basics down?
+Speed. Once finger placement is automatic rather than effortful, our guide on [improving your typing speed](/guides/improving-your-wpm) picks up exactly from there.

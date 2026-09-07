@@ -10,6 +10,8 @@ import HeroProgressionStrip from "@/components/HeroProgressionStrip";
 import WpmProgressionChart from "@/components/WpmProgressionChart";
 import AccuracySpeedTradeoffChart from "@/components/AccuracySpeedTradeoffChart";
 import ConsistencyWaveformChart from "@/components/ConsistencyWaveformChart";
+import PracticeCurveChart from "@/components/PracticeCurveChart";
+import TierWpmChart from "@/components/TierWpmChart";
 
 const SITE_URL = "https://ascendancytyping.com";
 
@@ -24,6 +26,8 @@ const COMPONENT_MARKERS = {
   WPM_PROGRESSION_CHART: WpmProgressionChart,
   ACCURACY_SPEED_CHART: AccuracySpeedTradeoffChart,
   CONSISTENCY_WAVEFORM_CHART: ConsistencyWaveformChart,
+  PRACTICE_CURVE_CHART: PracticeCurveChart,
+  TIER_WPM_CHART: TierWpmChart,
 };
 
 function splitGuideBody(html) {

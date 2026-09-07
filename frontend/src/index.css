@@ -499,6 +499,17 @@ input:focus-visible,
   letter-spacing: 0.02em;
 }
 .guide-markdown-block h2:first-child { margin-top: 0; }
+/* one level down from h2 — used for FAQ question headers within a ## FAQ
+   section, so each question reads as distinct from its answer paragraph
+   without competing with the h2 section titles above it. */
+.guide-markdown-block h3 {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gold-bright);
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
 .guide-markdown-block p { margin: 0.9rem 0; font-size: 0.9375rem; }
 .guide-markdown-block ul, .guide-markdown-block ol {
   margin: 0.9rem 0;

@@ -5,6 +5,8 @@ date: 2026-01-25
 readTime: 4 min read
 ---
 
+*Last updated: September 7, 2026*
+
 ## Ten tiers, three independent gates
 
 Ascendancy classifies every simulation into one of ten heroes, from NOVA at the start to SOVEREIGN at the apex. Each tier has its own minimum thresholds for WPM, accuracy and consistency, and — critically — you need to clear **all three** to unlock it. There's no averaging your way past a weak metric with a strong one.
@@ -30,3 +32,24 @@ Every threshold in the [Classification Archive](/ascendancy) is fixed and public
 ## Common misconception: consistency isn't about being slow
 
 A lot of people assume "consistency" means capping their own speed to avoid variance. It actually measures how steady your pace is relative to your own average — a sustained 90 WPM the whole way through scores just as well on consistency as a sustained 40 WPM. The goal isn't to type slowly on purpose, it's to avoid the burst-then-crash pattern.
+
+## Worked example: reading your own bottleneck
+
+Say your last run was 88 WPM, 93% accuracy, 68% consistency. Checking it against NEXUS (85 WPM · 93% accuracy · 72% consistency, per the [full threshold table](/guides/hero-classification-system-explained)): WPM clears (88 ≥ 85), accuracy clears exactly (93% ≥ 93%), but consistency falls short (68% < 72%). Your progress ring toward NEXUS would show consistency as the bottleneck — not because your WPM or accuracy need work, they've already cleared the bar, but because your pace isn't holding steady enough across the run. That's the diagnostic value described above: the ring points at the one metric actually worth training next, instead of leaving you to guess.
+
+## Frequently Asked Questions
+
+### If two of my three metrics already clear a tier, how close am I really?
+Closer than a single composite score would suggest, but still not there — all three have to clear together, with no partial credit. See the worked example above for exactly how a run can miss a tier by a single lagging metric even when the other two comfortably qualify.
+
+### Does grinding out more runs raise my classification faster than fewer, more focused ones?
+Not necessarily. Since your classification is your single best verified run, one excellent, focused attempt can outweigh ten mediocre ones. Occasionally running a session purely aimed at a personal best is a legitimate strategy alongside incremental practice, not a shortcut around it.
+
+### My consistency score confuses me — does typing slower on purpose help it?
+No, and this is a common misconception — see "Common misconception: consistency isn't about being slow" above. The score measures steadiness relative to your own average pace, not whether that pace is fast or slow. For the full mechanics of what it tracks and why, see the [dedicated consistency score guide](/guides/understanding-typing-consistency-score).
+
+### Why does my classification look different across two languages I practice?
+Because classification is tracked entirely separately per language — your English tier says nothing about your Spanish tier, or any other language. Each one accumulates its own best-run history independently.
+
+### Where do I find the exact WPM, accuracy and consistency numbers for every tier?
+This article covers the mental model; the [full threshold table](/guides/hero-classification-system-explained) has the exact numbers for all ten tiers, from NOVA through SOVEREIGN.
