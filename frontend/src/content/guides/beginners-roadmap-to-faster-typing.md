@@ -4,6 +4,8 @@ description: A step-by-step roadmap for typing beginners — posture, home row, 
 date: 2026-02-03
 readTime: 6 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
+image: /guides/touch-typing-diagram-1200.webp
 ---
 
 *Last updated: September 7, 2026*

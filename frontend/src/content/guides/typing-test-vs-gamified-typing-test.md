@@ -4,6 +4,7 @@ description: What separates a plain typing test from a gamified typing speed tes
 date: 2026-02-01
 readTime: 5 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

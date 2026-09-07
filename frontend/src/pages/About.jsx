@@ -6,6 +6,16 @@ import { LocalizedLink } from "@/i18n/links";
 // Same class as any inline link inside the body prose below.
 const LINK_CLASS = "text-gold-bright underline decoration-bronze/50 underline-offset-2 hover:text-gold";
 
+const SITE_URL = "https://ascendancytyping.com";
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+  ],
+};
+
 const SECTIONS = [
   {
     title: "Why we built this",
@@ -81,6 +91,7 @@ export default function About() {
       <SEO
         title="About Ascendancy | Ascendancy"
         description="Why Ascendancy exists, the thinking behind its HUD aesthetic and hero progression system, and what we're actually trying to build."
+        jsonLd={BREADCRUMB_LD}
       />
 
       <Reveal>

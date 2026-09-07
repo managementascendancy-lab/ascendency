@@ -4,6 +4,7 @@ description: A practical, no-fluff guide to raising your words-per-minute withou
 date: 2026-01-15
 readTime: 6 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

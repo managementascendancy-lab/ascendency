@@ -29,12 +29,42 @@ function slugFromKey(key) {
   return key.replace(/^\.\//, "").replace(/\.md$/, "");
 }
 
+function stripHtml(s) {
+  return s
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .trim();
+}
+
+// Pulls question/answer pairs straight out of the same rendered HTML the
+// page displays (## Frequently Asked Questions, then ### question / <p>
+// answer pairs — see the guide content itself), rather than hand-copying
+// FAQ text into a separate schema source. That's what guarantees FAQPage
+// structured data can never drift from what a reader actually sees.
+function extractFaq(html) {
+  const start = /<h2>Frequently Asked Questions<\/h2>([\s\S]*)$/.exec(html);
+  if (!start) return [];
+  const section = start[1].split(/<h2>/)[0];
+  const pairs = [];
+  const pairRe = /<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/g;
+  let m;
+  while ((m = pairRe.exec(section))) {
+    pairs.push({ question: stripHtml(m[1]), answer: stripHtml(m[2]) });
+  }
+  return pairs;
+}
+
 export const GUIDES = files
   .keys()
   .map((key) => {
     const raw = files(key);
     const { data, content } = parseFrontmatter(raw);
     const slug = data.slug || slugFromKey(key);
+    const html = marked.parse(content);
     return {
       slug,
       title: data.title || slug,
@@ -42,8 +72,11 @@ export const GUIDES = files
       date: data.date || null,
       readTime: data.readTime || null,
       author: data.author || null,
+      lastUpdated: data.lastUpdated || null,
+      image: data.image || null,
       body: content,
-      html: marked.parse(content),
+      html,
+      faq: extractFaq(html),
     };
   })
   .sort((a, b) => (b.date || "").localeCompare(a.date || ""));

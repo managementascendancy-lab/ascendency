@@ -4,6 +4,7 @@ description: Ascendancy's hero classification typing test scores every run again
 date: 2026-01-28
 readTime: 6 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

@@ -4,6 +4,7 @@ description: A typing speed test for gamers isn't just about typing faster — i
 date: 2026-02-08
 readTime: 5 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

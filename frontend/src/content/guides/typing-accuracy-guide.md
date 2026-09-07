@@ -4,6 +4,7 @@ description: A fast run with sloppy accuracy will never outrank a clean one on A
 date: 2026-01-18
 readTime: 5 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

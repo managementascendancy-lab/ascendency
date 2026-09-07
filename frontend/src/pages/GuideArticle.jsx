@@ -62,15 +62,50 @@ export default function GuideArticle() {
   if (!guide) return <Navigate to={guidesHref} replace />;
 
   const canonical = `${SITE_URL}/guides/${guide.slug}`;
-  const jsonLd = {
-    "@context": "https://schema.org",
+
+  // publisher.logo is deliberately omitted — there is no logo/favicon asset
+  // anywhere in this project to point it at, and a fabricated placeholder
+  // would be worse for validator/rich-result quality than leaving it out.
+  const articleLd = {
     "@type": "Article",
+    "@id": `${canonical}#article`,
     headline: guide.title,
     description: guide.description,
     datePublished: guide.date || undefined,
+    dateModified: guide.lastUpdated || guide.date || undefined,
     url: canonical,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: { "@type": "Organization", name: guide.author || "Ascendancy" },
     publisher: { "@type": "Organization", name: "Ascendancy" },
+    ...(guide.image ? { image: `${SITE_URL}${guide.image}` } : {}),
+  };
+
+  const breadcrumbLd = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+      { "@type": "ListItem", position: 3, name: guide.title, item: canonical },
+    ],
+  };
+
+  // Only added when the article actually has a parsed FAQ section (see
+  // extractFaq() in lib/guides.js) — question/answer text comes straight
+  // from the rendered HTML, so this can never drift from what's on the page.
+  const faqLd = guide.faq.length
+    ? {
+        "@type": "FAQPage",
+        mainEntity: guide.faq.map((qa) => ({
+          "@type": "Question",
+          name: qa.question,
+          acceptedAnswer: { "@type": "Answer", text: qa.answer },
+        })),
+      }
+    : null;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [articleLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])],
   };
 
   return (

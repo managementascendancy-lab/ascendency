@@ -4,6 +4,7 @@ description: Typing consistency vs accuracy — they measure completely differen
 date: 2026-02-05
 readTime: 5 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
 ---
 
 *Last updated: September 7, 2026*

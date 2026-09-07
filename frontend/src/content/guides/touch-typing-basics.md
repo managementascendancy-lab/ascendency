@@ -4,6 +4,8 @@ description: New to touch typing entirely? Start here — home row, finger assig
 date: 2026-01-24
 readTime: 7 min read
 author: The Ascendancy Team
+lastUpdated: 2026-09-07
+image: /guides/touch-typing-diagram-1200.webp
 ---
 
 *Last updated: September 7, 2026*

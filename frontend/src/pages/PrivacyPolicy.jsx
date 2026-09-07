@@ -4,6 +4,16 @@ import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 
+const SITE_URL = "https://ascendancytyping.com";
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Privacy Policy", item: `${SITE_URL}/privacy-policy` },
+  ],
+};
+
 const SECTIONS = [
   {
     title: "1. Introduction",
@@ -51,7 +61,11 @@ export default function PrivacyPolicy() {
   const { t, i18n } = useTranslation("legal");
   return (
     <div className="py-14">
-      <SEO title="Privacy Policy | Ascendancy" description="How Ascendancy collects, uses and protects your information." />
+      <SEO
+        title="Privacy Policy | Ascendancy"
+        description="How Ascendancy collects, uses and protects your information."
+        jsonLd={BREADCRUMB_LD}
+      />
       <Reveal>
         <span className="tech-label text-gold-bright">LEGAL</span>
         <h1 className="mt-2 font-display text-4xl font-700 tracking-tight text-cream display-outline sm:text-5xl">
