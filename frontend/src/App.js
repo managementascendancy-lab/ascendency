@@ -26,20 +26,10 @@ const Guides = lazy(() => import("@/pages/Guides"));
 const GuideArticle = lazy(() => import("@/pages/GuideArticle"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
-const SEO_LANDING = {
-  "/typing-speed-test": { title: "Typing Speed Test | Ascendancy", description: "Take a free typing speed test. Measure your WPM, accuracy and consistency, then unlock hero classifications on Ascendancy." },
-  "/wpm-test": { title: "WPM Test | Ascendancy", description: "Test your WPM instantly. Run typing simulations, track your best words per minute and ascend the Ascendancy rankings." },
-  "/typing-test": { title: "Typing Test | Ascendancy", description: "A futuristic typing test that measures speed, accuracy and consistency and classifies your performance." },
-  "/typing-practice": { title: "Typing Practice | Ascendancy", description: "Practice typing with focused simulations. Improve WPM and accuracy while progressing through hero classifications." },
-};
-
 // Single source of truth for the page tree, shared by the unprefixed
 // (English) route tree and every /:lang-prefixed one — so adding a page
 // means adding one entry here, not one entry per locale. Path segments are
 // relative (no leading "/") since both parents mount this under themselves.
-// Note: these 4 vanity SEO landing slugs keep their English wording under
-// every locale prefix (e.g. /es/typing-speed-test) — inventing translated
-// slugs for each is a separate URL-design decision, not attempted here.
 const pageRoutes = [
   { index: true, element: <Home /> },
   { path: "simulator", element: <Simulator /> },
@@ -56,7 +46,6 @@ const pageRoutes = [
   { path: "terms-of-service", element: <TermsOfService /> },
   { path: "guides", element: <Guides /> },
   { path: "guides/:slug", element: <GuideArticle /> },
-  ...Object.entries(SEO_LANDING).map(([path, seo]) => ({ path: path.slice(1), element: <Home seo={seo} /> })),
   { path: "*", element: <NotFound /> },
 ];
 

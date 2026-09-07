@@ -11,6 +11,9 @@
 # production
 /build
 
+# local Cloudflare Pages emulation cache (wrangler pages dev)
+/.wrangler
+
 # misc
 .DS_Store
 .env.local
