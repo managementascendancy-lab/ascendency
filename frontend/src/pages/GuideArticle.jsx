@@ -16,6 +16,15 @@ import AuthorBio from "@/components/AuthorBio";
 
 const SITE_URL = "https://ascendancytyping.com";
 
+// Frontmatter dates are plain "YYYY-MM-DD" (deliberately — that's also what
+// renders in the visible byline row below, unchanged by this). Structured
+// data needs a full ISO 8601 datetime with a timezone offset though, so this
+// conversion happens only here, at the JSON-LD boundary, never touching the
+// source value itself.
+function toIsoDateTime(dateStr) {
+  return dateStr ? `${dateStr}T00:00:00+00:00` : undefined;
+}
+
 // A guide's markdown body is rendered as one HTML blob (see lib/guides.js),
 // which can't host live React components directly. A guide that wants one
 // drops a standalone `{{MARKER}}` line in its .md source — marked renders
@@ -71,8 +80,8 @@ export default function GuideArticle() {
     "@id": `${canonical}#article`,
     headline: guide.title,
     description: guide.description,
-    datePublished: guide.date || undefined,
-    dateModified: guide.lastUpdated || guide.date || undefined,
+    datePublished: toIsoDateTime(guide.date),
+    dateModified: toIsoDateTime(guide.lastUpdated || guide.date),
     url: canonical,
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: { "@type": "Organization", name: guide.author || "Ascendancy" },
@@ -115,7 +124,7 @@ export default function GuideArticle() {
         description={guide.description}
         canonical={canonical}
         type="article"
-        publishedTime={guide.date || undefined}
+        publishedTime={toIsoDateTime(guide.date)}
         jsonLd={jsonLd}
       />
 
