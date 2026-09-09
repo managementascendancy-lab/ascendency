@@ -5,10 +5,16 @@ import { HEROES } from "@/data/heroes";
 // Real threshold data, not illustrative — sourced directly from the same
 // HEROES list the Classification Archive itself renders from, so this can
 // never drift from the numbers in the article's own table above it. Each
-// bar uses that hero's own accent color.
+// bar uses that hero's own accent color. Tracks the live roster (20 tiers
+// as of the Hero Archive's expansion, not just the original 10).
 const DATA = HEROES.map((h) => ({ name: h.name, wpm: h.minWpm, accent: h.accent }));
 
-const WIDTH = 560;
+// Wider than the other guide charts (560) specifically because this one now
+// has to fit 20 category labels along the x-axis instead of 10 — the
+// guide-content column is narrower than this, but the .overflow-x-auto
+// wrapper below lets it scroll horizontally rather than cramming labels
+// into unreadable overlap.
+const WIDTH = 900;
 const HEIGHT = 260;
 
 function ChartTooltip({ active, payload }) {
@@ -31,7 +37,7 @@ export default function TierWpmChart() {
     <div className="guide-embed" data-testid="tier-wpm-chart">
       <div className="mb-2 flex items-center justify-between">
         <span className="tech-label text-cream/70">WPM THRESHOLD BY TIER</span>
-        <span className="font-mono text-xs" style={{ color: "#FFE88A" }}>130 WPM AT SOVEREIGN</span>
+        <span className="font-mono text-xs" style={{ color: "#FFE88A" }}>300 WPM AT INFINITE</span>
       </div>
       <div className="overflow-x-auto">
         <BarChart width={WIDTH} height={HEIGHT} data={DATA} margin={{ top: 8, right: 12, bottom: 4, left: -12 }}>

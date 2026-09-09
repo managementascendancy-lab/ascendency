@@ -3,9 +3,13 @@ import { HEROES } from "@/data/heroes";
 import ClassificationMarker from "@/components/ClassificationMarker";
 import { heroAvatarSrc } from "@/lib/heroImage";
 
-// Illustrative strip for the classification guide — all 10 heroes in tier
+// Illustrative strip for the classification guide — all heroes in tier
 // order, joined by a dashed progression line (ascension_ring visual
 // language). Static/informational, not tied to any user's real progress.
+// Tracks the live HEROES roster (was briefly capped at the original 10
+// during the Hero Archive's expansion to 20, while the embedding guide
+// articles still said "ten tiers" — that text has since been updated to
+// match, so this goes back to rendering the full list).
 export default function HeroProgressionStrip() {
   return (
     <div className="guide-embed" data-testid="hero-progression-strip">

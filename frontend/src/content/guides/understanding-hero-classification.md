@@ -1,17 +1,18 @@
 ---
 title: Understanding Your Hero Classification
-description: How Ascendancy's ten-tier classification system actually works, and why a fast-but-sloppy run will never outrank a slower, cleaner one.
+description: How Ascendancy's twenty-tier classification system actually works, and why a fast-but-sloppy run will never outrank a slower, cleaner one.
 date: 2026-01-25
 readTime: 4 min read
 author: The Ascendancy Team
 lastUpdated: 2026-09-07
+image: /guides/military-rank-insignia-1200.webp
 ---
 
 *Last updated: September 7, 2026*
 
-## Ten tiers, three independent gates
+## Twenty tiers, three independent gates
 
-Ascendancy classifies every simulation into one of ten heroes, from NOVA at the start to SOVEREIGN at the apex. Each tier has its own minimum thresholds for WPM, accuracy and consistency, and — critically — you need to clear **all three** to unlock it. There's no averaging your way past a weak metric with a strong one.
+Ascendancy classifies every simulation into one of twenty heroes, from NOVA at the start to INFINITE at the apex. Each tier has its own minimum thresholds for WPM, accuracy and consistency, and — critically — you need to clear **all three** to unlock it. There's no averaging your way past a weak metric with a strong one.
 
 {{HERO_PROGRESSION_STRIP}}
 
@@ -54,6 +55,6 @@ No, and this is a common misconception — see "Common misconception: consistenc
 Because classification is tracked entirely separately per language — your English tier says nothing about your Spanish tier, or any other language. Each one accumulates its own best-run history independently.
 
 ### Where do I find the exact WPM, accuracy and consistency numbers for every tier?
-This article covers the mental model; the [full threshold table](/guides/hero-classification-system-explained) has the exact numbers for all ten tiers, from NOVA through SOVEREIGN.
+This article covers the mental model; the [full threshold table](/guides/hero-classification-system-explained) has the exact numbers for all twenty tiers, from NOVA through INFINITE.
 
 {{AUTHOR_BIO}}

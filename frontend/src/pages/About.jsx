@@ -52,8 +52,8 @@ const SECTIONS = [
           WPM, accuracy and consistency to clear together
         </LocalizedLink>{" "}
         for every tier was a deliberate choice — it forces the system to be honest about which of the three is
-        actually your bottleneck, instead of one composite number flattering a lopsided run. Ten fixed tiers, from
-        NOVA to SOVEREIGN, exist so that "getting better" has visible, specific steps instead of just a number
+        actually your bottleneck, instead of one composite number flattering a lopsided run. Twenty fixed tiers, from
+        NOVA to INFINITE, exist so that "getting better" has visible, specific steps instead of just a number
         trending upward.
       </>
     ),

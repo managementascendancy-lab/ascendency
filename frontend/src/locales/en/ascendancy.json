@@ -1,8 +1,8 @@
 {
-  "seo": { "title": "The Ascendancy — Hero Archive | Ascendancy", "description": "Ten heroes. One path to ascension. Explore the Ascendancy hero classification archive." },
+  "seo": { "title": "The Ascendancy — Hero Archive | Ascendancy", "description": "Twenty heroes. One path to ascension. Explore the Ascendancy hero classification archive." },
   "heroArchive": "HERO ARCHIVE",
   "heading": "THE ASCENDANCY",
-  "subtitle": "A hero classification typing test spanning ten heroes — one path to ascension. Your speed determines your class. Your accuracy determines how far you rise.",
+  "subtitle": "A hero classification typing test spanning twenty heroes — one path to ascension. Your speed determines your class. Your accuracy determines how far you rise.",
   "detail": {
     "heroId": "HERO_{{index}}",
     "close": "[ CLOSE ]",

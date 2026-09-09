@@ -1,17 +1,18 @@
 ---
 title: "How the Hero Classification Typing Test Grades Every Run"
-description: Ascendancy's hero classification typing test scores every run against ten fixed tiers. Here's the exact WPM, accuracy and consistency threshold for each one, NOVA to SOVEREIGN.
+description: Ascendancy's hero classification typing test scores every run against twenty fixed tiers. Here's the exact WPM, accuracy and consistency threshold for each one, NOVA to INFINITE.
 date: 2026-01-28
 readTime: 6 min read
 author: The Ascendancy Team
 lastUpdated: 2026-09-07
+image: /guides/astronaut-spacewalk-achievement-1200.webp
 ---
 
 *Last updated: September 7, 2026*
 
 ## Every tier's exact numbers
 
-Ascendancy is a hero classification typing test — every simulation you run gets checked against ten fixed tiers, each with its own minimum WPM, accuracy and consistency. You need to clear all three at once; there's no trading a strong metric for a weak one. Here's the complete table, in progression order.
+Ascendancy is a hero classification typing test — every simulation you run gets checked against twenty fixed tiers, each with its own minimum WPM, accuracy and consistency. You need to clear all three at once; there's no trading a strong metric for a weak one. Here's the complete table, in progression order.
 
 {{HERO_PROGRESSION_STRIP}}
 
@@ -25,6 +26,22 @@ Ascendancy is a hero classification typing test — every simulation you run get
 - **ASCENDANT** — THE ELITE · 95 WPM · 94% accuracy · 75% consistency.
 - **VELOCITY** — THE SPEED SPECIALIST · 110 WPM · 92% accuracy · 78% consistency.
 - **SOVEREIGN** — THE ULTIMATE · 130 WPM · 96% accuracy · 82% consistency.
+- **APEX** — THE TRANSCENDENT · 150 WPM · 96% accuracy · 84% consistency.
+- **OVERDRIVE** — THE LIMIT BREAKER · 165 WPM · 97% accuracy · 86% consistency.
+- **PARAGON** — THE PERFECTED · 180 WPM · 97% accuracy · 88% consistency.
+- **ECLIPSE** — THE UNSEEN · 195 WPM · 98% accuracy · 89% consistency.
+- **DOMINION** — THE COMMANDER · 210 WPM · 98% accuracy · 90% consistency.
+- **INFERNO** — THE OVERCHARGED · 225 WPM · 98% accuracy · 91% consistency.
+- **ZENITH** — THE ABSOLUTE · 240 WPM · 98% accuracy · 92% consistency.
+- **PARADOX** — THE IMPOSSIBLE · 260 WPM · 99% accuracy · 93% consistency.
+- **ETERNAL** — THE UNENDING · 280 WPM · 99% accuracy · 94% consistency · requires a 120-second simulation.
+- **INFINITE** — THE UNBOUNDED · 300 WPM · 99% accuracy · 95% consistency · requires a 120-second simulation.
+
+## Eleven through twenty: the Transcendent tier
+
+SOVEREIGN used to be the end of the table. It isn't anymore — APEX through INFINITE sit above it as a second tier the network only started measuring once ascendants began clearing SOVEREIGN's numbers regularly. The thresholds keep climbing the same way they did through the original ten, just steeper: accuracy and consistency requirements barely loosen from tier to tier, so getting from PARADOX to ETERNAL is a real jump, not a rounding error.
+
+The top two tiers work slightly differently from every tier below them. ETERNAL and INFINITE both require the run itself to last at least 120 seconds — a 15-second burst at 300+ WPM doesn't qualify, no matter how clean it is. That's deliberate: at this range, the harder thing to prove isn't hitting the number once, it's holding it. A short simulation can't demonstrate that, so the system doesn't let it try.
 
 ## What the curve tells you
 
@@ -70,5 +87,8 @@ The threshold numbers are the same, but your classification itself is tracked se
 
 ### Gamers specifically — does this system reward the same skills competitive play does?
 More than it might look at first. Sustained, precise input under pace is the common thread between the two — see the [typing speed test for gamers](/guides/typing-speed-test-for-gamers) guide for the full comparison, including how the [accuracy requirement](/guides/typing-accuracy-guide) specifically maps onto controlled, high-pressure execution.
+
+### Why do ETERNAL and INFINITE need a 120-second simulation specifically?
+Because a short run can't prove the thing those two tiers are actually testing. Hitting 300+ WPM for a few seconds is a burst; holding it, with accuracy and consistency both above 99%/95%, for a full two minutes is a different and much harder claim. A 15 or 30-second simulation simply doesn't have enough duration to demonstrate that, so those two tiers don't accept one — every tier below ETERNAL has no such requirement.
 
 {{AUTHOR_BIO}}
