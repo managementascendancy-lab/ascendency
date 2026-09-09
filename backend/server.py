@@ -848,8 +848,13 @@ async def submit_simulation(request: Request, input: SimulationInput, user: dict
     server_duration_seconds = max((now - created_at).total_seconds(), 1.0)
 
     # ---- plausibility checks (422) ----
-    if input.wpm > 250:
-        raise HTTPException(status_code=422, detail="Reported WPM exceeds plausible maximum (250)")
+    # 400, not 250 — raised alongside the Hero Archive's expansion to 20
+    # tiers, since INFINITE's own 300+ WPM requirement would otherwise be
+    # permanently unreachable (this ceiling would reject the submission
+    # before classify() ever saw the value). Keeps real headroom above the
+    # new top tier the same way 250 gave headroom above the old one (130).
+    if input.wpm > 400:
+        raise HTTPException(status_code=422, detail="Reported WPM exceeds plausible maximum (400)")
     if input.accuracy > 100 or input.accuracy < 0:
         raise HTTPException(status_code=422, detail="Reported accuracy must be between 0 and 100")
     if input.correctCharacters > 0:
@@ -878,7 +883,7 @@ async def submit_simulation(request: Request, input: SimulationInput, user: dict
     # full anti-cheat: a scripted client can still fabricate
     # internally-consistent character counts, since nothing here verifies a
     # real passage was actually typed.
-    wpm = max(0.0, min((input.correctCharacters / 5) / (server_duration_seconds / 60), 250.0))
+    wpm = max(0.0, min((input.correctCharacters / 5) / (server_duration_seconds / 60), 400.0))
     accuracy = (
         max(0.0, min((input.correctCharacters / input.totalCharacters) * 100, 100.0))
         if input.totalCharacters > 0
@@ -887,7 +892,7 @@ async def submit_simulation(request: Request, input: SimulationInput, user: dict
     consistency = max(0.0, min(input.consistency, 100.0))
 
     score = compute_score(wpm, accuracy, consistency)
-    hero_index = classify(wpm, accuracy, consistency)
+    hero_index = classify(wpm, accuracy, consistency, server_duration_seconds)
     hero_id = hero_id_for_index(hero_index)
     # Hero unlocks are scoped per language: typing fast in English proves
     # nothing about typing fast in, say, Japanese, so each locale keeps its

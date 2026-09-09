@@ -64,9 +64,79 @@
   },
   "sovereign": {
     "title": "THE ULTIMATE",
-    "description": "The apex of the Ascendancy. SOVEREIGN is the final classification — the complete convergence of speed, precision and control.",
+    "description": "The apex of the original ten. SOVEREIGN is the complete convergence of speed, precision and control — the line every ascendant used to call the finish, before the Transcendent tier proved there was more system left to measure.",
     "personality": "Absolute, commanding, transcendent.",
-    "power": "Total ascension — the highest state the network can measure.",
+    "power": "Total ascension — command over every metric the original ten could measure.",
     "class": "SOVEREIGN"
+  },
+  "apex": {
+    "title": "THE TRANSCENDENT",
+    "description": "Beyond the elite tier's ceiling. APEX marks the point where conventional performance stops being the limit — the first classification the network measures beyond expectation.",
+    "personality": "Detached, singular, unmatched.",
+    "power": "Transcendent surge — output the standard scale was never built to hold.",
+    "class": "TRANSCENDENT"
+  },
+  "overdrive": {
+    "title": "THE LIMIT BREAKER",
+    "description": "Past the operating range. OVERDRIVE runs the system beyond its expected maximum — every prior boundary treated as a starting line.",
+    "personality": "Relentless, unbound, redlined.",
+    "power": "Overdrive protocol — sustained output past the system's own limiters.",
+    "class": "LIMIT BREAKER"
+  },
+  "paragon": {
+    "title": "THE PERFECTED",
+    "description": "Speed and precision in near-perfect sync. PARAGON is what happens when extreme output stops costing accuracy at all.",
+    "personality": "Composed, exacting, complete.",
+    "power": "Perfected sequence — maximum velocity without a single wasted motion.",
+    "class": "PERFECTED"
+  },
+  "eclipse": {
+    "title": "THE UNSEEN",
+    "description": "Fast enough to disappear. At ECLIPSE's execution speed, individual actions blur past what the network can distinguish in real time.",
+    "personality": "Silent, immeasurable, gone before detection.",
+    "power": "Eclipse vector — motion too fast for the trace to resolve.",
+    "class": "UNSEEN"
+  },
+  "dominion": {
+    "title": "THE COMMANDER",
+    "description": "Total command. DOMINION holds complete authority over speed, precision and execution — nothing left to chance, nothing left uncontrolled.",
+    "personality": "Absolute, composed, unshaken.",
+    "power": "Dominion field — command extended over every metric at once.",
+    "class": "COMMANDER"
+  },
+  "inferno": {
+    "title": "THE OVERCHARGED",
+    "description": "The performance core running past conventional maximum output. INFERNO is what the network looks like when the ceiling itself starts to give.",
+    "personality": "Volatile, blazing, uncontainable.",
+    "power": "Overcharge cascade — energy output beyond rated capacity.",
+    "class": "OVERCHARGED"
+  },
+  "zenith": {
+    "title": "THE ABSOLUTE",
+    "description": "The upper extreme of measurable elite performance. ZENITH sits at the edge of what the classification system was designed to register.",
+    "personality": "Absolute, final, uncontested.",
+    "power": "Zenith state — peak output at the very edge of the measurable range.",
+    "class": "ABSOLUTE"
+  },
+  "paradox": {
+    "title": "THE IMPOSSIBLE",
+    "description": "A combination the system flags as anomalous: extreme speed with exceptional accuracy that shouldn't coexist at this range — and does anyway.",
+    "personality": "Anomalous, contradictory, impossible by definition.",
+    "power": "Paradox state — two metrics the network assumed were mutually exclusive, both maxed at once.",
+    "class": "IMPOSSIBLE"
+  },
+  "eternal": {
+    "title": "THE UNENDING",
+    "description": "Extreme velocity sustained, not just reached. ETERNAL proves the pace holds over a full 120-second simulation, not one lucky burst. Recommended validation: 120-second simulation.",
+    "personality": "Unyielding, sustained, tireless.",
+    "power": "Eternal cadence — extreme pace that never breaks stride.",
+    "class": "UNENDING"
+  },
+  "infinite": {
+    "title": "THE UNBOUNDED",
+    "description": "The final classification. Past 300 WPM with exceptional accuracy and consistency sustained across a full run — the absolute measurable limit of the Ascendancy system. Limit not found. Required validation: 120-second simulation.",
+    "personality": "Boundless, absolute, the end of the scale.",
+    "power": "Infinite ascension — the system stops measuring, because there's nothing left above it.",
+    "class": "LIMIT NOT FOUND"
   }
 }

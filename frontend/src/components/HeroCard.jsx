@@ -55,9 +55,13 @@ export default function HeroCard({ hero: heroRaw, locked = false, active = false
 
       {/* info */}
       <div className="relative border-t border-bronze/40 p-4">
-        <div className="flex items-baseline justify-between">
+        <div className="flex items-start justify-between gap-2">
           <h3 className="font-display text-lg font-700 tracking-wide text-cream">{hero.name}</h3>
-          <span className="tech-label text-highlight">{hero.class}</span>
+          {/* max-w + text-right keeps a long class tag (e.g. INFINITE's
+              "LIMIT NOT FOUND") wrapping cleanly in its own column instead
+              of crowding into the hero name — a no-op for every short,
+              single-word class the other 19 heroes use. */}
+          <span className="tech-label max-w-[110px] shrink-0 text-right leading-tight text-highlight">{hero.class}</span>
         </div>
         <p className="tech-label mt-0.5 text-gold">{hero.title}</p>
 
