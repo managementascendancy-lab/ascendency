@@ -5,6 +5,7 @@ date: 2026-02-05
 readTime: 5 min read
 author: The Ascendancy Team
 lastUpdated: 2026-09-07
+image: /guides/steady-water-ripples-1200.webp
 ---
 
 *Last updated: September 7, 2026*

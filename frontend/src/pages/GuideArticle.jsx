@@ -72,6 +72,13 @@ export default function GuideArticle() {
 
   const canonical = `${SITE_URL}/guides/${guide.slug}`;
 
+  // guide.image is always a site-relative path today, but this also
+  // tolerates an absolute URL without double-prefixing — kept defensive
+  // since a future article image doesn't have to be a locally-hosted asset.
+  // Shared between the JSON-LD image field and the <SEO> image prop below
+  // (which drives og:image/twitter:image) so there's one conversion, not two.
+  const absoluteImage = guide.image ? (/^https?:\/\//.test(guide.image) ? guide.image : `${SITE_URL}${guide.image}`) : undefined;
+
   // publisher.logo is deliberately omitted — there is no logo/favicon asset
   // anywhere in this project to point it at, and a fabricated placeholder
   // would be worse for validator/rich-result quality than leaving it out.
@@ -84,9 +91,9 @@ export default function GuideArticle() {
     dateModified: toIsoDateTime(guide.lastUpdated || guide.date),
     url: canonical,
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    author: { "@type": "Organization", name: guide.author || "Ascendancy" },
+    author: { "@type": "Organization", name: guide.author || "Ascendancy", url: `${SITE_URL}/about` },
     publisher: { "@type": "Organization", name: "Ascendancy" },
-    ...(guide.image ? { image: `${SITE_URL}${guide.image}` } : {}),
+    ...(absoluteImage ? { image: absoluteImage } : {}),
   };
 
   const breadcrumbLd = {
@@ -124,6 +131,7 @@ export default function GuideArticle() {
         description={guide.description}
         canonical={canonical}
         type="article"
+        image={absoluteImage}
         publishedTime={toIsoDateTime(guide.date)}
         jsonLd={jsonLd}
       />

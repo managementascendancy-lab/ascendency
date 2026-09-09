@@ -5,6 +5,7 @@ date: 2026-01-18
 readTime: 5 min read
 author: The Ascendancy Team
 lastUpdated: 2026-09-07
+image: /guides/precision-keyboard-hands-1200.webp
 ---
 
 *Last updated: September 7, 2026*
